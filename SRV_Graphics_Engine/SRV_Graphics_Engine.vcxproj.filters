@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\Logger">
+      <UniqueIdentifier>{8208d2e0-e437-404c-8a9e-4ee4c2d0d4e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Logger">
+      <UniqueIdentifier>{d3bd3c9c-bac1-4a09-a67d-31e26fc94326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\RenderWindow">
+      <UniqueIdentifier>{6ee232be-a3f1-4cbb-8d9f-d69b6a22ce39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\RenderWindow">
+      <UniqueIdentifier>{9bef956b-cd54-442d-958d-df34ae262862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Utils">
+      <UniqueIdentifier>{fec21863-54c1-4494-ab78-1eea4dfd6e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Utils">
+      <UniqueIdentifier>{abad30c4-14fd-4452-b4af-1b3f6091ea1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Engine">
+      <UniqueIdentifier>{9bb46aec-a203-40f1-a736-77530f46a018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Engine">
+      <UniqueIdentifier>{144afb7f-4591-47d2-8a0d-9b5b82dc20b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Input">
+      <UniqueIdentifier>{9df107ab-52b8-46e9-87c8-fd2c680508c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Input\Keyboard">
+      <UniqueIdentifier>{24f6d20d-48fd-47df-8f19-b3de5646e567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Input">
+      <UniqueIdentifier>{30c53dbf-2be3-4546-a36d-d900968dc6f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Input\Keyboard">
+      <UniqueIdentifier>{e98fb0f7-eceb-4195-812e-2f8268d53a77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Input\Mouse">
+      <UniqueIdentifier>{d37a0677-9be7-40f6-8f11-0de6c3893899}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Input\Mouse">
+      <UniqueIdentifier>{042485fc-7dc0-421a-ac30-b5d60b4683e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataTypes">
+      <UniqueIdentifier>{2747d36d-88a5-448d-88c4-4b8204296a5a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Logger.cpp">
+      <Filter>Исходные файлы\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\RenderWindow.cpp">
+      <Filter>Исходные файлы\RenderWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\StringConverter.cpp">
+      <Filter>Исходные файлы\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Engine.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\WindowContainer.cpp">
+      <Filter>Исходные файлы\RenderWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Keyboard\Keyboard.cpp">
+      <Filter>Исходные файлы\Input\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Keyboard\KeyboardInputEvent.cpp">
+      <Filter>Исходные файлы\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Mouse\Mouse.cpp">
+      <Filter>Исходные файлы\Input\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Mouse\MouseInputEvent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Graphics.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\AdapterReader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\ShadersClass\Shaders.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Utils\Logger.h">
+      <Filter>Файлы заголовков\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\RenderWindow.h">
+      <Filter>Файлы заголовков\RenderWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\StringConverter.h">
+      <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Engine.h">
+      <Filter>Файлы заголовков\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\WindowContainer.h">
+      <Filter>Файлы заголовков\RenderWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Keyboard\KeyboardInputEvent.h">
+      <Filter>Файлы заголовков\Input\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Keyboard\Keyboard.h">
+      <Filter>Файлы заголовков\Input\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Mouse\Mouse.h">
+      <Filter>Файлы заголовков\Input\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\VectorInt2D.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Mouse\MouseInputEvent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Graphics.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\AdapterReader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\Vertex.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\ShadersClass\Shaders.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\ColorRGB.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\Vector3D.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\VertexShader.hlsl" />
+    <FxCompile Include="Shaders\PixelShader.hlsl">
+      <Filter>Файлы заголовков</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

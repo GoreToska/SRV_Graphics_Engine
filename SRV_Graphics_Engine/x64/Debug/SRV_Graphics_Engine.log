@@ -1,0 +1,10 @@
+﻿  compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\PixelShader.cso
+  Engine.cpp
+  Graphics.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(251,19): warning C4244: =: преобразование "int" в "FLOAT", возможна потеря данных
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(252,20): warning C4244: =: преобразование "int" в "FLOAT", возможна потеря данных
+  Main.cpp
+  RenderWindow.cpp
+  WindowContainer.cpp
+  Создание кода...
+  SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe
