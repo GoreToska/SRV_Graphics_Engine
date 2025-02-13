@@ -1,4 +1,5 @@
 #include "Graphics.h"
+#include "RenderObjects/RenderComponent.h"
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
 {
@@ -36,11 +37,10 @@ void Graphics::RenderFrame()
 	UINT stride = sizeof(Vertex3D);
 	UINT offset = 0;
 
-	deviceContext->IASetVertexBuffers(0, 1, vertexBuffer2.GetAddressOf(), &stride, &offset);
-	deviceContext->Draw(3, 0);
-
-	deviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
-	deviceContext->Draw(3, 0);
+	for (RenderComponent* item : renderComponents)
+	{
+		item->Render();
+	}
 
 	swapchain->Present(1, NULL);
 }
@@ -302,53 +302,30 @@ bool Graphics::InitializeScene()
 {
 	// TODO: move to triangle component?
 
-	// triangle 1
-
-	Vertex3D vertices[] =
+	RenderComponent* triangle = new 	RenderComponent
 	{
+		{
 		Vertex3D({-0.5f, -0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
-		Vertex3D({0.0f, 0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
-		Vertex3D({0.5f, -0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
+		Vertex3D({-0.5f, 0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
+		Vertex3D({0.5f, 0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
+		},
+		device.Get(),
+		deviceContext.Get()
 	};
 
-	CD3D11_BUFFER_DESC vertexBufferDesc{};
-	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	vertexBufferDesc.ByteWidth = sizeof(Vertex3D) * ARRAYSIZE(vertices);
-	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	vertexBufferDesc.CPUAccessFlags = 0;
-	vertexBufferDesc.MiscFlags = 0;
-
-	D3D11_SUBRESOURCE_DATA vertexBufferData{};
-	vertexBufferData.pSysMem = vertices;
-
-	HRESULT hr = device->CreateBuffer(&vertexBufferDesc, &vertexBufferData, vertexBuffer.GetAddressOf());
-
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create vertex buffer.");
-	}
-
-	Vertex3D vertices2[] =
-	{
-		Vertex3D({-0.25f, -0.25f, 0.0f}, {0.0f, 1.0f, 0.0f}),
-		Vertex3D({0.0f, 0.25f, 0.0f}, {0.0f, 1.0f, 0.0f}),
-		Vertex3D({0.25f, -0.25f, 0.0f}, {0.0f, 1.0f, 0.0f}),
+	RenderComponent* triangle2 = new RenderComponent{
+		{
+		Vertex3D({0.5f, 0.5f, 1.0f}, {0.0f, 1.0f, 0.0f}),
+		Vertex3D({0.5f, -0.5f, 1.0f}, {0.0f, 0.0f, 1.0f}),
+		Vertex3D({-0.5f, -0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
+		},
+		device.Get(),
+		deviceContext.Get()
 	};
 
-	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	vertexBufferDesc.ByteWidth = sizeof(Vertex3D) * ARRAYSIZE(vertices2);
-	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	vertexBufferDesc.CPUAccessFlags = 0;
-	vertexBufferDesc.MiscFlags = 0;
+	renderComponents.push_back(triangle);
+	renderComponents.push_back(triangle2);
 
-	vertexBufferData.pSysMem = vertices2;
-
-	hr = device->CreateBuffer(&vertexBufferDesc, &vertexBufferData, vertexBuffer2.GetAddressOf());
-
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create vertex buffer.");
-	}
 
 	return true;
 }

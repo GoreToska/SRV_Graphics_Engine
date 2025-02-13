@@ -30,6 +30,8 @@ LRESULT WindowContainer::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 	switch (uMsg)
 	{
 #pragma region KeyboardMessages
+		// TODO: sys keys down case
+
 	case WM_KEYDOWN:
 	{
 		unsigned char keycode = static_cast<unsigned char>(wParam);

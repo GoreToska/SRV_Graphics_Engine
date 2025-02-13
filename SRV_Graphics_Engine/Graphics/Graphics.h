@@ -2,10 +2,12 @@
 
 #include<d3d11.h>
 #include<wrl/client.h>
+#include<vector>
 
 #include "AdapterReader.h"
 #include "ShadersClass/Shaders.h"
 #include "../DataTypes/Vertex.h"
+#include "RenderObjects/RenderComponent.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -39,8 +41,7 @@ private:
 	VertexShader vertexShader;
 	PixelShader pixelShader;
 
-	Microsoft::WRL::ComPtr<ID3D11Buffer> vertexBuffer;
-	Microsoft::WRL::ComPtr<ID3D11Buffer> vertexBuffer2;
+	std::vector<RenderComponent*> renderComponents{};
 
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;
