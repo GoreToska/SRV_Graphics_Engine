@@ -1,12 +1,11 @@
 #include "RenderComponent.h"
 
 #include "../../Utils/Logger.h"
+#include "../Device/GraphicsDevice.h"
 
 
-RenderComponent::RenderComponent(std::vector<Vertex3D> vertices, ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+RenderComponent::RenderComponent(std::vector<Vertex3D> vertices)
 {
-	this->device = device;
-	this->deviceContext = deviceContext;
 	this->vertices = vertices;
 
 	CD3D11_BUFFER_DESC vertexBufferDesc{};
@@ -19,7 +18,7 @@ RenderComponent::RenderComponent(std::vector<Vertex3D> vertices, ID3D11Device* d
 	D3D11_SUBRESOURCE_DATA vertexBufferData{};
 	vertexBufferData.pSysMem = &vertices[0];
 
-	HRESULT hr = device->CreateBuffer(&vertexBufferDesc, &vertexBufferData, vertexBuffer.GetAddressOf());
+	HRESULT hr = Device->CreateBuffer(&vertexBufferDesc, &vertexBufferData, vertexBuffer.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -33,6 +32,6 @@ void RenderComponent::Render()
 	UINT stride = sizeof(Vertex3D);
 	UINT offset = 0;
 
-	deviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
-	deviceContext->Draw(vertices.size(), 0);
+	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
+	DeviceContext->Draw(vertices.size(), 0);
 }

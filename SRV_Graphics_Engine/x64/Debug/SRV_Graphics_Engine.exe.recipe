@@ -2,15 +2,15 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\CPP_Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>D:\CPP_Projects\SRV_Graphics_Engine\x64\Debug\PixelShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\PixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>D:\CPP_Projects\SRV_Graphics_Engine\x64\Debug\VertexShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\VertexShader.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

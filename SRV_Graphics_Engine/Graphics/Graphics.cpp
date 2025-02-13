@@ -1,5 +1,9 @@
 #include "Graphics.h"
 #include "RenderObjects/RenderComponent.h"
+#include "./Device/GraphicsDevice.h"
+
+
+
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
 {
@@ -18,22 +22,24 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 // ALL DRAWING IS HERE BETWEEN ClearRenderTargetView AND Present
 void Graphics::RenderFrame()
 {
-	deviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
-	deviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
-	deviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+	DeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
+	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	// set input layout, topology, rasterizer state
-	deviceContext->IASetInputLayout(vertexShader.GetInputLayout());
-	deviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	deviceContext->RSSetState(rasterizerState.Get());
-	deviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
+	DeviceContext->IASetInputLayout(vertexShader.GetInputLayout());
+	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	DeviceContext->RSSetState(rasterizerState.Get());
+	DeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
 	// set shaders
-	deviceContext->VSSetShader(vertexShader.GetShader(), NULL, 0);
-	deviceContext->PSSetShader(pixelShader.GetShader(), NULL, 0);
+	DeviceContext->VSSetShader(vertexShader.GetShader(), NULL, 0);
+	DeviceContext->PSSetShader(pixelShader.GetShader(), NULL, 0);
 
-	// set vertex buffer
+	// TODO: where should i define this? 
+	// inside RenderObject or here and pass it inside RenderObject?
 	UINT stride = sizeof(Vertex3D);
 	UINT offset = 0;
 
@@ -56,7 +62,8 @@ bool Graphics::InitializeDirectX(HWND hwnd, int width, int height)
 	if (!CreateDepthStencilBuffer(width, height))
 		return false;
 
-	deviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+	GraphicsDevice::GetInstance().GetContext()->
+		OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
 	if (!CreateDepthStencilState())
 		return false;
@@ -114,9 +121,9 @@ bool Graphics::CreateDeviceAndSwapChain(HWND hwnd, int width, int height)
 		D3D11_SDK_VERSION,
 		&swapchain_desc,
 		swapchain.GetAddressOf(),
-		device.GetAddressOf(),
+		DeviceAddress,
 		NULL, // supported feature level
-		deviceContext.GetAddressOf());
+		DeviceContextAddress);
 
 	if (FAILED(hr))
 	{
@@ -138,7 +145,7 @@ bool Graphics::CreateRenderTargetView()
 		return false;
 	}
 
-	hr = device->CreateRenderTargetView(backBuffer.Get(), NULL, renderTargetView.GetAddressOf());
+	hr = Device->CreateRenderTargetView(backBuffer.Get(), NULL, renderTargetView.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -158,7 +165,7 @@ bool Graphics::CreateRasterizerState()
 	// This can help if you draw objects counter clockwise (if you can't see them)
 	// rasterizerDesc.FrontCounterClockwise = FALSE;
 
-	HRESULT hr = device->CreateRasterizerState(&rasterizerDesc, rasterizerState.GetAddressOf());
+	HRESULT hr = Device->CreateRasterizerState(&rasterizerDesc, rasterizerState.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -180,7 +187,7 @@ bool Graphics::CreateSamplerState()
 	samplerDesc.MinLOD = 0;
 	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
-	HRESULT hr = device->CreateSamplerState(&samplerDesc, samplerState.GetAddressOf());
+	HRESULT hr = Device->CreateSamplerState(&samplerDesc, samplerState.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -198,7 +205,7 @@ bool Graphics::CreateDepthStencilState()
 	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
 	depthStencilDesc.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
 
-	HRESULT hr = device->CreateDepthStencilState(&depthStencilDesc, depthStencilState.GetAddressOf());
+	HRESULT hr = Device->CreateDepthStencilState(&depthStencilDesc, depthStencilState.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -224,7 +231,7 @@ bool Graphics::CreateDepthStencilBuffer(int width, int height)
 	depthStencilDesc.CPUAccessFlags = 0;
 	depthStencilDesc.MiscFlags = 0;
 
-	HRESULT hr = device->CreateTexture2D(&depthStencilDesc, NULL, depthStencilBuffer.GetAddressOf());
+	HRESULT hr = Device->CreateTexture2D(&depthStencilDesc, NULL, depthStencilBuffer.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -232,7 +239,7 @@ bool Graphics::CreateDepthStencilBuffer(int width, int height)
 		return false;
 	}
 
-	hr = device->CreateDepthStencilView(depthStencilBuffer.Get(), NULL, depthStencilView.GetAddressOf());
+	hr = Device->CreateDepthStencilView(depthStencilBuffer.Get(), NULL, depthStencilView.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -253,7 +260,7 @@ void Graphics::CreateViewport(int width, int height)
 	viewport.MinDepth = 0.0;
 	viewport.MaxDepth = 1.0;
 
-	deviceContext->RSSetViewports(1, &viewport);
+	DeviceContext->RSSetViewports(1, &viewport);
 }
 
 bool Graphics::InitializeShaders()
@@ -288,11 +295,10 @@ bool Graphics::InitializeShaders()
 
 	UINT numElements = ARRAYSIZE(layoutDesc);
 
-	if (!vertexShader.Initialize(device, shaderFolder + L"VertexShader.cso",
-		layoutDesc, numElements))
+	if (!vertexShader.Initialize(shaderFolder + L"VertexShader.cso", layoutDesc, numElements))
 		return false;
 
-	if (!pixelShader.Initialize(device, shaderFolder + L"PixelShader.cso"))
+	if (!pixelShader.Initialize(shaderFolder + L"PixelShader.cso"))
 		return false;
 
 	return true;
@@ -300,32 +306,26 @@ bool Graphics::InitializeShaders()
 
 bool Graphics::InitializeScene()
 {
-	// TODO: move to triangle component?
-
-	RenderComponent* triangle = new 	RenderComponent
+	RenderComponent* triangle = new RenderComponent
 	{
 		{
 		Vertex3D({-0.5f, -0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
 		Vertex3D({-0.5f, 0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
 		Vertex3D({0.5f, 0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
-		},
-		device.Get(),
-		deviceContext.Get()
+		}
 	};
 
-	RenderComponent* triangle2 = new RenderComponent{
+	RenderComponent* triangle2 = new RenderComponent
+	{
 		{
 		Vertex3D({0.5f, 0.5f, 1.0f}, {0.0f, 1.0f, 0.0f}),
 		Vertex3D({0.5f, -0.5f, 1.0f}, {0.0f, 0.0f, 1.0f}),
 		Vertex3D({-0.5f, -0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
 		},
-		device.Get(),
-		deviceContext.Get()
 	};
 
 	renderComponents.push_back(triangle);
 	renderComponents.push_back(triangle2);
-
 
 	return true;
 }

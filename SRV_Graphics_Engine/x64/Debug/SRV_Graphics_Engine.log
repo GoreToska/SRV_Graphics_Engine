@@ -1,6 +1,10 @@
-﻿  Graphics.cpp
-D:\CPP_Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(251,19): warning C4244: =: преобразование "int" в "FLOAT", возможна потеря данных
-D:\CPP_Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(252,20): warning C4244: =: преобразование "int" в "FLOAT", возможна потеря данных
-  WindowContainer.cpp
+﻿  GraphicsDevice.cpp
+  Graphics.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(258,19): warning C4244: =: преобразование "int" в "FLOAT", возможна потеря данных
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(259,20): warning C4244: =: преобразование "int" в "FLOAT", возможна потеря данных
+  RenderComponent.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\RenderObjects\RenderComponent.cpp(13,48): warning C4267: =: преобразование из "size_t" в "UINT"; возможна потеря данных
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\RenderObjects\RenderComponent.cpp(36,35): warning C4267: аргумент: преобразование из "size_t" в "UINT"; возможна потеря данных
+  Shaders.cpp
   Создание кода...
-  SRV_Graphics_Engine.vcxproj -> D:\CPP_Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe
+  SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

@@ -102,6 +102,9 @@
     <ClCompile Include="Graphics\RenderObjects\RenderComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\Device\GraphicsDevice.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Logger.h">
@@ -153,6 +156,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\RenderObjects\RenderComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Device\GraphicsDevice.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

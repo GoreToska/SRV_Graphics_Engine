@@ -13,17 +13,13 @@
 class RenderComponent
 {
 public:
-	RenderComponent(std::vector<Vertex3D> vertices, ID3D11Device* device, ID3D11DeviceContext* deivceContext);
+	RenderComponent(std::vector<Vertex3D> vertices);
 	void Render();
 
 private:
 	std::vector<Vertex3D> vertices{};
 
-	Microsoft::WRL::ComPtr<ID3D11Device> device;
-	Microsoft::WRL::ComPtr<ID3D11DeviceContext> deviceContext;
-
 	Microsoft::WRL::ComPtr<ID3D11Buffer> vertexBuffer;
-
-
+	// TODO: const buffer
 };
 
