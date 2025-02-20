@@ -1,4 +1,6 @@
 #include "Keyboard.h"
+#include <iostream>
+#include <d3dcompiler.h>
 
 Keyboard::Keyboard()
 {
@@ -43,9 +45,15 @@ KeyboardInputEvent Keyboard::ReadKey()
 	{
 		KeyboardInputEvent e = keyBuffer.front();
 		keyBuffer.pop();
+		KeyPressedEvent.Broadcast(e.GetKeyCode());
 
 		return e;
 	}
+}
+
+void Keyboard::BroadcastKeyPressed(const unsigned char keycode)
+{
+	KeyPressedEvent.Broadcast(keycode);
 }
 
 unsigned char Keyboard::ReadChar()
@@ -73,11 +81,15 @@ void Keyboard::OnKeyReleased(const unsigned char key)
 {
 	keyStates[key] = false;
 	keyBuffer.push(KeyboardInputEvent(KeyboardInputEvent::EventType::Release, key));
+
+	KeyReleasedAction.Broadcast(key);
 }
 
 void Keyboard::OnChar(const unsigned char key)
 {
 	charBuffer.push(key);
+
+	CharPressedAction.Broadcast(key);
 }
 
 void Keyboard::EnableAutoRepeatKeys()

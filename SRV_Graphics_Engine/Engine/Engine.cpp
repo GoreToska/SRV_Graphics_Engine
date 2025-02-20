@@ -4,7 +4,7 @@
 #include "../Input/Mouse/Mouse.h"
 #include "../Input/Mouse/MouseInputEvent.h"
 #include "../DataTypes/VectorInt2D.h"
-
+#include <iostream>
 
 
 bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
@@ -16,6 +16,11 @@ bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::stri
 		return false;
 
 	return true;
+}
+
+void Engine::AddGameObject(RenderComponent* gameObject)
+{
+	graphics.AddObjectToRenderPool(gameObject);
 }
 
 bool Engine::ProcessMessages()
@@ -40,6 +45,16 @@ void Engine::Update()
 	{
 		MouseInputEvent e = Mouse::GetInstance().ReadEvent();
 	}
+
+	/*if (Keyboard::GetInstance().IsKeyPressed('W'))
+	{
+		Keyboard::GetInstance().BroadcastKeyPressed('W');
+	}
+
+	if (Keyboard::GetInstance().IsKeyPressed('S'))
+	{
+		Keyboard::GetInstance().BroadcastKeyPressed('S');
+	}*/
 #pragma endregion
 }
 

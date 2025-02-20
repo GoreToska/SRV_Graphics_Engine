@@ -14,7 +14,7 @@ public:
 
 	HWND GetHWND() const;
 
-private:
+protected:
 	void RegisterWindowClass();
 	static LRESULT CALLBACK HandleMsgSetup(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	static LRESULT CALLBACK HandleMsgRedirect(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);

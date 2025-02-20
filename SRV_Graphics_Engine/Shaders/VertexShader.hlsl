@@ -1,3 +1,8 @@
+cbuffer mycBuffer : register(b0)
+{
+    matrix mat;
+};
+
 struct VS_INPUT
 {
     float3 inPosition : POSITION;
@@ -13,7 +18,7 @@ struct VS_OUTPUT
 VS_OUTPUT main(VS_INPUT input)
 {
     VS_OUTPUT output;
-    output.outPosition = float4(input.inPosition, 1.0f);
+    output.outPosition = mul(float4(input.inPosition, 1.0f), mat);
     output.outColor = input.inColor;
     
     return output;

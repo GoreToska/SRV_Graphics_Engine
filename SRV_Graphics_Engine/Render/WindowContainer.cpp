@@ -2,6 +2,7 @@
 #include "../Input/Mouse/Mouse.h"
 #include "../Input/Keyboard/Keyboard.h"
 #include <memory>
+#include <iostream>
 
 WindowContainer::WindowContainer()
 {
@@ -9,13 +10,19 @@ WindowContainer::WindowContainer()
 
 	if (raw_input_initialized == false)
 	{
-		RAWINPUTDEVICE rid;
-		rid.usUsagePage = 0x01; // mouse
-		rid.usUsage = 0x02;
-		rid.dwFlags = 0;
-		rid.hwndTarget = 0;
+		RAWINPUTDEVICE Rid[2];
 
-		if (RegisterRawInputDevices(&rid, 1, sizeof(rid)) == FALSE)
+		Rid[0].usUsagePage = 0x01;
+		Rid[0].usUsage = 0x02;
+		Rid[0].dwFlags = 0;   // adds HID mouse and also ignores legacy mouse messages
+		Rid[0].hwndTarget = renderWindow.GetHWND();
+
+		Rid[1].usUsagePage = 0x01;
+		Rid[1].usUsage = 0x06;
+		Rid[1].dwFlags = 0;   // adds HID keyboard and also ignores legacy keyboard messages
+		Rid[1].hwndTarget = renderWindow.GetHWND();
+
+		if (RegisterRawInputDevices(Rid, 2, sizeof(Rid[0])) == FALSE)
 		{
 			Logger::LogError(GetLastError(), "Failed to register raw input devices.");
 			exit(-1);
@@ -36,7 +43,7 @@ LRESULT WindowContainer::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 	{
 		unsigned char keycode = static_cast<unsigned char>(wParam);
 
-		if (Keyboard::GetInstance().IsCharsAutoRepeat())
+		if (Keyboard::GetInstance().IsKeysAutoRepeat())
 		{
 			Keyboard::GetInstance().OnKeyPressed(keycode);
 		}

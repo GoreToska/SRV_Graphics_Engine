@@ -1,13 +1,16 @@
 #include "Graphics.h"
 #include "RenderObjects/RenderComponent.h"
 #include "./Device/GraphicsDevice.h"
-
-
+#include <direct.h>   
+#include <iostream>
 
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
 {
-	if (!InitializeDirectX(hwnd, width, height))
+	clientWidth = width;
+	clientHeight = height;
+
+	if (!InitializeDirectX(hwnd))
 		return false;
 
 	if (!InitializeShaders())
@@ -38,11 +41,7 @@ void Graphics::RenderFrame()
 	DeviceContext->VSSetShader(vertexShader.GetShader(), NULL, 0);
 	DeviceContext->PSSetShader(pixelShader.GetShader(), NULL, 0);
 
-	// TODO: where should i define this? 
-	// inside RenderObject or here and pass it inside RenderObject?
-	UINT stride = sizeof(Vertex3D);
-	UINT offset = 0;
-
+	int i = 1;
 	for (RenderComponent* item : renderComponents)
 	{
 		item->Render();
@@ -51,24 +50,28 @@ void Graphics::RenderFrame()
 	swapchain->Present(1, NULL);
 }
 
-bool Graphics::InitializeDirectX(HWND hwnd, int width, int height)
+void Graphics::AddObjectToRenderPool(RenderComponent* object)
 {
-	if (!CreateDeviceAndSwapChain(hwnd, width, height))
+	renderComponents.push_back(object);
+}
+
+bool Graphics::InitializeDirectX(HWND hwnd)
+{
+	if (!CreateDeviceAndSwapChain(hwnd))
 		return false;
 
 	if (!CreateRenderTargetView())
 		return false;
 
-	if (!CreateDepthStencilBuffer(width, height))
+	if (!CreateDepthStencilBuffer())
 		return false;
 
-	GraphicsDevice::GetInstance().GetContext()->
-		OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
 	if (!CreateDepthStencilState())
 		return false;
 
-	CreateViewport(width, height);
+	CreateViewport();
 
 	if (!CreateRasterizerState())
 		return false;
@@ -79,7 +82,7 @@ bool Graphics::InitializeDirectX(HWND hwnd, int width, int height)
 	return true;
 }
 
-bool Graphics::CreateDeviceAndSwapChain(HWND hwnd, int width, int height)
+bool Graphics::CreateDeviceAndSwapChain(HWND hwnd)
 {
 	std::vector<AdapterData> adapters = AdapterReader::GetAdapters();
 
@@ -93,8 +96,8 @@ bool Graphics::CreateDeviceAndSwapChain(HWND hwnd, int width, int height)
 	// just using first for now
 
 	DXGI_SWAP_CHAIN_DESC swapchain_desc{};
-	swapchain_desc.BufferDesc.Width = width;
-	swapchain_desc.BufferDesc.Height = height;
+	swapchain_desc.BufferDesc.Width = clientWidth;
+	swapchain_desc.BufferDesc.Height = clientHeight;
 	swapchain_desc.BufferDesc.RefreshRate.Numerator = 60;
 	swapchain_desc.BufferDesc.RefreshRate.Denominator = 1;
 	swapchain_desc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -137,7 +140,8 @@ bool Graphics::CreateDeviceAndSwapChain(HWND hwnd, int width, int height)
 bool Graphics::CreateRenderTargetView()
 {
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> backBuffer;
-	HRESULT hr = swapchain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(backBuffer.GetAddressOf()));
+	HRESULT hr = swapchain->GetBuffer(0, __uuidof(ID3D11Texture2D),
+		reinterpret_cast<void**>(backBuffer.GetAddressOf()));
 
 	if (FAILED(hr))
 	{
@@ -216,11 +220,11 @@ bool Graphics::CreateDepthStencilState()
 	return true;
 }
 
-bool Graphics::CreateDepthStencilBuffer(int width, int height)
+bool Graphics::CreateDepthStencilBuffer()
 {
 	D3D11_TEXTURE2D_DESC depthStencilDesc;
-	depthStencilDesc.Width = width;
-	depthStencilDesc.Height = height;
+	depthStencilDesc.Width = clientWidth;
+	depthStencilDesc.Height = clientHeight;
 	depthStencilDesc.MipLevels = 1;
 	depthStencilDesc.ArraySize = 1;
 	depthStencilDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
@@ -250,13 +254,13 @@ bool Graphics::CreateDepthStencilBuffer(int width, int height)
 	return true;
 }
 
-void Graphics::CreateViewport(int width, int height)
+void Graphics::CreateViewport()
 {
 	D3D11_VIEWPORT viewport{};
 	viewport.TopLeftX = 0;
 	viewport.TopLeftY = 0;
-	viewport.Width = width;
-	viewport.Height = height;
+	viewport.Width = clientWidth;
+	viewport.Height = clientHeight;
 	viewport.MinDepth = 0.0;
 	viewport.MaxDepth = 1.0;
 
@@ -295,6 +299,12 @@ bool Graphics::InitializeShaders()
 
 	UINT numElements = ARRAYSIZE(layoutDesc);
 
+	const size_t size = 1024;
+	// Allocate a character array to store the directory path
+	char buffer[size];
+	_getcwd(buffer, size);
+	std::cout << "Current working directory: " << buffer << std::endl;
+
 	if (!vertexShader.Initialize(shaderFolder + L"VertexShader.cso", layoutDesc, numElements))
 		return false;
 
@@ -306,27 +316,5 @@ bool Graphics::InitializeShaders()
 
 bool Graphics::InitializeScene()
 {
-	RenderComponent* triangle = new RenderComponent
-	{
-		{
-		Vertex3D({-0.5f, -0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
-		Vertex3D({-0.5f, 0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
-		Vertex3D({0.5f, 0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
-		}
-	};
-
-	RenderComponent* triangle2 = new RenderComponent
-	{
-		{
-		Vertex3D({0.5f, 0.5f, 1.0f}, {0.0f, 1.0f, 0.0f}),
-		Vertex3D({0.5f, -0.5f, 1.0f}, {0.0f, 0.0f, 1.0f}),
-		Vertex3D({-0.5f, -0.5f, 1.0f}, {1.0f, 0.0f, 0.0f}),
-		},
-	};
-
-	renderComponents.push_back(triangle);
-	renderComponents.push_back(triangle2);
-
 	return true;
 }
-

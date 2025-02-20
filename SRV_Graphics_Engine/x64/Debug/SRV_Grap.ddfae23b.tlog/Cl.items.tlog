@@ -1,3 +1,4 @@
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Delegates\Delegates.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Delegates.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Device\GraphicsDevice.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\GraphicsDevice.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\AdapterReader.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\AdapterReader.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Engine.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Engine.obj
@@ -7,6 +8,7 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\Keyboard\KeyboardI
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\Mouse\MouseInputEvent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\MouseInputEvent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShadersClass\Shaders.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Shaders.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\RenderObjects\RenderComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\RenderComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Shapes2D.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Utils\Logger.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Logger.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Main.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\Mouse\Mouse.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Mouse.obj

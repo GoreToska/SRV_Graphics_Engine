@@ -20,18 +20,23 @@ class Graphics
 public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
+	void AddObjectToRenderPool(RenderComponent* object);
+	std::vector<RenderComponent*> renderComponents = {};
 
 private:
-	bool InitializeDirectX(HWND hwnd, int width, int height);
-	bool CreateDeviceAndSwapChain(HWND hwnd, int width, int height);
+	bool InitializeDirectX(HWND hwnd);
+	bool CreateDeviceAndSwapChain(HWND hwnd);
 	bool CreateRenderTargetView();
 	bool CreateRasterizerState();
 	bool CreateSamplerState();
 	bool CreateDepthStencilState();
-	bool CreateDepthStencilBuffer(int width, int height);
-	void CreateViewport(int width, int height);
+	bool CreateDepthStencilBuffer();
+	void CreateViewport();
 	bool InitializeShaders();
 	bool InitializeScene();
+
+	int clientWidth;
+	int clientHeight;
 
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
@@ -40,17 +45,14 @@ private:
 	VertexShader vertexShader;
 	PixelShader pixelShader;
 
-	std::vector<RenderComponent*> renderComponents{};
 
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilState> depthStencilState;
 
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerState;
-
-	// TODO: font
-
-	// Just for test
+	
+	// TODO: textures
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> samplerState;
 };
 

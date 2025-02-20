@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Delegates\Delegates.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
     <ClCompile Include="Graphics\AdapterReader.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="Input\Mouse\MouseInputEvent.cpp" />
     <ClCompile Include="Graphics\ShadersClass\Shaders.cpp" />
     <ClCompile Include="Graphics\RenderObjects\RenderComponent.cpp" />
+    <ClCompile Include="Shapes2D\Shapes2D.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Input\Mouse\Mouse.cpp" />
@@ -144,7 +146,14 @@
     <ClCompile Include="Render\WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataTypes\ConstantBufferTypes.h" />
     <ClInclude Include="DataTypes\Vector3D.h" />
+    <ClInclude Include="Delegates\Action.h" />
+    <ClInclude Include="Delegates\catch.hpp" />
+    <ClInclude Include="Delegates\Delegates.h" />
+    <ClInclude Include="Graphics\Buffers\ConstantBuffer.h" />
+    <ClInclude Include="Graphics\Buffers\IndexBuffer.h" />
+    <ClInclude Include="Graphics\Buffers\VertexBuffer.h" />
     <ClInclude Include="Graphics\Device\GraphicsDevice.h" />
     <ClInclude Include="Graphics\AdapterReader.h" />
     <ClInclude Include="Engine\Engine.h" />
@@ -160,6 +169,8 @@
     </FxCompile>
     <ClInclude Include="DataTypes\ColorRGB.h" />
     <ClInclude Include="Graphics\RenderObjects\RenderComponent.h" />
+    <ClInclude Include="Input\PongInput.h" />
+    <ClInclude Include="Shapes2D\Shapes2D.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Input\Mouse\Mouse.h" />
     <ClInclude Include="Render\RenderWindow.h" />

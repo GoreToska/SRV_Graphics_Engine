@@ -3,6 +3,9 @@
 #include <queue>
 
 #include "./KeyboardInputEvent.h"
+#include "../../Delegates/Action.h"
+#include "../../Delegates/Delegates.h"
+
 
 class Keyboard
 {
@@ -18,6 +21,7 @@ public:
 	bool CharBufferIsEmpty();
 
 	KeyboardInputEvent ReadKey();
+	void BroadcastKeyPressed(const unsigned char keycode);
 	unsigned char ReadChar();
 
 	void OnKeyPressed(const unsigned char key);
@@ -30,6 +34,11 @@ public:
 	void DisableAutoRepeatChars();
 	bool IsKeysAutoRepeat();
 	bool IsCharsAutoRepeat();
+
+	// KeyPressedAction.AddRaw(input1, &PongInput::PlayerInput); <- example
+	MulticastDelegate<const unsigned char> KeyPressedEvent;
+	MulticastDelegate<const unsigned char> KeyReleasedAction;
+	MulticastDelegate<const unsigned char> CharPressedAction;
 
 private:
 	bool autoRepeatKeys;
