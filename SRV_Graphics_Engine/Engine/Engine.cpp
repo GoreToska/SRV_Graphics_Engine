@@ -18,9 +18,15 @@ bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::stri
 	return true;
 }
 
-void Engine::AddGameObject(RenderComponent* gameObject)
+void Engine::AddGameObject(GameObject* gameObject)
 {
-	graphics.AddObjectToRenderPool(gameObject);
+	gameObjects.push_back(gameObject);
+
+	IComponent* renderComponent = gameObject->GetComponent(IComponent::RenderComponentType);
+	if (renderComponent != nullptr)
+	{
+		graphics.AddObjectToRenderPool(dynamic_cast<RenderComponent*>(renderComponent));
+	}
 }
 
 bool Engine::ProcessMessages()
@@ -30,7 +36,14 @@ bool Engine::ProcessMessages()
 
 void Engine::Update()
 {
+	for (GameObject* gameObject : gameObjects)
+	{
+		gameObject->Update();
+	}
+
 #pragma region Input
+
+
 	while (!Keyboard::GetInstance().CharBufferIsEmpty())
 	{
 		unsigned char a = Keyboard::GetInstance().ReadChar();
@@ -45,6 +58,8 @@ void Engine::Update()
 	{
 		MouseInputEvent e = Mouse::GetInstance().ReadEvent();
 	}
+
+	Keyboard::GetInstance().BroadcastKeyPressed(Keyboard::GetInstance().ReadKey().GetKeyCode());
 
 	/*if (Keyboard::GetInstance().IsKeyPressed('W'))
 	{

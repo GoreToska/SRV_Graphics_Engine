@@ -45,7 +45,6 @@ KeyboardInputEvent Keyboard::ReadKey()
 	{
 		KeyboardInputEvent e = keyBuffer.front();
 		keyBuffer.pop();
-		KeyPressedEvent.Broadcast(e.GetKeyCode());
 
 		return e;
 	}
@@ -75,6 +74,7 @@ void Keyboard::OnKeyPressed(const unsigned char key)
 {
 	keyStates[key] = true;
 	keyBuffer.push(KeyboardInputEvent(KeyboardInputEvent::EventType::Press, key));
+	KeyPressedEvent.Broadcast(key);
 }
 
 void Keyboard::OnKeyReleased(const unsigned char key)
@@ -82,7 +82,7 @@ void Keyboard::OnKeyReleased(const unsigned char key)
 	keyStates[key] = false;
 	keyBuffer.push(KeyboardInputEvent(KeyboardInputEvent::EventType::Release, key));
 
-	KeyReleasedAction.Broadcast(key);
+	KeyReleasedEvent.Broadcast(key);
 }
 
 void Keyboard::OnChar(const unsigned char key)

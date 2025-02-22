@@ -2,7 +2,6 @@
 #include <iostream>
 #include <typeinfo>
 
-#include "../Graphics/RenderObjects/RenderComponent.h"
 
 
 class PongInput
@@ -10,7 +9,7 @@ class PongInput
 private:
 	unsigned char upKey;
 	unsigned char downKey;
-	RenderComponent* gameObject = nullptr;
+	GameObject* gameObject = nullptr;
 
 public:
 	void SetInput(unsigned char upKey, unsigned char downKey)
@@ -19,7 +18,7 @@ public:
 		this->downKey = downKey;
 	}
 
-	void SetInputTarget(RenderComponent* gameObject)
+	void SetInputTarget(GameObject* gameObject)
 	{
 		this->gameObject = gameObject;
 	}
@@ -28,13 +27,12 @@ public:
 	{
 		if (key == upKey)
 		{
-			gameObject->MovePosition({ 0.0, 0.05, 0 });
-			std::cout << gameObject->id << std::endl;
+			gameObject->GetTransform()->MovePosition({ 0.0, 0.05, 0 });
 		}
 
 		if (key == downKey)
 		{
-			gameObject->MovePosition({ 0.0, -0.05, 1 });
+			gameObject->GetTransform()->MovePosition({ 0.0, -0.05, 0 });
 		}
 	}
 };

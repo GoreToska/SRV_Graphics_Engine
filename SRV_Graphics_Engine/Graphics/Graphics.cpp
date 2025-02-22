@@ -1,5 +1,5 @@
 #include "Graphics.h"
-#include "RenderObjects/RenderComponent.h"
+#include "../ComponentSystem/Components/RenderComponent.h"
 #include "./Device/GraphicsDevice.h"
 #include <direct.h>   
 #include <iostream>
@@ -42,7 +42,8 @@ void Graphics::RenderFrame()
 	DeviceContext->PSSetShader(pixelShader.GetShader(), NULL, 0);
 
 	int i = 1;
-	for (RenderComponent* item : renderComponents)
+
+	for (RenderComponent* item : objectRenderPool)
 	{
 		item->Render();
 	}
@@ -52,7 +53,7 @@ void Graphics::RenderFrame()
 
 void Graphics::AddObjectToRenderPool(RenderComponent* object)
 {
-	renderComponents.push_back(object);
+	objectRenderPool.push_back(object);
 }
 
 bool Graphics::InitializeDirectX(HWND hwnd)

@@ -7,7 +7,8 @@
 #include "AdapterReader.h"
 #include "ShadersClass/Shaders.h"
 #include "../DataTypes/Vertex.h"
-#include "RenderObjects/RenderComponent.h"
+#include "../ComponentSystem/Components/RenderComponent.h"
+#include "../ComponentSystem/GameObject.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -21,7 +22,6 @@ public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
 	void AddObjectToRenderPool(RenderComponent* object);
-	std::vector<RenderComponent*> renderComponents = {};
 
 private:
 	bool InitializeDirectX(HWND hwnd);
@@ -38,6 +38,7 @@ private:
 	int clientWidth;
 	int clientHeight;
 
+	std::vector<RenderComponent*> objectRenderPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;

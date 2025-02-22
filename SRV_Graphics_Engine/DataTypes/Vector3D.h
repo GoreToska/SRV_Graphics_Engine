@@ -19,6 +19,20 @@ public:
 		return *this;
 	}
 
+	Vector3D operator - (const Vector3D& vector) const
+	{
+		return Vector3D{ x - vector.x, y - vector.y, z - vector.z };
+	}
+
+	Vector3D operator -= (const Vector3D& vector)
+	{
+		x -= vector.x;
+		y -= vector.y;
+		z -= vector.z;
+		return *this;
+	}
+
+
 	float x;
 	float y;
 	float z;

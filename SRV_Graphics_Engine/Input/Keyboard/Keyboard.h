@@ -37,7 +37,7 @@ public:
 
 	// KeyPressedAction.AddRaw(input1, &PongInput::PlayerInput); <- example
 	MulticastDelegate<const unsigned char> KeyPressedEvent;
-	MulticastDelegate<const unsigned char> KeyReleasedAction;
+	MulticastDelegate<const unsigned char> KeyReleasedEvent;
 	MulticastDelegate<const unsigned char> CharPressedAction;
 
 private:
