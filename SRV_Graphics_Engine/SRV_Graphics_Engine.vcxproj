@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentSystem\Components\BoxCollisionComponent2D.cpp" />
     <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
     <ClCompile Include="ComponentSystem\GameObject.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Render\WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentSystem\Components\BoxCollisionComponent2D.h" />
     <ClInclude Include="ComponentSystem\Components\CollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\IComponent.h" />
     <ClInclude Include="DataTypes\ConstantBufferTypes.h" />

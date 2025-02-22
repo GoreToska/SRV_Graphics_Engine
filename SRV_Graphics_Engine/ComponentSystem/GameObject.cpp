@@ -37,7 +37,7 @@ IComponent* GameObject::GetComponent(IComponent::ComponentType type)
 	}
 	else
 	{
-		Logger::LogError("Failed to get component of type " + std::to_string(type));
+		//Logger::LogError("Failed to get component of type " + std::to_string(type));
 		return nullptr;
 	}
 }

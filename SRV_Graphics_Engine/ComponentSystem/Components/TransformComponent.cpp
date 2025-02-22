@@ -56,3 +56,8 @@ Vector3D TransformComponent::GetScale() const
 {
 	return scale;
 }
+
+Vector3D TransformComponent::GetCenter() const
+{
+	return position; // XD mb this can be changed later?)
+}

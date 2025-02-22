@@ -1,13 +1,2 @@
-﻿  Main.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\PongInput.h(30,52): warning C4305: 'argument': truncation from 'double' to 'float'
-  (compiling source file 'Main.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\PongInput.h(35,52): warning C4305: 'argument': truncation from 'double' to 'float'
-  (compiling source file 'Main.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\PongInputComponent.h(29,24): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file 'Main.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(46,35): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(56,36): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  TransformComponent.cpp
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

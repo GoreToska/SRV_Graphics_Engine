@@ -9,9 +9,9 @@
 #include"./Shapes2D/Shapes2D.h"
 #include "ComponentSystem/GameObject.h"
 #include "ComponentSystem/Components/PongInputComponent.h"
+#include "ComponentSystem/Components/CollisionComponent.h"
 
-
-void PongScene(Engine* engine)
+void PongScene()
 {
 	std::vector<Vertex3D> ballVertices
 	{
@@ -26,12 +26,14 @@ void PongScene(Engine* engine)
 		0,2,3
 	};
 
-	Vector3D ballPosition = Vector3D(0, 0, 0);
+	Vector3D ballPosition = Vector3D(-0.9, 0, 0);
 	GameObject* ball = new GameObject();
 	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), ballVertices, ballIndecies);
-
-	ball->AddComponent(new RenderComponent(ball->GetTransform(), ballVertices, ballIndecies));
-	engine->AddGameObject(ball);
+	ball->AddComponent(ballRender);
+	ball->GetTransform()->SetPosition(ballPosition);
+	CollisionComponent* boxCollision = new CollisionComponent(ball->GetTransform(), Vector3D(-0.03f, -0.04f, 1.0f), Vector3D(0.03f, 0.04f, 1.0f));
+	ball->AddComponent(boxCollision);
+	SRVEngine.AddGameObject(ball);
 
 	std::vector<Vertex3D> rocketVertices
 	{
@@ -50,12 +52,14 @@ void PongScene(Engine* engine)
 	GameObject* leftPlayer = new GameObject();
 	RenderComponent* leftRenderComponent = new RenderComponent(leftPlayer->GetTransform(), rocketVertices, rocketIndecies);
 	PongInputComponent* leftInputComponent = new PongInputComponent(leftPlayer);
+	CollisionComponent* leftCollision = new CollisionComponent(leftPlayer->GetTransform(), Vector3D(-0.01f, -0.3f, 1.0f), Vector3D(0.01f, 0.3f, 1.0f));
 	leftInputComponent->SetInput('W', 'S');
 
 	leftPlayer->AddComponent(leftRenderComponent);
 	leftPlayer->AddComponent(leftInputComponent);
+	leftPlayer->AddComponent(leftCollision);
 	leftPlayer->GetTransform()->SetPosition(leftPosition);
-	engine->AddGameObject(leftPlayer);
+	SRVEngine.AddGameObject(leftPlayer);
 
 	Vector3D rightPosition = Vector3D(0.9, 0, 0);
 	GameObject* rightPlayer = new GameObject();
@@ -66,7 +70,7 @@ void PongScene(Engine* engine)
 	rightPlayer->AddComponent(rightRenderComponent);
 	rightPlayer->AddComponent(rightInputComponent);
 	rightPlayer->GetTransform()->SetPosition(rightPosition);
-	engine->AddGameObject(rightPlayer);
+	SRVEngine.AddGameObject(rightPlayer);
 }
 
 void OnKeyPressed(const unsigned char key)
@@ -79,17 +83,16 @@ int main()
 	std::string applicationName = "My3DApp";
 	std::string windowClass = "WindowClass";
 	HINSTANCE hInstance = GetModuleHandle(nullptr);
-	Engine engine;
-	engine.Initialize(hInstance, applicationName, windowClass, 1000, 600);
+	SRVEngine.Initialize(hInstance, applicationName, windowClass, 1000, 600);
 
 
-	PongScene(&engine);
+	PongScene();
 
 
-	while (engine.ProcessMessages())
+	while (SRVEngine.ProcessMessages())
 	{
-		engine.Update();
-		engine.RenderFrame();
+		SRVEngine.Update();
+		SRVEngine.RenderFrame();
 	}
 }
 

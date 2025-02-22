@@ -21,10 +21,12 @@ public:
 	Vector3D GetPosition() const;
 	Vector3D GetRotation() const;
 	Vector3D GetScale() const;
+	Vector3D GetCenter() const;
 
 private:
-	Vector3D position;
-	Vector3D rotation;
-	Vector3D scale;
+	Vector3D position{};
+	Vector3D rotation{};
+	Vector3D scale{};
+	Vector3D center{};
 };
 

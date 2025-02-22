@@ -7,6 +7,13 @@
 #include <iostream>
 
 
+Engine& Engine::GetInstance()
+{
+	static Engine engine;
+
+	return engine;
+}
+
 bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
 	if (!renderWindow.Initialize(this, hInstance, window_title, window_class, width, height))
@@ -41,39 +48,31 @@ void Engine::Update()
 		gameObject->Update();
 	}
 
-#pragma region Input
-
-
-	while (!Keyboard::GetInstance().CharBufferIsEmpty())
-	{
-		unsigned char a = Keyboard::GetInstance().ReadChar();
-	}
-
-	while (!Keyboard::GetInstance().KeyBufferIsEmpty())
-	{
-		KeyboardInputEvent e = Keyboard::GetInstance().ReadKey();
-	}
-
-	while (!Mouse::GetInstance().EventBufferIsEmpty())
-	{
-		MouseInputEvent e = Mouse::GetInstance().ReadEvent();
-	}
-
-	Keyboard::GetInstance().BroadcastKeyPressed(Keyboard::GetInstance().ReadKey().GetKeyCode());
-
-	/*if (Keyboard::GetInstance().IsKeyPressed('W'))
-	{
-		Keyboard::GetInstance().BroadcastKeyPressed('W');
-	}
-
-	if (Keyboard::GetInstance().IsKeyPressed('S'))
-	{
-		Keyboard::GetInstance().BroadcastKeyPressed('S');
-	}*/
-#pragma endregion
+	//#pragma region Input
+	//
+	//	while (!Keyboard::GetInstance().CharBufferIsEmpty())
+	//	{
+	//		unsigned char a = Keyboard::GetInstance().ReadChar();
+	//	}
+	//
+	//	while (!Keyboard::GetInstance().KeyBufferIsEmpty())
+	//	{
+	//		KeyboardInputEvent e = Keyboard::GetInstance().ReadKey();
+	//	}
+	//
+	//	while (!Mouse::GetInstance().EventBufferIsEmpty())
+	//	{
+	//		MouseInputEvent e = Mouse::GetInstance().ReadEvent();
+	//	}
+	//#pragma endregion
 }
 
 void Engine::RenderFrame()
 {
 	graphics.RenderFrame();
+}
+
+std::vector<GameObject*> Engine::GetAllGameObjects()
+{
+	return gameObjects;
 }
