@@ -39,11 +39,6 @@ void RenderComponent::Update()
 	// TODO: what to do here?
 }
 
-IComponent::ComponentType RenderComponent::GetType()
-{
-	return ComponentType::RenderComponentType;
-}
-
 void RenderComponent::Render()
 {
 	UINT stride = sizeof(Vertex3D);

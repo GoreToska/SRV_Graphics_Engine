@@ -1,12 +1,14 @@
+#pragma region Includes
+#include <iostream>
+
 #include "Engine.h"
 #include "../Input/Keyboard/Keyboard.h"
 #include "../Input/Keyboard/KeyboardInputEvent.h"
 #include "../Input/Mouse/Mouse.h"
 #include "../Input/Mouse/MouseInputEvent.h"
 #include "../DataTypes/VectorInt2D.h"
-#include "../ComponentSystem/GameObject.h"
-
-#include <iostream>
+#include "../ComponentSystem/GameObject.h"  
+#pragma endregion
 
 
 Engine& Engine::GetInstance()

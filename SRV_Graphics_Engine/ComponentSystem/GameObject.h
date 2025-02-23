@@ -1,5 +1,6 @@
 #pragma once
 
+#pragma region Includes
 #include <map>
 #include <typeindex>
 
@@ -10,6 +11,8 @@
 
 class RenderComponent;
 class TransformComponent;
+#pragma endregion
+
 
 class GameObject
 {

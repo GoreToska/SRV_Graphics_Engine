@@ -1,5 +1,6 @@
 #pragma once
 
+#pragma region Includes
 #ifndef VertexBuffer_h__
 #define VertexBuffer_h__
 
@@ -7,7 +8,9 @@
 #include <d3d11.h>
 #include <memory>
 
-#include "../Device/GraphicsDevice.h"
+#include "../Device/GraphicsDevice.h"  
+#pragma endregion
+
 
 template<class T>
 class VertexBuffer

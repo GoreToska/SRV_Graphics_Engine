@@ -1,5 +1,6 @@
 #pragma once
 
+#pragma region Includes
 #include<d3d11.h>
 #include<wrl/client.h>
 #include<vector>
@@ -13,7 +14,8 @@
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3dcompiler.lib")
-#pragma comment(lib, "dxguid.lib")
+#pragma comment(lib, "dxguid.lib")  
+#pragma endregion
 
 
 class Graphics

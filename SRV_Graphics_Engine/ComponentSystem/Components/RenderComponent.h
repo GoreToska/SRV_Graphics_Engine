@@ -1,6 +1,6 @@
 #pragma once
 
-
+#pragma region Includes
 #include <vector>
 #include<wrl/client.h>
 #include <d3d11.h>
@@ -13,7 +13,8 @@
 #include "TransformComponent.h"
 #include "../GameObject.h"
 
-#pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "d3d11.lib")  
+#pragma endregion
 
 
 class RenderComponent : public IComponent
@@ -22,7 +23,6 @@ public:
 	RenderComponent(TransformComponent* transform, std::vector<Vertex3D> vertices, std::vector<DWORD> indexes = {});
 
 	void Update() override;
-	ComponentType GetType() override;
 
 	void Render();
 

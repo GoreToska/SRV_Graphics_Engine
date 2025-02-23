@@ -1,5 +1,6 @@
 #pragma once
 
+#pragma region Includes
 #ifndef ConstantBuffer_h__
 #define ConstantBuffer_h__
 
@@ -7,7 +8,9 @@
 #include <wrl/client.h>
 
 #include "../../Utils/Logger.h"
-#include"../Device/GraphicsDevice.h"
+#include"../Device/GraphicsDevice.h"  
+#pragma endregion
+
 
 
 template<class T>

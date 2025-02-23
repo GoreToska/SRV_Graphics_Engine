@@ -15,11 +15,6 @@ void PongInputComponent::Update()
 	posessedObjectTransform->MovePosition(movementVector);
 }
 
-IComponent::ComponentType PongInputComponent::GetType()
-{
-	return InputComponentType;
-}
-
 void PongInputComponent::SetInput(unsigned char upKey, unsigned char downKey)
 {
 	up = upKey;

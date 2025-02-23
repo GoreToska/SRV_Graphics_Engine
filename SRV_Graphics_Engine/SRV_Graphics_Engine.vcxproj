@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ComponentSystem\Components\BoxCollisionComponent2D.cpp" />
     <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
@@ -150,7 +149,6 @@
     <ClCompile Include="Render\WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ComponentSystem\Components\BoxCollisionComponent2D.h" />
     <ClInclude Include="ComponentSystem\Components\CollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\IComponent.h" />
     <ClInclude Include="DataTypes\ConstantBufferTypes.h" />
@@ -178,7 +176,6 @@
     </FxCompile>
     <ClInclude Include="DataTypes\ColorRGB.h" />
     <ClInclude Include="ComponentSystem\Components\RenderComponent.h" />
-    <ClInclude Include="Input\PongInput.h" />
     <ClInclude Include="Shapes2D\Shapes2D.h" />
     <ClInclude Include="ComponentSystem\Components\TransformComponent.h" />
     <ClInclude Include="Utils\Logger.h" />

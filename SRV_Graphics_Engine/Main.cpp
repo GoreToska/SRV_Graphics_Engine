@@ -1,15 +1,17 @@
-﻿#include <Windows.h>
+﻿#pragma region Includes
+#include <Windows.h>
 #include <iostream>
 
 #include "./Utils/Logger.h"
 #include "./Engine/Engine.h"
 
 #include "./Input/Keyboard/Keyboard.h"
-#include"./Input/PongInput.h"
 #include"./Shapes2D/Shapes2D.h"
 #include "ComponentSystem/GameObject.h"
 #include "ComponentSystem/Components/PongInputComponent.h"
-#include "ComponentSystem/Components/CollisionComponent.h"
+#include "ComponentSystem/Components/CollisionComponent.h"  
+#pragma endregion
+
 
 void PongScene()
 {
@@ -26,12 +28,13 @@ void PongScene()
 		0,2,3
 	};
 
-	Vector3D ballPosition = Vector3D(-0.9, 0, 0);
+	Vector3D ballPosition = Vector3D(-0.9f, 0.0f, 0.0f);
 	GameObject* ball = new GameObject();
 	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), ballVertices, ballIndecies);
+	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.03f, -0.04f, 1.0f), Vector3D(0.03f, 0.04f, 1.0f));
+
 	ball->AddComponent(ballRender);
 	ball->GetTransform()->SetPosition(ballPosition);
-	CollisionComponent* boxCollision = new CollisionComponent(ball->GetTransform(), Vector3D(-0.03f, -0.04f, 1.0f), Vector3D(0.03f, 0.04f, 1.0f));
 	ball->AddComponent(boxCollision);
 	SRVEngine.AddGameObject(ball);
 
@@ -52,10 +55,9 @@ void PongScene()
 	GameObject* leftPlayer = new GameObject();
 	RenderComponent* leftRenderComponent = new RenderComponent(leftPlayer->GetTransform(), rocketVertices, rocketIndecies);
 	PongInputComponent* leftInputComponent = new PongInputComponent(leftPlayer);
-	CollisionComponent* leftCollision = new CollisionComponent(leftPlayer->GetTransform(), Vector3D(-0.01f, -0.3f, 1.0f), Vector3D(0.01f, 0.3f, 1.0f));
-	leftCollision->id = 1;
-	leftInputComponent->SetInput('W', 'S');
+	CollisionComponent* leftCollision = new CollisionComponent(leftPlayer, Vector3D(-0.01f, -0.3f, 1.0f), Vector3D(0.01f, 0.3f, 1.0f));
 
+	leftInputComponent->SetInput('W', 'S');
 	leftPlayer->AddComponent(leftRenderComponent);
 	leftPlayer->AddComponent(leftInputComponent);
 	leftPlayer->AddComponent(leftCollision);
@@ -66,8 +68,8 @@ void PongScene()
 	GameObject* rightPlayer = new GameObject();
 	RenderComponent* rightRenderComponent = new RenderComponent(rightPlayer->GetTransform(), rocketVertices, rocketIndecies);
 	PongInputComponent* rightInputComponent = new PongInputComponent(rightPlayer);
-	rightInputComponent->SetInput('&', '(');
 
+	rightInputComponent->SetInput('&', '(');
 	rightPlayer->AddComponent(rightRenderComponent);
 	rightPlayer->AddComponent(rightInputComponent);
 	rightPlayer->GetTransform()->SetPosition(rightPosition);

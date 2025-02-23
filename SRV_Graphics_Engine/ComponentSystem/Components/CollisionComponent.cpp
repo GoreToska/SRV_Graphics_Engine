@@ -1,19 +1,18 @@
+#pragma region Includes
 #include "CollisionComponent.h"
+#include "../GameObject.h"
 #include "../../Engine/Engine.h"
 #include "TransformComponent.h"
 
-#include <iostream>
+#include <iostream>  
+#pragma endregion
 
 
-CollisionComponent::CollisionComponent()
+
+CollisionComponent::CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint)
 {
-	DirectX::BoundingBox::CreateFromPoints(boxCollider, { -0.005,-0.005,-0.005 }, { 0.005,0.005,0.005 });
-	boxCollider.Center = { 0,0,0 };
-}
-
-CollisionComponent::CollisionComponent(TransformComponent* transform, Vector3D firstPoint, Vector3D secondPoint)
-{
-	this->transform = transform;
+	this->transform = gameObject->GetTransform();
+	this->gameObject = gameObject;
 
 	DirectX::BoundingBox::CreateFromPoints(boxCollider,
 		{ firstPoint.x,firstPoint.y,firstPoint.z },
@@ -45,19 +44,23 @@ void CollisionComponent::Update()
 
 		if (boxCollider.Intersects(colliderComponent->GetBoundingVolume()))
 		{
-			// todo do something!
 
-			std::cout << "COLLIDE! " << id << "\n";
+			// todo do something!
 		}
 	}
 }
 
-IComponent::ComponentType CollisionComponent::GetType()
+void CollisionComponent::OnCollide(CollisionComponent* collider)
 {
-	return CollisionComponentType;
+
 }
 
 const DirectX::BoundingBox& CollisionComponent::GetBoundingVolume()
 {
 	return boxCollider;
+}
+
+GameObject* CollisionComponent::GetGameObject() const
+{
+	return gameObject;
 }

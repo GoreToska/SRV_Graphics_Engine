@@ -1,9 +1,11 @@
 #pragma once
 
 #include "IComponent.h"
-#include <map>
 #include "../../DataTypes/Vector3D.h"
 #include "../GameObject.h"
+
+#include <map>
+
 
 class PongInputComponent : public IComponent
 {
@@ -11,7 +13,6 @@ public:
 	PongInputComponent(GameObject* posessedGameObject);
 
 	void Update() override;
-	ComponentType GetType() override;
 
 	void SetInput(unsigned char upKey, unsigned char downKey);
 
@@ -26,6 +27,6 @@ private:
 
 	Vector3D movementVector = Vector3D();
 
-	float movementSpeed = 0.005;
+	float movementSpeed = 0.005f;
 };
 

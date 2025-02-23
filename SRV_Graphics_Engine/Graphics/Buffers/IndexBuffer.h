@@ -1,5 +1,6 @@
 #pragma once
 
+#pragma region Includes
 #ifndef IdexBuffer_h__
 #define IdexBuffer_h__
 
@@ -7,7 +8,9 @@
 #include <wrl/client.h>
 #include <vector>
 
-#include "../Device/GraphicsDevice.h"
+#include "../Device/GraphicsDevice.h"  
+#pragma endregion
+
 
 
 class IndexBuffer

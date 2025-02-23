@@ -1,8 +1,9 @@
+#include <memory>
+#include <iostream>
+
 #include "WindowContainer.h"
 #include "../Input/Mouse/Mouse.h"
 #include "../Input/Keyboard/Keyboard.h"
-#include <memory>
-#include <iostream>
 
 WindowContainer::WindowContainer()
 {

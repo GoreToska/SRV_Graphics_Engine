@@ -3,7 +3,6 @@
 #include "../Utils/StringConverter.h"
 
 
-
 RenderWindow::~RenderWindow()
 {
 	if (hWindow != NULL)

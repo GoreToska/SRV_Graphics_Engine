@@ -17,11 +17,6 @@ void TransformComponent::Update()
 	// TODO: what should i do there?)
 }
 
-IComponent::ComponentType TransformComponent::GetType()
-{
-	return TransfromComponentType;
-}
-
 void TransformComponent::SetPosition(const Vector3D& position)
 {
 	this->position = position;
