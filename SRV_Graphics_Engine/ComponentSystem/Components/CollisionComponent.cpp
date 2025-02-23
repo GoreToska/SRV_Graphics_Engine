@@ -44,16 +44,15 @@ void CollisionComponent::Update()
 
 		if (boxCollider.Intersects(colliderComponent->GetBoundingVolume()))
 		{
-
+			OnCollisionEnter.Broadcast(this, this->gameObject);
 			// todo do something!
 		}
 	}
 }
 
-void CollisionComponent::OnCollide(CollisionComponent* collider)
-{
-
-}
+//void CollisionComponent::OnCollide(CollisionComponent* collider)
+//{
+//}
 
 const DirectX::BoundingBox& CollisionComponent::GetBoundingVolume()
 {

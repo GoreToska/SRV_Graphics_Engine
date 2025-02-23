@@ -10,6 +10,7 @@
 #include "ComponentSystem/GameObject.h"
 #include "ComponentSystem/Components/PongInputComponent.h"
 #include "ComponentSystem/Components/CollisionComponent.h"  
+#include "ComponentSystem/Components/PongBallMovementComponent.h"
 #pragma endregion
 
 
@@ -17,10 +18,10 @@ void PongScene()
 {
 	std::vector<Vertex3D> ballVertices
 	{
-		Vertex3D({-0.03f, -0.04f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({-0.03f, 0.04f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({0.03f, 0.04f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({0.03f, -0.04f, 1.0f}, {1.0f, 1.0f, 1.0f}),
+		Vertex3D({-0.01f, -0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
+		Vertex3D({-0.01f, 0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
+		Vertex3D({0.01f, 0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
+		Vertex3D({0.01f, -0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
 	};
 	std::vector<DWORD> ballIndecies
 	{
@@ -28,14 +29,17 @@ void PongScene()
 		0,2,3
 	};
 
-	Vector3D ballPosition = Vector3D(-0.9f, 0.0f, 0.0f);
+	Vector3D ballPosition = Vector3D(0.0f, 0.0f, 0.0f);
 	GameObject* ball = new GameObject();
 	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), ballVertices, ballIndecies);
-	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.03f, -0.04f, 1.0f), Vector3D(0.03f, 0.04f, 1.0f));
+	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.01f, -0.02f, 1.0f), Vector3D(0.01f, 0.02f, 1.0f));
 
 	ball->AddComponent(ballRender);
 	ball->GetTransform()->SetPosition(ballPosition);
 	ball->AddComponent(boxCollision);
+
+	PongBallMovementComponent* ballMovement = new PongBallMovementComponent(ball, 0.005, 0.003);
+	ball->AddComponent(ballMovement);
 	SRVEngine.AddGameObject(ball);
 
 	std::vector<Vertex3D> rocketVertices
@@ -68,9 +72,11 @@ void PongScene()
 	GameObject* rightPlayer = new GameObject();
 	RenderComponent* rightRenderComponent = new RenderComponent(rightPlayer->GetTransform(), rocketVertices, rocketIndecies);
 	PongInputComponent* rightInputComponent = new PongInputComponent(rightPlayer);
+	CollisionComponent* rightCollision = new CollisionComponent(rightPlayer, Vector3D(-0.01f, -0.3f, 1.0f), Vector3D(0.01f, 0.3f, 1.0f));
 
 	rightInputComponent->SetInput('&', '(');
 	rightPlayer->AddComponent(rightRenderComponent);
+	rightPlayer->AddComponent(rightCollision);
 	rightPlayer->AddComponent(rightInputComponent);
 	rightPlayer->GetTransform()->SetPosition(rightPosition);
 	SRVEngine.AddGameObject(rightPlayer);

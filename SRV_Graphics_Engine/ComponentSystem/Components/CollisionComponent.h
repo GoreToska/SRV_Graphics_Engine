@@ -5,7 +5,8 @@
 #include<DirectXMath.h>
 
 #include "IComponent.h"
-#include"../../DataTypes/Vector3D.h"
+#include "../../DataTypes/Vector3D.h"
+#include "../../Delegates/Delegates.h"
 
 class GameObject;
 class TransformComponent;
@@ -18,10 +19,12 @@ public:
 	CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint);
 
 	void Update() override;
-	void OnCollide(CollisionComponent* collider);
+	//void OnCollide(CollisionComponent* collider);
 
 	const DirectX::BoundingBox& GetBoundingVolume();
 	GameObject* GetGameObject() const;
+
+	MulticastDelegate<CollisionComponent*,GameObject*> OnCollisionEnter;
 
 private:
 	DirectX::BoundingBox boxCollider;
