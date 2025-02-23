@@ -4,6 +4,8 @@
 #include "../Input/Mouse/Mouse.h"
 #include "../Input/Mouse/MouseInputEvent.h"
 #include "../DataTypes/VectorInt2D.h"
+#include "../ComponentSystem/GameObject.h"
+
 #include <iostream>
 
 
@@ -29,10 +31,10 @@ void Engine::AddGameObject(GameObject* gameObject)
 {
 	gameObjects.push_back(gameObject);
 
-	IComponent* renderComponent = gameObject->GetComponent(IComponent::RenderComponentType);
+	RenderComponent* renderComponent = gameObject->GetComponent<RenderComponent>();
 	if (renderComponent != nullptr)
 	{
-		graphics.AddObjectToRenderPool(dynamic_cast<RenderComponent*>(renderComponent));
+		graphics.AddObjectToRenderPool(renderComponent);
 	}
 }
 

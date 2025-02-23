@@ -53,6 +53,7 @@ void PongScene()
 	RenderComponent* leftRenderComponent = new RenderComponent(leftPlayer->GetTransform(), rocketVertices, rocketIndecies);
 	PongInputComponent* leftInputComponent = new PongInputComponent(leftPlayer);
 	CollisionComponent* leftCollision = new CollisionComponent(leftPlayer->GetTransform(), Vector3D(-0.01f, -0.3f, 1.0f), Vector3D(0.01f, 0.3f, 1.0f));
+	leftCollision->id = 1;
 	leftInputComponent->SetInput('W', 'S');
 
 	leftPlayer->AddComponent(leftRenderComponent);

@@ -111,9 +111,6 @@
     <ClCompile Include="Shapes2D\Shapes2D.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ComponentSystem\GameObject.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ComponentSystem\Components\TransformComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>

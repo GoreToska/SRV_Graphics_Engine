@@ -18,6 +18,8 @@ public:
 	ComponentType GetType() override;
 	const DirectX::BoundingBox& GetBoundingVolume();
 
+	int id = 0;
+
 private:
 	DirectX::BoundingBox boxCollider;
 	TransformComponent* transform;

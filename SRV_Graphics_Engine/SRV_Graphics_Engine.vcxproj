@@ -130,7 +130,6 @@
     <ClCompile Include="ComponentSystem\Components\BoxCollisionComponent2D.cpp" />
     <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
-    <ClCompile Include="ComponentSystem\GameObject.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
     <ClCompile Include="Graphics\AdapterReader.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />

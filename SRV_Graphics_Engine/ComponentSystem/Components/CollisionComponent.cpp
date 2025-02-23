@@ -27,6 +27,7 @@ void CollisionComponent::Update()
 	// TODO: what should i do here? 
 	// 1. check collision for all other objects here <- will implement this for now
 	// 2. check collision in other class for all objects
+
 	boxCollider.Center =
 	{
 		transform->GetCenter().x,
@@ -36,21 +37,17 @@ void CollisionComponent::Update()
 
 	for (GameObject* gameObject : SRVEngine.GetAllGameObjects())
 	{
-		IComponent* colliderComponent = gameObject->GetComponent(CollisionComponentType);
+		CollisionComponent* colliderComponent = gameObject->GetComponent<CollisionComponent>();
 
 		if (!colliderComponent) continue;
 
 		if (colliderComponent == this) continue;
 
-		CollisionComponent* collider = dynamic_cast<CollisionComponent*>(gameObject->GetComponent(CollisionComponentType));
-
-		if (collider == nullptr) continue;
-
-		if (boxCollider.Intersects(collider->GetBoundingVolume()))
+		if (boxCollider.Intersects(colliderComponent->GetBoundingVolume()))
 		{
 			// todo do something!
 
-			std::cout << "COLLIDE!";
+			std::cout << "COLLIDE! " << id << "\n";
 		}
 	}
 }
