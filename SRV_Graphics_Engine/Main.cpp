@@ -38,8 +38,8 @@ void PongScene()
 
 	Vector3D ballPosition = Vector3D(0.0f, 0.0f, 0.0f);
 	GameObject* ball = new GameObject();
-	auto circleShape = Shapes2D::GetCircleShape( 0.1, 32);
-	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), ballVertices, ballIndecies);
+	auto circleShape = Shapes2D::GetCircleShape(0.02, 30);
+	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), std::get<0>(circleShape), std::get<1>(circleShape));
 	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.01f, -0.02f, 1.0f), Vector3D(0.01f, 0.02f, 1.0f));
 
 	ball->AddComponent(ballRender);

@@ -1,61 +1,14 @@
-﻿  compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\PixelShader.cso
-  compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\VertexShader.cso
-  CollisionComponent.cpp
-  Delegates.cpp
-  GraphicsDevice.cpp
-  AdapterReader.cpp
-  Engine.cpp
-  Graphics.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(263,19): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(264,20): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
-  PongInputComponent.cpp
-  Keyboard.cpp
-  KeyboardInputEvent.cpp
-  MouseInputEvent.cpp
-  Shaders.cpp
-  RenderComponent.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RenderComponent.cpp(12,66): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RenderComponent.cpp(21,56): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RenderComponent.cpp(65,42): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RenderComponent.cpp(69,36): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
-E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\memory(3597,35): warning C4267: 'initializing': conversion from 'size_t' to 'UINT', possible loss of data
-  (compiling source file 'ComponentSystem/Components/RenderComponent.cpp')
-      E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\memory(3597,35):
-      the template instantiation context (the oldest one first) is
-          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RenderComponent.h(34,25):
-          see reference to class template instantiation 'VertexBuffer<Vertex3D>' being compiled
-          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\VertexBuffer.h(54,10):
-          while compiling class template member function 'HRESULT VertexBuffer<Vertex3D>::Initialize(T *,UINT)'
-          with
-          [
-              T=Vertex3D
-          ]
-              D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RenderComponent.cpp(12,13):
-              see the first reference to 'VertexBuffer<Vertex3D>::Initialize' in 'RenderComponent::RenderComponent'
-          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\VertexBuffer.h(57,17):
-          see reference to function template instantiation 'std::unique_ptr<UINT,std::default_delete<UINT>> std::make_unique<UINT,size_t,0>(size_t &&)' being compiled
-  
-  PongBallMovementComponent.cpp
-  PongGameMode.cpp
-  Shapes2D.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(18,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(22,69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(22,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  TransformComponent.cpp
-  Logger.cpp
-  Main.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(41,47): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  Main.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(41,46): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(49,87): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(49,80): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(68,35): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(71,78): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(81,36): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,80): warning C4305: 'argument': truncation from 'double' to 'float'
-  Mouse.cpp
-  RenderWindow.cpp
-  Generating Code...
-  Compiling...
-  StringConverter.cpp
-  WindowContainer.cpp
+  Shapes2D.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(23,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(24,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(24,46): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

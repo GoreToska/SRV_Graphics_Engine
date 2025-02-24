@@ -300,12 +300,6 @@ bool Graphics::InitializeShaders()
 
 	UINT numElements = ARRAYSIZE(layoutDesc);
 
-	const size_t size = 1024;
-	// Allocate a character array to store the directory path
-	char buffer[size];
-	_getcwd(buffer, size);
-	std::cout << "Current working directory: " << buffer << std::endl;
-
 	if (!vertexShader.Initialize(shaderFolder + L"VertexShader.cso", layoutDesc, numElements))
 		return false;
 
