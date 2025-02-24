@@ -21,7 +21,7 @@ Shapes2D::GetCircleShape(float radius, int tesselation)
 	for (int i = 1; i < tesselation + 1; ++i)
 	{
 		theta = (M_PI * 2 * (tesselation - i)) / static_cast<float>(tesselation);
-		vertices.push_back({ Vector3D(radius / 1.5 * cos(theta), radius * sin(theta), 1.0f), ColorRGB(1.0f, 1.0f, 1.0f) });
+		vertices.push_back({ Vector3D(radius / 1.33 * cos(theta), radius * sin(theta), 1.0f), ColorRGB(1.0f, 1.0f, 1.0f) });
 	}
 
 	int indiceHelperNum1 = 1;

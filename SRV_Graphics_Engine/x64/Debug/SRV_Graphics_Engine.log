@@ -1,14 +1,11 @@
 ﻿  Main.cpp
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(41,46): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(43,82): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(43,122): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(49,87): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(49,80): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(68,35): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(71,78): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(81,36): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,80): warning C4305: 'argument': truncation from 'double' to 'float'
-  Shapes2D.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(23,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(24,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes2D\Shapes2D.cpp(24,46): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

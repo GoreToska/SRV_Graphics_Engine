@@ -20,7 +20,7 @@ void PongScene()
 	std::string applicationName = "Pong";
 	std::string windowClass = "WindowClass";
 	HINSTANCE hInstance = GetModuleHandle(nullptr);
-	SRVEngine.Initialize(hInstance, applicationName, windowClass, 1000, 600);
+	SRVEngine.Initialize(hInstance, applicationName, windowClass, 1024, 768);
 
 #pragma region Ball
 	std::vector<Vertex3D> ballVertices
@@ -40,7 +40,7 @@ void PongScene()
 	GameObject* ball = new GameObject();
 	auto circleShape = Shapes2D::GetCircleShape(0.02, 30);
 	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), std::get<0>(circleShape), std::get<1>(circleShape));
-	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.01f, -0.02f, 1.0f), Vector3D(0.01f, 0.02f, 1.0f));
+	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.02f / 1.33, -0.02f, 1.0f), Vector3D(0.0125f / 1.33, 0.02f, 1.0f));
 
 	ball->AddComponent(ballRender);
 	ball->GetTransform()->SetPosition(ballPosition);
