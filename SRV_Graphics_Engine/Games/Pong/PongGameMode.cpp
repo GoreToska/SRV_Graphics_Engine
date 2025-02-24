@@ -23,10 +23,6 @@ void PongGameMode::OnRightColliderHit(CollisionComponent* collider)
 	Restart();
 }
 
-void PongGameMode::Start()
-{
-}
-
 void PongGameMode::Restart()
 {
 	ball->GetTransform()->SetPosition(Vector3D(0, 0, 0));

@@ -11,7 +11,6 @@ public:
 	void OnLeftColliderHit(CollisionComponent* collider);
 	void OnRightColliderHit(CollisionComponent* collider);
 
-	void Start();
 	void Restart();
 	void PrintScore();
 
