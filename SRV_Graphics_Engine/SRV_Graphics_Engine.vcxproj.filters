@@ -123,6 +123,9 @@
     <ClCompile Include="ComponentSystem\Components\PongBallMovementComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Games\Pong\PongGameMode.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Logger.h">
@@ -219,6 +222,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ComponentSystem\Components\PongBallMovementComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Games\Pong\PongGameMode.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

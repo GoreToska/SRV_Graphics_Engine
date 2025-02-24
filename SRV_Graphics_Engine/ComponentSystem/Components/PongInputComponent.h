@@ -10,7 +10,7 @@
 class PongInputComponent : public IComponent
 {
 public:
-	PongInputComponent(GameObject* posessedGameObject);
+	PongInputComponent(GameObject* posessedGameObject, float size);
 
 	void Update() override;
 
@@ -28,5 +28,6 @@ private:
 	Vector3D movementVector = Vector3D();
 
 	float movementSpeed = 0.005f;
+	float size;
 };
 

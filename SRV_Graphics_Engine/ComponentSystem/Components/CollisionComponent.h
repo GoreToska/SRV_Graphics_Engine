@@ -24,7 +24,7 @@ public:
 	const DirectX::BoundingBox& GetBoundingVolume();
 	GameObject* GetGameObject() const;
 
-	MulticastDelegate<CollisionComponent*,GameObject*> OnCollisionEnter;
+	MulticastDelegate<CollisionComponent*> OnCollisionEnter;
 
 private:
 	DirectX::BoundingBox boxCollider;

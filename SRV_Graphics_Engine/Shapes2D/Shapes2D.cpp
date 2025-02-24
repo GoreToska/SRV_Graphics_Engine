@@ -1,35 +1,26 @@
 #include "Shapes2D.h"
 
 #include <DirectXMath.h>
+#include <math.h>
+
+#define M_PI 3.14159265358979323846   // pi
 
 
-#ifndef PI
-#define PI 3.14159265359
-#endif // !PI
 
 
-std::tuple<std::vector<Vertex3D>, std::vector<DWORD>>
-Shapes2D::GetCircleShape(Vector3D center, float radius, int numSegments, ColorRGB color)
+std::vector<Vertex3D> Shapes2D::GetCircleShape(float radius, int tesselation)
 {
-	std::vector<Vertex3D> vertices{};
-	std::vector<DWORD> indices{};
+	std::vector<Vertex3D> AllPoints;
+	AllPoints.resize(tesselation);
 
-	vertices.push_back({ center, color });
-
-	for (int i = 0; i <= numSegments; ++i)
+	for (int i = 0; i < tesselation; i++) // running the loop with integer guarantees we run it exactly (tesselation) times
 	{
-		float theta = 2.0f * PI * float(i) / float(numSegments);
-		float x = radius * cosf(theta);
-		float y = radius * sinf(theta);
-		vertices.push_back({ { center.x + x, center.y + y, center.z }, color });
+		float angle =
+			float(i) / float(tesselation) // this goes from 0 to almost 1
+			* M_PI * 2; // 2PI is 360 degrees, so multiply by that to get angles between 0 and almost 2PI
 
-		if (i > 0)
-		{
-			indices.push_back(0); // Центр
-			indices.push_back(i); // Текущая вершина
-			indices.push_back(i + 1); // Следующая вершина
-		}
+		AllPoints[(int)i] = Vertex3D(Vector3D(radius * cos(angle), radius * sin(angle), 0.0f), ColorRGB(1.0f, 1.0f, 1.0f));
 	}
 
-	return std::make_tuple(vertices, indices);
+	return AllPoints;
 }

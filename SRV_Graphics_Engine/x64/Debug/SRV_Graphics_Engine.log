@@ -1,6 +1,9 @@
 ﻿  Main.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(41,87): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(41,80): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(58,35): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(71,36): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(41,47): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(49,87): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(49,80): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(68,35): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(71,78): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(81,36): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,80): warning C4305: 'argument': truncation from 'double' to 'float'
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

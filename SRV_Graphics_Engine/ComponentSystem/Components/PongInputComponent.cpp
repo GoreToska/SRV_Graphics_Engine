@@ -2,9 +2,11 @@
 #include "../../Input/Keyboard/Keyboard.h"
 #include <iostream>
 
-PongInputComponent::PongInputComponent(GameObject* posessedGameObject)
+PongInputComponent::PongInputComponent(GameObject* posessedGameObject, float size)
 {
 	posessedObjectTransform = posessedGameObject->GetTransform();
+
+	this->size = size;
 
 	Keyboard::GetInstance().KeyPressedEvent.AddRaw(this, &PongInputComponent::OnKeyDown);
 	Keyboard::GetInstance().KeyReleasedEvent.AddRaw(this, &PongInputComponent::OnKeyUp);
@@ -12,7 +14,26 @@ PongInputComponent::PongInputComponent(GameObject* posessedGameObject)
 
 void PongInputComponent::Update()
 {
-	posessedObjectTransform->MovePosition(movementVector);
+	float signedSize = size;
+	int side = 1;
+
+	if (movementVector.y < 0)
+	{
+		signedSize *= -1;
+		side *= -1;
+	}
+
+	if (side > 0)
+	{
+		if (posessedObjectTransform->GetPosition().y + movementVector.y + signedSize / 2 < side)
+			posessedObjectTransform->MovePosition(movementVector);
+	}
+	else
+	{
+		if (posessedObjectTransform->GetPosition().y + movementVector.y + signedSize / 2 > side)
+			posessedObjectTransform->MovePosition(movementVector);
+	}
+
 }
 
 void PongInputComponent::SetInput(unsigned char upKey, unsigned char downKey)

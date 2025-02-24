@@ -26,7 +26,7 @@ void PongBallMovementComponent::Update()
 	}
 }
 
-void PongBallMovementComponent::OnCollide(CollisionComponent* collider, GameObject* gameObject)
+void PongBallMovementComponent::OnCollide(CollisionComponent* collider)
 {
 	xSpeed *= -1;
 }

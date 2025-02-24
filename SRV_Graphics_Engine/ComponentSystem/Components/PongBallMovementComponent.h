@@ -10,7 +10,7 @@ public:
 	PongBallMovementComponent(GameObject* gameObject, float xSpeed, float ySpeed);
 
 	void Update() override;
-	void OnCollide(CollisionComponent* collider, GameObject* gameObject);
+	void OnCollide(CollisionComponent* collider);
 
 private:
 	float xSpeed;

@@ -140,6 +140,7 @@
     <ClCompile Include="Graphics\ShadersClass\Shaders.cpp" />
     <ClCompile Include="ComponentSystem\Components\RenderComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\PongBallMovementComponent.cpp" />
+    <ClCompile Include="Games\Pong\PongGameMode.cpp" />
     <ClCompile Include="Shapes2D\Shapes2D.cpp" />
     <ClCompile Include="ComponentSystem\Components\TransformComponent.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="DataTypes\ColorRGB.h" />
     <ClInclude Include="ComponentSystem\Components\RenderComponent.h" />
     <ClInclude Include="ComponentSystem\Components\PongBallMovementComponent.h" />
+    <ClInclude Include="Games\Pong\PongGameMode.h" />
     <ClInclude Include="Shapes2D\Shapes2D.h" />
     <ClInclude Include="ComponentSystem\Components\TransformComponent.h" />
     <ClInclude Include="Utils\Logger.h" />
