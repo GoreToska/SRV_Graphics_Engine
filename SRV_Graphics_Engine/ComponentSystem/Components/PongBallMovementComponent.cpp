@@ -1,4 +1,5 @@
 #include "PongBallMovementComponent.h"
+#include <random>
 
 PongBallMovementComponent::PongBallMovementComponent(GameObject* gameObject, float xSpeed, float ySpeed)
 {
@@ -10,9 +11,9 @@ PongBallMovementComponent::PongBallMovementComponent(GameObject* gameObject, flo
 	gameObject->GetComponent<CollisionComponent>()->OnCollisionEnter.AddRaw(this, &PongBallMovementComponent::OnCollide);
 }
 
-void PongBallMovementComponent::Update()
+void PongBallMovementComponent::Update(float deltaTime)
 {
-	gameObject->GetTransform()->MovePosition(Vector3D(xSpeed, ySpeed, 0));
+	gameObject->GetTransform()->MovePosition(Vector3D(xSpeed * deltaTime, ySpeed * deltaTime, 0));
 	Vector3D position = gameObject->GetTransform()->GetPosition();
 
 	if (position.x < -1 || position.x > 1)
@@ -26,7 +27,29 @@ void PongBallMovementComponent::Update()
 	}
 }
 
-void PongBallMovementComponent::OnCollide(CollisionComponent* collider)
+void PongBallMovementComponent::OnCollide(CollisionComponent* owner, CollisionComponent* other)
+{
+	xSpeed *= -1;
+}
+
+Vector3D PongBallMovementComponent::GetDirection()
+{
+	return Vector3D(xSpeed, ySpeed, 0);
+}
+
+void PongBallMovementComponent::SetRandomSpeed()
+{
+
+	std::random_device dev;
+	std::mt19937 rng(dev());
+	std::uniform_real_distribution<> dist6(0.8, 1.2);
+
+	float value = dist6(rng);
+	xSpeed *= value;
+	ySpeed *= value;
+}
+
+void PongBallMovementComponent::ChangeDirection()
 {
 	xSpeed *= -1;
 }

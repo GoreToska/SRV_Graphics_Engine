@@ -22,7 +22,7 @@ class RenderComponent : public IComponent
 public:
 	RenderComponent(TransformComponent* transform, std::vector<Vertex3D> vertices, std::vector<DWORD> indexes = {});
 
-	void Update() override;
+	void Update(float deltaTime) override;
 
 	void Render();
 

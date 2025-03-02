@@ -12,9 +12,10 @@ class PongInputComponent : public IComponent
 public:
 	PongInputComponent(GameObject* posessedGameObject, float size);
 
-	void Update() override;
+	void Update(float deltaTime) override;
 
 	void SetInput(unsigned char upKey, unsigned char downKey);
+	void SetSpeed(float value);
 
 private:
 	void OnKeyDown(const unsigned char key);

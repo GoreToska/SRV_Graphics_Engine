@@ -20,6 +20,8 @@ Engine& Engine::GetInstance()
 
 bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
+	timer.Start();
+
 	if (!renderWindow.Initialize(this, hInstance, window_title, window_class, width, height))
 		return false;
 
@@ -45,11 +47,12 @@ bool Engine::ProcessMessages()
 	return renderWindow.ProcessMessages();
 }
 
-void Engine::Update()
+void Engine::Update(float deltaTime)
 {
-	for (GameObject* gameObject : gameObjects)
+	for (int i = 0; i < gameObjects.size(); ++i)
 	{
-		gameObject->Update();
+		std::cout << gameObjects[i]->name << "\n";
+		gameObjects[i]->Update(deltaTime);
 	}
 
 	//#pragma region Input
@@ -74,6 +77,11 @@ void Engine::Update()
 void Engine::RenderFrame()
 {
 	graphics.RenderFrame();
+}
+
+Timer* Engine::GetTimer()
+{
+	return &timer;
 }
 
 std::vector<GameObject*> Engine::GetAllGameObjects()

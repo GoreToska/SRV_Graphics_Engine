@@ -9,8 +9,12 @@ class PongBallMovementComponent : public IComponent
 public:
 	PongBallMovementComponent(GameObject* gameObject, float xSpeed, float ySpeed);
 
-	void Update() override;
-	void OnCollide(CollisionComponent* collider);
+	void Update(float deltaTime) override;
+	void OnCollide(CollisionComponent* owner, CollisionComponent* other);
+
+	Vector3D GetDirection();
+	void SetRandomSpeed();
+	void ChangeDirection();
 
 private:
 	float xSpeed;

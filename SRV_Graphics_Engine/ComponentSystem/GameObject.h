@@ -3,10 +3,12 @@
 #pragma region Includes
 #include <map>
 #include <typeindex>
+#include <iostream>
 
 #include "./Components/RenderComponent.h"
 #include "./Components/TransformComponent.h"
 #include "Components/IComponent.h"
+#include "../DataTypes/Vector3D.h"
 
 
 class RenderComponent;
@@ -17,16 +19,24 @@ class TransformComponent;
 class GameObject
 {
 public:
+	std::string name = "";
+
 	GameObject()
 	{
 		transform = AddComponent<TransformComponent>(new TransformComponent());
 	}
 
-	void Update()
+	GameObject(Vector3D position)
 	{
-		for (auto& component : components)
+		transform = AddComponent<TransformComponent>(new TransformComponent());
+		transform->SetPosition(position);
+	}
+
+	void Update(float deltaTime)
+	{
+		for (auto it = components.begin(); it != components.end(); ++it)
 		{
-			component.second->Update();
+			it->second->Update(deltaTime);
 		}
 	}
 
@@ -59,7 +69,7 @@ public:
 	}
 
 private:
-	std::map<std::type_index, IComponent*> components;
+	std::map<std::type_index, IComponent*> components = {};
 
 	TransformComponent* transform;
 };

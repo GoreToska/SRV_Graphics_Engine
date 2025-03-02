@@ -34,7 +34,7 @@ RenderComponent::RenderComponent(TransformComponent* transform, std::vector<Vert
 	}
 }
 
-void RenderComponent::Update()
+void RenderComponent::Update(float deltaTime)
 {
 	// TODO: what to do here?
 }

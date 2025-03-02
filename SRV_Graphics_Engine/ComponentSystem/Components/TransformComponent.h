@@ -9,7 +9,7 @@ public:
 	TransformComponent();
 	TransformComponent(const Vector3D& position, const Vector3D& rotation, const Vector3D& scale);
 
-	void Update() override;
+	void Update(float deltaTime) override;
 
 	void SetPosition(const Vector3D& position);
 	void SetRotation(const Vector3D& rotation);

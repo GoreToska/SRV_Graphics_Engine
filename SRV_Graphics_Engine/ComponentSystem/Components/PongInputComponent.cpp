@@ -12,7 +12,7 @@ PongInputComponent::PongInputComponent(GameObject* posessedGameObject, float siz
 	Keyboard::GetInstance().KeyReleasedEvent.AddRaw(this, &PongInputComponent::OnKeyUp);
 }
 
-void PongInputComponent::Update()
+void PongInputComponent::Update(float deltaTime)
 {
 	float signedSize = size;
 	int side = 1;
@@ -26,12 +26,12 @@ void PongInputComponent::Update()
 	if (side > 0)
 	{
 		if (posessedObjectTransform->GetPosition().y + movementVector.y + signedSize / 2 < side)
-			posessedObjectTransform->MovePosition(movementVector);
+			posessedObjectTransform->MovePosition(movementVector * deltaTime);
 	}
 	else
 	{
 		if (posessedObjectTransform->GetPosition().y + movementVector.y + signedSize / 2 > side)
-			posessedObjectTransform->MovePosition(movementVector);
+			posessedObjectTransform->MovePosition(movementVector * deltaTime);
 	}
 
 }
@@ -40,6 +40,11 @@ void PongInputComponent::SetInput(unsigned char upKey, unsigned char downKey)
 {
 	up = upKey;
 	down = downKey;
+}
+
+void PongInputComponent::SetSpeed(float value)
+{
+	movementSpeed = value;
 }
 
 void PongInputComponent::OnKeyDown(const unsigned char key)

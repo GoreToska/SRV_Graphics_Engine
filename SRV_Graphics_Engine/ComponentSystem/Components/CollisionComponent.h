@@ -7,6 +7,7 @@
 #include "IComponent.h"
 #include "../../DataTypes/Vector3D.h"
 #include "../../Delegates/Delegates.h"
+#include <unordered_set>
 
 class GameObject;
 class TransformComponent;
@@ -16,17 +17,32 @@ class TransformComponent;
 class CollisionComponent : public IComponent
 {
 public:
-	CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint);
+	enum CollisionChannel
+	{
+		Channel_1,
+		Channel_2,
+		Channel_3,
+	};
 
-	void Update() override;
+	CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint, CollisionChannel collisionChannel = CollisionChannel::Channel_1);
+
+	void Update(float deltaTime) override;
 	//void OnCollide(CollisionComponent* collider);
 
 	const DirectX::BoundingBox& GetBoundingVolume();
 	GameObject* GetGameObject() const;
 
-	MulticastDelegate<CollisionComponent*> OnCollisionEnter;
+	MulticastDelegate<CollisionComponent*, CollisionComponent*> OnCollisionEnter;
+
+	bool IsEnabled = true;
+
+	CollisionChannel collisionChannel;
+
+	void AddIgnoreChannel(CollisionChannel channel);
 
 private:
+	std::unordered_set<CollisionChannel> ignoreChannels = {};
+
 	DirectX::BoundingBox boxCollider;
 	TransformComponent* transform;
 	GameObject* gameObject;

@@ -9,7 +9,7 @@
 
 
 
-CollisionComponent::CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint)
+CollisionComponent::CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint, CollisionChannel collisionChannel)
 {
 	this->transform = gameObject->GetTransform();
 	this->gameObject = gameObject;
@@ -19,14 +19,12 @@ CollisionComponent::CollisionComponent(GameObject* gameObject, Vector3D firstPoi
 		{ secondPoint.x,secondPoint.y,secondPoint.z });
 
 	boxCollider.Center = { transform->GetCenter().x,transform->GetCenter().y,transform->GetCenter().z };
+
+	this->collisionChannel = collisionChannel;
 }
 
-void CollisionComponent::Update()
+void CollisionComponent::Update(float deltaTime)
 {
-	// TODO: what should i do here? 
-	// 1. check collision for all other objects here <- will implement this for now
-	// 2. check collision in other class for all objects
-
 	boxCollider.Center =
 	{
 		transform->GetCenter().x,
@@ -34,17 +32,27 @@ void CollisionComponent::Update()
 		transform->GetCenter().z
 	};
 
+	if (!IsEnabled) return;
+
 	for (GameObject* gameObject : SRVEngine.GetAllGameObjects())
 	{
 		CollisionComponent* colliderComponent = gameObject->GetComponent<CollisionComponent>();
 
-		if (!colliderComponent) continue;
+		if (!colliderComponent)
+			continue;
 
-		if (colliderComponent == this) continue;
+		if (!colliderComponent->IsEnabled)
+			continue;
+
+		if (colliderComponent == this)
+			continue;
+
+		if (ignoreChannels.find(colliderComponent->collisionChannel) != ignoreChannels.end())
+			continue;
 
 		if (boxCollider.Intersects(colliderComponent->GetBoundingVolume()))
 		{
-			OnCollisionEnter.Broadcast(this);
+			OnCollisionEnter.Broadcast(this, colliderComponent);
 		}
 	}
 }
@@ -57,4 +65,9 @@ const DirectX::BoundingBox& CollisionComponent::GetBoundingVolume()
 GameObject* CollisionComponent::GetGameObject() const
 {
 	return gameObject;
+}
+
+void CollisionComponent::AddIgnoreChannel(CollisionChannel channel)
+{
+	ignoreChannels.insert(channel);
 }

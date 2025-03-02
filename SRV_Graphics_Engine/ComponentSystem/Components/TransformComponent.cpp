@@ -12,7 +12,7 @@ TransformComponent::TransformComponent(const Vector3D& position, const Vector3D&
 {
 }
 
-void TransformComponent::Update()
+void TransformComponent::Update(float deltaTime)
 {
 	// TODO: what should i do there?)
 }

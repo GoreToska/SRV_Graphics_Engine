@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
+    <ClCompile Include="Engine\Timer\Timer.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
     <ClCompile Include="Graphics\AdapterReader.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="ComponentSystem\Components\RenderComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\PongBallMovementComponent.cpp" />
     <ClCompile Include="Games\Pong\PongGameMode.cpp" />
+    <ClCompile Include="Games\Pong\PongSpawnerComponent.cpp" />
     <ClCompile Include="Shapes2D\Shapes2D.cpp" />
     <ClCompile Include="ComponentSystem\Components\TransformComponent.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
@@ -159,6 +161,7 @@
     <ClInclude Include="Delegates\catch.hpp" />
     <ClInclude Include="Delegates\Delegates.h" />
     <ClInclude Include="ComponentSystem\GameObject.h" />
+    <ClInclude Include="Engine\Timer\Timer.h" />
     <ClInclude Include="Graphics\Buffers\ConstantBuffer.h" />
     <ClInclude Include="Graphics\Buffers\IndexBuffer.h" />
     <ClInclude Include="Graphics\Buffers\VertexBuffer.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="ComponentSystem\Components\RenderComponent.h" />
     <ClInclude Include="ComponentSystem\Components\PongBallMovementComponent.h" />
     <ClInclude Include="Games\Pong\PongGameMode.h" />
+    <ClInclude Include="Games\Pong\PongSpawnerComponent.h" />
     <ClInclude Include="Shapes2D\Shapes2D.h" />
     <ClInclude Include="ComponentSystem\Components\TransformComponent.h" />
     <ClInclude Include="Utils\Logger.h" />

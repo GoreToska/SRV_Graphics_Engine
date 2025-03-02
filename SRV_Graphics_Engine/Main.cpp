@@ -4,13 +4,13 @@
 
 #include "./Utils/Logger.h"
 #include "./Engine/Engine.h"
-
 #include "./Input/Keyboard/Keyboard.h"
 #include"./Shapes2D/Shapes2D.h"
 #include "ComponentSystem/GameObject.h"
 #include "ComponentSystem/Components/PongInputComponent.h"
 #include "ComponentSystem/Components/CollisionComponent.h"  
 #include "ComponentSystem/Components/PongBallMovementComponent.h"
+#include "Games/Pong/PongSpawnerComponent.h"
 #include "Games/Pong/PongGameMode.h"
 #pragma endregion
 
@@ -36,17 +36,19 @@ void PongScene()
 		0,2,3
 	};
 
-	Vector3D ballPosition = Vector3D(0.0f, 0.0f, 0.0f);
-	GameObject* ball = new GameObject();
+	GameObject* ball = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	ball->name = "Main ball";
 	auto circleShape = Shapes2D::GetCircleShape(0.02, 30);
 	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), std::get<0>(circleShape), std::get<1>(circleShape));
-	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.02f / 1.33, -0.02f, 1.0f), Vector3D(0.0125f / 1.33, 0.02f, 1.0f));
+	CollisionComponent* boxCollision =
+		new CollisionComponent(ball, Vector3D(-0.02f / 1.33, -0.02f, 1.0f), Vector3D(0.0125f / 1.33, 0.02f, 1.0f), CollisionComponent::Channel_2);
+	boxCollision->AddIgnoreChannel(CollisionComponent::Channel_2);
 
 	ball->AddComponent(ballRender);
-	ball->GetTransform()->SetPosition(ballPosition);
 	ball->AddComponent(boxCollision);
+	ball->AddComponent(new PongSpawnerComponent(ball));
 
-	PongBallMovementComponent* ballMovement = new PongBallMovementComponent(ball, 0.005, 0.003);
+	PongBallMovementComponent* ballMovement = new PongBallMovementComponent(ball, 0.0005, 0.0003);
 	ball->AddComponent(ballMovement);
 	SRVEngine.AddGameObject(ball);
 #pragma endregion
@@ -65,30 +67,28 @@ void PongScene()
 		0,2,3
 	};
 
-	Vector3D leftPosition = Vector3D(-0.9, 0, 0);
-	GameObject* leftPlayer = new GameObject();
+	GameObject* leftPlayer = new GameObject(Vector3D(-0.9, 0, 0));
 	RenderComponent* leftRenderComponent = new RenderComponent(leftPlayer->GetTransform(), rocketVertices, rocketIndecies);
 	PongInputComponent* leftInputComponent = new PongInputComponent(leftPlayer, 0.4);
-	CollisionComponent* leftCollision = new CollisionComponent(leftPlayer, Vector3D(-0.01f, -0.2f, 1.0f), Vector3D(0.01f, 0.2f, 1.0f));
+	CollisionComponent* leftCollision = new CollisionComponent(leftPlayer, Vector3D(-0.00001f, -0.2f, 1.0f), Vector3D(0.01f, 0.2f, 1.0f), CollisionComponent::Channel_1);
 
 	leftInputComponent->SetInput('W', 'S');
+	leftInputComponent->SetSpeed(0.001);
 	leftPlayer->AddComponent(leftRenderComponent);
 	leftPlayer->AddComponent(leftInputComponent);
 	leftPlayer->AddComponent(leftCollision);
-	leftPlayer->GetTransform()->SetPosition(leftPosition);
 	SRVEngine.AddGameObject(leftPlayer);
 
-	Vector3D rightPosition = Vector3D(0.9, 0, 0);
-	GameObject* rightPlayer = new GameObject();
+	GameObject* rightPlayer = new GameObject(Vector3D(0.9, 0, 0));
 	RenderComponent* rightRenderComponent = new RenderComponent(rightPlayer->GetTransform(), rocketVertices, rocketIndecies);
 	PongInputComponent* rightInputComponent = new PongInputComponent(rightPlayer, 0.4);
-	CollisionComponent* rightCollision = new CollisionComponent(rightPlayer, Vector3D(-0.01f, -0.2f, 1.0f), Vector3D(0.01f, 0.2f, 1.0f));
+	CollisionComponent* rightCollision = new CollisionComponent(rightPlayer, Vector3D(-0.01f, -0.2f, 1.0f), Vector3D(0.00001f, 0.2f, 1.0f), CollisionComponent::Channel_1);
 
 	rightInputComponent->SetInput('&', '(');
+	rightInputComponent->SetSpeed(0.001);
 	rightPlayer->AddComponent(rightRenderComponent);
 	rightPlayer->AddComponent(rightCollision);
 	rightPlayer->AddComponent(rightInputComponent);
-	rightPlayer->GetTransform()->SetPosition(rightPosition);
 	SRVEngine.AddGameObject(rightPlayer);
 #pragma endregion
 
@@ -110,12 +110,12 @@ void PongScene()
 	GameObject* leftCollider = new GameObject();
 	leftCollider->GetTransform()->SetPosition(Vector3D(-1, 0, 0));
 	//leftCollider->AddComponent(new RenderComponent(leftCollider->GetTransform(), colliderVertices, colliderIndecies));
-	leftCollider->AddComponent(new CollisionComponent(leftCollider, { -0.05f, -1, 1.0f }, { 0.05f, 1, 1.0f }));
+	leftCollider->AddComponent(new CollisionComponent(leftCollider, { -0.05f, -1, 1.0f }, { 0.05f, 1, 1.0f }, CollisionComponent::Channel_3));
 
 	GameObject* rightCollider = new GameObject();
 	rightCollider->GetTransform()->SetPosition(Vector3D(1, 0, 0));
 	//rightCollider->AddComponent(new RenderComponent(rightCollider->GetTransform(), colliderVertices, colliderIndecies));
-	rightCollider->AddComponent(new CollisionComponent(rightCollider, { -0.05f, -1, 1.0f }, { 0.05f, 1, 1.0f }));
+	rightCollider->AddComponent(new CollisionComponent(rightCollider, { -0.05f, -1, 1.0f }, { 0.05f, 1, 1.0f }, CollisionComponent::Channel_3));
 
 	SRVEngine.AddGameObject(leftCollider);
 	SRVEngine.AddGameObject(rightCollider);
@@ -123,7 +123,9 @@ void PongScene()
 
 	PongGameMode* pongGameMode = new PongGameMode(ball,
 		leftCollider->GetComponent<CollisionComponent>(),
-		rightCollider->GetComponent<CollisionComponent>());
+		rightCollider->GetComponent<CollisionComponent>(),
+		leftPlayer->GetComponent<CollisionComponent>(),
+		rightPlayer->GetComponent<CollisionComponent>());
 }
 
 void OnKeyPressed(const unsigned char key)
@@ -138,7 +140,10 @@ int main()
 
 	while (SRVEngine.ProcessMessages())
 	{
-		SRVEngine.Update();
+		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
+		SRVEngine.GetTimer()->Restart();
+
+		SRVEngine.Update(deltaTime);
 		SRVEngine.RenderFrame();
 	}
 }
