@@ -45,9 +45,9 @@ bool Engine::ProcessMessages()
 	return renderWindow.ProcessMessages();
 }
 
-void Engine::Update()
+void Engine::Update(float deltaTime)
 {
-	for (GameObject* gameObject : gameObjects)
+	for (int i = 0; i < gameObjects.size(); ++i)
 	{
 		gameObjects[i]->Update(deltaTime);
 	}

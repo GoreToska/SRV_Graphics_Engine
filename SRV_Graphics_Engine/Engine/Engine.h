@@ -6,6 +6,7 @@
 
 #include "../Render/WindowContainer.h"
 #include "../ComponentSystem/GameObject.h"
+#include "Timer/Timer.h"
 
 
 class Engine : WindowContainer
@@ -20,7 +21,7 @@ public:
 	bool Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height);
 	void AddGameObject(GameObject* gameObject);
 	bool ProcessMessages();
-	void Update();
+	void Update(float deltaTime);
 	void RenderFrame();
 	Graphics& GetGraphics();
 
@@ -28,6 +29,7 @@ public:
 	std::vector<GameObject*> GetAllGameObjects();
 
 private:
+	Timer timer;
 	std::vector<GameObject*> gameObjects{};
 };
 

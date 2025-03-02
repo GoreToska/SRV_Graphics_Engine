@@ -32,6 +32,10 @@ public:
 		return *this;
 	}
 
+	Vector3D operator * (const float& value) const
+	{
+		return Vector3D{ x * value, y * value, z * value };
+	}
 
 	Vector3D operator * (const Vector3D& value) const
 	{

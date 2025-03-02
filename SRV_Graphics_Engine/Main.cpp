@@ -1,6 +1,7 @@
 ﻿#pragma region Includes
 #include <Windows.h>
 #include <iostream>
+#include <tuple>
 
 #include "./Utils/Logger.h"
 #include "./Engine/Engine.h"
@@ -10,8 +11,6 @@
 #include "ComponentSystem/GameObject.h"
 #include "ComponentSystem/Components/CollisionComponent.h"  
 #include "ComponentSystem/Components/CameraMovementComponent.h"  
-#include "Games/Pong/PongSpawnerComponent.h"
-#include "Games/Pong/PongGameMode.h"
 #include "DataTypes/ColorRGB.h"
 
 #pragma endregion
@@ -45,7 +44,10 @@ int main()
 
 	while (SRVEngine.ProcessMessages())
 	{
-		SRVEngine.Update();
+		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
+		SRVEngine.GetTimer()->Restart();
+
+		SRVEngine.Update(deltaTime);
 		SRVEngine.RenderFrame();
 	}
 }

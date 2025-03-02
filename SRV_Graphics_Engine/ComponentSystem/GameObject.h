@@ -22,11 +22,17 @@ public:
 		transform = AddComponent<TransformComponent>(new TransformComponent());
 	}
 
-	void Update()
+	GameObject(Vector3D position)
 	{
-		for (auto& component : components)
+		transform = AddComponent<TransformComponent>(new TransformComponent());
+		transform->SetPosition(position);
+	}
+
+	void Update(float deltaTime)
+	{
+		for (auto it = components.begin(); it != components.end(); ++it)
 		{
-			component.second->Update();
+			it->second->Update(deltaTime);
 		}
 	}
 

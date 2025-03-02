@@ -127,21 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentSystem\Components\CameraMovementComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
+    <ClCompile Include="Graphics\Camera.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
     <ClCompile Include="Graphics\AdapterReader.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Graphics\Graphics.cpp" />
-    <ClCompile Include="ComponentSystem\Components\PongInputComponent.cpp" />
     <ClCompile Include="Input\Keyboard\Keyboard.cpp" />
     <ClCompile Include="Input\Keyboard\KeyboardInputEvent.cpp" />
     <ClCompile Include="Input\Mouse\MouseInputEvent.cpp" />
     <ClCompile Include="Graphics\ShadersClass\Shaders.cpp" />
     <ClCompile Include="ComponentSystem\Components\RenderComponent.cpp" />
-    <ClCompile Include="ComponentSystem\Components\PongBallMovementComponent.cpp" />
-    <ClCompile Include="Shapes2D\Shapes2D.cpp" />
     <ClCompile Include="ComponentSystem\Components\TransformComponent.cpp" />
+    <ClCompile Include="Engine\Timer\Timer.cpp" />
+    <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Input\Mouse\Mouse.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Render\WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentSystem\Components\CameraMovementComponent.h" />
     <ClInclude Include="ComponentSystem\Components\CollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\IComponent.h" />
     <ClInclude Include="DataTypes\ConstantBufferTypes.h" />
@@ -161,6 +163,7 @@
     <ClInclude Include="Graphics\Buffers\ConstantBuffer.h" />
     <ClInclude Include="Graphics\Buffers\IndexBuffer.h" />
     <ClInclude Include="Graphics\Buffers\VertexBuffer.h" />
+    <ClInclude Include="Graphics\Camera.h" />
     <ClInclude Include="Graphics\Device\GraphicsDevice.h" />
     <ClInclude Include="Graphics\AdapterReader.h" />
     <ClInclude Include="Engine\Engine.h" />
@@ -178,8 +181,9 @@
     <ClInclude Include="DataTypes\ColorRGB.h" />
     <ClInclude Include="ComponentSystem\Components\RenderComponent.h" />
     <ClInclude Include="ComponentSystem\Components\PongBallMovementComponent.h" />
-    <ClInclude Include="Shapes2D\Shapes2D.h" />
     <ClInclude Include="ComponentSystem\Components\TransformComponent.h" />
+    <ClInclude Include="Engine\Timer\Timer.h" />
+    <ClInclude Include="Shapes\Shapes.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Input\Mouse\Mouse.h" />
     <ClInclude Include="Render\RenderWindow.h" />
