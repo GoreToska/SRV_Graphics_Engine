@@ -1,4 +1,8 @@
 #include "PongBallMovementComponent.h"
+#include "../../DataTypes/Vector3D.h"
+
+#include <random>
+
 
 PongBallMovementComponent::PongBallMovementComponent(GameObject* gameObject, float xSpeed, float ySpeed)
 {
@@ -10,7 +14,7 @@ PongBallMovementComponent::PongBallMovementComponent(GameObject* gameObject, flo
 	gameObject->GetComponent<CollisionComponent>()->OnCollisionEnter.AddRaw(this, &PongBallMovementComponent::OnCollide);
 }
 
-void PongBallMovementComponent::Update()
+void PongBallMovementComponent::Update(const float& deltaTime)
 {
 	gameObject->GetTransform()->MovePosition(Vector3D(xSpeed, ySpeed, 0));
 	Vector3D position = gameObject->GetTransform()->GetPosition();

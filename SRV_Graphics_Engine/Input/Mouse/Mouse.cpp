@@ -1,6 +1,7 @@
 #include "Mouse.h"
 #include "MouseInputEvent.h"
 #include "../../DataTypes/VectorInt2D.h"
+#include <iostream>
 
 
 Mouse& Mouse::GetInstance()
@@ -76,6 +77,7 @@ void Mouse::OnMouseDelta(int x, int y)
 {
 	MouseInputEvent e(MouseInputEvent::EventType::Delta_Move, x, y);
 	eventBuffer.push(e);
+	OnMouseDeltaEvent.Broadcast(x, y);
 }
 
 bool Mouse::IsLeftDown()

@@ -33,6 +33,11 @@ public:
 	}
 
 
+	Vector3D operator * (const Vector3D& value) const
+	{
+		return Vector3D{ x * value.x, y * value.y, z * value.z };
+	}
+
 	float x;
 	float y;
 	float z;

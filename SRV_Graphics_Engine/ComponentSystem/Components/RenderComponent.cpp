@@ -2,6 +2,7 @@
 
 #include "../../Utils/Logger.h"
 #include "../../Graphics/Device/GraphicsDevice.h"
+#include "../../Engine/Engine.h"
 
 RenderComponent::RenderComponent(TransformComponent* transform, std::vector<Vertex3D> vert, std::vector<DWORD> ind)
 {
@@ -34,7 +35,7 @@ RenderComponent::RenderComponent(TransformComponent* transform, std::vector<Vert
 	}
 }
 
-void RenderComponent::Update()
+void RenderComponent::Update(const float& deltaTime)
 {
 	// TODO: what to do here?
 }
@@ -45,10 +46,16 @@ void RenderComponent::Render()
 	UINT offset = 0;
 
 	// constant buffer
+	DirectX::XMMATRIX worldMatrix = DirectX::XMMatrixIdentity();
+
 	constBuffer.GetData()->matrix = DirectX::XMMatrixTranslation(
 		transform->GetPosition().x,
 		transform->GetPosition().y,
 		transform->GetPosition().z);
+
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetWorldMatrix();
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetViewMatrix();
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix();
 
 	constBuffer.GetData()->matrix = DirectX::XMMatrixTranspose(constBuffer.GetData()->matrix);
 

@@ -4,5 +4,5 @@
 class IComponent
 {
 public:
-	virtual void Update() = 0;
+	virtual void Update(const float& deltaTime) = 0;
 };

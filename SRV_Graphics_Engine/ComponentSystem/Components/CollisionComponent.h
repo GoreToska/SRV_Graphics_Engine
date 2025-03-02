@@ -18,7 +18,9 @@ class CollisionComponent : public IComponent
 public:
 	CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint);
 
-	void Update() override;
+	CollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint, CollisionChannel collisionChannel = CollisionChannel::Channel_1);
+
+	void Update(const float& deltaTime) override;
 	//void OnCollide(CollisionComponent* collider);
 
 	const DirectX::BoundingBox& GetBoundingVolume();

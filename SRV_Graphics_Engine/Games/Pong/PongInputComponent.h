@@ -1,8 +1,8 @@
 #pragma once
 
-#include "IComponent.h"
 #include "../../DataTypes/Vector3D.h"
-#include "../GameObject.h"
+#include "../../ComponentSystem/Components/IComponent.h"
+#include "../../ComponentSystem/GameObject.h"
 
 #include <map>
 
@@ -12,7 +12,7 @@ class PongInputComponent : public IComponent
 public:
 	PongInputComponent(GameObject* posessedGameObject);
 
-	void Update() override;
+	void Update(const float& deltaTime) override;
 
 	void SetInput(unsigned char upKey, unsigned char downKey);
 

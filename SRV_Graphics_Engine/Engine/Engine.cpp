@@ -49,31 +49,41 @@ void Engine::Update()
 {
 	for (GameObject* gameObject : gameObjects)
 	{
-		gameObject->Update();
+		gameObjects[i]->Update(deltaTime);
 	}
 
-	//#pragma region Input
-	//
-	//	while (!Keyboard::GetInstance().CharBufferIsEmpty())
-	//	{
-	//		unsigned char a = Keyboard::GetInstance().ReadChar();
-	//	}
-	//
-	//	while (!Keyboard::GetInstance().KeyBufferIsEmpty())
-	//	{
-	//		KeyboardInputEvent e = Keyboard::GetInstance().ReadKey();
-	//	}
-	//
-	//	while (!Mouse::GetInstance().EventBufferIsEmpty())
-	//	{
-	//		MouseInputEvent e = Mouse::GetInstance().ReadEvent();
-	//	}
-	//#pragma endregion
+	/*#pragma region Input
+	
+		while (!Keyboard::GetInstance().CharBufferIsEmpty())
+		{
+			unsigned char a = Keyboard::GetInstance().ReadChar();
+		}
+	
+		while (!Keyboard::GetInstance().KeyBufferIsEmpty())
+		{
+			KeyboardInputEvent e = Keyboard::GetInstance().ReadKey();
+		}
+	
+		while (!Mouse::GetInstance().EventBufferIsEmpty())
+		{
+			MouseInputEvent e = Mouse::GetInstance().ReadEvent();
+		}
+	#pragma endregion*/
 }
 
 void Engine::RenderFrame()
 {
 	graphics.RenderFrame();
+}
+
+Graphics& Engine::GetGraphics()
+{
+	return graphics;
+}
+
+Timer* Engine::GetTimer()
+{
+	return &timer;
 }
 
 std::vector<GameObject*> Engine::GetAllGameObjects()

@@ -10,6 +10,7 @@
 #include "../DataTypes/Vertex.h"
 #include "../ComponentSystem/Components/RenderComponent.h"
 #include "../ComponentSystem/GameObject.h"
+#include "Camera.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -24,6 +25,9 @@ public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
 	void AddObjectToRenderPool(RenderComponent* object);
+
+	const DirectX::XMMATRIX GetWorldMatrix() const;
+	Camera* GetCamera() const;
 
 private:
 	bool InitializeDirectX(HWND hwnd);
@@ -40,6 +44,9 @@ private:
 	int clientWidth;
 	int clientHeight;
 
+	Camera* camera;
+	DirectX::XMMATRIX worldMatrix;
+
 	std::vector<RenderComponent*> objectRenderPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
@@ -48,13 +55,10 @@ private:
 	VertexShader vertexShader;
 	PixelShader pixelShader;
 
-
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilState> depthStencilState;
-
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerState;
-	
 	// TODO: textures
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> samplerState;
 };

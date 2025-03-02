@@ -21,7 +21,7 @@ CollisionComponent::CollisionComponent(GameObject* gameObject, Vector3D firstPoi
 	boxCollider.Center = { transform->GetCenter().x,transform->GetCenter().y,transform->GetCenter().z };
 }
 
-void CollisionComponent::Update()
+void CollisionComponent::Update(const float& deltaTime)
 {
 	// TODO: what should i do here? 
 	// 1. check collision for all other objects here <- will implement this for now

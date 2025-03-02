@@ -10,7 +10,7 @@ PongInputComponent::PongInputComponent(GameObject* posessedGameObject)
 	Keyboard::GetInstance().KeyReleasedEvent.AddRaw(this, &PongInputComponent::OnKeyUp);
 }
 
-void PongInputComponent::Update()
+void PongInputComponent::Update(const float& deltaTime)
 {
 	posessedObjectTransform->MovePosition(movementVector);
 }

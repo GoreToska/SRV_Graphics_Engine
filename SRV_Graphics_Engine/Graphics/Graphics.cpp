@@ -5,6 +5,7 @@
 #include <iostream>
 
 
+
 bool Graphics::Initialize(HWND hwnd, int width, int height)
 {
 	clientWidth = width;
@@ -18,6 +19,10 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 
 	if (!InitializeScene())
 		return false;
+
+	camera = new Camera();
+	camera->SetPosition(0.0f, 0.0f, -2.0f);
+	camera->SetProjectionValues(90, static_cast<float>(clientWidth) / static_cast<float>(clientHeight), 0.1f, 1000.0f);
 
 	return true;
 }
@@ -41,7 +46,9 @@ void Graphics::RenderFrame()
 	DeviceContext->VSSetShader(vertexShader.GetShader(), NULL, 0);
 	DeviceContext->PSSetShader(pixelShader.GetShader(), NULL, 0);
 
-	int i = 1;
+	// View matrix
+	worldMatrix = DirectX::XMMatrixIdentity();
+	//camera->SetLookAtPosition(Vector3D(0, 0, 0));
 
 	for (RenderComponent* item : objectRenderPool)
 	{
@@ -54,6 +61,16 @@ void Graphics::RenderFrame()
 void Graphics::AddObjectToRenderPool(RenderComponent* object)
 {
 	objectRenderPool.push_back(object);
+}
+
+const DirectX::XMMATRIX Graphics::GetWorldMatrix() const
+{
+	return worldMatrix;
+}
+
+Camera* Graphics::GetCamera() const
+{
+	return camera;
 }
 
 bool Graphics::InitializeDirectX(HWND hwnd)
@@ -165,7 +182,7 @@ bool Graphics::CreateRasterizerState()
 {
 	D3D11_RASTERIZER_DESC rasterizerDesc{};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
-	rasterizerDesc.CullMode = D3D11_CULL_BACK;
+	rasterizerDesc.CullMode = D3D11_CULL_NONE;
 
 	// This can help if you draw objects counter clockwise (if you can't see them)
 	// rasterizerDesc.FrontCounterClockwise = FALSE;

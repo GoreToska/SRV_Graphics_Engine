@@ -2,6 +2,7 @@
 #include <queue>
 
 #include "MouseInputEvent.h"
+#include "../../Delegates/Delegates.h"
 
 struct VectorInt2D;
 
@@ -31,6 +32,8 @@ public:
 
 	bool EventBufferIsEmpty();
 	MouseInputEvent ReadEvent();
+
+	MulticastDelegate<const int, const int> OnMouseDeltaEvent;
 
 private:
 	std::queue<MouseInputEvent> eventBuffer;

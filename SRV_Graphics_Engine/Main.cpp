@@ -6,97 +6,42 @@
 #include "./Engine/Engine.h"
 
 #include "./Input/Keyboard/Keyboard.h"
-#include"./Shapes2D/Shapes2D.h"
+#include"./Shapes/Shapes.h"
 #include "ComponentSystem/GameObject.h"
-#include "ComponentSystem/Components/PongInputComponent.h"
 #include "ComponentSystem/Components/CollisionComponent.h"  
-#include "ComponentSystem/Components/PongBallMovementComponent.h"
+#include "ComponentSystem/Components/CameraMovementComponent.h"  
+#include "Games/Pong/PongSpawnerComponent.h"
+#include "Games/Pong/PongGameMode.h"
+#include "DataTypes/ColorRGB.h"
+
 #pragma endregion
-
-
-void PongScene()
-{
-	std::vector<Vertex3D> ballVertices
-	{
-		Vertex3D({-0.01f, -0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({-0.01f, 0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({0.01f, 0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({0.01f, -0.02f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-	};
-	std::vector<DWORD> ballIndecies
-	{
-		0,1,2,
-		0,2,3
-	};
-
-	Vector3D ballPosition = Vector3D(0.0f, 0.0f, 0.0f);
-	GameObject* ball = new GameObject();
-	RenderComponent* ballRender = new RenderComponent(ball->GetTransform(), ballVertices, ballIndecies);
-	CollisionComponent* boxCollision = new CollisionComponent(ball, Vector3D(-0.01f, -0.02f, 1.0f), Vector3D(0.01f, 0.02f, 1.0f));
-
-	ball->AddComponent(ballRender);
-	ball->GetTransform()->SetPosition(ballPosition);
-	ball->AddComponent(boxCollision);
-
-	PongBallMovementComponent* ballMovement = new PongBallMovementComponent(ball, 0.005, 0.003);
-	ball->AddComponent(ballMovement);
-	SRVEngine.AddGameObject(ball);
-
-	std::vector<Vertex3D> rocketVertices
-	{
-		Vertex3D({-0.01f, -0.3f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({-0.01f, 0.3f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({0.01f, 0.3f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-		Vertex3D({0.01f, -0.3f, 1.0f}, {1.0f, 1.0f, 1.0f}),
-	};
-	std::vector<DWORD> rocketIndecies
-	{
-		0,1,2,
-		0,2,3
-	};
-
-	Vector3D leftPosition = Vector3D(-0.9, 0, 0);
-	GameObject* leftPlayer = new GameObject();
-	RenderComponent* leftRenderComponent = new RenderComponent(leftPlayer->GetTransform(), rocketVertices, rocketIndecies);
-	PongInputComponent* leftInputComponent = new PongInputComponent(leftPlayer);
-	CollisionComponent* leftCollision = new CollisionComponent(leftPlayer, Vector3D(-0.01f, -0.3f, 1.0f), Vector3D(0.01f, 0.3f, 1.0f));
-
-	leftInputComponent->SetInput('W', 'S');
-	leftPlayer->AddComponent(leftRenderComponent);
-	leftPlayer->AddComponent(leftInputComponent);
-	leftPlayer->AddComponent(leftCollision);
-	leftPlayer->GetTransform()->SetPosition(leftPosition);
-	SRVEngine.AddGameObject(leftPlayer);
-
-	Vector3D rightPosition = Vector3D(0.9, 0, 0);
-	GameObject* rightPlayer = new GameObject();
-	RenderComponent* rightRenderComponent = new RenderComponent(rightPlayer->GetTransform(), rocketVertices, rocketIndecies);
-	PongInputComponent* rightInputComponent = new PongInputComponent(rightPlayer);
-	CollisionComponent* rightCollision = new CollisionComponent(rightPlayer, Vector3D(-0.01f, -0.3f, 1.0f), Vector3D(0.01f, 0.3f, 1.0f));
-
-	rightInputComponent->SetInput('&', '(');
-	rightPlayer->AddComponent(rightRenderComponent);
-	rightPlayer->AddComponent(rightCollision);
-	rightPlayer->AddComponent(rightInputComponent);
-	rightPlayer->GetTransform()->SetPosition(rightPosition);
-	SRVEngine.AddGameObject(rightPlayer);
-}
-
-void OnKeyPressed(const unsigned char key)
-{
-	std::cout << key << std::endl;
-}
 
 int main()
 {
-	std::string applicationName = "My3DApp";
+	std::string applicationName = "Pong";
 	std::string windowClass = "WindowClass";
 	HINSTANCE hInstance = GetModuleHandle(nullptr);
-	SRVEngine.Initialize(hInstance, applicationName, windowClass, 1000, 600);
 
+	SRVEngine.Initialize(hInstance, applicationName, windowClass, 1024, 768);
 
-	PongScene();
+	GameObject* camera = new GameObject();
+	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	SRVEngine.AddGameObject(camera);
 
+	auto cubeShape = Shapes::GetCubeShape(1);
+	auto sphereShape = Shapes::GetSphereShape(1, 16, 16, LIGHT_GRAY);
+
+	GameObject* cube1 = new GameObject(Vector3D(1, 1, 1));
+	cube1->AddComponent(new RenderComponent(cube1->GetTransform(), std::get<0>(cubeShape), std::get<1>(cubeShape)));
+	SRVEngine.AddGameObject(cube1);
+
+	GameObject* cube2 = new GameObject(Vector3D(-1, -1, -1));
+	cube2->AddComponent(new RenderComponent(cube2->GetTransform(), std::get<0>(cubeShape), std::get<1>(cubeShape)));
+	SRVEngine.AddGameObject(cube2);
+
+	GameObject* sphere1 = new GameObject(Vector3D(3.0f, 3.0f, 3.0f));
+	sphere1->AddComponent(new RenderComponent(sphere1->GetTransform(), std::get<0>(sphereShape), std::get<1>(sphereShape)));
+	SRVEngine.AddGameObject(sphere1);
 
 	while (SRVEngine.ProcessMessages())
 	{

@@ -22,6 +22,9 @@ public:
 	bool ProcessMessages();
 	void Update();
 	void RenderFrame();
+	Graphics& GetGraphics();
+
+	Timer* GetTimer();
 	std::vector<GameObject*> GetAllGameObjects();
 
 private:

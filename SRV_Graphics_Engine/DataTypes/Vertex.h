@@ -6,7 +6,6 @@
 #include "ColorRGB.h"
 #include "Vector3D.h"
 
-
 struct Vertex2D
 {
 	Vertex2D() {};
@@ -28,4 +27,5 @@ struct Vertex3D
 	DirectX::XMFLOAT3 position;
 	DirectX::XMFLOAT3 color;
 };
+
 

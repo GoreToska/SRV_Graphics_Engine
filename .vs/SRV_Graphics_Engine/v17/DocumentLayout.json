@@ -250,8 +250,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\PongBallMovementComponent.cpp",
               "ViewState": "AgIAAAoAAAAAAAAAAAAowB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-23T19:39:16.492Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T19:39:16.492Z"
             },
             {
               "$type": "Document",
@@ -263,8 +262,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\CollisionComponent.h",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAABIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-22T12:47:52.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T12:47:52.977Z"
             },
             {
               "$type": "Document",
@@ -276,8 +274,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\CollisionComponent.cpp",
               "ViewState": "AgIAABkAAAAAAAAAAAAAADAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-22T21:05:37.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T21:05:37.885Z"
             },
             {
               "$type": "Document",
@@ -289,8 +286,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-10T17:37:17.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T17:37:17.73Z"
             },
             {
               "$type": "Document",
@@ -302,8 +298,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.h",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-10T17:39:25.134Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T17:39:25.134Z"
             },
             {
               "$type": "Document",
@@ -313,7 +308,7 @@
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Main.cpp",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp",
               "RelativeToolTip": "SRV_Graphics_Engine\\Main.cpp",
-              "ViewState": "AgIAADkAAAAAAAAAAAAowEsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-10T14:55:40.446Z",
               "EditorCaption": ""
@@ -328,8 +323,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\Delegates\\Delegates.h",
               "ViewState": "AgIAAIkDAAAAAAAAAAAtwJQDAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-22T16:25:07.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T16:25:07.104Z"
             },
             {
               "$type": "Document",
@@ -341,8 +335,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\PongBallMovementComponent.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-23T19:36:20.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T19:36:20.521Z"
             },
             {
               "$type": "Document",
@@ -354,8 +347,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\PongInputComponent.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-22T15:31:10.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T15:31:10.467Z"
             },
             {
               "$type": "Document",
@@ -367,8 +359,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\GameObject.h",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-22T11:56:45.517Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T11:56:45.517Z"
             },
             {
               "$type": "Document",
@@ -378,8 +369,7 @@
               "ToolTip": "E:\\Visual Studio\\Visual Studio 2022 IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\vector",
               "ViewState": "AgIAAEgHAAAAAAAAAAAtwFAHAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-02-23T19:58:42.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T19:58:42.485Z"
             },
             {
               "$type": "Document",
@@ -391,8 +381,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\PongInputComponent.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-22T15:32:06.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T15:32:06.98Z"
             },
             {
               "$type": "Document",
@@ -404,8 +393,7 @@
               "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\RenderComponent.cpp",
               "ViewState": "AgIAABIAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-13T20:29:14.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-13T20:29:14.906Z"
             },
             {
               "$type": "Document",
