@@ -3,6 +3,8 @@
 #include "../../Utils/Logger.h"
 #include "../../Graphics/Device/GraphicsDevice.h"
 #include "../../Engine/Engine.h"
+#include "../../Utils/Converter.h"
+
 
 RenderComponent::RenderComponent(TransformComponent* transform, std::vector<Vertex3D> vert, std::vector<DWORD> ind)
 {
@@ -45,10 +47,16 @@ void RenderComponent::Render()
 	UINT stride = sizeof(Vertex3D);
 	UINT offset = 0;
 
-	// constant buffer
-	DirectX::XMMATRIX worldMatrix = DirectX::XMMatrixIdentity();
+	DirectX::XMVECTOR orientation = transform->GetOrientation();
 
-	constBuffer.GetData()->matrix = DirectX::XMMatrixTranslation(
+	constBuffer.GetData()->matrix = DirectX::XMMatrixScaling(
+		transform->GetScale().x,
+		transform->GetScale().y,
+		transform->GetScale().z);
+
+	constBuffer.GetData()->matrix *= DirectX::XMMatrixRotationQuaternion(orientation);
+
+	constBuffer.GetData()->matrix *= DirectX::XMMatrixTranslation(
 		transform->GetPosition().x,
 		transform->GetPosition().y,
 		transform->GetPosition().z);
@@ -62,10 +70,8 @@ void RenderComponent::Render()
 	if (constBuffer.ApplyChanges())
 		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
 
-	// vertex buffer
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 
-	// index buffer
 	if (indexes.size() > 0)
 	{
 		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);

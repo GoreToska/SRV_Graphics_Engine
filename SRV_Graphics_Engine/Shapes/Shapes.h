@@ -10,7 +10,7 @@ class Shapes
 {
 public:
 	static std::tuple<std::vector<Vertex3D>, std::vector<DWORD>>GetCircleShape(float radius, int tesselation);
-	static std::tuple<std::vector<Vertex3D>, std::vector<DWORD>>GetCubeShape(float size);
+	static std::tuple<std::vector<Vertex3D>, std::vector<DWORD>>GetCubeShape(const float& size, const ColorRGB& color);
 	static std::tuple<std::vector<Vertex3D>, std::vector<DWORD>>GetSphereShape(float radius, int stackCount, int sliceCount, ColorRGB color);
 };
 

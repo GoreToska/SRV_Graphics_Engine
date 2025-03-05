@@ -13,6 +13,7 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShadersClass\Sh
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RenderComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\RenderComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\TransformComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Timer\Timer.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Timer.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RotationComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\RotationComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes\Shapes.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Shapes.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Utils\Logger.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Logger.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Main.obj

@@ -44,39 +44,39 @@ Shapes::GetCircleShape(float radius, int tesselation)
 	return { vertices, indices };
 }
 
-std::tuple<std::vector<Vertex3D>, std::vector<DWORD>> Shapes::GetCubeShape(float size)
+std::tuple<std::vector<Vertex3D>, std::vector<DWORD>> Shapes::GetCubeShape(const float& size, const ColorRGB& color)
 {
 	std::vector<Vertex3D> cubeVertices
 	{
-		Vertex3D({ -size / 2, -size / 2, -size / 2}, GREEN),
-		Vertex3D({ -size / 2,  size / 2, -size / 2}, GREEN),
-		Vertex3D({size / 2,  size / 2, -size / 2}, GREEN),
-		Vertex3D({size / 2, -size / 2, -size / 2}, GREEN),
+		Vertex3D({ -size / 2, -size / 2, -size / 2}, color),
+		Vertex3D({ -size / 2,  size / 2, -size / 2}, color),
+		Vertex3D({size / 2,  size / 2, -size / 2}, color),
+		Vertex3D({size / 2, -size / 2, -size / 2}, color),
 
-		Vertex3D({size / 2, size / 2,  size / 2}, RED),
-		Vertex3D({-size / 2,  size / 2,  size / 2}, RED),
-		Vertex3D({ -size / 2,  -size / 2,  size / 2}, RED),
-		Vertex3D({ size / 2, -size / 2,  size / 2}, RED),
+		Vertex3D({size / 2, size / 2,  size / 2}, color),
+		Vertex3D({-size / 2,  size / 2,  size / 2}, color),
+		Vertex3D({ -size / 2,  -size / 2,  size / 2}, color),
+		Vertex3D({ size / 2, -size / 2,  size / 2}, color),
 
-		Vertex3D({-size / 2, -size / 2, -size / 2}, BLUE),
-		Vertex3D({-size / 2,  -size / 2, size / 2}, BLUE),
-		Vertex3D({-size / 2,  size / 2, size / 2}, BLUE),
-		Vertex3D({-size / 2, size / 2,  -size / 2}, BLUE),
+		Vertex3D({-size / 2, -size / 2, -size / 2}, color),
+		Vertex3D({-size / 2,  -size / 2, size / 2}, color),
+		Vertex3D({-size / 2,  size / 2, size / 2}, color),
+		Vertex3D({-size / 2, size / 2,  -size / 2}, color),
 
-		Vertex3D({ size / 2, size / 2,  -size / 2}, YELLOW),
-		Vertex3D({ size / 2,  -size / 2,  -size / 2}, YELLOW),
-		Vertex3D({ size / 2,  -size / 2, size / 2}, YELLOW),
-		Vertex3D({ size / 2, size / 2, size / 2}, YELLOW),
+		Vertex3D({ size / 2, size / 2,  -size / 2}, color),
+		Vertex3D({ size / 2,  -size / 2,  -size / 2}, color),
+		Vertex3D({ size / 2,  -size / 2, size / 2}, color),
+		Vertex3D({ size / 2, size / 2, size / 2}, color),
 
-		Vertex3D({-size / 2,  size / 2, -size / 2}, PURPLE),
-		Vertex3D({ size / 2,  size / 2, -size / 2}, PURPLE),
-		Vertex3D({ size / 2,  size / 2,  size / 2}, PURPLE),
-		Vertex3D({-size / 2,  size / 2,  size / 2}, PURPLE),
+		Vertex3D({-size / 2,  size / 2, -size / 2}, color),
+		Vertex3D({ size / 2,  size / 2, -size / 2}, color),
+		Vertex3D({ size / 2,  size / 2,  size / 2}, color),
+		Vertex3D({-size / 2,  size / 2,  size / 2}, color),
 
-		Vertex3D({-size / 2, -size / 2, -size / 2}, ORANGE),
-		Vertex3D({ size / 2, -size / 2, -size / 2}, ORANGE),
-		Vertex3D({ size / 2, -size / 2,  size / 2}, ORANGE),
-		Vertex3D({-size / 2, -size / 2,  size / 2}, ORANGE)
+		Vertex3D({-size / 2, -size / 2, -size / 2}, color),
+		Vertex3D({ size / 2, -size / 2, -size / 2}, color),
+		Vertex3D({ size / 2, -size / 2,  size / 2}, color),
+		Vertex3D({-size / 2, -size / 2,  size / 2}, color)
 	};
 
 	std::vector<DWORD> cubeIndices

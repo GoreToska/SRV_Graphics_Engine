@@ -182,7 +182,7 @@ bool Graphics::CreateRasterizerState()
 {
 	D3D11_RASTERIZER_DESC rasterizerDesc{};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
-	rasterizerDesc.CullMode = D3D11_CULL_NONE;
+	rasterizerDesc.CullMode = D3D11_CULL_BACK;
 
 	// This can help if you draw objects counter clockwise (if you can't see them)
 	// rasterizerDesc.FrontCounterClockwise = FALSE;
@@ -316,12 +316,6 @@ bool Graphics::InitializeShaders()
 	};
 
 	UINT numElements = ARRAYSIZE(layoutDesc);
-
-	const size_t size = 1024;
-	// Allocate a character array to store the directory path
-	char buffer[size];
-	_getcwd(buffer, size);
-	std::cout << "Current working directory: " << buffer << std::endl;
 
 	if (!vertexShader.Initialize(shaderFolder + L"VertexShader.cso", layoutDesc, numElements))
 		return false;

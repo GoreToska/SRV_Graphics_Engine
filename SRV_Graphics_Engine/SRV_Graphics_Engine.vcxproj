@@ -142,6 +142,7 @@
     <ClCompile Include="ComponentSystem\Components\RenderComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\TransformComponent.cpp" />
     <ClCompile Include="Engine\Timer\Timer.cpp" />
+    <ClCompile Include="ComponentSystem\Components\RotationComponent.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -183,10 +184,13 @@
     <ClInclude Include="ComponentSystem\Components\PongBallMovementComponent.h" />
     <ClInclude Include="ComponentSystem\Components\TransformComponent.h" />
     <ClInclude Include="Engine\Timer\Timer.h" />
+    <ClInclude Include="ComponentSystem\Components\RotationComponent.h" />
     <ClInclude Include="Shapes\Shapes.h" />
+    <ClInclude Include="Utils\Converter.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Input\Mouse\Mouse.h" />
     <ClInclude Include="Render\RenderWindow.h" />
+    <ClInclude Include="Utils\Quaternion.h" />
     <ClInclude Include="Utils\StringConverter.h" />
     <ClInclude Include="Render\WindowContainer.h" />
     <ClInclude Include="DataTypes\VectorInt2D.h" />
