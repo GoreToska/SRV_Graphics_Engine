@@ -1,5 +1,6 @@
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\CameraMovementComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\CameraMovementComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\CollisionComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\CollisionComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\IComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\IComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Delegates\Delegates.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Delegates.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Camera.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Camera.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Device\GraphicsDevice.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\GraphicsDevice.obj
@@ -14,6 +15,9 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\TransformComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Timer\Timer.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Timer.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\RotationComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\RotationComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Planets\OrbitalMovementComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\OrbitalMovementComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Planets\OrbitalCameraComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\OrbitalCameraComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Planets\PlanetCameraSwitchComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\PlanetCameraSwitchComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes\Shapes.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Shapes.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Utils\Logger.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Logger.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Main.obj

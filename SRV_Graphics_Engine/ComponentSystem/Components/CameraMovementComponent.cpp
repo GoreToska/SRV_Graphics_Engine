@@ -2,6 +2,9 @@
 
 #include "../../Input/Keyboard/Keyboard.h"
 #include "../../Input/Mouse/Mouse.h"
+#include <iostream>
+
+
 CameraMovementComponent::CameraMovementComponent(Camera* camera)
 {
 	this->camera = camera;
@@ -13,6 +16,9 @@ CameraMovementComponent::CameraMovementComponent(Camera* camera)
 
 void CameraMovementComponent::Update(const float& deltaTime)
 {
+	if (!IsEnabled())
+		return;
+
 	UpdatePosition(deltaTime);
 	UpdateRotation(deltaTime);
 }

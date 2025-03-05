@@ -1,20 +1,53 @@
 #include "Camera.h"
+#include "../Engine/Engine.h"
 
 using namespace DirectX;
 
 Camera::Camera()
 {
-	this->position = XMFLOAT3(0.0f, 0.0f, 0.0f);
-	this->positionVector = XMLoadFloat3(&this->position);
-	this->rotation = XMFLOAT3(0.0f, 0.0f, 0.0f);
-	this->rotationVector = XMLoadFloat3(&this->rotation);
-	this->UpdateViewMatrix();
+	position = XMFLOAT3(0.0f, -5.0f, 0.0f);
+	positionVector = XMLoadFloat3(&this->position);
+	rotation = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	rotationVector = XMLoadFloat3(&this->rotation);
+	fov = 90;
+	aspectRatio = SRVEngine.GetGraphics().GetClientWidth() / SRVEngine.GetGraphics().GetClientHeight();
+	orthoWidth = 80;
+	orthoHeight = 80;
+	nearZ = 0.1;
+	farZ = 1000;
+
+	UpdateViewMatrixLocal();
 }
 
-void Camera::SetProjectionValues(float fovDegrees, float aspectRatio, float nearZ, float farZ)
+void Camera::SetPerspectiveProjection()
 {
-	float fovRadians = (fovDegrees / 360.0f) * XM_2PI;
-	this->projectionMatrix = XMMatrixPerspectiveFovLH(fovRadians, aspectRatio, nearZ, farZ);
+	float fovRadians = (fov / 360.0f) * XM_2PI;
+	projectionMatrix = XMMatrixPerspectiveFovLH(fovRadians, aspectRatio, nearZ, farZ);
+}
+
+void Camera::SetOrthographicProjection()
+{
+	projectionMatrix = XMMatrixOrthographicLH(orthoWidth, orthoHeight, nearZ, farZ);
+}
+
+void Camera::SetPerspectiveProjection(float fovDegrees, float aspectRatio, float nearZ, float farZ)
+{
+	fov = fovDegrees;
+	this->aspectRatio = aspectRatio;
+	this->nearZ = nearZ;
+	this->farZ = farZ;
+
+	SetPerspectiveProjection();
+}
+
+void Camera::SetOrthographicProjection(float viewWidth, float viewHeight, float nearZ, float farZ)
+{
+	this->orthoWidth = viewWidth;
+	this->orthoHeight = viewHeight;
+	this->nearZ = nearZ;
+	this->farZ = farZ;
+
+	SetOrthographicProjection();
 }
 
 const XMMATRIX& Camera::GetViewMatrix() const
@@ -66,21 +99,21 @@ void Camera::SetPosition(const XMVECTOR& pos)
 {
 	XMStoreFloat3(&this->position, pos);
 	this->positionVector = pos;
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::SetPosition(float x, float y, float z)
 {
 	this->position = XMFLOAT3(x, y, z);
 	this->positionVector = XMLoadFloat3(&this->position);
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::AddPosition(const XMVECTOR& pos)
 {
 	this->positionVector += pos;
 	XMStoreFloat3(&this->position, this->positionVector);
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::AddPosition(float x, float y, float z)
@@ -89,7 +122,7 @@ void Camera::AddPosition(float x, float y, float z)
 	this->position.y += y;
 	this->position.z += z;
 	this->positionVector = XMLoadFloat3(&this->position);
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::AddPosition(const Vector3D& pos)
@@ -101,21 +134,21 @@ void Camera::SetRotation(const XMVECTOR& rot)
 {
 	this->rotationVector = rot;
 	XMStoreFloat3(&this->rotation, rot);
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::SetRotation(float x, float y, float z)
 {
 	this->rotation = XMFLOAT3(x, y, z);
 	this->rotationVector = XMLoadFloat3(&this->rotation);
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::AddRotation(const XMVECTOR& rot)
 {
 	this->rotationVector += rot;
 	XMStoreFloat3(&this->rotation, this->rotationVector);
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::AddRotation(float x, float y, float z)
@@ -124,7 +157,7 @@ void Camera::AddRotation(float x, float y, float z)
 	this->rotation.y += y;
 	this->rotation.z += z;
 	this->rotationVector = XMLoadFloat3(&this->rotation);
-	this->UpdateViewMatrix();
+	this->UpdateViewMatrixLocal();
 }
 
 void Camera::AddRotation(const Vector3D& rot)
@@ -172,7 +205,7 @@ void Camera::SetLookAtPosition(Vector3D lookAtPosition)
 }
 
 //Updates view matrix and also updates the movement vectors
-void Camera::UpdateViewMatrix()
+void Camera::UpdateViewMatrixLocal()
 {
 	//Calculate camera rotation matrix
 	XMMATRIX camRotationMatrix = XMMatrixRotationRollPitchYaw(this->rotation.x, this->rotation.y, this->rotation.z);

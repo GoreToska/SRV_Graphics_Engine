@@ -22,7 +22,7 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 
 	camera = new Camera();
 	camera->SetPosition(0.0f, 0.0f, -2.0f);
-	camera->SetProjectionValues(90, static_cast<float>(clientWidth) / static_cast<float>(clientHeight), 0.1f, 1000.0f);
+	camera->SetPerspectiveProjection(90, static_cast<float>(clientWidth) / static_cast<float>(clientHeight), 0.1f, 1000.0f);
 
 	return true;
 }
@@ -71,6 +71,16 @@ const DirectX::XMMATRIX Graphics::GetWorldMatrix() const
 Camera* Graphics::GetCamera() const
 {
 	return camera;
+}
+
+float Graphics::GetClientWidth() const
+{
+	return clientWidth;
+}
+
+float Graphics::GetClientHeight() const
+{
+	return clientHeight;
 }
 
 bool Graphics::InitializeDirectX(HWND hwnd)

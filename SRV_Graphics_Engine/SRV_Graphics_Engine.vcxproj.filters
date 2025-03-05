@@ -129,6 +129,18 @@
     <ClCompile Include="ComponentSystem\Components\RotationComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Games\Planets\OrbitalMovementComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Games\Planets\OrbitalCameraComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\IComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Games\Planets\PlanetCameraSwitchComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Logger.h">
@@ -243,6 +255,15 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ComponentSystem\Components\RotationComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Games\Planets\OrbitalMovementComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Games\Planets\OrbitalCameraComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Games\Planets\PlanetCameraSwitchComponent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

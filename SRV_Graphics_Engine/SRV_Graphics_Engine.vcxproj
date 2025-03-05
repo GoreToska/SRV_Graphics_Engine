@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="ComponentSystem\Components\CameraMovementComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
+    <ClCompile Include="ComponentSystem\Components\IComponent.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
     <ClCompile Include="Graphics\Camera.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
@@ -143,6 +144,9 @@
     <ClCompile Include="ComponentSystem\Components\TransformComponent.cpp" />
     <ClCompile Include="Engine\Timer\Timer.cpp" />
     <ClCompile Include="ComponentSystem\Components\RotationComponent.cpp" />
+    <ClCompile Include="Games\Planets\OrbitalMovementComponent.cpp" />
+    <ClCompile Include="Games\Planets\OrbitalCameraComponent.cpp" />
+    <ClCompile Include="Games\Planets\PlanetCameraSwitchComponent.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -185,6 +189,9 @@
     <ClInclude Include="ComponentSystem\Components\TransformComponent.h" />
     <ClInclude Include="Engine\Timer\Timer.h" />
     <ClInclude Include="ComponentSystem\Components\RotationComponent.h" />
+    <ClInclude Include="Games\Planets\OrbitalMovementComponent.h" />
+    <ClInclude Include="Games\Planets\OrbitalCameraComponent.h" />
+    <ClInclude Include="Games\Planets\PlanetCameraSwitchComponent.h" />
     <ClInclude Include="Shapes\Shapes.h" />
     <ClInclude Include="Utils\Converter.h" />
     <ClInclude Include="Utils\Logger.h" />

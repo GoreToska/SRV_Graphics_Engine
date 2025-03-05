@@ -2,13 +2,18 @@
 
 #include <DirectXMath.h>
 #include "../DataTypes/Vector3D.h"
+#include "Device/GraphicsDevice.h"
 
 class Camera
 {
 public:
 	Camera();
 
-	void SetProjectionValues(float fovDegrees, float aspectRatio, float nearZ, float farZ);
+	void SetPerspectiveProjection();
+	void SetOrthographicProjection();
+
+	void SetPerspectiveProjection(float fovDegrees, float aspectRatio, float nearZ, float farZ);
+	void SetOrthographicProjection(float viewWidth, float viewHeight, float nearZ, float farZ);
 
 	const DirectX::XMMATRIX& GetViewMatrix() const;
 	const DirectX::XMMATRIX& GetProjectionMatrix() const;
@@ -37,7 +42,7 @@ public:
 	void SetLookAtPosition(Vector3D lookAtPosition);
 
 private:
-	void UpdateViewMatrix();
+	void UpdateViewMatrixLocal();
 
 	DirectX::XMVECTOR positionVector;
 	DirectX::XMVECTOR rotationVector;
@@ -45,6 +50,16 @@ private:
 	DirectX::XMFLOAT3 rotation;
 	DirectX::XMMATRIX viewMatrix;
 	DirectX::XMMATRIX projectionMatrix;
+
+	// Perspective
+	float fov;
+	float aspectRatio;
+	// Orthographic
+	float orthoWidth;
+	float orthoHeight;
+	// Nears
+	float nearZ;
+	float farZ;
 
 	const DirectX::XMVECTOR DEFAULT_FORWARD_VECTOR = DirectX::XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f);
 	const DirectX::XMVECTOR DEFAULT_UP_VECTOR = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);

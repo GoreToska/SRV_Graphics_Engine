@@ -28,6 +28,8 @@ public:
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;
 	Camera* GetCamera() const;
+	float GetClientWidth() const;
+	float GetClientHeight() const;
 
 private:
 	bool InitializeDirectX(HWND hwnd);
@@ -59,6 +61,7 @@ private:
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilState> depthStencilState;
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerState;
+
 	// TODO: textures
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> samplerState;
 };
