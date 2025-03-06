@@ -59,7 +59,7 @@ int main()
 	SRVEngine.AddGameObject(Venus);
 
 	GameObject* Earth = new GameObject(Vector3D(15.0f, 0.0f, 0.0f));
-	Earth->AddComponent(new RotationComponent(Earth->GetTransform(), Vector3D(0, 1, 0), 0.05));
+	Earth->AddComponent(new RotationComponent(Earth->GetTransform(), Vector3D(0, 1, 0), 5));
 	Earth->GetTransform()->SetScale(Vector3D(0.25, 0.25, 0.25));
 	Earth->AddComponent(new RenderComponent(Earth->GetTransform(), std::get<0>(earthShape), std::get<1>(earthShape)));
 	Earth->AddComponent(new OrbitalMovementComponent(Earth, Sun, Vector3D(0, 1, 0), 0.0002f, 15.0f));
@@ -132,7 +132,14 @@ int main()
 	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
 	camera->AddComponent(new OrbitalCameraComponent(SRVEngine.GetGraphics().GetCamera(), Sun, 0.005));
 	camera->GetComponent<CameraMovementComponent>()->SetEnabled(false);
-	camera->AddComponent(new PlanetCameraSwitchComponent(SRVEngine.GetGraphics().GetCamera()));
+	camera->GetComponent<OrbitalCameraComponent>()->SetEnabled(true);
+	camera->AddComponent(new PlanetCameraSwitchComponent(SRVEngine.GetGraphics().GetCamera(), camera->GetComponent<OrbitalCameraComponent>()));
+	PlanetCameraSwitchComponent* cameraSwitch = camera->GetComponent<PlanetCameraSwitchComponent>();
+	cameraSwitch->AddPlanet(Sun);
+	cameraSwitch->AddPlanet(Earth);
+	cameraSwitch->AddPlanet(Pluto);
+	cameraSwitch->AddPlanet(Saturn);
+
 
 	SRVEngine.GetGraphics().GetCamera()->SetOrthographicProjection(80, 60, 0.1, 1000);
 	SRVEngine.AddGameObject(camera);

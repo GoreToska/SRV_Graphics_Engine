@@ -109,6 +109,11 @@ void Camera::SetPosition(float x, float y, float z)
 	this->UpdateViewMatrixLocal();
 }
 
+void Camera::SetPosition(const Vector3D& position)
+{
+	SetPosition(position.x, position.y, position.z);
+}
+
 void Camera::AddPosition(const XMVECTOR& pos)
 {
 	this->positionVector += pos;

@@ -19,6 +19,11 @@ void OrbitalCameraComponent::Update(const float& deltaTime)
 	UpdateRotation();
 }
 
+void OrbitalCameraComponent::SetLookAtObject(GameObject* lookAtObject)
+{
+	this->lookAtObject = lookAtObject;
+}
+
 void OrbitalCameraComponent::OnKeyDown(const unsigned char key)
 {
 	if (key == forwardKey)

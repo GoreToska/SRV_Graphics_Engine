@@ -30,6 +30,7 @@ public:
 
 	void SetPosition(const DirectX::XMVECTOR& pos);
 	void SetPosition(float x, float y, float z);
+	void SetPosition(const Vector3D& position);
 	void AddPosition(const DirectX::XMVECTOR& pos);
 	void AddPosition(float x, float y, float z);
 	void AddPosition(const Vector3D& pos);

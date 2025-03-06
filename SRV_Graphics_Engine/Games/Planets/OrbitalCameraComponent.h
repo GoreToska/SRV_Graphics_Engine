@@ -12,6 +12,7 @@ public:
 
 	void Update(const float& deltaTime) override;
 
+	void SetLookAtObject(GameObject* lookAtObject);
 private:
 	void OnKeyDown(const unsigned char key);
 	void OnKeyUp(const unsigned char key);
