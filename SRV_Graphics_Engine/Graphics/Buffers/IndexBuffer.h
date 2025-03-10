@@ -42,6 +42,11 @@ public:
 
 	HRESULT Initialize(DWORD* data, UINT numIndices)
 	{
+		if (buffer.Get() != nullptr)
+		{
+			buffer.Reset();
+		}
+
 		bufferSize = numIndices;
 
 		CD3D11_BUFFER_DESC indexBufferDesc{};

@@ -42,7 +42,8 @@ void Graphics::RenderFrame()
 	DeviceContext->RSSetState(rasterizerState.Get());
 	DeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
-	// set shaders
+	// set shaders and samplers
+	DeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
 	DeviceContext->VSSetShader(vertexShader.GetShader(), NULL, 0);
 	DeviceContext->PSSetShader(pixelShader.GetShader(), NULL, 0);
 
@@ -322,7 +323,7 @@ bool Graphics::InitializeShaders()
 	D3D11_INPUT_ELEMENT_DESC layoutDesc[] =
 	{
 		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
-		{"COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
 	};
 
 	UINT numElements = ARRAYSIZE(layoutDesc);

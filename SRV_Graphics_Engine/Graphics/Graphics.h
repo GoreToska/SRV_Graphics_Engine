@@ -4,6 +4,7 @@
 #include<d3d11.h>
 #include<wrl/client.h>
 #include<vector>
+#include <WICTextureLoader.h>
 
 #include "AdapterReader.h"
 #include "ShadersClass/Shaders.h"
@@ -61,8 +62,6 @@ private:
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilState> depthStencilState;
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerState;
-
-	// TODO: textures
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> samplerState;
 };
 

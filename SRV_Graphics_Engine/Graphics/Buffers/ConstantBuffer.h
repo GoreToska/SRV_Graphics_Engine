@@ -48,6 +48,11 @@ public:
 
 	HRESULT Initialize()
 	{
+		if (buffer.Get() != nullptr)
+		{
+			buffer.Reset();
+		}
+
 		D3D11_BUFFER_DESC constBufferDesc{};
 		constBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 		constBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;

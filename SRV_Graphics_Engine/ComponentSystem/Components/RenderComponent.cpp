@@ -12,7 +12,14 @@ RenderComponent::RenderComponent(TransformComponent* transform, std::vector<Vert
 	this->indexes = ind;
 	this->transform = transform;
 
-	HRESULT hr = vertexBuffer.Initialize(&vertices[0], vertices.size());
+	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, L"Data\\Textures\\TestTexture.png", nullptr, texture.GetAddressOf());
+
+	if (FAILED(hr))
+	{
+		Logger::LogError(hr, "Error creating texture.");
+	}
+
+	hr = vertexBuffer.Initialize(&vertices[0], vertices.size());
 
 	if (FAILED(hr))
 	{
@@ -44,6 +51,8 @@ void RenderComponent::Update(const float& deltaTime)
 
 void RenderComponent::Render()
 {
+	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
+
 	UINT stride = sizeof(Vertex3D);
 	UINT offset = 0;
 

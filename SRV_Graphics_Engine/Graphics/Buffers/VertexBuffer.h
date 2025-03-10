@@ -53,6 +53,11 @@ public:
 
 	HRESULT Initialize(T* data, UINT numVertices)
 	{
+		if (buffer.Get() != nullptr)
+		{
+			buffer.Reset();
+		}
+
 		bufferSize = numVertices;
 		stride = std::make_unique<UINT>(sizeof(T));
 

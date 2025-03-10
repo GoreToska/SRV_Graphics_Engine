@@ -34,5 +34,7 @@ private:
 	VertexBuffer<Vertex3D> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};
 	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
+
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> texture;
 };
 
