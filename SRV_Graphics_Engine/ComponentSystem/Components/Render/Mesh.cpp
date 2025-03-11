@@ -45,29 +45,6 @@ void Mesh::Render()
 	UINT stride = sizeof(Vertex3D);
 	UINT offset = 0;
 
-	/*DirectX::XMVECTOR orientation = gameObject->GetTransform()->GetOrientation();
-
-	constBuffer.GetData()->matrix = DirectX::XMMatrixScaling(
-		gameObject->GetTransform()->GetScale().x,
-		gameObject->GetTransform()->GetScale().y,
-		gameObject->GetTransform()->GetScale().z);
-
-	constBuffer.GetData()->matrix *= DirectX::XMMatrixRotationQuaternion(orientation);
-
-	constBuffer.GetData()->matrix *= DirectX::XMMatrixTranslation(
-		gameObject->GetTransform()->GetPosition().x,
-		gameObject->GetTransform()->GetPosition().y,
-		gameObject->GetTransform()->GetPosition().z);
-
-	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetWorldMatrix();
-	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetViewMatrix();
-	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix();
-
-	constBuffer.GetData()->matrix = DirectX::XMMatrixTranspose(constBuffer.GetData()->matrix);
-
-	if (constBuffer.ApplyChanges())
-		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());*/
-
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 
 	if (indexes.size() > 0)

@@ -46,11 +46,12 @@ int main()
 	};
 
 	GameObject* ball = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
-	std::string file = "Data\\Models\\RedBird\\nanosuit.obj";
+	std::string file = "Data\\Models\\RedBird\\Angry_Bird.obj";
 	std::string file2 = "Data/Models/RedBird/Angry_Bird.fbx";
 	std::string file3 = "D:/CPP Projects/SRV_Graphics_Engine/SRV_Graphics_Engine/Data/Models/RedBird/Angry_Bird.obj";
 
 	ball->AddComponent(new MeshRendererComponent(file, ball));
+	ball->GetTransform()->SetScale(Vector3D(0.1, 0.1, 0.1));
 	SRVEngine.AddGameObject(ball);
 
 	GameObject* camera = new GameObject();

@@ -2,13 +2,24 @@
 
 #include <WICTextureLoader.h>
 #include <iostream>
+#include "../../../Engine/Engine.h"
 
 
 MeshRendererComponent::MeshRendererComponent(const std::string& filePath, GameObject* gameObject)
 {
-	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, L"Data\\Models\\seamless_grass.jpg", nullptr, texture.GetAddressOf());
+	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, L"Data\\Models\\RedBird\\Angry_Bird.png", nullptr, texture.GetAddressOf());
+	if (FAILED(hr))
+	{
+		Logger::LogError(hr, "Failed to create texture.");
+	}
 
 	this->gameObject = gameObject;
+
+	hr = constBuffer.Initialize();
+	if (FAILED(hr))
+	{
+		Logger::LogError(hr, "Failed to create const buffer.");
+	}
 
 	try
 	{
@@ -19,9 +30,6 @@ MeshRendererComponent::MeshRendererComponent(const std::string& filePath, GameOb
 	{
 		Logger::LogError(ex.what());
 	}
-
-
-
 }
 
 void MeshRendererComponent::Update(const float& deltaTime)
@@ -32,6 +40,29 @@ void MeshRendererComponent::Update(const float& deltaTime)
 void MeshRendererComponent::Render()
 {
 	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
+
+	DirectX::XMVECTOR orientation = gameObject->GetTransform()->GetOrientation();
+
+	constBuffer.GetData()->matrix = DirectX::XMMatrixScaling(
+		gameObject->GetTransform()->GetScale().x,
+		gameObject->GetTransform()->GetScale().y,
+		gameObject->GetTransform()->GetScale().z);
+
+	constBuffer.GetData()->matrix *= DirectX::XMMatrixRotationQuaternion(orientation);
+
+	constBuffer.GetData()->matrix *= DirectX::XMMatrixTranslation(
+		gameObject->GetTransform()->GetPosition().x,
+		gameObject->GetTransform()->GetPosition().y,
+		gameObject->GetTransform()->GetPosition().z);
+
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetWorldMatrix();
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetViewMatrix();
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix();
+
+	constBuffer.GetData()->matrix = DirectX::XMMatrixTranspose(constBuffer.GetData()->matrix);
+
+	if (constBuffer.ApplyChanges())
+		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{
