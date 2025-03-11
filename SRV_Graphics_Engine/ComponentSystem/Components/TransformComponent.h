@@ -16,7 +16,9 @@ public:
 	void MovePosition(const Vector3D& vector);
 
 	//void SetRotation(const Vector3D& rotation, const float& angle);
-	void AddRotation(const Vector3D& rotation, const float& angle = 0);
+
+	void AddLocalRotation(const Vector3D& rotationAxis, const float& angle = 0);
+	void AddWorldRotation(const Vector3D& rotationAxis, const float& angle = 0);
 
 	void SetScale(const Vector3D& scale);
 

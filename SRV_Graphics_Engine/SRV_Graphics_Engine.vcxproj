@@ -127,9 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ComponentSystem\Components\CameraMovementComponent.cpp" />
+    <ClCompile Include="ComponentSystem\Components\Camera\CameraMovementComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\IComponent.cpp" />
+    <ClCompile Include="DataTypes\Vector3D.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
     <ClCompile Include="Graphics\Camera.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
@@ -145,7 +146,9 @@
     <ClCompile Include="Engine\Timer\Timer.cpp" />
     <ClCompile Include="ComponentSystem\Components\RotationComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Render\Mesh.cpp" />
+    <ClCompile Include="Games\Katamari\KatamariMovementComponent.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
+    <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Input\Mouse\Mouse.cpp" />
@@ -154,7 +157,7 @@
     <ClCompile Include="Render\WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ComponentSystem\Components\CameraMovementComponent.h" />
+    <ClInclude Include="ComponentSystem\Components\Camera\CameraMovementComponent.h" />
     <ClInclude Include="ComponentSystem\Components\CollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\IComponent.h" />
     <ClInclude Include="DataTypes\ConstantBufferTypes.h" />
@@ -188,7 +191,9 @@
     <ClInclude Include="Engine\Timer\Timer.h" />
     <ClInclude Include="ComponentSystem\Components\RotationComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Render\Mesh.h" />
+    <ClInclude Include="Games\Katamari\KatamariMovementComponent.h" />
     <ClInclude Include="Shapes\Shapes.h" />
+    <ClInclude Include="ComponentSystem\Components\Camera\TopDownCameraComponent.h" />
     <ClInclude Include="Utils\Converter.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Input\Mouse\Mouse.h" />

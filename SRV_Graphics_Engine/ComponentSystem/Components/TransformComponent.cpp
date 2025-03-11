@@ -2,7 +2,7 @@
 
 TransformComponent::TransformComponent()
 	:position(Vector3D(0, 0, 0)), rotation(Vector3D(0, 0, 0)), scale(Vector3D(1, 1, 1)),
-	 orientation(DirectX::XMQuaternionIdentity())
+	orientation(DirectX::XMQuaternionIdentity())
 
 {
 }
@@ -33,8 +33,11 @@ void TransformComponent::SetPosition(const Vector3D& position)
 //	orientation = DirectX::XMQuaternionMultiply(newRotation, orientation);
 //}
 
-void TransformComponent::AddRotation(const Vector3D& rotationAxis, const float& angle)
+void TransformComponent::AddLocalRotation(const Vector3D& rotationAxis, const float& angle)
 {
+	if (rotationAxis == Vector3D::ZeroVector())
+		return;
+
 	DirectX::XMVECTOR axis = DirectX::XMVectorSet(rotationAxis.x, rotationAxis.y, rotationAxis.z, 0.0f);
 	axis = DirectX::XMVector3Normalize(axis);
 
@@ -42,6 +45,21 @@ void TransformComponent::AddRotation(const Vector3D& rotationAxis, const float& 
 	DirectX::XMVECTOR newRotation = DirectX::XMQuaternionRotationAxis(axis, radians);
 
 	orientation = DirectX::XMQuaternionMultiply(newRotation, orientation);
+}
+
+void TransformComponent::AddWorldRotation(const Vector3D& rotationAxis, const float& angle)
+{
+	if (rotationAxis == Vector3D::ZeroVector())
+		return;
+
+	DirectX::XMVECTOR axis = DirectX::XMVectorSet(rotationAxis.x, rotationAxis.y, rotationAxis.z, 0.0f);
+	axis = DirectX::XMVector3Normalize(axis);
+
+	float radians = DirectX::XMConvertToRadians(angle);
+	DirectX::XMVECTOR newRotation = DirectX::XMQuaternionRotationAxis(axis, radians);
+
+	// Умножаем текущую ориентацию на новый кватернион
+	orientation = DirectX::XMQuaternionMultiply(orientation, newRotation);
 }
 
 void TransformComponent::SetScale(const Vector3D& scale)

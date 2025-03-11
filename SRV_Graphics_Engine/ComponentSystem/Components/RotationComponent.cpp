@@ -9,7 +9,7 @@ RotationComponent::RotationComponent(TransformComponent* ownerTransform, const V
 
 void RotationComponent::Update(const float& deltaTime)
 {
-	ownerTransform->AddRotation(axis, speed * deltaTime);
+	ownerTransform->AddLocalRotation(axis, speed * deltaTime);
 }
 
 
