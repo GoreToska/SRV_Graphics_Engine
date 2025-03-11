@@ -127,8 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataTypes\Collision\BoundingSphere.cpp" />
+    <ClCompile Include="DataTypes\Collision\BoundingBox.cpp" />
+    <ClCompile Include="ComponentSystem\Components\Collision\BoxCollisionComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Camera\CameraMovementComponent.cpp" />
-    <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp" />
+    <ClCompile Include="ComponentSystem\Components\Collision\CollisionComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\IComponent.cpp" />
     <ClCompile Include="DataTypes\Vector3D.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
@@ -149,6 +152,7 @@
     <ClCompile Include="Games\Katamari\KatamariMovementComponent.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp" />
+    <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp" />
     <ClCompile Include="Utils\Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Input\Mouse\Mouse.cpp" />
@@ -157,9 +161,13 @@
     <ClCompile Include="Render\WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataTypes\Collision\BoundingSphere.h" />
+    <ClInclude Include="DataTypes\Collision\BoundingBox.h" />
+    <ClInclude Include="ComponentSystem\Components\Collision\BoxCollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Camera\CameraMovementComponent.h" />
-    <ClInclude Include="ComponentSystem\Components\CollisionComponent.h" />
+    <ClInclude Include="ComponentSystem\Components\Collision\CollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\IComponent.h" />
+    <ClInclude Include="DataTypes\Collision\BoundingVolume.h" />
     <ClInclude Include="DataTypes\ConstantBufferTypes.h" />
     <ClInclude Include="DataTypes\Vector3D.h" />
     <ClInclude Include="Delegates\Action.h" />
@@ -194,6 +202,7 @@
     <ClInclude Include="Games\Katamari\KatamariMovementComponent.h" />
     <ClInclude Include="Shapes\Shapes.h" />
     <ClInclude Include="ComponentSystem\Components\Camera\TopDownCameraComponent.h" />
+    <ClInclude Include="ComponentSystem\Components\Collision\SphereCollisionComponent.h" />
     <ClInclude Include="Utils\Converter.h" />
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Input\Mouse\Mouse.h" />

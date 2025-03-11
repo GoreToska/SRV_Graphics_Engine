@@ -111,7 +111,7 @@
     <ClCompile Include="ComponentSystem\Components\TransformComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ComponentSystem\Components\CollisionComponent.cpp">
+    <ClCompile Include="ComponentSystem\Components\Collision\CollisionComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Camera.cpp">
@@ -142,6 +142,18 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="DataTypes\Vector3D.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Collision\BoxCollisionComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\Collision\BoundingBox.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\Collision\BoundingSphere.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -227,7 +239,7 @@
     <ClInclude Include="ComponentSystem\Components\TransformComponent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentSystem\Components\CollisionComponent.h">
+    <ClInclude Include="ComponentSystem\Components\Collision\CollisionComponent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ComponentSystem\Components\IComponent.h">
@@ -267,6 +279,21 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ComponentSystem\Components\Camera\TopDownCameraComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Collision\SphereCollisionComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Collision\BoxCollisionComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\Collision\BoundingVolume.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\Collision\BoundingBox.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\Collision\BoundingSphere.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

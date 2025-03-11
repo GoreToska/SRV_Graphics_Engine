@@ -11,7 +11,7 @@
 #include "./Input/Keyboard/Keyboard.h"
 #include"./Shapes/Shapes.h"
 #include "ComponentSystem/GameObject.h"
-#include "ComponentSystem/Components/CollisionComponent.h"  
+#include "ComponentSystem/Components/Collision/CollisionComponent.h"  
 #include "Games/Katamari/KatamariMovementComponent.h"
 #include "ComponentSystem/Components/Camera/TopDownCameraComponent.h"
 
