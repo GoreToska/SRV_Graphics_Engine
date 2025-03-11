@@ -1,17 +1,17 @@
 #pragma once
 
 #pragma region Includes
+#include "AdapterReader.h"
+#include "ShadersClass/Shaders.h"
+#include "../DataTypes/Vertex.h"
+#include "../ComponentSystem/GameObject.h"
+#include "Camera.h"
+#include "../ComponentSystem/Components/Render/MeshRendererComponent.h"
+
 #include<d3d11.h>
 #include<wrl/client.h>
 #include<vector>
 #include <WICTextureLoader.h>
-
-#include "AdapterReader.h"
-#include "ShadersClass/Shaders.h"
-#include "../DataTypes/Vertex.h"
-#include "../ComponentSystem/Components/RenderComponent.h"
-#include "../ComponentSystem/GameObject.h"
-#include "Camera.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -25,7 +25,7 @@ class Graphics
 public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
-	void AddObjectToRenderPool(RenderComponent* object);
+	void AddObjectToRenderPool(MeshRendererComponent* object);
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;
 	Camera* GetCamera() const;
@@ -50,7 +50,7 @@ private:
 	Camera* camera;
 	DirectX::XMMATRIX worldMatrix;
 
-	std::vector<RenderComponent*> objectRenderPool = {};
+	std::vector<MeshRendererComponent*> objectRenderPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;

@@ -1,9 +1,8 @@
-#include "Graphics.h"
-#include "../ComponentSystem/Components/RenderComponent.h"
-#include "./Device/GraphicsDevice.h"
 #include <direct.h>   
 #include <iostream>
 
+#include "Graphics.h"
+#include "./Device/GraphicsDevice.h"
 
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
@@ -51,7 +50,7 @@ void Graphics::RenderFrame()
 	worldMatrix = DirectX::XMMatrixIdentity();
 	//camera->SetLookAtPosition(Vector3D(0, 0, 0));
 
-	for (RenderComponent* item : objectRenderPool)
+	for (MeshRendererComponent* item : objectRenderPool)
 	{
 		item->Render();
 	}
@@ -59,7 +58,7 @@ void Graphics::RenderFrame()
 	swapchain->Present(1, NULL);
 }
 
-void Graphics::AddObjectToRenderPool(RenderComponent* object)
+void Graphics::AddObjectToRenderPool(MeshRendererComponent* object)
 {
 	objectRenderPool.push_back(object);
 }
@@ -193,7 +192,7 @@ bool Graphics::CreateRasterizerState()
 {
 	D3D11_RASTERIZER_DESC rasterizerDesc{};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
-	rasterizerDesc.CullMode = D3D11_CULL_BACK;
+	rasterizerDesc.CullMode = D3D11_CULL_NONE;
 
 	// This can help if you draw objects counter clockwise (if you can't see them)
 	// rasterizerDesc.FrontCounterClockwise = FALSE;

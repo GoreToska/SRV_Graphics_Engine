@@ -1,7 +1,9 @@
 ﻿#pragma region Includes
+
 #include <Windows.h>
 #include <iostream>
 #include <tuple>
+#include <filesystem>
 
 #include "./Utils/Logger.h"
 #include "./Engine/Engine.h"
@@ -10,19 +12,12 @@
 #include"./Shapes/Shapes.h"
 #include "ComponentSystem/GameObject.h"
 #include "ComponentSystem/Components/CollisionComponent.h"  
-#include "ComponentSystem/Components/RotationComponent.h"  
 #include "ComponentSystem/Components/CameraMovementComponent.h"  
-#include "Games/Planets/OrbitalMovementComponent.h"
-#include "Games/Planets/OrbitalCameraComponent.h"
-#include "DataTypes/ColorRGB.h"
-#include "Games/Planets/PlanetCameraSwitchComponent.h"
 
 #pragma endregion
 
 int main()
 {
-	CoInitialize(NULL);
-
 	std::string applicationName = "Pong";
 	std::string windowClass = "WindowClass";
 	HINSTANCE hInstance = GetModuleHandle(nullptr);
@@ -51,7 +46,11 @@ int main()
 	};
 
 	GameObject* ball = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
-	ball->AddComponent(new RenderComponent(ball->GetTransform(), ballVertices));
+	std::string file = "Data\\Models\\RedBird\\nanosuit.obj";
+	std::string file2 = "Data/Models/RedBird/Angry_Bird.fbx";
+	std::string file3 = "D:/CPP Projects/SRV_Graphics_Engine/SRV_Graphics_Engine/Data/Models/RedBird/Angry_Bird.obj";
+
+	ball->AddComponent(new MeshRendererComponent(file, ball));
 	SRVEngine.AddGameObject(ball);
 
 	GameObject* camera = new GameObject();

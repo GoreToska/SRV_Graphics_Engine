@@ -40,9 +40,5 @@ void PlanetCameraSwitchComponent::OnKeyPressed(const unsigned char key)
 			currentPlanet = 0;
 
 		orbitalComponent->SetLookAtObject(planets[currentPlanet]);
-		
-
-
-		
 	}
 }

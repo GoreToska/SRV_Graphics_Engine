@@ -1,12 +1,13 @@
 #pragma once
 
-#ifndef SRVEngine
 #define SRVEngine Engine::GetInstance()
-#endif // !SRVEngine
+
+#include <vector>
 
 #include "../Render/WindowContainer.h"
 #include "../ComponentSystem/GameObject.h"
 #include "Timer/Timer.h"
+#include "../Graphics/Graphics.h"
 
 
 class Engine : WindowContainer

@@ -1,7 +1,9 @@
 #pragma once
 
 #include "RenderWindow.h"
-#include "../Graphics/Graphics.h"
+//#include "../Graphics/Graphics.h"
+
+class Graphics;
 
 class WindowContainer
 {

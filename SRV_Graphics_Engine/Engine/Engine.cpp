@@ -33,7 +33,7 @@ void Engine::AddGameObject(GameObject* gameObject)
 {
 	gameObjects.push_back(gameObject);
 
-	RenderComponent* renderComponent = gameObject->GetComponent<RenderComponent>();
+	MeshRendererComponent* renderComponent = gameObject->GetComponent<MeshRendererComponent>();
 	if (renderComponent != nullptr)
 	{
 		graphics.AddObjectToRenderPool(renderComponent);

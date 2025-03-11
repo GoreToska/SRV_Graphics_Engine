@@ -1,16 +1,15 @@
 #pragma once
 
 #pragma region Includes
+
 #include <map>
 #include <typeindex>
 
-#include "./Components/RenderComponent.h"
+//#include "./Components/Render/MeshRendererComponent.h"
 #include "./Components/TransformComponent.h"
 #include "Components/IComponent.h"
 
 
-class RenderComponent;
-class TransformComponent;
 #pragma endregion
 
 

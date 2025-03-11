@@ -16,7 +16,7 @@ Camera::Camera()
 	nearZ = 0.1;
 	farZ = 1000;
 
-	UpdateViewMatrixLocal();
+	UpdateViewMatrix();
 }
 
 void Camera::SetPerspectiveProjection()
@@ -99,14 +99,14 @@ void Camera::SetPosition(const XMVECTOR& pos)
 {
 	XMStoreFloat3(&this->position, pos);
 	this->positionVector = pos;
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::SetPosition(float x, float y, float z)
 {
 	this->position = XMFLOAT3(x, y, z);
 	this->positionVector = XMLoadFloat3(&this->position);
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::SetPosition(const Vector3D& position)
@@ -118,7 +118,7 @@ void Camera::AddPosition(const XMVECTOR& pos)
 {
 	this->positionVector += pos;
 	XMStoreFloat3(&this->position, this->positionVector);
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::AddPosition(float x, float y, float z)
@@ -127,7 +127,7 @@ void Camera::AddPosition(float x, float y, float z)
 	this->position.y += y;
 	this->position.z += z;
 	this->positionVector = XMLoadFloat3(&this->position);
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::AddPosition(const Vector3D& pos)
@@ -139,21 +139,21 @@ void Camera::SetRotation(const XMVECTOR& rot)
 {
 	this->rotationVector = rot;
 	XMStoreFloat3(&this->rotation, rot);
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::SetRotation(float x, float y, float z)
 {
 	this->rotation = XMFLOAT3(x, y, z);
 	this->rotationVector = XMLoadFloat3(&this->rotation);
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::AddRotation(const XMVECTOR& rot)
 {
 	this->rotationVector += rot;
 	XMStoreFloat3(&this->rotation, this->rotationVector);
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::AddRotation(float x, float y, float z)
@@ -162,7 +162,7 @@ void Camera::AddRotation(float x, float y, float z)
 	this->rotation.y += y;
 	this->rotation.z += z;
 	this->rotationVector = XMLoadFloat3(&this->rotation);
-	this->UpdateViewMatrixLocal();
+	this->UpdateViewMatrix();
 }
 
 void Camera::AddRotation(const Vector3D& rot)
@@ -210,7 +210,7 @@ void Camera::SetLookAtPosition(Vector3D lookAtPosition)
 }
 
 //Updates view matrix and also updates the movement vectors
-void Camera::UpdateViewMatrixLocal()
+void Camera::UpdateViewMatrix()
 {
 	//Calculate camera rotation matrix
 	XMMATRIX camRotationMatrix = XMMatrixRotationRollPitchYaw(this->rotation.x, this->rotation.y, this->rotation.z);

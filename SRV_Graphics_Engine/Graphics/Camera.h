@@ -43,7 +43,7 @@ public:
 	void SetLookAtPosition(Vector3D lookAtPosition);
 
 private:
-	void UpdateViewMatrixLocal();
+	void UpdateViewMatrix();
 
 	DirectX::XMVECTOR positionVector;
 	DirectX::XMVECTOR rotationVector;

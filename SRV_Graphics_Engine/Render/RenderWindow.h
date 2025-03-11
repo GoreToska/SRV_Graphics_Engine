@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Utils/Logger.h"
+#include "../Graphics/Graphics.h"
 
 class WindowContainer;
 
