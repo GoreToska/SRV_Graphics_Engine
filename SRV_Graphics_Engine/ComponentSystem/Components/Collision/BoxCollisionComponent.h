@@ -10,6 +10,7 @@ public:
 	BoxCollisionComponent(GameObject* gameObject, Vector3D firstPoint, Vector3D secondPoint);
 
 	virtual void Update(const float& deltaTime) override;
+	virtual BoundingVolume& GetBoundingVolume() override;
 
 private:
 	TransformComponent* transform;

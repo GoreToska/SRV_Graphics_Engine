@@ -3,11 +3,11 @@
 #include <WICTextureLoader.h>
 #include <iostream>
 #include "../../../Engine/Engine.h"
+#include "../../../DataTypes/ModelData.h"
 
-
-MeshRendererComponent::MeshRendererComponent(const std::string& filePath, GameObject* gameObject)
+MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObject* gameObject)
 {
-	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, L"Data\\Models\\RedBird\\Angry_Bird.png", nullptr, texture.GetAddressOf());
+	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf());
 	if (FAILED(hr))
 	{
 		Logger::LogError(hr, "Failed to create texture.");
@@ -23,7 +23,7 @@ MeshRendererComponent::MeshRendererComponent(const std::string& filePath, GameOb
 
 	try
 	{
-		if (!LoadModel(filePath))
+		if (!LoadModel(modelData.modelPath))
 			return;
 	}
 	catch (const std::exception& ex)

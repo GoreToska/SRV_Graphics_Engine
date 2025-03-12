@@ -150,6 +150,7 @@
     <ClCompile Include="ComponentSystem\Components\RotationComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Render\Mesh.cpp" />
     <ClCompile Include="Games\Katamari\KatamariMovementComponent.cpp" />
+    <ClCompile Include="Games\Katamari\KatamariCollisionComponent.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="ComponentSystem\Components\IComponent.h" />
     <ClInclude Include="DataTypes\Collision\BoundingVolume.h" />
     <ClInclude Include="DataTypes\ConstantBufferTypes.h" />
+    <ClInclude Include="DataTypes\ModelData.h" />
     <ClInclude Include="DataTypes\Vector3D.h" />
     <ClInclude Include="Delegates\Action.h" />
     <ClInclude Include="Delegates\catch.hpp" />
@@ -200,6 +202,7 @@
     <ClInclude Include="ComponentSystem\Components\RotationComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Render\Mesh.h" />
     <ClInclude Include="Games\Katamari\KatamariMovementComponent.h" />
+    <ClInclude Include="Games\Katamari\KatamariCollisionComponent.h" />
     <ClInclude Include="Shapes\Shapes.h" />
     <ClInclude Include="ComponentSystem\Components\Camera\TopDownCameraComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Collision\SphereCollisionComponent.h" />

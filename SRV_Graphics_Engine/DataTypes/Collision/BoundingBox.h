@@ -9,6 +9,8 @@ public:
 
 	bool Intersects(const BoundingVolume& other) const override;
 	void SetCenter(const Vector3D& position) override;
+	void SetRadius(const float& radius) override;
+	float GetRadius() override;
 
 	bool IsBox() const override { return true; }
 	bool IsSphere() const override { return false; }

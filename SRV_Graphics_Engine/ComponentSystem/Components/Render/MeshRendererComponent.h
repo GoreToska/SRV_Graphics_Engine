@@ -16,11 +16,12 @@
 #pragma comment(lib, "d3d11.lib")  
 #pragma endregion
 
+struct ModelData;
 
 class MeshRendererComponent : public IComponent
 {
 public:
-	MeshRendererComponent(const std::string& filePath, GameObject* gameObject);
+	MeshRendererComponent(const ModelData& modelData, GameObject* gameObject);
 
 	void Update(const float& deltaTime) override;
 	void Render();

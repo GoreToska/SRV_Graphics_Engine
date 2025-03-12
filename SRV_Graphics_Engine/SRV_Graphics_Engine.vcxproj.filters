@@ -156,6 +156,9 @@
     <ClCompile Include="DataTypes\Collision\BoundingSphere.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Games\Katamari\KatamariCollisionComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Logger.h">
@@ -294,6 +297,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes\Collision\BoundingSphere.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Games\Katamari\KatamariCollisionComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\ModelData.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

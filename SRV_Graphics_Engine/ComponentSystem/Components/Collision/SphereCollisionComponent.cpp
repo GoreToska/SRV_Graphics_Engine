@@ -6,7 +6,6 @@ SphereCollisionComponent::SphereCollisionComponent(GameObject* gameObject, Vecto
 {
 	DirectX::BoundingSphere sphereCollider{ {center.x, center.y, center.z}, radius };
 
-
 	boundingVolume = std::make_unique<BoundingSphere>(sphereCollider);
 }
 
@@ -18,4 +17,9 @@ void SphereCollisionComponent::Update(const float& deltaTime)
 	boundingVolume.get()->SetCenter(transform->GetPosition());
 
 	CollisionComponent::Update(deltaTime);
+}
+
+BoundingVolume& SphereCollisionComponent::GetBoundingVolume()
+{
+	return *boundingVolume.get();
 }

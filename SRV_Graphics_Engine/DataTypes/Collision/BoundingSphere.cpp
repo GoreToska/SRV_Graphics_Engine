@@ -27,6 +27,16 @@ void BoundingSphere::SetCenter(const Vector3D& position)
 	boundingSphere.Center = { position.x, position.y, position.z };
 }
 
+void BoundingSphere::SetRadius(const float& radius)
+{
+	boundingSphere.Radius = radius;
+}
+
+float BoundingSphere::GetRadius()
+{
+	return boundingSphere.Radius;
+}
+
 const DirectX::BoundingBox& BoundingSphere::GetBoundingBox() const
 {
 	static DirectX::BoundingBox emptyBox;

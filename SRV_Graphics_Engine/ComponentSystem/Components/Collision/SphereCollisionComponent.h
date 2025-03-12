@@ -10,6 +10,7 @@ public:
 	SphereCollisionComponent(GameObject* gameObject, Vector3D center, float radius);
 
 	virtual void Update(const float& deltaTime) override;
+	virtual  BoundingVolume& GetBoundingVolume() override;
 
 private:
 	TransformComponent* transform;

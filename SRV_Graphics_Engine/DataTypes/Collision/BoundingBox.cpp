@@ -26,6 +26,16 @@ void BoundingBox::SetCenter(const Vector3D& position)
 	boundingBox.Center = { position.x, position.y, position.z };
 }
 
+void BoundingBox::SetRadius(const float& radius)
+{
+	boundingBox.Extents = { radius ,radius ,radius };
+}
+
+float BoundingBox::GetRadius()
+{
+	return boundingBox.Extents.x;
+}
+
 const DirectX::BoundingBox& BoundingBox::GetBoundingBox() const
 {
 	return boundingBox;

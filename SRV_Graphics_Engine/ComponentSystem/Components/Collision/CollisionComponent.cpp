@@ -8,7 +8,7 @@
 #pragma endregion
 
 
-CollisionComponent::CollisionComponent(GameObject* gameObject) : gameObject(gameObject)
+CollisionComponent::CollisionComponent(GameObject* gameObject) : gameObject(gameObject), transform(gameObject->GetTransform())
 {
 }
 
@@ -29,11 +29,25 @@ void CollisionComponent::Update(const float& deltaTime)
 		if (colliderComponent == this)
 			continue;
 
+		if (gameObject->GetRoot() == this->gameObject->GetRoot())
+			continue;
+
 		if (Intersects(*colliderComponent))
 		{
+			std::cout << "Intersects\n";
 			OnCollisionEnter.Broadcast(colliderComponent);
 		}
 	}
+}
+
+void CollisionComponent::SetRadius(const float& radius)
+{
+	GetBoundingVolume().SetRadius(radius);
+}
+
+float CollisionComponent::GetRadius()
+{
+	return GetBoundingVolume().GetRadius();
 }
 
 GameObject* CollisionComponent::GetGameObject() const
@@ -41,7 +55,7 @@ GameObject* CollisionComponent::GetGameObject() const
 	return gameObject;
 }
 
-bool CollisionComponent::Intersects(const CollisionComponent& other) const
+bool CollisionComponent::Intersects(CollisionComponent& other)
 {
 	return GetBoundingVolume().Intersects(other.GetBoundingVolume());
 }

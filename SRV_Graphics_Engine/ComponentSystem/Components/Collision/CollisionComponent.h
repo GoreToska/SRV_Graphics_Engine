@@ -21,11 +21,13 @@ public:
 	CollisionComponent(GameObject* gameObject);
 
 	virtual void Update(const float& deltaTime) override;
-	virtual const BoundingVolume& GetBoundingVolume() const = 0;
+	virtual BoundingVolume& GetBoundingVolume() = 0;
+	void SetRadius(const float& radius);
+	float GetRadius();
 
 	GameObject* GetGameObject() const;
 
-	bool Intersects(const CollisionComponent& other) const;
+	bool Intersects(CollisionComponent& other) ;
 
 	MulticastDelegate<CollisionComponent*> OnCollisionEnter;
 

@@ -17,7 +17,7 @@ struct Vertex2D
 	DirectX::XMFLOAT3 color;
 };
 
-struct Vertex3D
+struct Vertex
 {
 	/*Vertex3D() {};
 	Vertex3D(Vector3D position, ColorRGB color) :
@@ -27,8 +27,8 @@ struct Vertex3D
 	DirectX::XMFLOAT3 position;
 	DirectX::XMFLOAT3 color;*/
 
-	Vertex3D() {};
-	Vertex3D(Vector3D position, float u, float v) :
+	Vertex() {};
+	Vertex(Vector3D position, float u, float v) :
 		position(position.x, position.y, position.z),
 		textCoord(u, v) {};
 

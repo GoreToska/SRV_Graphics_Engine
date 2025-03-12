@@ -22,3 +22,8 @@ void BoxCollisionComponent::Update(const float& deltaTime)
 
 	CollisionComponent::Update(deltaTime);
 }
+
+BoundingVolume& BoxCollisionComponent::GetBoundingVolume()
+{
+	return *boundingVolume.get();
+}
