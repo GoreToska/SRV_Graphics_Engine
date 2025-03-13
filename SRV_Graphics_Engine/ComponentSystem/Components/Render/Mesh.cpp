@@ -2,7 +2,7 @@
 #include "../../../Engine/Engine.h"
 
 
-Mesh::Mesh(GameObject* gameObject, std::vector<Vertex3D> vertexes, std::vector<DWORD> indexes) :
+Mesh::Mesh(GameObject* gameObject, std::vector<Vertex> vertexes, std::vector<DWORD> indexes) :
 	gameObject(gameObject), vertexes(vertexes), indexes(indexes)
 {
 	HRESULT hr = vertexBuffer.Initialize(&this->vertexes[0], this->vertexes.size());
@@ -42,7 +42,7 @@ Mesh::Mesh(const Mesh& mesh)
 
 void Mesh::Render()
 {
-	UINT stride = sizeof(Vertex3D);
+	UINT stride = sizeof(Vertex);
 	UINT offset = 0;
 
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);

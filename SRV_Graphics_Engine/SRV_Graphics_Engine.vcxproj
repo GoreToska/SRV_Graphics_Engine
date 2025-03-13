@@ -140,6 +140,7 @@
     <ClCompile Include="Graphics\AdapterReader.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Graphics\Graphics.cpp" />
+    <ClCompile Include="Graphics\Grid\Grid.cpp" />
     <ClCompile Include="Input\Keyboard\Keyboard.cpp" />
     <ClCompile Include="Input\Keyboard\KeyboardInputEvent.cpp" />
     <ClCompile Include="Input\Mouse\MouseInputEvent.cpp" />
@@ -151,6 +152,13 @@
     <ClCompile Include="ComponentSystem\Components\Render\Mesh.cpp" />
     <ClCompile Include="Games\Katamari\KatamariMovementComponent.cpp" />
     <ClCompile Include="Games\Katamari\KatamariCollisionComponent.cpp" />
+    <FxCompile Include="Shaders\ColorVertexShader.hlsl">
+      <FileType>Document</FileType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp" />
@@ -160,6 +168,10 @@
     <ClCompile Include="Render\RenderWindow.cpp" />
     <ClCompile Include="Utils\StringConverter.cpp" />
     <ClCompile Include="Render\WindowContainer.cpp" />
+    <FxCompile Include="Shaders\ColorPixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataTypes\Collision\BoundingSphere.h" />
@@ -185,14 +197,17 @@
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Graphics\Graphics.h" />
     <ClInclude Include="ComponentSystem\Components\PongInputComponent.h" />
+    <ClInclude Include="Graphics\Grid\Grid.h" />
     <ClInclude Include="Input\Keyboard\Keyboard.h" />
     <ClInclude Include="Input\Keyboard\KeyboardInputEvent.h" />
     <ClInclude Include="Input\Mouse\MouseInputEvent.h" />
     <ClInclude Include="Graphics\ShadersClass\Shaders.h" />
-    <FxCompile Include="Shaders\PixelShader.hlsl">
+    <FxCompile Include="Shaders\TexturePixelShader.hlsl">
       <FileType>Document</FileType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
     <ClInclude Include="DataTypes\ColorRGB.h" />
     <ClInclude Include="ComponentSystem\Components\Render\MeshRendererComponent.h" />
@@ -215,10 +230,12 @@
     <ClInclude Include="Render\WindowContainer.h" />
     <ClInclude Include="DataTypes\VectorInt2D.h" />
     <ClInclude Include="DataTypes\Vertex.h" />
-    <FxCompile Include="Shaders\VertexShader.hlsl">
+    <FxCompile Include="Shaders\TextureVertexShader1.hlsl">
       <FileType>Document</FileType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>

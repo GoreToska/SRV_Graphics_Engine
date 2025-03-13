@@ -12,6 +12,7 @@
 #include<wrl/client.h>
 #include<vector>
 #include <WICTextureLoader.h>
+#include "Grid/Grid.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -44,19 +45,26 @@ private:
 	bool InitializeShaders();
 	bool InitializeScene();
 
+	void DrawGrid();
+
 	int clientWidth;
 	int clientHeight;
 
 	Camera* camera;
 	DirectX::XMMATRIX worldMatrix;
 
+	Grid* grid;
+
 	std::vector<MeshRendererComponent*> objectRenderPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;
 
-	VertexShader vertexShader;
-	PixelShader pixelShader;
+	VertexShader textureVertexShader;
+	VertexShader colorVertexShader;
+
+	PixelShader texturePixelShader;
+	PixelShader colorPixelShader;
 
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;

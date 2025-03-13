@@ -103,12 +103,12 @@ void MeshRendererComponent::ProcessNode(aiNode* node, const aiScene* scene)
 
 Mesh MeshRendererComponent::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 {
-	std::vector<Vertex3D> vertexes = {};
+	std::vector<Vertex> vertexes = {};
 	std::vector<DWORD> indexes = {};
 
 	for (UINT i = 0; i < mesh->mNumVertices; ++i)
 	{
-		Vertex3D vertex = {};
+		Vertex vertex = {};
 		vertex.position.x = mesh->mVertices[i].x;
 		vertex.position.y = mesh->mVertices[i].y;
 		vertex.position.z = mesh->mVertices[i].z;

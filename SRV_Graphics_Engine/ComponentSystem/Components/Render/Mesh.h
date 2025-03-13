@@ -16,17 +16,17 @@
 class Mesh
 {
 public:
-	Mesh(GameObject* gameObject, std::vector<Vertex3D> vertexes, std::vector<DWORD> indexes = {});
+	Mesh(GameObject* gameObject, std::vector<Vertex> vertexes, std::vector<DWORD> indexes = {});
 	Mesh(const Mesh& mesh);
 
 	void Render();
 
 private:
-	std::vector<Vertex3D> vertexes = {};
+	std::vector<Vertex> vertexes = {};
 	std::vector<DWORD> indexes = {};
 	GameObject* gameObject;
 
-	VertexBuffer<Vertex3D> vertexBuffer = {};
+	VertexBuffer<Vertex> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};
 	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
 };

@@ -159,6 +159,9 @@
     <ClCompile Include="Games\Katamari\KatamariCollisionComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\Grid\Grid.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Logger.h">
@@ -305,12 +308,19 @@
     <ClInclude Include="DataTypes\ModelData.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\Grid\Grid.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Shaders\VertexShader.hlsl" />
-    <FxCompile Include="Shaders\PixelShader.hlsl">
+    <FxCompile Include="Shaders\TextureVertexShader1.hlsl" />
+    <FxCompile Include="Shaders\TexturePixelShader.hlsl">
       <Filter>Файлы заголовков</Filter>
     </FxCompile>
+    <FxCompile Include="Shaders\ColorVertexShader.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\ColorPixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

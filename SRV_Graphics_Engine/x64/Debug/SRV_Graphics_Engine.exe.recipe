@@ -7,10 +7,16 @@
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\PixelShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorVertexShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\VertexShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorPixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\TexturePixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\TextureVertexShader1.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

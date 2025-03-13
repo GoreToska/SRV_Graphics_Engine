@@ -23,6 +23,8 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 	camera->SetPosition(0.0f, 0.0f, -2.0f);
 	camera->SetPerspectiveProjection(90, static_cast<float>(clientWidth) / static_cast<float>(clientHeight), 0.1f, 1000.0f);
 
+	grid = new Grid();
+
 	return true;
 }
 
@@ -35,16 +37,18 @@ void Graphics::RenderFrame()
 	DeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
 	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
+	//grid->Draw(colorVertexShader, colorPixelShader);
+
 	// set input layout, topology, rasterizer state
-	DeviceContext->IASetInputLayout(vertexShader.GetInputLayout());
+	DeviceContext->IASetInputLayout(textureVertexShader.GetInputLayout());
 	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	DeviceContext->RSSetState(rasterizerState.Get());
 	DeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
 	// set shaders and samplers
 	DeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
-	DeviceContext->VSSetShader(vertexShader.GetShader(), NULL, 0);
-	DeviceContext->PSSetShader(pixelShader.GetShader(), NULL, 0);
+	DeviceContext->VSSetShader(textureVertexShader.GetShader(), NULL, 0);
+	DeviceContext->PSSetShader(texturePixelShader.GetShader(), NULL, 0);
 
 	// View matrix
 	worldMatrix = DirectX::XMMatrixIdentity();
@@ -319,18 +323,32 @@ bool Graphics::InitializeShaders()
 	}
 #pragma endregion
 
-	D3D11_INPUT_ELEMENT_DESC layoutDesc[] =
+	D3D11_INPUT_ELEMENT_DESC textureLayoutDesc[] =
 	{
 		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
 		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
 	};
 
-	UINT numElements = ARRAYSIZE(layoutDesc);
+	UINT numElements = ARRAYSIZE(textureLayoutDesc);
 
-	if (!vertexShader.Initialize(shaderFolder + L"VertexShader.cso", layoutDesc, numElements))
+	if (!textureVertexShader.Initialize(shaderFolder + L"TextureVertexShader.cso", textureLayoutDesc, numElements))
 		return false;
 
-	if (!pixelShader.Initialize(shaderFolder + L"PixelShader.cso"))
+	if (!texturePixelShader.Initialize(shaderFolder + L"TexturePixelShader.cso"))
+		return false;
+
+	D3D11_INPUT_ELEMENT_DESC colorLayoutDesc[] =
+	{
+		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+		{"COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+	};
+
+	UINT colorNumElements = ARRAYSIZE(colorLayoutDesc);
+
+	if (!colorVertexShader.Initialize(shaderFolder + L"ColorVertexShader.cso", colorLayoutDesc, colorNumElements))
+		return false;
+
+	if (!colorPixelShader.Initialize(shaderFolder + L"ColorPixelShader.cso"))
 		return false;
 
 	return true;
@@ -339,4 +357,9 @@ bool Graphics::InitializeShaders()
 bool Graphics::InitializeScene()
 {
 	return true;
+}
+
+void Graphics::DrawGrid()
+{
+
 }
