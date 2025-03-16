@@ -1,3 +1,4 @@
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\IRenderComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\IRenderComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\Collision\BoundingSphere.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\BoundingSphere.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\Collision\BoundingBox.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\BoundingBox.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Collision\BoxCollisionComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\BoxCollisionComponent.obj
@@ -23,6 +24,8 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Mesh.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariMovementComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\KatamariMovementComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariCollisionComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\KatamariCollisionComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\PrimitiveRenderComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShaderManager\ShaderManager.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\ShaderManager.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes\Shapes.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Shapes.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\TopDownCameraComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\TopDownCameraComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Collision\SphereCollisionComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\SphereCollisionComponent.obj

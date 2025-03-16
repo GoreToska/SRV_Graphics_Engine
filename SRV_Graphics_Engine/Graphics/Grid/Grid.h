@@ -18,13 +18,13 @@ public:
 	void Draw(VertexShader& vs, PixelShader& ps);
 
 private:
-	std::vector<Vertex> vertices{};
+	std::vector<CVertex> vertices{};
 	std::vector<DWORD> indices{};
 
 	const float gridSize = 10.0f;    
 	const float gridSpacing = 1.0f;
 
-	VertexBuffer<Vertex> vertexBuffer = {};
+	VertexBuffer<CVertex> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};
 	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
 };

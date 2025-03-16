@@ -5,7 +5,8 @@
 #include "../../../Engine/Engine.h"
 #include "../../../DataTypes/ModelData.h"
 
-MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObject* gameObject)
+MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObject* gameObject, ShaderManager::ShaderType shaderType)
+	: IRenderComponent(shaderType)
 {
 	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf());
 	if (FAILED(hr))
@@ -39,6 +40,9 @@ void MeshRendererComponent::Update(const float& deltaTime)
 
 void MeshRendererComponent::Render()
 {
+	IRenderComponent::Render();
+
+
 	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
 
 	DirectX::XMVECTOR orientation = gameObject->GetTransform()->GetOrientation();
@@ -76,9 +80,6 @@ bool MeshRendererComponent::LoadModel(const std::string& filePath)
 	const aiScene* pScene = importer.ReadFile(filePath,
 		aiProcess_Triangulate | aiProcess_ConvertToLeftHanded);
 
-	/*if (importer.GetErrorString() != " ")
-		Logger::LogError(importer.GetErrorString());*/
-
 	if (pScene == nullptr)
 		return false;
 
@@ -103,12 +104,12 @@ void MeshRendererComponent::ProcessNode(aiNode* node, const aiScene* scene)
 
 Mesh MeshRendererComponent::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 {
-	std::vector<Vertex> vertexes = {};
+	std::vector<TVertex> vertexes = {};
 	std::vector<DWORD> indexes = {};
 
 	for (UINT i = 0; i < mesh->mNumVertices; ++i)
 	{
-		Vertex vertex = {};
+		TVertex vertex = {};
 		vertex.position.x = mesh->mVertices[i].x;
 		vertex.position.y = mesh->mVertices[i].y;
 		vertex.position.z = mesh->mVertices[i].z;

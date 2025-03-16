@@ -3,6 +3,7 @@
 
 #include "Graphics.h"
 #include "./Device/GraphicsDevice.h"
+#include "ShaderManager/ShaderManager.h"
 
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
@@ -40,21 +41,17 @@ void Graphics::RenderFrame()
 	//grid->Draw(colorVertexShader, colorPixelShader);
 
 	// set input layout, topology, rasterizer state
-	DeviceContext->IASetInputLayout(textureVertexShader.GetInputLayout());
 	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	DeviceContext->RSSetState(rasterizerState.Get());
 	DeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
 	// set shaders and samplers
 	DeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
-	DeviceContext->VSSetShader(textureVertexShader.GetShader(), NULL, 0);
-	DeviceContext->PSSetShader(texturePixelShader.GetShader(), NULL, 0);
 
 	// View matrix
 	worldMatrix = DirectX::XMMatrixIdentity();
-	//camera->SetLookAtPosition(Vector3D(0, 0, 0));
 
-	for (MeshRendererComponent* item : objectRenderPool)
+	for (IRenderComponent* item : objectRenderPool)
 	{
 		item->Render();
 	}
@@ -62,7 +59,7 @@ void Graphics::RenderFrame()
 	swapchain->Present(1, NULL);
 }
 
-void Graphics::AddObjectToRenderPool(MeshRendererComponent* object)
+void Graphics::AddObjectToRenderPool(IRenderComponent* object)
 {
 	objectRenderPool.push_back(object);
 }
@@ -196,10 +193,7 @@ bool Graphics::CreateRasterizerState()
 {
 	D3D11_RASTERIZER_DESC rasterizerDesc{};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
-	rasterizerDesc.CullMode = D3D11_CULL_NONE;
-
-	// This can help if you draw objects counter clockwise (if you can't see them)
-	// rasterizerDesc.FrontCounterClockwise = FALSE;
+	rasterizerDesc.CullMode = D3D11_CULL_BACK;
 
 	HRESULT hr = Device->CreateRasterizerState(&rasterizerDesc, rasterizerState.GetAddressOf());
 
@@ -301,57 +295,7 @@ void Graphics::CreateViewport()
 
 bool Graphics::InitializeShaders()
 {
-	std::wstring shaderFolder = L"";
-
-#pragma region ShaderPathMacro
-	if (IsDebuggerPresent() == TRUE)
-	{
-#ifdef _DEBUG
-#ifdef _WIN64
-		shaderFolder = L"../x64/Debug/";
-#else
-		shaderFolder = L"../Debug/";
-#endif // _WIN64 or _WIN32
-
-#else // RELEASE
-#ifdef _WIN64
-		shaderFolder = L"../x64/Release/";
-#else
-		shaderFolder = L"../Release/";
-#endif
-#endif // _DEBUG
-	}
-#pragma endregion
-
-	D3D11_INPUT_ELEMENT_DESC textureLayoutDesc[] =
-	{
-		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
-		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
-	};
-
-	UINT numElements = ARRAYSIZE(textureLayoutDesc);
-
-	if (!textureVertexShader.Initialize(shaderFolder + L"TextureVertexShader.cso", textureLayoutDesc, numElements))
-		return false;
-
-	if (!texturePixelShader.Initialize(shaderFolder + L"TexturePixelShader.cso"))
-		return false;
-
-	D3D11_INPUT_ELEMENT_DESC colorLayoutDesc[] =
-	{
-		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
-		{"COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
-	};
-
-	UINT colorNumElements = ARRAYSIZE(colorLayoutDesc);
-
-	if (!colorVertexShader.Initialize(shaderFolder + L"ColorVertexShader.cso", colorLayoutDesc, colorNumElements))
-		return false;
-
-	if (!colorPixelShader.Initialize(shaderFolder + L"ColorPixelShader.cso"))
-		return false;
-
-	return true;
+	return ShaderManager::GetInstance().Initialize();
 }
 
 bool Graphics::InitializeScene()

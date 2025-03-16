@@ -8,6 +8,8 @@
 #include "../Input/Mouse/MouseInputEvent.h"
 #include "../DataTypes/VectorInt2D.h"
 #include "../ComponentSystem/GameObject.h"  
+#include "../ComponentSystem/Components/Render/IRenderComponent.h"
+
 #pragma endregion
 
 
@@ -33,7 +35,7 @@ void Engine::AddGameObject(GameObject* gameObject)
 {
 	gameObjects.push_back(gameObject);
 
-	MeshRendererComponent* renderComponent = gameObject->GetComponent<MeshRendererComponent>();
+	IRenderComponent* renderComponent = gameObject->GetComponent<IRenderComponent>();
 	if (renderComponent != nullptr)
 	{
 		graphics.AddObjectToRenderPool(renderComponent);

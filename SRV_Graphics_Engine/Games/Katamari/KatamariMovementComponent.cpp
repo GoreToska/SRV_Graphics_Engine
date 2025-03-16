@@ -1,6 +1,8 @@
 #include "KatamariMovementComponent.h"
 #include "../../Input/Keyboard/Keyboard.h"
 
+#include <cmath> 
+
 KatamariMovementComponent::KatamariMovementComponent(GameObject* gameObject) :
 	gameObject(gameObject)
 {
@@ -15,6 +17,7 @@ void KatamariMovementComponent::Update(const float& deltaTime)
 
 	UpdatePosition(deltaTime);
 	UpdateRotation(deltaTime);
+	UpdateHeight(deltaTime);
 }
 
 void KatamariMovementComponent::OnKeyPressed(const unsigned char key)
@@ -77,7 +80,27 @@ void KatamariMovementComponent::UpdateRotation(const float& deltaTime)
 	gameObject->GetTransform()->AddWorldRotation(rotationAxis, deltaTime * speed * 20);
 }
 
+void KatamariMovementComponent::UpdateHeight(const float& deltaTime)
+{
+	// Получаем текущую позицию героя
+	Vector3D position = gameObject->GetTransform()->GetPosition();
+
+	// Вычисляем высоту ландшафта в точке (x, z)
+	float landscapeHeight = GetLandscapeHeight(position.x, position.z) + 1;
+
+	// Устанавливаем новую высоту героя
+	position.y = landscapeHeight;
+	gameObject->GetTransform()->SetPosition(position);
+}
+
 void KatamariMovementComponent::UpdatePosition(const float& deltaTime)
 {
 	gameObject->GetTransform()->MovePosition(movementDirection * deltaTime * speed);
+}
+
+float KatamariMovementComponent::GetLandscapeHeight(float x, float z)
+{
+	float amplitude = 1.5f;
+	float frequency = 0.5f; 
+	return amplitude * std::sin(x * frequency) * std::cos(z * frequency);
 }

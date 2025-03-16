@@ -26,7 +26,7 @@ class Graphics
 public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
-	void AddObjectToRenderPool(MeshRendererComponent* object);
+	void AddObjectToRenderPool(IRenderComponent* object);
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;
 	Camera* GetCamera() const;
@@ -55,16 +55,10 @@ private:
 
 	Grid* grid;
 
-	std::vector<MeshRendererComponent*> objectRenderPool = {};
+	std::vector<IRenderComponent*> objectRenderPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;
-
-	VertexShader textureVertexShader;
-	VertexShader colorVertexShader;
-
-	PixelShader texturePixelShader;
-	PixelShader colorPixelShader;
 
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;

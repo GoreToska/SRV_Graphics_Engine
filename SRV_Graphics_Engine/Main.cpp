@@ -16,6 +16,7 @@
 #include "Games/Katamari/KatamariCollisionComponent.h"
 #include "ComponentSystem/Components/Camera/TopDownCameraComponent.h"
 #include "DataTypes/ModelData.h"
+#include "./ComponentSystem/Components/Render/PrimitiveRenderComponent.h"
 
 #pragma endregion
 
@@ -38,63 +39,108 @@ int main()
 	ModelData phoneModelData = { "Data\\Models\\Phone\\Phone.obj", L"Data\\Models\\Phone\\Phone.png" };
 	ModelData hatModelData = { "Data\\Models\\Hat\\Hat.obj", L"Data\\Models\\Hat\\Hat.png" };
 
+	const int gridSize = 42; // Количество делений по каждой стороне
+	const float squareSize = 80.0f; // Размер квадрата
+	const float h = 0.0f; // Высота
+
+	std::vector<CVertex> groundVertexes;
+	std::vector<DWORD> groundIndexes;
+
+	// Создание вершин
+	for (int i = 0; i <= gridSize; ++i)
+	{
+		for (int j = 0; j <= gridSize; ++j)
+		{
+			float x = -squareSize / 2 + (squareSize / gridSize) * i;
+			float z = -squareSize / 2 + (squareSize / gridSize) * j;
+			groundVertexes.emplace_back(CVertex({ x, h, z }, WHITE));
+		}
+	}
+
+	// Создание индексов с учетом порядка по часовой стрелке
+	for (int i = 0; i < gridSize; ++i)
+	{
+		for (int j = 0; j < gridSize; ++j)
+		{
+			DWORD topLeft = i * (gridSize + 1) + j;
+			DWORD topRight = topLeft + 1;
+			DWORD bottomLeft = (i + 1) * (gridSize + 1) + j;
+			DWORD bottomRight = bottomLeft + 1;
+
+			// Первый треугольник (по часовой стрелке)
+			groundIndexes.push_back(topLeft);     // Верхний левый
+			groundIndexes.push_back(topRight);    // Верхний правый
+			groundIndexes.push_back(bottomLeft);   // Нижний левый
+
+			// Второй треугольник (по часовой стрелке)
+			groundIndexes.push_back(topRight);    // Верхний правый
+			groundIndexes.push_back(bottomRight);  // Нижний правый
+			groundIndexes.push_back(bottomLeft);   // Нижний левый
+		}
+	}
+
+
+	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
+	SRVEngine.AddGameObject(ground);
+
 
 	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
-	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird));
+	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
 	blueBird->AddComponent(new SphereCollisionComponent(blueBird, Vector3D(0.0f, 0.0f, 0.0f), 2.4));
 	blueBird->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(blueBird);
 
 	GameObject* phone = new GameObject(Vector3D(-25.0f, 0.0f, 5.0f));
-	phone->AddComponent(new MeshRendererComponent(phoneModelData, phone));
+	phone->AddComponent(new MeshRendererComponent(phoneModelData, phone, ShaderManager::ShaderType::Texture));
 	phone->AddComponent(new SphereCollisionComponent(phone, Vector3D(0.0f, 0.0f, 0.0f), 3));
 	phone->GetTransform()->SetScale(Vector3D(0.04, 0.04, 0.04));
 	SRVEngine.AddGameObject(phone);
 
 	GameObject* hat = new GameObject(Vector3D(-25.0f, 0.0f, 20.0f));
-	hat->AddComponent(new MeshRendererComponent(hatModelData, hat));
+	hat->AddComponent(new MeshRendererComponent(hatModelData, hat, ShaderManager::ShaderType::Texture));
 	hat->AddComponent(new SphereCollisionComponent(hat, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	hat->GetTransform()->SetScale(Vector3D(0.2, 0.2, 0.2));
 	SRVEngine.AddGameObject(hat);
 
 	GameObject* memoryCard = new GameObject(Vector3D(-20.0f, 0.0f, -20.0f));
-	memoryCard->AddComponent(new MeshRendererComponent(memoryCardModelData, memoryCard));
+	memoryCard->AddComponent(new MeshRendererComponent(memoryCardModelData, memoryCard, ShaderManager::ShaderType::Texture));
 	memoryCard->AddComponent(new SphereCollisionComponent(memoryCard, Vector3D(0.0f, 0.0f, 0.0f), 3));
 	memoryCard->GetTransform()->SetScale(Vector3D(1, 1, 1));
 	SRVEngine.AddGameObject(memoryCard);
 
 	GameObject* radio = new GameObject(Vector3D(-20.0f, 0.0f, 10.0f));
-	radio->AddComponent(new MeshRendererComponent(radioModelData, radio));
+	radio->AddComponent(new MeshRendererComponent(radioModelData, radio, ShaderManager::ShaderType::Texture));
 	radio->AddComponent(new SphereCollisionComponent(radio, Vector3D(0.0f, 0.0f, 0.0f), 2.7));
 	radio->GetTransform()->SetScale(Vector3D(1, 1, 1));
 	SRVEngine.AddGameObject(radio);
 
 	GameObject* kettle = new GameObject(Vector3D(-15.0f, 0.0f, 10.0f));
-	kettle->AddComponent(new MeshRendererComponent(kettleModelData, kettle));
+	kettle->AddComponent(new MeshRendererComponent(kettleModelData, kettle, ShaderManager::ShaderType::Texture));
 	kettle->AddComponent(new SphereCollisionComponent(kettle, Vector3D(0.0f, 0.0f, 0.0f), 3));
 	kettle->GetTransform()->SetScale(Vector3D(0.2, 0.2, 0.2));
 	SRVEngine.AddGameObject(kettle);
 
 	GameObject* octopus = new GameObject(Vector3D(5.0f, 0.0f, -10.0f));
-	octopus->AddComponent(new MeshRendererComponent(octopusModelData, octopus));
+	octopus->AddComponent(new MeshRendererComponent(octopusModelData, octopus, ShaderManager::ShaderType::Texture));
 	octopus->AddComponent(new SphereCollisionComponent(octopus, Vector3D(0.0f, 0.0f, 0.0f), 4));
 	octopus->GetTransform()->SetScale(Vector3D(3, 3, 3));
 	SRVEngine.AddGameObject(octopus);
 
 	GameObject* amongus = new GameObject(Vector3D(10.0f, 0.0f, 5.0f));
-	amongus->AddComponent(new MeshRendererComponent(amongusModelData, amongus));
+	amongus->AddComponent(new MeshRendererComponent(amongusModelData, amongus, ShaderManager::ShaderType::Texture));
 	amongus->AddComponent(new SphereCollisionComponent(amongus, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	amongus->GetTransform()->SetScale(Vector3D(0.03, 0.03, 0.03));
 	SRVEngine.AddGameObject(amongus);
 
 	GameObject* greenPig = new GameObject(Vector3D(5.0f, 0.0f, 5.0f));
-	greenPig->AddComponent(new MeshRendererComponent(greenPigModelData, greenPig));
+	greenPig->AddComponent(new MeshRendererComponent(greenPigModelData, greenPig, ShaderManager::ShaderType::Texture));
 	greenPig->AddComponent(new SphereCollisionComponent(greenPig, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(greenPig);
 
 	GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
-	redBird->AddComponent(new MeshRendererComponent(redBirdModelData, redBird));
+	redBird->AddComponent(new MeshRendererComponent(redBirdModelData, redBird, ShaderManager::ShaderType::Texture));
 	redBird->AddComponent(new SphereCollisionComponent(redBird, Vector3D(0, 0, 0), 2.2));
 	redBird->AddComponent(new KatamariMovementComponent(redBird));
 	redBird->GetTransform()->SetScale(Vector3D(0.01, 0.01, 0.01));

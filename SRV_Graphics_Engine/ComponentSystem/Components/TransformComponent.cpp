@@ -21,14 +21,14 @@ void TransformComponent::Update(const float& deltaTime)
 
 void TransformComponent::SetPosition(const Vector3D& position)
 {
+	Vector3D delta = position - this->position;
 	this->position = position;
 
 	std::vector<GameObject*> children = gameObject->GetChildren();
-
 	for (int i = 0; i < children.size(); ++i)
 	{
-		children[i]->GetTransform()->SetPosition(
-			children[i]->GetTransform()->GetPosition() + position);
+		Vector3D childPosition = children[i]->GetTransform()->GetPosition();
+		children[i]->GetTransform()->SetPosition(childPosition + delta);
 	}
 }
 

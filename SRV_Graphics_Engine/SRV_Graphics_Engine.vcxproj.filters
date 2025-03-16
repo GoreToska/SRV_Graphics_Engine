@@ -162,6 +162,15 @@
     <ClCompile Include="Graphics\Grid\Grid.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\ShaderManager\ShaderManager.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Render\IRenderComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Logger.h">
@@ -311,9 +320,18 @@
     <ClInclude Include="Graphics\Grid\Grid.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Render\PrimitiveRenderComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Render\IRenderComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\ShaderManager\ShaderManager.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Shaders\TextureVertexShader1.hlsl" />
+    <FxCompile Include="Shaders\TextureVertexShader.hlsl" />
     <FxCompile Include="Shaders\TexturePixelShader.hlsl">
       <Filter>Файлы заголовков</Filter>
     </FxCompile>

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentSystem\Components\Render\IRenderComponent.cpp" />
     <ClCompile Include="DataTypes\Collision\BoundingSphere.cpp" />
     <ClCompile Include="DataTypes\Collision\BoundingBox.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\BoxCollisionComponent.cpp" />
@@ -159,6 +160,8 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
     </FxCompile>
+    <ClCompile Include="ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp" />
+    <ClCompile Include="Graphics\ShaderManager\ShaderManager.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp" />
@@ -174,6 +177,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentSystem\Components\Render\IRenderComponent.h" />
     <ClInclude Include="DataTypes\Collision\BoundingSphere.h" />
     <ClInclude Include="DataTypes\Collision\BoundingBox.h" />
     <ClInclude Include="ComponentSystem\Components\Collision\BoxCollisionComponent.h" />
@@ -218,6 +222,8 @@
     <ClInclude Include="ComponentSystem\Components\Render\Mesh.h" />
     <ClInclude Include="Games\Katamari\KatamariMovementComponent.h" />
     <ClInclude Include="Games\Katamari\KatamariCollisionComponent.h" />
+    <ClInclude Include="ComponentSystem\Components\Render\PrimitiveRenderComponent.h" />
+    <ClInclude Include="Graphics\ShaderManager\ShaderManager.h" />
     <ClInclude Include="Shapes\Shapes.h" />
     <ClInclude Include="ComponentSystem\Components\Camera\TopDownCameraComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Collision\SphereCollisionComponent.h" />
@@ -230,7 +236,7 @@
     <ClInclude Include="Render\WindowContainer.h" />
     <ClInclude Include="DataTypes\VectorInt2D.h" />
     <ClInclude Include="DataTypes\Vertex.h" />
-    <FxCompile Include="Shaders\TextureVertexShader1.hlsl">
+    <FxCompile Include="Shaders\TextureVertexShader.hlsl">
       <FileType>Document</FileType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>

@@ -14,7 +14,10 @@ private:
 	void OnKeyPressed(const unsigned char key);
 	void OnKeyReleased(const unsigned char key);
 	void UpdateRotation(const float& deltaTime);
+	void UpdateHeight(const float& deltaTime);
 	void UpdatePosition(const float& deltaTime);
+	float GetLandscapeHeight(float x, float z);
+	
 
 	Vector3D movementDirection;
 	GameObject* gameObject;

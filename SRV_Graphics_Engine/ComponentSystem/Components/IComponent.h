@@ -9,6 +9,5 @@ public:
 	void SetEnabled(bool value);
 
 private:
-
 	bool isEnabled = true;
 };

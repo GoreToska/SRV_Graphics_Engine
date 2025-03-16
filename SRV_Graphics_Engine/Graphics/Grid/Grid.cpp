@@ -48,7 +48,7 @@ void Grid::Draw(VertexShader& vs, PixelShader& ps)
 	DeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 
 	// Устанавливаем буфер вершин
-	UINT stride = sizeof(Vertex);
+	UINT stride = sizeof(TVertex);
 	UINT offset = 0;
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 
