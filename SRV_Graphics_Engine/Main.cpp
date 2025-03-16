@@ -80,9 +80,9 @@ int main()
 	}
 
 
-	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	/*GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
-	SRVEngine.AddGameObject(ground);
+	SRVEngine.AddGameObject(ground);*/
 
 
 	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));

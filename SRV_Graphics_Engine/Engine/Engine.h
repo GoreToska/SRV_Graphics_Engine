@@ -32,5 +32,6 @@ public:
 private:
 	Timer timer;
 	std::vector<GameObject*> gameObjects{};
+	Grid* grid;
 };
 

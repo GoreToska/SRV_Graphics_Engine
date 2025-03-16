@@ -24,8 +24,6 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 	camera->SetPosition(0.0f, 0.0f, -2.0f);
 	camera->SetPerspectiveProjection(90, static_cast<float>(clientWidth) / static_cast<float>(clientHeight), 0.1f, 1000.0f);
 
-	grid = new Grid();
-
 	return true;
 }
 
@@ -37,8 +35,6 @@ void Graphics::RenderFrame()
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
 	DeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
 	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
-
-	//grid->Draw(colorVertexShader, colorPixelShader);
 
 	// set input layout, topology, rasterizer state
 	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -193,7 +189,7 @@ bool Graphics::CreateRasterizerState()
 {
 	D3D11_RASTERIZER_DESC rasterizerDesc{};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
-	rasterizerDesc.CullMode = D3D11_CULL_BACK;
+	rasterizerDesc.CullMode = D3D11_CULL_NONE;
 
 	HRESULT hr = Device->CreateRasterizerState(&rasterizerDesc, rasterizerState.GetAddressOf());
 

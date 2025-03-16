@@ -15,14 +15,15 @@ class Grid
 public:
 	Grid();
 
-	void Draw(VertexShader& vs, PixelShader& ps);
+	void Draw();
 
 private:
-	std::vector<CVertex> vertices{};
-	std::vector<DWORD> indices{};
+	std::vector<CVertex> vertexes{};
+	std::vector<DWORD> indexes{};
 
-	const float gridSize = 10.0f;    
-	const float gridSpacing = 1.0f;
+	const float gridSize = 150.0f;    
+	const int gridLines = 10;  // Количество линий в сетке
+	const float spacing = gridSize / gridLines; // Расстояние между линиями
 
 	VertexBuffer<CVertex> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};

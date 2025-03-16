@@ -28,6 +28,7 @@ public:
 	Vector3D GetScale() const;
 	Vector3D GetCenter() const;
 	DirectX::XMVECTOR GetOrientation() const;
+	void UpdateDirectionVectors();
 
 private:
 	GameObject* gameObject;
@@ -37,5 +38,16 @@ private:
 	Vector3D scale{};
 	Vector3D center{};
 	DirectX::XMVECTOR orientation{};
+
+	const DirectX::XMVECTOR DEFAULT_FORWARD_VECTOR = DirectX::XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f);
+	const DirectX::XMVECTOR DEFAULT_UP_VECTOR = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
+	const DirectX::XMVECTOR DEFAULT_RIGHT_VECTOR = DirectX::XMVectorSet(1.0f, 0.0f, 0.0f, 0.0f);
+
+	DirectX::XMVECTOR forwardVector;
+	DirectX::XMVECTOR rightVector;
+	DirectX::XMVECTOR upVector;
+	DirectX::XMVECTOR forwardVector_noY;
+	DirectX::XMVECTOR rightVector_noY;
+	DirectX::XMVECTOR upVector_noY;
 };
 

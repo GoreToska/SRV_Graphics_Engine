@@ -53,8 +53,6 @@ private:
 	Camera* camera;
 	DirectX::XMMATRIX worldMatrix;
 
-	Grid* grid;
-
 	std::vector<IRenderComponent*> objectRenderPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;

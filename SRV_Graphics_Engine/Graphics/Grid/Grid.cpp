@@ -1,32 +1,42 @@
 #include "Grid.h"
+#include "../../Engine/Engine.h"
 
 Grid::Grid()
 {
-	for (float z = -gridSize; z <= gridSize; z += gridSpacing) {
-		vertices.push_back({ Vector3D(-gridSize, 0.0f, z), WHITE });
-		vertices.push_back({ Vector3D(gridSize, 0.0f, z), WHITE });
-		indices.push_back(static_cast<uint16_t>(vertices.size() - 2));
-		indices.push_back(static_cast<uint16_t>(vertices.size() - 1));
+	// Создание вершин для горизонтальных линий
+	for (int i = 0; i <= gridLines; ++i) {
+		float z = -gridSize / 2 + i * spacing;
+		vertexes.push_back({ { -gridSize / 2, 0.0f, z }, WHITE }); // Левый конец
+		vertexes.push_back({ { gridSize / 2, 0.0f, z }, WHITE }); // Правый конец
 	}
 
-	// Создаем линии, параллельные оси Z
-	for (float x = -gridSize; x <= gridSize; x += gridSpacing) {
-		vertices.push_back({ Vector3D(x, 0.0f, -gridSize), WHITE });
-		vertices.push_back({ Vector3D(x, 0.0f, gridSize), WHITE });
-		indices.push_back(static_cast<DWORD>(vertices.size() - 2));
-		indices.push_back(static_cast<DWORD>(vertices.size() - 1));
+	// Создание вершин для вертикальных линий
+	for (int i = 0; i <= gridLines; ++i) {
+		float x = -gridSize / 2 + i * spacing;
+		vertexes.push_back({ { x, 0.0f, -gridSize / 2 }, WHITE }); // Нижний конец
+		vertexes.push_back({ { x, 0.0f, gridSize / 2 }, WHITE }); // Верхний конец
 	}
 
-	HRESULT hr = vertexBuffer.Initialize(&this->vertices[0], this->vertices.size());
+	// Создание индексов
+	for (int i = 0; i < gridLines; ++i) {
+		indexes.push_back(i * 2);     // Левый конец
+		indexes.push_back(i * 2 + 1); // Правый конец
+	}
+	for (int i = gridLines + 1; i < vertexes.size(); i += 2) {
+		indexes.push_back(i);         // Нижний конец
+		indexes.push_back(i + 1);     // Верхний конец
+	}
+
+	HRESULT hr = vertexBuffer.Initialize(&this->vertexes[0], this->vertexes.size());
 
 	if (FAILED(hr))
 	{
 		Logger::LogError(hr, "Failed to create vertex buffer.");
 	}
 
-	if (indices.size() > 0)
+	if (indexes.size() > 0)
 	{
-		hr = indexBuffer.Initialize(&this->indices[0], this->indices.size());
+		hr = indexBuffer.Initialize(&this->indexes[0], this->indexes.size());
 
 		if (FAILED(hr))
 		{
@@ -42,25 +52,39 @@ Grid::Grid()
 	}
 }
 
-void Grid::Draw(VertexShader& vs, PixelShader& ps)
+void Grid::Draw()
 {
-	// Устанавливаем примитив как линии
+	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::ShaderType::Color)->GetShader(), NULL, 0);
+	DeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::ShaderType::Color)->GetShader(), NULL, 0);
 	DeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 
-	// Устанавливаем буфер вершин
-	UINT stride = sizeof(TVertex);
+	constBuffer.GetData()->matrix = DirectX::XMMatrixScaling(1, 1, 1);
+
+	constBuffer.GetData()->matrix *= DirectX::XMMatrixRotationQuaternion({0,0,0});
+
+	constBuffer.GetData()->matrix *= DirectX::XMMatrixTranslation(0, 1, 0);
+
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetWorldMatrix();
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetViewMatrix();
+	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix();
+
+	constBuffer.GetData()->matrix = DirectX::XMMatrixTranspose(constBuffer.GetData()->matrix);
+
+	if (constBuffer.ApplyChanges())
+		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
+
+	UINT stride = sizeof(CVertex);
 	UINT offset = 0;
+
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 
-	// Устанавливаем буфер индексов
-	DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R16_UINT, 0);
-
-	// Устанавливаем шейдеры
-	DeviceContext->VSSetShader(vs.GetShader(), nullptr, 0);
-	DeviceContext->PSSetShader(ps.GetShader(), nullptr, 0);
-
-	// Устанавливаем входной layout (если требуется)
-	//DeviceContext->IASetInputLayout();
-
-	DeviceContext->DrawIndexed(static_cast<UINT>(indices.size()), 0, 0);
+	if (indexes.size() > 0)
+	{
+		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+		DeviceContext->DrawIndexed(indexes.size(), 0, 0);
+	}
+	else
+	{
+		DeviceContext->Draw(vertexes.size(), 0);
+	}
 }

@@ -28,6 +28,8 @@ bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::stri
 	if (!graphics.Initialize(renderWindow.GetHWND(), width, height))
 		return false;
 
+	grid = new Grid();
+
 	return true;
 }
 
@@ -55,17 +57,17 @@ void Engine::Update(float deltaTime)
 	}
 
 	/*#pragma region Input
-	
+
 		while (!Keyboard::GetInstance().CharBufferIsEmpty())
 		{
 			unsigned char a = Keyboard::GetInstance().ReadChar();
 		}
-	
+
 		while (!Keyboard::GetInstance().KeyBufferIsEmpty())
 		{
 			KeyboardInputEvent e = Keyboard::GetInstance().ReadKey();
 		}
-	
+
 		while (!Mouse::GetInstance().EventBufferIsEmpty())
 		{
 			MouseInputEvent e = Mouse::GetInstance().ReadEvent();
@@ -76,6 +78,7 @@ void Engine::Update(float deltaTime)
 void Engine::RenderFrame()
 {
 	graphics.RenderFrame();
+	//grid->Draw();
 }
 
 Graphics& Engine::GetGraphics()
