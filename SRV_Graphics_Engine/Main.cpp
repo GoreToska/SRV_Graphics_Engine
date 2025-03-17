@@ -39,14 +39,13 @@ int main()
 	ModelData phoneModelData = { "Data\\Models\\Phone\\Phone.obj", L"Data\\Models\\Phone\\Phone.png" };
 	ModelData hatModelData = { "Data\\Models\\Hat\\Hat.obj", L"Data\\Models\\Hat\\Hat.png" };
 
-	const int gridSize = 42; // Количество делений по каждой стороне
-	const float squareSize = 80.0f; // Размер квадрата
-	const float h = 0.0f; // Высота
+	const int gridSize = 42; 
+	const float squareSize = 80.0f; 
+	const float h = 0.0f; 
 
 	std::vector<CVertex> groundVertexes;
 	std::vector<DWORD> groundIndexes;
 
-	// Создание вершин
 	for (int i = 0; i <= gridSize; ++i)
 	{
 		for (int j = 0; j <= gridSize; ++j)
@@ -57,7 +56,6 @@ int main()
 		}
 	}
 
-	// Создание индексов с учетом порядка по часовой стрелке
 	for (int i = 0; i < gridSize; ++i)
 	{
 		for (int j = 0; j < gridSize; ++j)
@@ -67,22 +65,20 @@ int main()
 			DWORD bottomLeft = (i + 1) * (gridSize + 1) + j;
 			DWORD bottomRight = bottomLeft + 1;
 
-			// Первый треугольник (по часовой стрелке)
-			groundIndexes.push_back(topLeft);     // Верхний левый
-			groundIndexes.push_back(topRight);    // Верхний правый
-			groundIndexes.push_back(bottomLeft);   // Нижний левый
+			groundIndexes.push_back(topLeft);     
+			groundIndexes.push_back(topRight);    
+			groundIndexes.push_back(bottomLeft);  
 
-			// Второй треугольник (по часовой стрелке)
-			groundIndexes.push_back(topRight);    // Верхний правый
-			groundIndexes.push_back(bottomRight);  // Нижний правый
-			groundIndexes.push_back(bottomLeft);   // Нижний левый
+			groundIndexes.push_back(topRight);    
+			groundIndexes.push_back(bottomRight);  
+			groundIndexes.push_back(bottomLeft);  
 		}
 	}
 
 
-	/*GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
-	SRVEngine.AddGameObject(ground);*/
+	SRVEngine.AddGameObject(ground);
 
 
 	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));

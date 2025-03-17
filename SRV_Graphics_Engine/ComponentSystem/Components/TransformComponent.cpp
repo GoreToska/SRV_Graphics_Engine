@@ -132,18 +132,3 @@ DirectX::XMVECTOR TransformComponent::GetOrientation() const
 {
 	return orientation;
 }
-
-void TransformComponent::UpdateDirectionVectors()
-{
-	using namespace DirectX;
-
-	XMMATRIX vectorRotationMatrix = XMMatrixRotationRollPitchYaw(rotation.x, rotation.y, 0);
-	forwardVector = XMVector3TransformCoord(DEFAULT_FORWARD_VECTOR, vectorRotationMatrix);
-	rightVector = XMVector3TransformCoord(DEFAULT_RIGHT_VECTOR, vectorRotationMatrix);
-	upVector = XMVector3TransformCoord(DEFAULT_UP_VECTOR, vectorRotationMatrix);
-
-	XMMATRIX vectorRotationMatrixNoY = XMMatrixRotationRollPitchYaw(0, rotation.y, 0);
-	forwardVector_noY = XMVector3TransformCoord(DEFAULT_FORWARD_VECTOR, vectorRotationMatrixNoY);
-	rightVector_noY = XMVector3TransformCoord(DEFAULT_RIGHT_VECTOR, vectorRotationMatrixNoY);
-	upVector_noY = XMVector3TransformCoord(DEFAULT_UP_VECTOR, vectorRotationMatrixNoY);
-}
