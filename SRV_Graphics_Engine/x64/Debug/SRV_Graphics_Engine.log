@@ -1,31 +1,302 @@
-﻿  Main.cpp
-E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariMovementComponent.h(25,16): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file 'Main.cpp')
+﻿  Mesh.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(46,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
   
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(86,92): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(87,58): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(87,52): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(87,46): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(93,55): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(93,49): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(93,43): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(99,51): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(99,46): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(99,41): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(110,86): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(117,54): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(117,49): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(117,44): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(129,57): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(129,51): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(129,45): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(135,58): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(135,52): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(135,46): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(140,81): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(142,57): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(142,51): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(142,45): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(152,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(48,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.cpp(8,78): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.cpp(17,68): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.cpp(67,42): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.cpp(71,36): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(107,24):
+          see reference to class template instantiation 'aiQuaterniont<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(186,1):
+          while compiling class template member function 'void aiQuaterniont<float>::Interpolate(aiQuaterniont<float> &,const aiQuaterniont<float> &,const aiQuaterniont<float> &,TReal)'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(435,28):
+              see the first reference to 'aiQuaterniont<float>::Interpolate' in 'Assimp::Interpolator<aiQuaternion>::operator ()'
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244: 'return': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\types.h(150,22):
+          see reference to class template instantiation 'aiVector3t<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(142,91):
+          while compiling class template member function 'bool aiVector3t<float>::operator ==(const aiVector3t<float> &) const'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(82,3):
+              see the first reference to 'aiVector3t<float>::operator ==' in 'aiVectorKey::operator =='
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(92,57):
+          while compiling class template member function 'TReal aiVector3t<TReal>::Length(void) const'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(98,8):
+              see the first reference to 'aiVector3t<float>::Length' in 'aiVector3t<float>::Normalize'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\camera.h(191,50):
+              see the first reference to 'aiVector3t<float>::Normalize' in 'aiCamera::GetCameraMatrix'
+  
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267: 'initializing': conversion from 'size_t' to '_Ty', possible loss of data
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:         with
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:         [
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:             _Ty=unsigned int
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:         ]
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+      E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.h(29,24):
+          see reference to class template instantiation 'VertexBuffer<TVertex>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\VertexBuffer.h(67,10):
+          while compiling class template member function 'HRESULT VertexBuffer<TVertex>::Initialize(T *,UINT)'
+          with
+          [
+              T=TVertex
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.cpp(8,13):
+              see the first reference to 'VertexBuffer<TVertex>::Initialize' in 'Mesh::Mesh'
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\VertexBuffer.h(75,17):
+          see reference to function template instantiation 'std::shared_ptr<UINT> std::make_shared<UINT,size_t>(size_t &&)' being compiled
+          E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\memory(2906,46):
+          see reference to function template instantiation 'std::_Ref_count_obj2<UINT>::_Ref_count_obj2<_Ty>(_Ty &&)' being compiled
+          with
+          [
+              _Ty=size_t
+          ]
+          E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\memory(2095,18):
+          see reference to function template instantiation 'void std::_Construct_in_place<_Ty,unsigned __int64>(_Ty &,unsigned __int64 &&) noexcept' being compiled
+          with
+          [
+              _Ty=unsigned int
+          ]
+  
+  MeshRendererComponent.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(46,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(48,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(107,24):
+          see reference to class template instantiation 'aiQuaterniont<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(186,1):
+          while compiling class template member function 'void aiQuaterniont<float>::Interpolate(aiQuaterniont<float> &,const aiQuaterniont<float> &,const aiQuaterniont<float> &,TReal)'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(435,28):
+              see the first reference to 'aiQuaterniont<float>::Interpolate' in 'Assimp::Interpolator<aiQuaternion>::operator ()'
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244: 'return': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\types.h(150,22):
+          see reference to class template instantiation 'aiVector3t<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(142,91):
+          while compiling class template member function 'bool aiVector3t<float>::operator ==(const aiVector3t<float> &) const'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(82,3):
+              see the first reference to 'aiVector3t<float>::operator ==' in 'aiVectorKey::operator =='
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(92,57):
+          while compiling class template member function 'TReal aiVector3t<TReal>::Length(void) const'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(98,8):
+              see the first reference to 'aiVector3t<float>::Length' in 'aiVector3t<float>::Normalize'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\camera.h(191,50):
+              see the first reference to 'aiVector3t<float>::Normalize' in 'aiCamera::GetCameraMatrix'
+  
+  PrimitiveRenderComponent.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(46,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(48,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(7,78): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(16,68): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(86,42): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(90,36): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(107,24):
+          see reference to class template instantiation 'aiQuaterniont<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(186,1):
+          while compiling class template member function 'void aiQuaterniont<float>::Interpolate(aiQuaterniont<float> &,const aiQuaterniont<float> &,const aiQuaterniont<float> &,TReal)'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(435,28):
+              see the first reference to 'aiQuaterniont<float>::Interpolate' in 'Assimp::Interpolator<aiQuaternion>::operator ()'
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244: 'return': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\types.h(150,22):
+          see reference to class template instantiation 'aiVector3t<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(142,91):
+          while compiling class template member function 'bool aiVector3t<float>::operator ==(const aiVector3t<float> &) const'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(82,3):
+              see the first reference to 'aiVector3t<float>::operator ==' in 'aiVectorKey::operator =='
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(92,57):
+          while compiling class template member function 'TReal aiVector3t<TReal>::Length(void) const'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(98,8):
+              see the first reference to 'aiVector3t<float>::Length' in 'aiVector3t<float>::Normalize'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\camera.h(191,50):
+              see the first reference to 'aiVector3t<float>::Normalize' in 'aiCamera::GetCameraMatrix'
+  
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267: 'initializing': conversion from 'size_t' to '_Ty', possible loss of data
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:         with
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:         [
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:             _Ty=unsigned int
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61): warning C4267:         ]
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+      E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\xutility(403,61):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.h(27,24):
+          see reference to class template instantiation 'VertexBuffer<CVertex>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\VertexBuffer.h(67,10):
+          while compiling class template member function 'HRESULT VertexBuffer<CVertex>::Initialize(T *,UINT)'
+          with
+          [
+              T=CVertex
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(7,13):
+              see the first reference to 'VertexBuffer<CVertex>::Initialize' in 'PrimitiveRenderComponent::PrimitiveRenderComponent'
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\VertexBuffer.h(75,17):
+          see reference to function template instantiation 'std::shared_ptr<UINT> std::make_shared<UINT,size_t>(size_t &&)' being compiled
+          E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\memory(2906,46):
+          see reference to function template instantiation 'std::_Ref_count_obj2<UINT>::_Ref_count_obj2<_Ty>(_Ty &&)' being compiled
+          with
+          [
+              _Ty=size_t
+          ]
+          E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\memory(2095,18):
+          see reference to function template instantiation 'void std::_Construct_in_place<_Ty,unsigned __int64>(_Ty &,unsigned __int64 &&) noexcept' being compiled
+          with
+          [
+              _Ty=unsigned int
+          ]
+  
+  Generating Code...
+  LINK : D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe not found or not built by the last incremental link; performing full link
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

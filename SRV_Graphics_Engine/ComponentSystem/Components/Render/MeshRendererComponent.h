@@ -36,6 +36,7 @@ private:
 
 	GameObject* gameObject = nullptr;
 	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
+	ConstantBuffer<CB_PS_Light> lightConstBuffer = {};
 
 	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> texture;
 };

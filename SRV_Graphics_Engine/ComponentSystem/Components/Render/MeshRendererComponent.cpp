@@ -22,6 +22,16 @@ MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObj
 		Logger::LogError(hr, "Failed to create const buffer.");
 	}
 
+	hr = lightConstBuffer.Initialize();
+
+	if (FAILED(hr))
+	{
+		Logger::LogError(hr, "Failed to create const light buffer.");
+	}
+
+	lightConstBuffer.GetData()->ambientLightColor = DirectX::XMFLOAT3(1, 1, 1);
+	lightConstBuffer.GetData()->ambientLightStrength = 1;
+
 	try
 	{
 		if (!LoadModel(modelData.modelPath))
@@ -67,6 +77,9 @@ void MeshRendererComponent::Render()
 
 	if (constBuffer.ApplyChanges())
 		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
+
+	if (lightConstBuffer.ApplyChanges())
+		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{

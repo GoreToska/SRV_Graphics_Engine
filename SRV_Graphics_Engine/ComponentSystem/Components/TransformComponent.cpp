@@ -132,3 +132,18 @@ DirectX::XMVECTOR TransformComponent::GetOrientation() const
 {
 	return orientation;
 }
+
+DirectX::XMVECTOR TransformComponent::GetForwardVector() const
+{
+	return DirectX::XMVector3Rotate(worldForwardVector, orientation);
+}
+
+DirectX::XMVECTOR TransformComponent::GetRightVector() const
+{
+	return DirectX::XMVector3Rotate(worldRightVector, orientation);
+}
+
+DirectX::XMVECTOR TransformComponent::GetUpVector() const
+{
+	return DirectX::XMVector3Rotate(worldUpVector, orientation);
+}

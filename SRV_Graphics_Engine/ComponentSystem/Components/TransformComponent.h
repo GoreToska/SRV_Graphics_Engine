@@ -27,7 +27,12 @@ public:
 	Vector3D GetRotation() const;
 	Vector3D GetScale() const;
 	Vector3D GetCenter() const;
+
 	DirectX::XMVECTOR GetOrientation() const;
+	DirectX::XMVECTOR GetForwardVector() const;
+	DirectX::XMVECTOR GetRightVector() const;
+	DirectX::XMVECTOR GetUpVector() const;
+
 
 private:
 	GameObject* gameObject;
@@ -37,5 +42,9 @@ private:
 	Vector3D scale{};
 	Vector3D center{};
 	DirectX::XMVECTOR orientation{};
+
+	const DirectX::XMVECTOR const worldForwardVector = { 0.0f, 0.0f, 1.0f, 0.0f };
+	const DirectX::XMVECTOR const worldRightVector = { 1.0f, 0.0f, 0.0f, 0.0f };
+	const DirectX::XMVECTOR const worldUpVector = { 0.0f, 1.0f, 0.0f, 0.0f };
 };
 

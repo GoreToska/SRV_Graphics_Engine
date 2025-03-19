@@ -29,5 +29,6 @@ private:
 	VertexBuffer<TVertex> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};
 	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
+	ConstantBuffer<CB_PS_Light> lightConstBuffer = {};
 };
 

@@ -28,6 +28,16 @@ Mesh::Mesh(GameObject* gameObject, std::vector<TVertex> vertexes, std::vector<DW
 	{
 		Logger::LogError(hr, "Failed to create constant buffer.");
 	}
+
+	hr = lightConstBuffer.Initialize();
+
+	if (FAILED(hr))
+	{
+		Logger::LogError(hr, "Failed to create constant light buffer.");
+	}
+
+	lightConstBuffer.GetData()->ambientLightColor = DirectX::XMFLOAT3(1, 1, 1);
+	lightConstBuffer.GetData()->ambientLightStrength = 1;
 }
 
 Mesh::Mesh(const Mesh& mesh)
@@ -35,6 +45,7 @@ Mesh::Mesh(const Mesh& mesh)
 	this->gameObject = mesh.gameObject;
 	this->indexBuffer = mesh.indexBuffer;
 	this->constBuffer = mesh.constBuffer;
+	this->lightConstBuffer = mesh.lightConstBuffer;
 	this->vertexBuffer = mesh.vertexBuffer;
 	this->vertexes = mesh.vertexes;
 	this->indexes = mesh.indexes;
@@ -46,6 +57,9 @@ void Mesh::Render()
 	UINT offset = 0;
 
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
+
+	if (lightConstBuffer.ApplyChanges())
+		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
 	if (indexes.size() > 0)
 	{

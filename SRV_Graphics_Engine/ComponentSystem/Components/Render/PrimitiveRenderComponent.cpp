@@ -27,6 +27,16 @@ PrimitiveRenderComponent::PrimitiveRenderComponent(GameObject* gameObject, std::
 	{
 		Logger::LogError(hr, "Failed to create constant buffer.");
 	}
+
+	hr = lightConstBuffer.Initialize();
+
+	if (FAILED(hr))
+	{
+		Logger::LogError(hr, "Failed to create const light buffer.");
+	}
+
+	lightConstBuffer.GetData()->ambientLightColor = DirectX::XMFLOAT3(1, 1, 1);
+	lightConstBuffer.GetData()->ambientLightStrength = 1;
 }
 
 void PrimitiveRenderComponent::Update(const float& deltaTime)
@@ -61,6 +71,9 @@ void PrimitiveRenderComponent::Render()
 
 	if (constBuffer.ApplyChanges())
 		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
+
+	if (lightConstBuffer.ApplyChanges())
+		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
 	UINT stride = sizeof(CVertex);
 	UINT offset = 0;
