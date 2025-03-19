@@ -2,6 +2,7 @@
 #include "../../Input/Keyboard/Keyboard.h"
 
 #include <cmath> 
+#include "../../Engine/Engine.h"
 
 KatamariMovementComponent::KatamariMovementComponent(GameObject* gameObject) :
 	gameObject(gameObject)
@@ -76,31 +77,39 @@ void KatamariMovementComponent::OnKeyReleased(const unsigned char key)
 
 void KatamariMovementComponent::UpdateRotation(const float& deltaTime)
 {
-	Vector3D rotationAxis = { movementDirection.z, 0, -movementDirection.x };
+	Vector3D cameraRelativeDirection = CalculateMovementDirection();
+	Vector3D rotationAxis = { cameraRelativeDirection.z, 0, -cameraRelativeDirection.x };
 	gameObject->GetTransform()->AddWorldRotation(rotationAxis, deltaTime * speed * 20);
 }
 
 void KatamariMovementComponent::UpdateHeight(const float& deltaTime)
 {
-	// Получаем текущую позицию героя
 	Vector3D position = gameObject->GetTransform()->GetPosition();
 
-	// Вычисляем высоту ландшафта в точке (x, z)
 	float landscapeHeight = GetLandscapeHeight(position.x, position.z) + 1;
-
-	// Устанавливаем новую высоту героя
 	position.y = landscapeHeight;
+
 	gameObject->GetTransform()->SetPosition(position);
 }
 
 void KatamariMovementComponent::UpdatePosition(const float& deltaTime)
 {
-	gameObject->GetTransform()->MovePosition(movementDirection * deltaTime * speed);
+	Vector3D cameraRelativeDirection = CalculateMovementDirection();
+	gameObject->GetTransform()->MovePosition(cameraRelativeDirection * deltaTime * speed);
 }
 
 float KatamariMovementComponent::GetLandscapeHeight(float x, float z)
 {
 	float amplitude = 1.5f;
-	float frequency = 0.5f; 
+	float frequency = 0.5f;
 	return amplitude * std::sin(x * frequency) * std::cos(z * frequency);
+}
+
+Vector3D KatamariMovementComponent::CalculateMovementDirection()
+{
+	Vector3D normalizedForward = SRVEngine.GetGraphics().GetCamera()->GetForwardVector().Normalized();
+	Vector3D normalizedRight = SRVEngine.GetGraphics().GetCamera()->GetRightVector().Normalized();
+
+	Vector3D newDirection = (normalizedForward * movementDirection.z) + (normalizedRight * movementDirection.x);
+	return newDirection.Normalized(); 
 }

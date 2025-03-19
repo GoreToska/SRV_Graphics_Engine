@@ -16,6 +16,7 @@
 #include "Games/Katamari/KatamariCollisionComponent.h"
 #include "ComponentSystem/Components/Camera/TopDownCameraComponent.h"
 #include "ComponentSystem/Components/Camera/CameraMovementComponent.h"
+#include "ComponentSystem/Components/Camera/ThirdPersonCameraComponent.h"
 #include "DataTypes/ModelData.h"
 #include "./ComponentSystem/Components/Render/PrimitiveRenderComponent.h"
 #include "ComponentSystem/Components/Light/PointLightComponent.h"
@@ -78,14 +79,13 @@ int main()
 	}
 
 
-	GameObject* pointLight01 = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	GameObject* pointLight01 = new GameObject(Vector3D(0, 20.0f, 0.0f));
 	pointLight01->AddComponent(new PointLightComponent(pointLight01));
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
 
 	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 1, 1 });
 	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(1);
-	pointLight01->GetTransform()->SetPosition(10, 0, 0);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
@@ -153,9 +153,10 @@ int main()
 	redBird->AddComponent(new KatamariCollisionComponent(redBird));
 	SRVEngine.AddGameObject(redBird);
 
-	GameObject* camera = new GameObject();
-	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	GameObject* camera = new GameObject(Vector3D(15, 15, 15));
+	//camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
 	//camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
+	camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
 	SRVEngine.AddGameObject(camera);
 
 	Keyboard::GetInstance().KeyPressedEvent.AddLambda([pointLight01, camera](const unsigned char a)

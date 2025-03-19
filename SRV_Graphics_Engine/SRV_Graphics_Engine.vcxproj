@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentSystem\Components\Camera\ThirdPersonCameraComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Light\PointLightComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Render\IRenderComponent.cpp" />
     <ClCompile Include="DataTypes\Collision\BoundingSphere.cpp" />
@@ -178,6 +179,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Render\IRenderComponent.h" />
     <ClInclude Include="DataTypes\Collision\BoundingSphere.h" />
     <ClInclude Include="DataTypes\Collision\BoundingBox.h" />

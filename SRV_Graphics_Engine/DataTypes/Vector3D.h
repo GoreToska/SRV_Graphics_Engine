@@ -1,6 +1,7 @@
 #pragma once
 
 #include <DirectXMath.h>
+#include <cmath>
 
 struct Vector3D
 {
@@ -49,6 +50,26 @@ public:
 	Vector3D operator * (const Vector3D& value) const
 	{
 		return Vector3D{ x * value.x, y * value.y, z * value.z };
+	}
+
+	Vector3D Normalized() const
+	{
+		float length = std::sqrtf(x * x + y * y + z * z);
+
+		if (length == 0.0f)
+			return Vector3D::ZeroVector();
+
+		return Vector3D(x / length, y / length, z / length);
+	}
+
+	float LengthSquared() const
+	{
+		return x * x + y * y + z * z;
+	}
+
+	float GetYawAngle() const
+	{
+		return std::atan2(x, z);
 	}
 
 	float x;

@@ -20,6 +20,7 @@ public:
 
 	void AddLocalRotation(const Vector3D& rotationAxis, const float& angle = 0);
 	void AddWorldRotation(const Vector3D& rotationAxis, const float& angle = 0);
+	void SetRotation(const Vector3D& rotation);
 
 	void SetScale(const Vector3D& scale);
 

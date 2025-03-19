@@ -17,7 +17,7 @@ private:
 	void UpdateHeight(const float& deltaTime);
 	void UpdatePosition(const float& deltaTime);
 	float GetLandscapeHeight(float x, float z);
-	
+	Vector3D CalculateMovementDirection();
 
 	Vector3D movementDirection;
 	GameObject* gameObject;
