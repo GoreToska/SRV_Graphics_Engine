@@ -58,6 +58,14 @@ void Mesh::Render()
 
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 
+	lightConstBuffer.GetData()->dynamicLightColor = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightColor();
+	lightConstBuffer.GetData()->dynamicLightStrength = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightStrength();
+
+	lightConstBuffer.GetData()->dynamicLightPosition =
+	{ SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().x,
+	SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().y,
+	SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().z };
+
 	if (lightConstBuffer.ApplyChanges())
 		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 

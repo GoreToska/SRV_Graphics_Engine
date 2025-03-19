@@ -15,8 +15,10 @@
 #include "Games/Katamari/KatamariMovementComponent.h"
 #include "Games/Katamari/KatamariCollisionComponent.h"
 #include "ComponentSystem/Components/Camera/TopDownCameraComponent.h"
+#include "ComponentSystem/Components/Camera/CameraMovementComponent.h"
 #include "DataTypes/ModelData.h"
 #include "./ComponentSystem/Components/Render/PrimitiveRenderComponent.h"
+#include "ComponentSystem/Components/Light/PointLightComponent.h"
 
 #pragma endregion
 
@@ -39,9 +41,9 @@ int main()
 	ModelData phoneModelData = { "Data\\Models\\Phone\\Phone.obj", L"Data\\Models\\Phone\\Phone.png" };
 	ModelData hatModelData = { "Data\\Models\\Hat\\Hat.obj", L"Data\\Models\\Hat\\Hat.png" };
 
-	const int gridSize = 42; 
-	const float squareSize = 80.0f; 
-	const float h = 0.0f; 
+	const int gridSize = 42;
+	const float squareSize = 80.0f;
+	const float h = 0.0f;
 
 	std::vector<CVertex> groundVertexes;
 	std::vector<DWORD> groundIndexes;
@@ -65,21 +67,29 @@ int main()
 			DWORD bottomLeft = (i + 1) * (gridSize + 1) + j;
 			DWORD bottomRight = bottomLeft + 1;
 
-			groundIndexes.push_back(topLeft);     
-			groundIndexes.push_back(topRight);    
-			groundIndexes.push_back(bottomLeft);  
+			groundIndexes.push_back(topLeft);
+			groundIndexes.push_back(topRight);
+			groundIndexes.push_back(bottomLeft);
 
-			groundIndexes.push_back(topRight);    
-			groundIndexes.push_back(bottomRight);  
-			groundIndexes.push_back(bottomLeft);  
+			groundIndexes.push_back(topRight);
+			groundIndexes.push_back(bottomRight);
+			groundIndexes.push_back(bottomLeft);
 		}
 	}
 
 
+	GameObject* pointLight01 = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	pointLight01->AddComponent(new PointLightComponent(pointLight01));
+	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
+	SRVEngine.AddGameObject(pointLight01);
+
+	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 1, 1 });
+	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(1);
+	pointLight01->GetTransform()->SetPosition(10, 0, 0);
+
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
 	SRVEngine.AddGameObject(ground);
-
 
 	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
 	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
@@ -144,8 +154,20 @@ int main()
 	SRVEngine.AddGameObject(redBird);
 
 	GameObject* camera = new GameObject();
-	camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
+	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	//camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
 	SRVEngine.AddGameObject(camera);
+
+	Keyboard::GetInstance().KeyPressedEvent.AddLambda([pointLight01, camera](const unsigned char a)
+		{
+			if (a != 'X')
+				return;
+
+			pointLight01->GetTransform()->SetPosition(
+				{ SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().x,
+				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().y,
+				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().z });
+		});
 
 	while (SRVEngine.ProcessMessages())
 	{

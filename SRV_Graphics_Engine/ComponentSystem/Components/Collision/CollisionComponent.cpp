@@ -34,7 +34,6 @@ void CollisionComponent::Update(const float& deltaTime)
 
 		if (Intersects(*colliderComponent))
 		{
-			std::cout << "Intersects\n";
 			OnCollisionEnter.Broadcast(colliderComponent);
 		}
 	}

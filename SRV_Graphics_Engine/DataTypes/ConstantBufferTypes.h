@@ -6,17 +6,24 @@
 struct CB_VS_VertexShader
 {
 	CB_VS_VertexShader() {};
-	CB_VS_VertexShader(DirectX::XMMATRIX mat) : matrix(mat) {}
+	CB_VS_VertexShader(DirectX::XMMATRIX worldViewProjection, DirectX::XMMATRIX world)
+		: worldViewProjection(worldViewProjection), world(world) {}
 
-	DirectX::XMMATRIX matrix;
+	DirectX::XMMATRIX worldViewProjection;
+	DirectX::XMMATRIX world;
 };
 
 struct CB_PS_Light
 {
 	CB_PS_Light() {};
-	CB_PS_Light(DirectX::XMFLOAT3 ambientColor, float ambientStrength)
-		: ambientLightColor(ambientColor), ambientLightStrength(ambientStrength) {};
+	CB_PS_Light(DirectX::XMFLOAT3 ambientLightColor, float ambientStrength,
+		DirectX::XMFLOAT3 dynamicLightColor, float dynamicLightStrength)
+		: ambientLightColor(ambientLightColor), ambientLightStrength(ambientStrength),
+		dynamicLightColor(ambientLightColor), dynamicLightStrength(dynamicLightStrength) {};
 
-	DirectX::XMFLOAT3 ambientLightColor;
-	float ambientLightStrength;
+	DirectX::XMFLOAT3 ambientLightColor = { 1.0f,1.0f,1.0f };
+	float ambientLightStrength = 1;
+	DirectX::XMFLOAT3 dynamicLightColor /*= { 1.0f,0.0f,0.0f }*/;
+	float dynamicLightStrength = 1;
+	DirectX::XMFLOAT3 dynamicLightPosition = { 0.0f,0.0f,0.0f };
 };

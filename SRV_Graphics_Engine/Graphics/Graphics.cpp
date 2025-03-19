@@ -58,6 +58,12 @@ void Graphics::RenderFrame()
 void Graphics::AddObjectToRenderPool(IRenderComponent* object)
 {
 	objectRenderPool.push_back(object);
+
+	auto light = dynamic_cast<PointLightComponent*>(object);
+	if (light)
+	{
+		lightPool.push_back(light);
+	}
 }
 
 const DirectX::XMMATRIX Graphics::GetWorldMatrix() const
@@ -78,6 +84,11 @@ float Graphics::GetClientWidth() const
 float Graphics::GetClientHeight() const
 {
 	return clientHeight;
+}
+
+std::vector<PointLightComponent*> Graphics::GetAllLights() const
+{
+	return lightPool;
 }
 
 bool Graphics::InitializeDirectX(HWND hwnd)

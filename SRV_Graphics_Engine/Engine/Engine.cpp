@@ -56,7 +56,7 @@ void Engine::Update(float deltaTime)
 		gameObjects[i]->Update(deltaTime);
 	}
 
-	/*#pragma region Input
+	#pragma region Input
 
 		while (!Keyboard::GetInstance().CharBufferIsEmpty())
 		{
@@ -72,7 +72,7 @@ void Engine::Update(float deltaTime)
 		{
 			MouseInputEvent e = Mouse::GetInstance().ReadEvent();
 		}
-	#pragma endregion*/
+	#pragma endregion
 }
 
 void Engine::RenderFrame()

@@ -7,6 +7,7 @@
 #include "../ComponentSystem/GameObject.h"
 #include "Camera.h"
 #include "../ComponentSystem/Components/Render/MeshRendererComponent.h"
+#include "../ComponentSystem/Components/Light/PointLightComponent.h"
 
 #include<d3d11.h>
 #include<wrl/client.h>
@@ -32,6 +33,7 @@ public:
 	Camera* GetCamera() const;
 	float GetClientWidth() const;
 	float GetClientHeight() const;
+	std::vector<PointLightComponent*> GetAllLights() const;
 
 private:
 	bool InitializeDirectX(HWND hwnd);
@@ -54,6 +56,7 @@ private:
 	DirectX::XMMATRIX worldMatrix;
 
 	std::vector<IRenderComponent*> objectRenderPool = {};
+	std::vector<PointLightComponent*> lightPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;

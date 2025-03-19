@@ -15,18 +15,15 @@
 class PrimitiveRenderComponent : public IRenderComponent
 {
 public:
-	PrimitiveRenderComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type ,std::vector<DWORD> indexes = {});
+	PrimitiveRenderComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes = {});
 	void Update(const float& deltaTime) override;
 	void Render() override;
 
 private:
 	std::vector<CVertex> vertexes = {};
 	std::vector<DWORD> indexes = {};
-	GameObject* gameObject;
 
 	VertexBuffer<CVertex> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};
-	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
-	ConstantBuffer<CB_PS_Light> lightConstBuffer = {};
 };
 

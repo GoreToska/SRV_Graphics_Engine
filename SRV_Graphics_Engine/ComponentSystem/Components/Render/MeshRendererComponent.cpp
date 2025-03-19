@@ -6,31 +6,13 @@
 #include "../../../DataTypes/ModelData.h"
 
 MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObject* gameObject, ShaderManager::ShaderType shaderType)
-	: IRenderComponent(shaderType)
+	: IRenderComponent(gameObject,shaderType)
 {
 	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf());
 	if (FAILED(hr))
 	{
 		Logger::LogError(hr, "Failed to create texture.");
 	}
-
-	this->gameObject = gameObject;
-
-	hr = constBuffer.Initialize();
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create const buffer.");
-	}
-
-	hr = lightConstBuffer.Initialize();
-
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create const light buffer.");
-	}
-
-	lightConstBuffer.GetData()->ambientLightColor = DirectX::XMFLOAT3(1, 1, 1);
-	lightConstBuffer.GetData()->ambientLightStrength = 1;
 
 	try
 	{
@@ -52,34 +34,9 @@ void MeshRendererComponent::Render()
 {
 	IRenderComponent::Render();
 
-
 	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
 
 	DirectX::XMVECTOR orientation = gameObject->GetTransform()->GetOrientation();
-
-	constBuffer.GetData()->matrix = DirectX::XMMatrixScaling(
-		gameObject->GetTransform()->GetScale().x,
-		gameObject->GetTransform()->GetScale().y,
-		gameObject->GetTransform()->GetScale().z);
-
-	constBuffer.GetData()->matrix *= DirectX::XMMatrixRotationQuaternion(orientation);
-
-	constBuffer.GetData()->matrix *= DirectX::XMMatrixTranslation(
-		gameObject->GetTransform()->GetPosition().x,
-		gameObject->GetTransform()->GetPosition().y,
-		gameObject->GetTransform()->GetPosition().z);
-
-	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetWorldMatrix();
-	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetViewMatrix();
-	constBuffer.GetData()->matrix *= SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix();
-
-	constBuffer.GetData()->matrix = DirectX::XMMatrixTranspose(constBuffer.GetData()->matrix);
-
-	if (constBuffer.ApplyChanges())
-		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
-
-	if (lightConstBuffer.ApplyChanges())
-		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{
@@ -123,9 +80,15 @@ Mesh MeshRendererComponent::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	for (UINT i = 0; i < mesh->mNumVertices; ++i)
 	{
 		TVertex vertex = {};
+
 		vertex.position.x = mesh->mVertices[i].x;
 		vertex.position.y = mesh->mVertices[i].y;
 		vertex.position.z = mesh->mVertices[i].z;
+
+		vertex.normal.x = mesh->mNormals[i].x;
+		vertex.normal.y = mesh->mNormals[i].y;
+		vertex.normal.z = mesh->mNormals[i].z;
+
 
 		if (mesh->mTextureCoords[0])
 		{

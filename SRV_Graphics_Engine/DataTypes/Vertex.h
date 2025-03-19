@@ -21,12 +21,14 @@ struct TVertex
 {
 	TVertex() {};
 
-	TVertex(Vector3D position, float u, float v) :
+	TVertex(Vector3D position, float u, float v, Vector3D normal) :
 		position(position.x, position.y, position.z),
-		textCoord(u, v) {};
+		textCoord(u, v),
+		normal(normal.x, normal.y, normal.z) {};
 
 	DirectX::XMFLOAT3 position;
 	DirectX::XMFLOAT2 textCoord;
+	DirectX::XMFLOAT3 normal;
 };
 
 struct CVertex
