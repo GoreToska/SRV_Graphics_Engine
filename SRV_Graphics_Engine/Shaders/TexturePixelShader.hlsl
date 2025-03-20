@@ -22,7 +22,7 @@ float4 main(PS_INPUT input) : SV_TARGET
 {
     float3 sampleColor = objTexture.Sample(objSamplerState, input.inTextCoord);
     
-    //float3 sampleColor = input.inNormal; <- debug normals
+    //float3 sampleColor = input.inNormal; //<- debug normals
     
     float3 ambientLight = ambientLightColor * ambientLightStrenght;
     

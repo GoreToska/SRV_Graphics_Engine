@@ -93,14 +93,12 @@ void TransformComponent::AddWorldRotation(const Vector3D& rotationAxis, const fl
 
 void TransformComponent::SetRotation(const Vector3D& rotation)
 {
-	// Преобразуем углы Эйлера (в градусах) в кватернион
 	DirectX::XMVECTOR rotationQuaternion = DirectX::XMQuaternionRotationRollPitchYaw(
 		DirectX::XMConvertToRadians(rotation.x), // Pitch
 		DirectX::XMConvertToRadians(rotation.y), // Yaw
 		DirectX::XMConvertToRadians(rotation.z)  // Roll
 	);
 
-	// Устанавливаем новую ориентацию
 	orientation = rotationQuaternion;
 }
 

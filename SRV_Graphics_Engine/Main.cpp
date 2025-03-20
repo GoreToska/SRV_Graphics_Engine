@@ -84,14 +84,14 @@ int main()
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
 
-	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 1, 1 });
-	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(1);
+	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 0, 0 });
+	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(0);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
 	SRVEngine.AddGameObject(ground);
 
-	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
+	/*GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
 	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
 	blueBird->AddComponent(new SphereCollisionComponent(blueBird, Vector3D(0.0f, 0.0f, 0.0f), 2.4));
 	blueBird->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
@@ -151,12 +151,12 @@ int main()
 	redBird->AddComponent(new KatamariMovementComponent(redBird));
 	redBird->GetTransform()->SetScale(Vector3D(0.01, 0.01, 0.01));
 	redBird->AddComponent(new KatamariCollisionComponent(redBird));
-	SRVEngine.AddGameObject(redBird);
+	SRVEngine.AddGameObject(redBird);*/
 
 	GameObject* camera = new GameObject(Vector3D(15, 15, 15));
-	//camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
 	//camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
-	camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
+	//camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
 	SRVEngine.AddGameObject(camera);
 
 	Keyboard::GetInstance().KeyPressedEvent.AddLambda([pointLight01, camera](const unsigned char a)
