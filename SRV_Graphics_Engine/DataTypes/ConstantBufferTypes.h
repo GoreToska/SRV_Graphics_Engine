@@ -22,7 +22,7 @@ struct CB_PS_Light
 		dynamicLightColor(ambientLightColor), dynamicLightStrength(dynamicLightStrength) {};
 
 	DirectX::XMFLOAT3 ambientLightColor = { 1.0f,1.0f,1.0f };
-	float ambientLightStrength = 1;
+	float ambientLightStrength = 0.01;
 	DirectX::XMFLOAT3 dynamicLightColor /*= { 1.0f,0.0f,0.0f }*/;
 	float dynamicLightStrength = 1;
 	DirectX::XMFLOAT3 dynamicLightPosition = { 0.0f,0.0f,0.0f };

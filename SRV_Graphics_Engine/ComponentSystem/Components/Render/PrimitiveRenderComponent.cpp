@@ -30,12 +30,12 @@ void PrimitiveRenderComponent::Update(const float& deltaTime)
 
 void PrimitiveRenderComponent::Render()
 {
-	IRenderComponent::Render();
-
 	UINT stride = sizeof(CVertex);
 	UINT offset = 0;
 
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
+
+	IRenderComponent::Render();
 
 	if (indexes.size() > 0)
 	{

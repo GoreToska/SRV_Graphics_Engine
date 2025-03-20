@@ -42,8 +42,8 @@ int main()
 	ModelData phoneModelData = { "Data\\Models\\Phone\\Phone.obj", L"Data\\Models\\Phone\\Phone.png" };
 	ModelData hatModelData = { "Data\\Models\\Hat\\Hat.obj", L"Data\\Models\\Hat\\Hat.png" };
 
-	const int gridSize = 42;
-	const float squareSize = 80.0f;
+	const int gridSize = 500;
+	const float squareSize = 50.0f;
 	const float h = 0.0f;
 
 	std::vector<CVertex> groundVertexes;
@@ -84,8 +84,8 @@ int main()
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
 
-	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 0, 0 });
-	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(0);
+	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 1, 1 });
+	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(1);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));

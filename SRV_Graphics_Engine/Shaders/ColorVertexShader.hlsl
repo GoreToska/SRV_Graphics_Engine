@@ -15,6 +15,7 @@ struct PS_INPUT
     float4 position : SV_POSITION;
     float4 color : COLOR;
     float3 normal : NORMAL;
+    float3 outWorldPosition : WORLD_POSITION;
 };
 
 PS_INPUT main(VS_INPUT input)
@@ -34,7 +35,7 @@ PS_INPUT main(VS_INPUT input)
     float amplitude = 1.5f;
     float frequency = 0.5f;
     float yOffset = amplitude * sin(input.position.x * frequency) * cos(input.position.z * frequency);
-    float delta = 0.01f;
+    float delta = 0.0001f;
     float yOffset1 = amplitude * sin((input.position.x + delta) * frequency) * cos((input.position.z) * frequency);
     float yOffset2 = amplitude * sin((input.position.x) * frequency) * cos((input.position.z + delta) * frequency);
     
@@ -59,5 +60,7 @@ PS_INPUT main(VS_INPUT input)
     normal = normalize(normal);
     output.normal = normalize(mul(float4(normal, 0), world));
 
+    output.outWorldPosition = mul(float4(input.position, 1.0f), world);
+    
     return output;
 }
