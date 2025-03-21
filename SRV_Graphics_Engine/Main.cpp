@@ -85,7 +85,7 @@ int main()
 	SRVEngine.AddGameObject(pointLight01);
 
 	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 1, 1 });
-	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(1);
+	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(5);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));

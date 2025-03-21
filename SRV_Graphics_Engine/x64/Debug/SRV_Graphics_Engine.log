@@ -1,31 +1,31 @@
 ﻿  Main.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: Множественное использование одного и того же квалификатора типа.
-  (компиляция исходного файла "Main.cpp")
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(48,26): warning C4114: Множественное использование одного и того же квалификатора типа.
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(48,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: Множественное использование одного и того же квалификатора типа.
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariMovementComponent.h(25,16): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariMovementComponent.h(25,16): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(21,20): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(21,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(22,21): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(22,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h(32,21): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h(32,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,53): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,48): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,43): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(175,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-  SRV_Graphics_Engine.vcxproj -> C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,53): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,48): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(84,43): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(175,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

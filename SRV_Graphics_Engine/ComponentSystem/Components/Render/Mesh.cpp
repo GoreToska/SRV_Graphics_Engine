@@ -66,6 +66,10 @@ void Mesh::Render()
 	SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().y,
 	SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().z };
 
+	lightConstBuffer.GetData()->dynamicLightAttenuation_const = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationConst();
+	lightConstBuffer.GetData()->dynamicLightAttenuation_linear = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationLinear();
+	lightConstBuffer.GetData()->dynamicLightAttenuation_exponent = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationExponent();
+
 	if (lightConstBuffer.ApplyChanges())
 		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 

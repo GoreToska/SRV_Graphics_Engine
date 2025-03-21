@@ -2,21 +2,21 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\ColorVertexShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorVertexShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\ColorPixelShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorPixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\TexturePixelShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\TexturePixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\TextureVertexShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\TextureVertexShader.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

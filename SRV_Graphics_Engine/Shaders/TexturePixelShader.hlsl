@@ -5,6 +5,9 @@ cbuffer lightBuffer : register(b0)
     float3 dynamicLightColor;
     float dynamicLightStrenght;
     float3 dynamicLightPosition;
+    float dynamicLightAttenuation_const;
+    float dynamicLightAttenuation_linear;
+    float dynamicLightAttenuation_exponent;
 }
 
 struct PS_INPUT

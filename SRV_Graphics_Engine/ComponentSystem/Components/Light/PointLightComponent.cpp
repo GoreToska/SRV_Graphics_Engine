@@ -61,3 +61,18 @@ float PointLightComponent::GetLightStrength()
 {
 	return lightStrength;
 }
+
+float PointLightComponent::GetLightAttenuationConst() const
+{
+	return attenuation_const;
+}
+
+float PointLightComponent::GetLightAttenuationLinear() const
+{
+	return attenuation_linear;
+}
+
+float PointLightComponent::GetLightAttenuationExponent() const
+{
+	return attenuation_exponent;
+}

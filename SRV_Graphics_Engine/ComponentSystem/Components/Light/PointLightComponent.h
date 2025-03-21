@@ -16,8 +16,16 @@ public:
 	void SetLightStrength(float strength);
 	DirectX::XMFLOAT3& GetLightColor();
 	float GetLightStrength();
+	float GetLightAttenuationConst() const;
+	float GetLightAttenuationLinear() const;
+	float GetLightAttenuationExponent() const;
 
 private:
 	DirectX::XMFLOAT3 lightColor = DirectX::XMFLOAT3(1, 0, 0);
-	float lightStrength = 1;
+	float lightStrength = 1.0f;
+
+	float attenuation_const = 1.0f;
+	float attenuation_linear = 0.1f;
+	float attenuation_exponent = 0.1f;
+
 };
