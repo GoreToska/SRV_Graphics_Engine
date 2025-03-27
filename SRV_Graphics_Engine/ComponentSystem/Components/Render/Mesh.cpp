@@ -35,9 +35,6 @@ Mesh::Mesh(GameObject* gameObject, std::vector<TVertex> vertexes, std::vector<DW
 	{
 		Logger::LogError(hr, "Failed to create constant light buffer.");
 	}
-
-	lightConstBuffer.GetData()->ambientLightColor = DirectX::XMFLOAT3(1, 1, 1);
-	lightConstBuffer.GetData()->ambientLightStrength = 1;
 }
 
 Mesh::Mesh(const Mesh& mesh)

@@ -91,7 +91,7 @@ int main()
 	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
 	SRVEngine.AddGameObject(ground);
 
-	/*GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
+	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
 	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
 	blueBird->AddComponent(new SphereCollisionComponent(blueBird, Vector3D(0.0f, 0.0f, 0.0f), 2.4));
 	blueBird->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
@@ -145,7 +145,7 @@ int main()
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(greenPig);
 
-	GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	/*GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	redBird->AddComponent(new MeshRendererComponent(redBirdModelData, redBird, ShaderManager::ShaderType::Texture));
 	redBird->AddComponent(new SphereCollisionComponent(redBird, Vector3D(0, 0, 0), 2.2));
 	redBird->AddComponent(new KatamariMovementComponent(redBird));

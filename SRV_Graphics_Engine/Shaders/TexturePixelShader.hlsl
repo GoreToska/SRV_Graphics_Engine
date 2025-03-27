@@ -29,14 +29,21 @@ float4 main(PS_INPUT input) : SV_TARGET
     
     float3 ambientLight = ambientLightColor * ambientLightStrenght;
     
+    
     float3 appliedLight = ambientLight;
     
     float3 vectorToLight = normalize(dynamicLightPosition - input.inWorldPosition);
     
     float3 diffuseLightIntensity = max(dot(vectorToLight, input.inNormal), 0);
     
-    float3 diffuseLight = diffuseLightIntensity * dynamicLightStrenght * dynamicLightColor;
+    float distanceToLight = distance(dynamicLightPosition, input.inWorldPosition);
+    float3 attenuation = 1 / (dynamicLightAttenuation_const + dynamicLightAttenuation_linear * distanceToLight
+                             + dynamicLightAttenuation_exponent * pow(distanceToLight, 2));
     
+    float3 diffuseLight = diffuseLightIntensity * dynamicLightStrenght * dynamicLightColor;
+    diffuseLight *= attenuation;
+    appliedLight += diffuseLight;
+        
     appliedLight += diffuseLight;
     
     float3 finalColor = sampleColor * appliedLight;
