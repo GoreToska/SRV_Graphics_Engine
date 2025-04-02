@@ -1,7 +1,7 @@
 #include "PrimitiveRenderComponent.h"
 #include "../../../Engine/Engine.h"
 
-PrimitiveRenderComponent::PrimitiveRenderComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes)
+ColorMeshComponent::ColorMeshComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes)
 	: IRenderComponent(gameObject, type), vertexes(vertexes), indexes(indexes)
 {
 	HRESULT hr = vertexBuffer.Initialize(&this->vertexes[0], this->vertexes.size());
@@ -22,13 +22,13 @@ PrimitiveRenderComponent::PrimitiveRenderComponent(GameObject* gameObject, std::
 	}
 }
 
-void PrimitiveRenderComponent::Update(const float& deltaTime)
+void ColorMeshComponent::Update(const float& deltaTime)
 {
 	if (!IsEnabled())
 		return;
 }
 
-void PrimitiveRenderComponent::Render()
+void ColorMeshComponent::Render()
 {
 	UINT stride = sizeof(CVertex);
 	UINT offset = 0;

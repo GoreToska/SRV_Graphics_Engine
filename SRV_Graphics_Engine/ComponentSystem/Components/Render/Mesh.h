@@ -13,22 +13,22 @@
 #include "../../../DataTypes/Vertex.h"
 #include "../../../DataTypes/ConstantBufferTypes.h"
 
-class Mesh
+#include "IRenderComponent.h"
+
+class TextureMeshComponent : public IRenderComponent
 {
 public:
-	Mesh(GameObject* gameObject, std::vector<TVertex> vertexes, std::vector<DWORD> indexes = {});
-	Mesh(const Mesh& mesh);
+	TextureMeshComponent(GameObject* gameObject, std::vector<TVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes = {});
+	TextureMeshComponent(const TextureMeshComponent& mesh);
 
-	void Render();
+	void Update(const float& deltaTime) override;
+	void Render() override;
 
 private:
 	std::vector<TVertex> vertexes = {};
 	std::vector<DWORD> indexes = {};
-	GameObject* gameObject;
 
 	VertexBuffer<TVertex> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};
-	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
-	ConstantBuffer<CB_PS_Light> lightConstBuffer = {};
 };
 

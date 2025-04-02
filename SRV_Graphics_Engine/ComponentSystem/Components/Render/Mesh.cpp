@@ -2,8 +2,8 @@
 #include "../../../Engine/Engine.h"
 
 
-Mesh::Mesh(GameObject* gameObject, std::vector<TVertex> vertexes, std::vector<DWORD> indexes) :
-	gameObject(gameObject), vertexes(vertexes), indexes(indexes)
+TextureMeshComponent::TextureMeshComponent(GameObject* gameObject, std::vector<TVertex> vertexes, ShaderManager::ShaderType type , std::vector<DWORD> indexes)
+	: IRenderComponent(gameObject, type), vertexes(vertexes), indexes(indexes)
 {
 	HRESULT hr = vertexBuffer.Initialize(&this->vertexes[0], this->vertexes.size());
 
@@ -37,9 +37,9 @@ Mesh::Mesh(GameObject* gameObject, std::vector<TVertex> vertexes, std::vector<DW
 	}
 }
 
-Mesh::Mesh(const Mesh& mesh)
+TextureMeshComponent::TextureMeshComponent(const TextureMeshComponent& mesh)
+	: IRenderComponent(mesh.gameObject, mesh.shaderType)
 {
-	this->gameObject = mesh.gameObject;
 	this->indexBuffer = mesh.indexBuffer;
 	this->constBuffer = mesh.constBuffer;
 	this->lightConstBuffer = mesh.lightConstBuffer;
@@ -48,27 +48,18 @@ Mesh::Mesh(const Mesh& mesh)
 	this->indexes = mesh.indexes;
 }
 
-void Mesh::Render()
+void TextureMeshComponent::Update(const float& deltaTime)
 {
+}
+
+void TextureMeshComponent::Render()
+{
+	IRenderComponent::Render();
+
 	UINT stride = sizeof(TVertex);
 	UINT offset = 0;
 
 	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
-
-	lightConstBuffer.GetData()->dynamicLightColor = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightColor();
-	lightConstBuffer.GetData()->dynamicLightStrength = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightStrength();
-
-	lightConstBuffer.GetData()->dynamicLightPosition =
-	{ SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().x,
-	SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().y,
-	SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().z };
-
-	lightConstBuffer.GetData()->dynamicLightAttenuation_const = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationConst();
-	lightConstBuffer.GetData()->dynamicLightAttenuation_linear = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationLinear();
-	lightConstBuffer.GetData()->dynamicLightAttenuation_exponent = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationExponent();
-
-	if (lightConstBuffer.ApplyChanges())
-		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
 	if (indexes.size() > 0)
 	{

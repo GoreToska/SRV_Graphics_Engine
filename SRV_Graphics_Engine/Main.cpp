@@ -79,7 +79,7 @@ int main()
 	}
 
 
-	GameObject* pointLight01 = new GameObject(Vector3D(0, 20.0f, 0.0f));
+	GameObject* pointLight01 = new GameObject(Vector3D(0, 5.0f, 0.0f));
 	pointLight01->AddComponent(new PointLightComponent(pointLight01));
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
@@ -88,7 +88,7 @@ int main()
 	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(5);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
-	ground->AddComponent(new PrimitiveRenderComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
+	ground->AddComponent(new ColorMeshComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
 	SRVEngine.AddGameObject(ground);
 
 	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));

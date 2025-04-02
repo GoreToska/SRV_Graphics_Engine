@@ -72,7 +72,7 @@ void MeshRendererComponent::ProcessNode(aiNode* node, const aiScene* scene)
 	}
 }
 
-Mesh MeshRendererComponent::ProcessMesh(aiMesh* mesh, const aiScene* scene)
+TextureMeshComponent MeshRendererComponent::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 {
 	std::vector<TVertex> vertexes = {};
 	std::vector<DWORD> indexes = {};
@@ -109,5 +109,5 @@ Mesh MeshRendererComponent::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 		}
 	}
 
-	return Mesh(gameObject, vertexes, indexes);
+	return TextureMeshComponent(gameObject, vertexes, shaderType, indexes);
 }

@@ -12,10 +12,10 @@
 #include "../../../Graphics/Buffers/VertexBuffer.h"
 
 
-class PrimitiveRenderComponent : public IRenderComponent
+class ColorMeshComponent : public IRenderComponent
 {
 public:
-	PrimitiveRenderComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes = {});
+	ColorMeshComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes = {});
 	void Update(const float& deltaTime) override;
 	void Render() override;
 

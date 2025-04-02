@@ -72,6 +72,46 @@ public:
 		return std::atan2(x, z);
 	}
 
+	DirectX::XMVECTOR ToXMVector()
+	{
+		return DirectX::XMVECTOR{ x, y, z };
+	}
+
+	DirectX::XMFLOAT3 ToXMFloat()
+	{
+		return DirectX::XMFLOAT3{ x, y, z };
+	}
+
+	static Vector3D Right()
+	{
+		return Vector3D(1, 0, 0);
+	}
+
+	static Vector3D Left()
+	{
+		return Vector3D(-1, 0, 0);
+	}
+
+	static Vector3D Up()
+	{
+		return Vector3D(0, 1, 0);
+	}
+
+	static Vector3D Down()
+	{
+		return Vector3D(0, -1, 0);
+	}
+
+	static Vector3D Forward()
+	{
+		return Vector3D(0, 0, 1);
+	}
+
+	static Vector3D Backward()
+	{
+		return Vector3D(0, 0, -1);
+	}
+
 	float x;
 	float y;
 	float z;

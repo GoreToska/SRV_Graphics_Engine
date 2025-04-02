@@ -1,7 +1,8 @@
 cbuffer perObjectBuffer : register(b0)
 {
-    matrix viewProjection;
     matrix world;
+    matrix view;
+    matrix projection;
 };
 
 struct VS_INPUT
@@ -23,11 +24,10 @@ VS_OUTPUT main(VS_INPUT input)
 {
     VS_OUTPUT output;
     
-    output.outPosition = mul(float4(input.inPosition, 1.0f), viewProjection);
+    output.outPosition = mul(float4(input.inPosition, 1.0f), mul(mul(world, view), projection));
     output.outTextCoord = input.inTextCoord;
     output.outNormal = normalize(mul(float4(input.inNormal, 0), world));
     output.outWorldPosition = mul(float4(input.inPosition, 1.0f), world);
     
     return output;
 }
-

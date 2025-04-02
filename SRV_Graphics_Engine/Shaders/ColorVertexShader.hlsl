@@ -1,7 +1,8 @@
-cbuffer mycBuffer : register(b0)
+cbuffer perObjectBuffer : register(b0)
 {
-    matrix viewProjection;
     matrix world;
+    matrix view;
+    matrix projection;
 };
 
 struct VS_INPUT
@@ -53,7 +54,7 @@ PS_INPUT main(VS_INPUT input)
     secondVector.z = delta;
    
 
-    output.position = mul(float4(modifiedPosition, 1.0f), viewProjection);
+    output.position = mul(float4(modifiedPosition, 1.0f), mul(mul(world, view), projection));
     output.color = input.color;
     
     float3 normal = cross(secondVector, firstVector);

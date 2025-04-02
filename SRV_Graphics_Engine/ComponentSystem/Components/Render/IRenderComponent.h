@@ -13,6 +13,8 @@ public:
 
 	virtual void Update(const float& deltaTime) = 0;
 	virtual void Render();
+	void UpdateLightBuffer();
+	void UpdateTransformBuffer();
 	GameObject* GetGameObject();
 
 protected:

@@ -30,9 +30,9 @@ public:
 protected:
 	bool LoadModel(const std::string& filePath);
 	void ProcessNode(aiNode* node, const aiScene* scene);
-	Mesh ProcessMesh(aiMesh* mesh, const aiScene* scene);
+	TextureMeshComponent ProcessMesh(aiMesh* mesh, const aiScene* scene);
 
-	std::vector<Mesh> meshes = {};
+	std::vector<TextureMeshComponent> meshes = {};
 
 	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> texture;
 };

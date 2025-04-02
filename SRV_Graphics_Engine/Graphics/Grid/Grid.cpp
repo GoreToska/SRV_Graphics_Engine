@@ -58,7 +58,7 @@ void Grid::Draw()
 	DeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::ShaderType::Color)->GetShader(), NULL, 0);
 	DeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 
-	constBuffer.GetData()->worldViewProjection = DirectX::XMMatrixScaling(1, 1, 1);
+	/*constBuffer.GetData()->worldViewProjection = DirectX::XMMatrixScaling(1, 1, 1);
 
 	constBuffer.GetData()->worldViewProjection *= DirectX::XMMatrixRotationQuaternion({0,0,0});
 
@@ -68,7 +68,7 @@ void Grid::Draw()
 	constBuffer.GetData()->worldViewProjection *= SRVEngine.GetGraphics().GetCamera()->GetViewMatrix();
 	constBuffer.GetData()->worldViewProjection *= SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix();
 
-	constBuffer.GetData()->worldViewProjection = DirectX::XMMatrixTranspose(constBuffer.GetData()->worldViewProjection);
+	constBuffer.GetData()->worldViewProjection = DirectX::XMMatrixTranspose(constBuffer.GetData()->worldViewProjection);*/
 
 	if (constBuffer.ApplyChanges())
 		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());

@@ -6,12 +6,10 @@
 struct CB_VS_VertexShader
 {
 	CB_VS_VertexShader() {};
-	CB_VS_VertexShader(DirectX::XMMATRIX worldViewProjection, DirectX::XMMATRIX world)
-		: worldViewProjection(worldViewProjection), world(world) {
-	}
 
-	DirectX::XMMATRIX worldViewProjection;
 	DirectX::XMMATRIX world;
+	DirectX::XMMATRIX view;
+	DirectX::XMMATRIX projection;
 };
 
 struct CB_PS_Light
