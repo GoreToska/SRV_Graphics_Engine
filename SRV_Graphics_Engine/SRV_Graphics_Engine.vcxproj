@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="ComponentSystem\Components\Camera\ThirdPersonCameraComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Light\PointLightComponent.cpp" />
+    <ClCompile Include="ComponentSystem\Components\Light\ShadowMapCalculator.cpp" />
     <ClCompile Include="ComponentSystem\Components\Render\IRenderComponent.cpp" />
     <ClCompile Include="DataTypes\Collision\BoundingSphere.cpp" />
     <ClCompile Include="DataTypes\Collision\BoundingBox.cpp" />
@@ -180,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h" />
+    <ClInclude Include="ComponentSystem\Components\Light\ShadowMapCalculator.h" />
     <ClInclude Include="ComponentSystem\Components\Render\IRenderComponent.h" />
     <ClInclude Include="DataTypes\Collision\BoundingSphere.h" />
     <ClInclude Include="DataTypes\Collision\BoundingBox.h" />
@@ -195,6 +197,7 @@
     <ClInclude Include="Delegates\catch.hpp" />
     <ClInclude Include="Delegates\Delegates.h" />
     <ClInclude Include="ComponentSystem\GameObject.h" />
+    <ClInclude Include="Engine\Asserter.h" />
     <ClInclude Include="Graphics\Buffers\ConstantBuffer.h" />
     <ClInclude Include="Graphics\Buffers\IndexBuffer.h" />
     <ClInclude Include="Graphics\Buffers\VertexBuffer.h" />

@@ -21,11 +21,24 @@ public:
 	float GetLightAttenuationExponent() const;
 
 private:
+	void CreateResources();
+
 	DirectX::XMFLOAT3 lightColor = DirectX::XMFLOAT3(1, 0, 0);
 	float lightStrength = 1.0f;
 
 	float attenuation_const = 1.0f;
 	float attenuation_linear = 0.1f;
 	float attenuation_exponent = 0.1f;
+
+
+	// -- shadows --
+	Microsoft::WRL::ComPtr<ID3D11Texture2D> shadowTextures;
+	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> shaderResourceView;
+
+	DirectX::XMMATRIX projectionMatrix[6] = {};
+	DirectX::XMMATRIX viewMatrix = {};
+	D3D11_VIEWPORT shadowMapViewport = {};
+	// -- shadows --
 
 };

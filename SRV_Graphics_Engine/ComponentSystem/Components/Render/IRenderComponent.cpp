@@ -5,19 +5,9 @@
 IRenderComponent::IRenderComponent(GameObject* gameObject, ShaderManager::ShaderType type)
 	: gameObject(gameObject), shaderType(type)
 {
-	HRESULT hr = constBuffer.Initialize();
+	ThrowIfFailed(constBuffer.Initialize(), "Failed to create const buffer.");
 
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create const buffer.");
-	}
-
-	hr = lightConstBuffer.Initialize();
-
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create const light buffer.");
-	}
+	ThrowIfFailed(lightConstBuffer.Initialize(), "Failed to create const light buffer.");
 }
 
 void IRenderComponent::Render()

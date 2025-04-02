@@ -8,6 +8,7 @@
 #include "../ComponentSystem/GameObject.h"
 #include "Timer/Timer.h"
 #include "../Graphics/Graphics.h"
+#include "Asserter.h"
 
 
 class Engine : WindowContainer

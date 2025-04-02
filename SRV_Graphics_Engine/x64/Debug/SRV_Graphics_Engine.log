@@ -1,11 +1,4 @@
-﻿D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\ColorPixelShader.hlsl(23,12-36): warning X3206: implicit truncation of vector type
-  
-  compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorPixelShader.cso
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\TextureVertexShader.hlsl(29,5-71): warning X3206: implicit truncation of vector type
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\TextureVertexShader.hlsl(30,5-72): warning X3206: implicit truncation of vector type
-  
-  compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\TextureVertexShader.cso
-  BoxCollisionComponent.cpp
+﻿  BoxCollisionComponent.cpp
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
   (compiling source file 'ComponentSystem/Components/Collision/BoxCollisionComponent.cpp')
   
@@ -16,6 +9,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
   (compiling source file 'ComponentSystem/Components/Collision/BoxCollisionComponent.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'ComponentSystem/Components/Collision/BoxCollisionComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Collision/BoxCollisionComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
   (compiling source file 'ComponentSystem/Components/Collision/BoxCollisionComponent.cpp')
   
   CollisionComponent.cpp
@@ -31,6 +30,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'ComponentSystem/Components/Collision/CollisionComponent.cpp')
   
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Collision/CollisionComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Collision/CollisionComponent.cpp')
+  
   SphereCollisionComponent.cpp
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
   (compiling source file 'ComponentSystem/Components/Collision/SphereCollisionComponent.cpp')
@@ -42,6 +47,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
   (compiling source file 'ComponentSystem/Components/Collision/SphereCollisionComponent.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'ComponentSystem/Components/Collision/SphereCollisionComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Collision/SphereCollisionComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
   (compiling source file 'ComponentSystem/Components/Collision/SphereCollisionComponent.cpp')
   
   PointLightComponent.cpp
@@ -57,6 +68,8 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: same type qualifier used more than once
   (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
   
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\PointLightComponent.cpp(96,36): warning C4244: '=': conversion from 'const float' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\PointLightComponent.cpp(97,37): warning C4244: '=': conversion from 'const float' to 'UINT', possible loss of data
 D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
 D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         with
 D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         [
@@ -122,6 +135,16 @@ D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\a
               D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\camera.h(191,50):
               see the first reference to 'aiVector3t<float>::Normalize' in 'aiCamera::GetCameraMatrix'
   
+  ShadowMapCalculator.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(48,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
+  
   IRenderComponent.cpp
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'ComponentSystem/Components/Render/IRenderComponent.cpp')
@@ -135,6 +158,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: same type qualifier used more than once
   (compiling source file 'ComponentSystem/Components/Render/IRenderComponent.cpp')
   
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Render/IRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Render/IRenderComponent.cpp')
+  
   Mesh.cpp
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
   (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
@@ -146,6 +175,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
   (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
   (compiling source file 'ComponentSystem/Components/Render/Mesh.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\Mesh.cpp(8,78): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
@@ -263,6 +298,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: same type qualifier used more than once
   (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
   
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Render/MeshRendererComponent.cpp')
+  
 D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
 D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         with
 D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         [
@@ -341,6 +382,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: same type qualifier used more than once
   (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
   
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Render/PrimitiveRenderComponent.cpp')
+  
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(7,78): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(16,68): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp(43,42): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
@@ -391,6 +438,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'Engine/Engine.cpp')
   
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'Engine/Engine.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'Engine/Engine.cpp')
+  
   KatamariMovementComponent.cpp
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
   (compiling source file 'Games/Katamari/KatamariMovementComponent.cpp')
@@ -407,6 +460,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariM
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'Games/Katamari/KatamariMovementComponent.cpp')
   
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'Games/Katamari/KatamariMovementComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'Games/Katamari/KatamariMovementComponent.cpp')
+  
   Camera.cpp
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(47,26): warning C4114: same type qualifier used more than once
   (compiling source file 'Graphics/Camera.cpp')
@@ -418,6 +477,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
   (compiling source file 'Graphics/Camera.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Graphics/Camera.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'Graphics/Camera.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
   (compiling source file 'Graphics/Camera.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Camera.cpp(16,10): warning C4305: '=': truncation from 'double' to 'float'
@@ -449,6 +514,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
   (compiling source file 'Graphics/Grid/Grid.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\TransformComponent.h(49,26): warning C4114: same type qualifier used more than once
+  (compiling source file 'Graphics/Grid/Grid.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'Graphics/Grid/Grid.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
   (compiling source file 'Graphics/Grid/Grid.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Grid\Grid.cpp(30,78): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
@@ -500,6 +571,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
   (compiling source file 'Main.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(25,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'Main.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
   (compiling source file 'Main.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariMovementComponent.h(25,16): warning C4305: 'initializing': truncation from 'double' to 'float'
@@ -565,7 +642,8 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBuffer
   (compiling source file 'Render/WindowContainer.cpp')
   
   Generating Code...
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Camera.cpp(90,1): warning C4172: returning address of local variable or temporary 
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Camera.cpp(85,1): warning C4172: returning address of local variable or temporary 
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Camera.cpp(95,1): warning C4172: returning address of local variable or temporary 
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Camera.cpp(90,1): warning C4172: returning address of local variable or temporary 
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.cpp(47,1): warning C4172: returning address of local variable or temporary : matrices
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe
