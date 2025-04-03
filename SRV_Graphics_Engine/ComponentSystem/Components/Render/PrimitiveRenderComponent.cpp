@@ -47,3 +47,8 @@ void ColorMeshComponent::Render()
 		DeviceContext->Draw(vertexes.size(), 0);
 	}
 }
+
+int ColorMeshComponent::GetVertexCount() const
+{
+	return vertexes.size();
+}

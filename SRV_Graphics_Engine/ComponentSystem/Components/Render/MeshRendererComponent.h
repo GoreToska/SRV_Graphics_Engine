@@ -26,6 +26,7 @@ public:
 
 	void Update(const float& deltaTime) override;
 	void Render() override;
+	virtual int GetVertexCount() const override;
 
 protected:
 	bool LoadModel(const std::string& filePath);

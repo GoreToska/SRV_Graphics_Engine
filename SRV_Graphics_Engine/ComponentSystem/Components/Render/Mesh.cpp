@@ -71,3 +71,8 @@ void TextureMeshComponent::Render()
 		DeviceContext->Draw(vertexes.size(), 0);
 	}
 }
+
+int TextureMeshComponent::GetVertexCount() const
+{
+	return vertexes.size();
+}

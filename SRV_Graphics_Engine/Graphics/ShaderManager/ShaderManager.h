@@ -18,6 +18,7 @@ public:
 		None,
 		Color,
 		Texture,
+		ShadowMap,
 	};
 
 	PixelShader* GetPS(ShaderType type);
@@ -26,7 +27,10 @@ public:
 private:
 	PixelShader colorPS;
 	PixelShader texturePS;
+	PixelShader shadowMapPS;
+
 	VertexShader colorVS;
 	VertexShader textureVS;
+	VertexShader shadowMapVS;
 };
 

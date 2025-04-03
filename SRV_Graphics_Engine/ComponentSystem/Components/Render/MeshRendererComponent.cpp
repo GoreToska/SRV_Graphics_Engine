@@ -44,6 +44,11 @@ void MeshRendererComponent::Render()
 	}
 }
 
+int MeshRendererComponent::GetVertexCount() const
+{
+	return 0;
+}
+
 bool MeshRendererComponent::LoadModel(const std::string& filePath)
 {
 	Assimp::Importer importer{};

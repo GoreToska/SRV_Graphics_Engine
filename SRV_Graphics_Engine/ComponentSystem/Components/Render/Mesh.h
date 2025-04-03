@@ -23,6 +23,7 @@ public:
 
 	void Update(const float& deltaTime) override;
 	void Render() override;
+	virtual int GetVertexCount() const override;
 
 private:
 	std::vector<TVertex> vertexes = {};

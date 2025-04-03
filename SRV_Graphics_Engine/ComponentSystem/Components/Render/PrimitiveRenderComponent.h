@@ -18,6 +18,7 @@ public:
 	ColorMeshComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes = {});
 	void Update(const float& deltaTime) override;
 	void Render() override;
+	virtual int GetVertexCount() const override;
 
 private:
 	std::vector<CVertex> vertexes = {};

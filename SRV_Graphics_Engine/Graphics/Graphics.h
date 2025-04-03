@@ -36,6 +36,8 @@ public:
 	std::vector<PointLightComponent*> GetAllLights() const;
 
 private:
+	void RenderShadows();
+
 	bool InitializeDirectX(HWND hwnd);
 	bool CreateDeviceAndSwapChain(HWND hwnd);
 	bool CreateRenderTargetView();

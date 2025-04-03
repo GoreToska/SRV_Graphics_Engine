@@ -15,12 +15,14 @@ public:
 	virtual void Render();
 	void UpdateLightBuffer();
 	void UpdateTransformBuffer();
+	virtual int GetVertexCount() const = 0;
+
 	GameObject* GetGameObject();
 
 protected:
 	GameObject* gameObject = nullptr;
 
 	ShaderManager::ShaderType shaderType;
-	ConstantBuffer<CB_VS_VertexShader> constBuffer = {};
+	ConstantBuffer<MatrixBuffer> constBuffer = {};
 	ConstantBuffer<CB_PS_Light> lightConstBuffer = {};
 };

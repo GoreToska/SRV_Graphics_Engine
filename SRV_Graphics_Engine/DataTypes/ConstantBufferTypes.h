@@ -3,9 +3,9 @@
 #include<d3d11.h>
 #include<DirectXMath.h>
 
-struct CB_VS_VertexShader
+struct MatrixBuffer
 {
-	CB_VS_VertexShader() {};
+	MatrixBuffer() {};
 
 	DirectX::XMMATRIX world;
 	DirectX::XMMATRIX view;

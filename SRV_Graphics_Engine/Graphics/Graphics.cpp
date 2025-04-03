@@ -30,6 +30,7 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 // ALL DRAWING IS HERE BETWEEN ClearRenderTargetView AND Present
 void Graphics::RenderFrame()
 {
+
 	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
@@ -46,6 +47,8 @@ void Graphics::RenderFrame()
 
 	// View matrix
 	worldMatrix = DirectX::XMMatrixIdentity();
+
+	RenderShadows();
 
 	for (IRenderComponent* item : objectRenderPool)
 	{
@@ -89,6 +92,17 @@ float Graphics::GetClientHeight() const
 std::vector<PointLightComponent*> Graphics::GetAllLights() const
 {
 	return lightPool;
+}
+
+void Graphics::RenderShadows()
+{
+	for (PointLightComponent* item : lightPool)
+	{
+		for (IRenderComponent* renderObject : objectRenderPool)
+		{
+			item->RenderShadowPass(renderObject);
+		}
+	}
 }
 
 bool Graphics::InitializeDirectX(HWND hwnd)

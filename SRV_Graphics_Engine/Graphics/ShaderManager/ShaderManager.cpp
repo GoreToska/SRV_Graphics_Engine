@@ -30,6 +30,7 @@ bool ShaderManager::Initialize()
 	}
 #pragma endregion
 
+	// --- Texture Shaders ---
 	D3D11_INPUT_ELEMENT_DESC textureLayoutDesc[] =
 	{
 		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
@@ -44,7 +45,9 @@ bool ShaderManager::Initialize()
 
 	if (!texturePS.Initialize(shaderFolder + L"TexturePixelShader.cso"))
 		return false;
+	// --- Texture Shaders ---
 
+	// --- Color Shaders ---
 	D3D11_INPUT_ELEMENT_DESC colorLayoutDesc[] =
 	{
 		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
@@ -58,6 +61,22 @@ bool ShaderManager::Initialize()
 
 	if (!colorPS.Initialize(shaderFolder + L"ColorPixelShader.cso"))
 		return false;
+	// --- Color Shaders ---
+
+	// --- ShadowMap Shaders ---
+	D3D11_INPUT_ELEMENT_DESC shadowMapLayoutDesc[] =
+	{
+		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+	};
+
+	UINT shadowMapNumElements = ARRAYSIZE(shadowMapLayoutDesc);
+
+	if (!shadowMapVS.Initialize(shaderFolder + L"ShadowMapVS.cso", shadowMapLayoutDesc, shadowMapNumElements))
+		return false;
+
+	if (!shadowMapPS.Initialize(shaderFolder + L"ShadowMapPS.cso"))
+		return false;
+	// --- ShadowMap Shaders ---
 
 	return true;
 }
@@ -66,12 +85,14 @@ PixelShader* ShaderManager::GetPS(ShaderType type)
 {
 	switch (type)
 	{
-	case ShaderManager::None:
+	case None:
 		return nullptr;
-	case ShaderManager::Color:
+	case Color:
 		return &colorPS;
-	case ShaderManager::Texture:
+	case Texture:
 		return &texturePS;
+	case ShadowMap:
+		return &shadowMapPS;
 	default:
 		break;
 	}
@@ -81,11 +102,13 @@ VertexShader* ShaderManager::GetVS(ShaderType type)
 {
 	switch (type)
 	{
-	case ShaderManager::None:
+	case None:
 		return nullptr;
-	case ShaderManager::Color:
+	case Color:
 		return &colorVS;
-	case ShaderManager::Texture:
+	case Texture:
 		return &textureVS;
+	case ShadowMap:
+		return &shadowMapVS;
 	}
 }

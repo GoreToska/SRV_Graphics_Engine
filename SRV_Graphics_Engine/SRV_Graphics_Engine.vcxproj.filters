@@ -360,6 +360,8 @@
       <Filter>Исходные файлы</Filter>
     </FxCompile>
     <FxCompile Include="Shaders\ColorPixelShader.hlsl" />
+    <FxCompile Include="Shaders\ShadowMapPS.hlsl" />
+    <FxCompile Include="Shaders\ShadowMapVS.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
