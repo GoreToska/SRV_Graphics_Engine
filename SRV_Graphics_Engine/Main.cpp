@@ -79,13 +79,13 @@ int main()
 	}
 
 
-	GameObject* pointLight01 = new GameObject(Vector3D(0, 5.0f, 0.0f));
-	pointLight01->AddComponent(new PointLightComponent(pointLight01));
+	GameObject* pointLight01 = new GameObject(Vector3D(0, 5.0f, 5.0f));
+	pointLight01->AddComponent(new DirectionalLightComponent(pointLight01));
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
 
-	pointLight01->GetComponent<PointLightComponent>()->SetLightColor({ 1, 1, 1 });
-	pointLight01->GetComponent<PointLightComponent>()->SetLightStrength(5);
+	pointLight01->GetComponent<DirectionalLightComponent>()->SetLightColor({ 1, 1, 1 });
+	pointLight01->GetComponent<DirectionalLightComponent>()->SetLightStrength(5);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	ground->AddComponent(new ColorMeshComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
@@ -170,10 +170,13 @@ int main()
 				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().z });
 		});
 
+	pointLight01->GetTransform()->SetRotation({ 0, 60,30,});
+
 	while (SRVEngine.ProcessMessages())
 	{
 		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
 		SRVEngine.GetTimer()->Restart();
+
 
 		SRVEngine.Update(deltaTime);
 		SRVEngine.RenderFrame();

@@ -6,18 +6,18 @@
 #include "../../../Engine/Asserter.h"
 #include "../../../Engine/Engine.h"
 
-PointLightComponent::PointLightComponent(GameObject* gameObject)
+DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject)
 	: MeshRendererComponent(ModelData("Data\\Models\\Light\\PointLight\\PointLight.obj",
 		L"Data\\Models\\Light\\PointLight\\PointLight.png"), gameObject, ShaderManager::ShaderType::Texture)
 {
 	lightConstBuffer.GetData()->dynamicLightColor = lightColor;
-	lightConstBuffer.GetData()->dynamicLightPosition = gameObject->GetTransform()->GetPosition().ToXMFloat();
+	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector().ToXMFloat();
 	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;
 
 	CreateResources();
 }
 
-void PointLightComponent::Update(const float& deltaTime)
+void DirectionalLightComponent::Update(const float& deltaTime)
 {
 	if (!IsEnabled())
 		return;
@@ -26,11 +26,11 @@ void PointLightComponent::Update(const float& deltaTime)
 
 	// probably it not needed here
 	lightConstBuffer.GetData()->dynamicLightColor = lightColor;
-	lightConstBuffer.GetData()->dynamicLightPosition = gameObject->GetTransform()->GetPosition().ToXMFloat();
+	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector().ToXMFloat();
 	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;
 }
 
-void PointLightComponent::Render()
+void DirectionalLightComponent::Render()
 {
 	if (!IsEnabled())
 		return;
@@ -38,27 +38,27 @@ void PointLightComponent::Render()
 	MeshRendererComponent::Render();
 }
 
-void PointLightComponent::SetRenderTarget()
+void DirectionalLightComponent::SetRenderTarget()
 {
 	// если cube shadow map то надо 6?
 	DeviceContext->OMSetRenderTargets(6, renderTargetView.GetAddressOf(), depthStencilView.Get());
 	DeviceContext->RSSetViewports(1, &shadowMapViewport);
 }
 
-void PointLightComponent::ClearRenderTarget()
+void DirectionalLightComponent::ClearRenderTarget()
 {
 	float color[4] = { 0,0,0,1 };
 	DeviceContext->ClearRenderTargetView(renderTargetView.Get(), color);
 	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 
-void PointLightComponent::RenderShadowPass(IRenderComponent* renderObject)
+void DirectionalLightComponent::RenderShadowPass(IRenderComponent* renderObject)
 {
-	DirectX::XMVECTOR orientation = gameObject->GetTransform()->GetOrientation();
+	Vector3D orientation = gameObject->GetTransform()->GetOrientation();
 
 	shadowMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
 		gameObject->GetTransform()->GetScale().ToXMVector())
-		* DirectX::XMMatrixRotationQuaternion(orientation)
+		* DirectX::XMMatrixRotationQuaternion(orientation.ToXMVector())
 		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector())
 		* SRVEngine.GetGraphics().GetWorldMatrix());
 
@@ -80,47 +80,47 @@ void PointLightComponent::RenderShadowPass(IRenderComponent* renderObject)
 	}
 }
 
-void PointLightComponent::SetLightColor(DirectX::XMFLOAT3& color)
+void DirectionalLightComponent::SetLightColor(DirectX::XMFLOAT3& color)
 {
 	lightColor = color;
 }
 
-void PointLightComponent::SetLightColor(DirectX::XMFLOAT3 color)
+void DirectionalLightComponent::SetLightColor(DirectX::XMFLOAT3 color)
 {
 	lightColor = color;
 }
 
-void PointLightComponent::SetLightStrength(float strength)
+void DirectionalLightComponent::SetLightStrength(float strength)
 {
 	lightStrength = strength;
 }
 
-DirectX::XMFLOAT3& PointLightComponent::GetLightColor()
+DirectX::XMFLOAT3& DirectionalLightComponent::GetLightColor()
 {
 	return lightColor;
 }
 
-float PointLightComponent::GetLightStrength()
+float DirectionalLightComponent::GetLightStrength()
 {
 	return lightStrength;
 }
 
-float PointLightComponent::GetLightAttenuationConst() const
+float DirectionalLightComponent::GetLightAttenuationConst() const
 {
 	return attenuation_const;
 }
 
-float PointLightComponent::GetLightAttenuationLinear() const
+float DirectionalLightComponent::GetLightAttenuationLinear() const
 {
 	return attenuation_linear;
 }
 
-float PointLightComponent::GetLightAttenuationExponent() const
+float DirectionalLightComponent::GetLightAttenuationExponent() const
 {
 	return attenuation_exponent;
 }
 
-void PointLightComponent::CreateResources()
+void DirectionalLightComponent::CreateResources()
 {
 	DirectX::XMMATRIX* matrices = ShadowMapCalculator::GetPerspectiveMatricesCube(gameObject);
 	std::copy(matrices, matrices + 6, projectionMatrix);

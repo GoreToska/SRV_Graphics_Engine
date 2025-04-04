@@ -33,7 +33,7 @@ public:
 	Camera* GetCamera() const;
 	float GetClientWidth() const;
 	float GetClientHeight() const;
-	std::vector<PointLightComponent*> GetAllLights() const;
+	std::vector<DirectionalLightComponent*> GetAllLights() const;
 
 private:
 	void RenderShadows();
@@ -58,7 +58,7 @@ private:
 	DirectX::XMMATRIX worldMatrix;
 
 	std::vector<IRenderComponent*> objectRenderPool = {};
-	std::vector<PointLightComponent*> lightPool = {};
+	std::vector<DirectionalLightComponent*> lightPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;

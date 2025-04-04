@@ -26,8 +26,8 @@ void IRenderComponent::UpdateLightBuffer()
 	lightConstBuffer.GetData()->dynamicLightColor = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightColor();
 	lightConstBuffer.GetData()->dynamicLightStrength = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightStrength();
 
-	lightConstBuffer.GetData()->dynamicLightPosition =
-		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetPosition().ToXMFloat();
+	lightConstBuffer.GetData()->dynamicLightDirection =
+		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector().ToXMFloat();
 
 	lightConstBuffer.GetData()->dynamicLightAttenuation_const = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationConst();
 	lightConstBuffer.GetData()->dynamicLightAttenuation_linear = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightAttenuationLinear();
@@ -39,11 +39,11 @@ void IRenderComponent::UpdateLightBuffer()
 
 void IRenderComponent::UpdateTransformBuffer()
 {
-	DirectX::XMVECTOR orientation = gameObject->GetTransform()->GetOrientation();
+	Vector3D orientation = gameObject->GetTransform()->GetOrientation();
 
 	constBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
 		gameObject->GetTransform()->GetScale().ToXMVector())
-		* DirectX::XMMatrixRotationQuaternion(orientation)
+		* DirectX::XMMatrixRotationQuaternion(orientation.ToXMVector())
 		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector()) * SRVEngine.GetGraphics().GetWorldMatrix());
 
 	constBuffer.GetData()->view = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetCamera()->GetViewMatrix());

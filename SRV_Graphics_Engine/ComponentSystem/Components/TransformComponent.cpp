@@ -5,12 +5,12 @@
 
 TransformComponent::TransformComponent(GameObject* owner)
 	:position(Vector3D(0, 0, 0)), rotation(Vector3D(0, 0, 0)), scale(Vector3D(1, 1, 1)),
-	orientation(DirectX::XMQuaternionIdentity()), gameObject(owner)
+	orientation(Vector3D::ZeroVector()), gameObject(owner)
 {
 }
 
 TransformComponent::TransformComponent(GameObject* owner, const Vector3D& position, const Vector3D& rotation, const Vector3D& scale)
-	: position(position), rotation(rotation), scale(scale), orientation(DirectX::XMQuaternionIdentity()), gameObject(owner)
+	: position(position), rotation(rotation), scale(scale), orientation(Vector3D::ZeroVector()), gameObject(owner)
 {
 }
 
@@ -51,7 +51,7 @@ void TransformComponent::AddLocalRotation(const Vector3D& rotationAxis, const fl
 	DirectX::XMVECTOR newRotation = DirectX::XMQuaternionRotationAxis(axis, radians);
 
 	// Обновляем ориентацию родительского объекта
-	orientation = DirectX::XMQuaternionMultiply(newRotation, orientation);
+	orientation = Vector3D(DirectX::XMQuaternionMultiply(newRotation, orientation.ToXMVector()));
 
 	// Получаем дочерние объекты
 	std::vector<GameObject*> children = gameObject->GetChildren();
@@ -71,7 +71,7 @@ void TransformComponent::AddWorldRotation(const Vector3D& rotationAxis, const fl
 
 	float radians = DirectX::XMConvertToRadians(angle);
 	DirectX::XMVECTOR newRotation = DirectX::XMQuaternionRotationAxis(axis, radians);
-	orientation = DirectX::XMQuaternionMultiply(orientation, newRotation);
+	orientation = Vector3D(DirectX::XMQuaternionMultiply(orientation.ToXMVector(), newRotation));
 
 	std::vector<GameObject*> children = gameObject->GetChildren();
 	for (GameObject* child : children)
@@ -86,8 +86,8 @@ void TransformComponent::AddWorldRotation(const Vector3D& rotationAxis, const fl
 		Vector3D newChildPosition = this->position + Vector3D(rotatedPositionVec.m128_f32[0], rotatedPositionVec.m128_f32[1], rotatedPositionVec.m128_f32[2]);
 		child->GetTransform()->SetPosition(newChildPosition);
 
-		DirectX::XMVECTOR childOrientation = child->GetTransform()->GetOrientation();
-		child->GetTransform()->orientation = DirectX::XMQuaternionMultiply(childOrientation, newRotation);
+		Vector3D childOrientation = child->GetTransform()->GetOrientation();
+		child->GetTransform()->orientation = Vector3D(DirectX::XMQuaternionMultiply(childOrientation.ToXMVector(), newRotation));
 	}
 }
 
@@ -139,22 +139,22 @@ Vector3D TransformComponent::GetCenter() const
 	return position; // XD mb this can be changed later?)
 }
 
-DirectX::XMVECTOR TransformComponent::GetOrientation() const
+Vector3D TransformComponent::GetOrientation()
 {
 	return orientation;
 }
 
-DirectX::XMVECTOR TransformComponent::GetForwardVector() const
+Vector3D TransformComponent::GetForwardVector()
 {
-	return DirectX::XMVector3Rotate(worldForwardVector, orientation);
+	return Vector3D(DirectX::XMVector3Rotate(worldForwardVector.ToXMVector(), orientation.ToXMVector()));
 }
 
-DirectX::XMVECTOR TransformComponent::GetRightVector() const
+Vector3D TransformComponent::GetRightVector()
 {
-	return DirectX::XMVector3Rotate(worldRightVector, orientation);
+	return Vector3D(DirectX::XMVector3Rotate(worldRightVector.ToXMVector(), orientation.ToXMVector()));
 }
 
-DirectX::XMVECTOR TransformComponent::GetUpVector() const
+Vector3D TransformComponent::GetUpVector()
 {
-	return DirectX::XMVector3Rotate(worldUpVector, orientation);
+	return Vector3D(DirectX::XMVector3Rotate(worldUpVector.ToXMVector(), orientation.ToXMVector()));
 }

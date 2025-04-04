@@ -9,6 +9,7 @@ public:
 	Vector3D() : x(0), y(0), z(0) {};
 	Vector3D(float x, float y, float z) : x(x), y(y), z(z) {};
 	Vector3D(DirectX::XMVECTOR& vector) : x(vector.m128_f32[0]), y(vector.m128_f32[1]), z(vector.m128_f32[2]) {};
+	Vector3D(DirectX::XMVECTOR vector) : x(vector.m128_f32[0]), y(vector.m128_f32[1]), z(vector.m128_f32[2]) {};
 	static Vector3D ZeroVector();
 
 	Vector3D operator + (const Vector3D& vector) const
@@ -45,6 +46,14 @@ public:
 	Vector3D operator * (const float& value) const
 	{
 		return Vector3D{ x * value, y * value, z * value };
+	}
+
+	Vector3D& operator = (const DirectX::XMVECTOR& value)
+	{
+		x = value.m128_f32[0];
+		y = value.m128_f32[1];
+		z = value.m128_f32[2];
+		return *this;
 	}
 
 	Vector3D operator * (const Vector3D& value) const

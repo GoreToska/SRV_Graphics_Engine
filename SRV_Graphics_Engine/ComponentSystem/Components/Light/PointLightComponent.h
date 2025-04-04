@@ -3,10 +3,10 @@
 #include "../Render/MeshRendererComponent.h"
 #include "../../GameObject.h"
 
-class PointLightComponent : public MeshRendererComponent
+class DirectionalLightComponent : public MeshRendererComponent
 {
 public:
-	PointLightComponent(GameObject* gameObject);
+	DirectionalLightComponent(GameObject* gameObject);
 
 	void Update(const float& deltaTime) override;
 	void Render() override;

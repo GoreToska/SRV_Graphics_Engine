@@ -4,7 +4,7 @@ cbuffer lightBuffer : register(b0)
     float ambientLightStrenght;
     float3 dynamicLightColor;
     float dynamicLightStrenght;
-    float3 dynamicLightPosition;
+    float3 dynamicLightDirection;
     float dynamicLightAttenuation_const;
     float dynamicLightAttenuation_linear;
     float dynamicLightAttenuation_exponent;
@@ -27,15 +27,15 @@ float4 main(PS_INPUT input) : SV_TARGET
     
     float3 appliedLight = ambientLight;
     
-    float3 vectorToLight = normalize(dynamicLightPosition - input.inWorldPosition);
+    float3 vectorToLight = dynamicLightDirection - input.inWorldPosition;
     
-    float3 diffuseLightIntensity = max(dot(vectorToLight, input.normal), 0);
-    float distanceToLight = distance(dynamicLightPosition, input.inWorldPosition);
-    float3 attenuation = 1 / (dynamicLightAttenuation_const + dynamicLightAttenuation_linear * distanceToLight
-                             + dynamicLightAttenuation_exponent * pow(distanceToLight, 2));
+    float3 diffuseLightIntensity = saturate(dot(dynamicLightDirection, input.normal));
+    //float distanceToLight = distance(dynamicLightPosition, input.inWorldPosition);
+    //float3 attenuation = 1 / (dynamicLightAttenuation_const + dynamicLightAttenuation_linear * distanceToLight
+    //                         + dynamicLightAttenuation_exponent * pow(distanceToLight, 2));
     
     float3 diffuseLight = diffuseLightIntensity * dynamicLightStrenght * dynamicLightColor;
-    diffuseLight *= attenuation;
+    //diffuseLight *= attenuation;
     appliedLight += diffuseLight;
     
     float3 finalColor = sampleColor * appliedLight;

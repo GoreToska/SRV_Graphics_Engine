@@ -62,7 +62,7 @@ void Graphics::AddObjectToRenderPool(IRenderComponent* object)
 {
 	objectRenderPool.push_back(object);
 
-	auto light = dynamic_cast<PointLightComponent*>(object);
+	auto light = dynamic_cast<DirectionalLightComponent*>(object);
 	if (light)
 	{
 		lightPool.push_back(light);
@@ -89,14 +89,14 @@ float Graphics::GetClientHeight() const
 	return clientHeight;
 }
 
-std::vector<PointLightComponent*> Graphics::GetAllLights() const
+std::vector<DirectionalLightComponent*> Graphics::GetAllLights() const
 {
 	return lightPool;
 }
 
 void Graphics::RenderShadows()
 {
-	for (PointLightComponent* item : lightPool)
+	for (DirectionalLightComponent* item : lightPool)
 	{
 		for (IRenderComponent* renderObject : objectRenderPool)
 		{

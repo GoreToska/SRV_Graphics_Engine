@@ -29,10 +29,10 @@ public:
 	Vector3D GetScale() const;
 	Vector3D GetCenter() const;
 
-	DirectX::XMVECTOR GetOrientation() const;
-	DirectX::XMVECTOR GetForwardVector() const;
-	DirectX::XMVECTOR GetRightVector() const;
-	DirectX::XMVECTOR GetUpVector() const;
+	Vector3D GetOrientation();
+	Vector3D GetForwardVector();
+	Vector3D GetRightVector();
+	Vector3D GetUpVector();
 
 
 private:
@@ -42,10 +42,10 @@ private:
 	Vector3D rotation{};
 	Vector3D scale{};
 	Vector3D center{};
-	DirectX::XMVECTOR orientation{};
+	Vector3D orientation{};
 
-	const DirectX::XMVECTOR const worldForwardVector = { 0.0f, 0.0f, 1.0f, 0.0f };
-	const DirectX::XMVECTOR const worldRightVector = { 1.0f, 0.0f, 0.0f, 0.0f };
-	const DirectX::XMVECTOR const worldUpVector = { 0.0f, 1.0f, 0.0f, 0.0f };
+	Vector3D worldForwardVector = { 0.0f, 0.0f, 1.0f };
+	Vector3D worldRightVector = { 1.0f, 0.0f, 0.0f};
+	Vector3D worldUpVector = { 0.0f, 1.0f, 0.0f};
 };
 

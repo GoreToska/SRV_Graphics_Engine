@@ -36,7 +36,7 @@ void MeshRendererComponent::Render()
 
 	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
 
-	DirectX::XMVECTOR orientation = gameObject->GetTransform()->GetOrientation();
+	Vector3D orientation = gameObject->GetTransform()->GetOrientation();
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{
