@@ -30,12 +30,22 @@ void ColorMeshComponent::Update(const float& deltaTime)
 
 void ColorMeshComponent::Render()
 {
-	UINT stride = sizeof(CVertex);
-	UINT offset = 0;
-
-	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
-
 	IRenderComponent::Render();
+
+	if (indexes.size() > 0)
+	{
+		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+		DeviceContext->DrawIndexed(indexes.size(), 0, 0);
+	}
+	else
+	{
+		DeviceContext->Draw(vertexes.size(), 0);
+	}
+}
+
+void ColorMeshComponent::RenderForShadows()
+{
+	IRenderComponent::RenderForShadows();
 
 	if (indexes.size() > 0)
 	{
@@ -51,4 +61,12 @@ void ColorMeshComponent::Render()
 int ColorMeshComponent::GetVertexCount() const
 {
 	return vertexes.size();
+}
+
+void ColorMeshComponent::SetVertexBuffer()
+{
+	UINT stride = sizeof(CVertex);
+	UINT offset = 0;
+
+	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 }

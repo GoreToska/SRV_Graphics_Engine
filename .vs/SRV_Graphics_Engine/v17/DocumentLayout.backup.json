@@ -1,415 +1,94 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\",
+  "WorkspaceRootPath": "D:\\CPP Projects\\SRV_Graphics_Engine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.cpp||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.cpp||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vector3D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Vector3D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ConstantBufferTypes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\ConstantBufferTypes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Asserter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Engine\\Asserter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Engine\\Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.cpp||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Engine\\Engine.cpp||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Grid\\Grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Grid\\Grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\VertexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Buffers\\VertexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ColorRGB.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\ColorRGB.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Delegates\\Delegates.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Delegates\\Delegates.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\WindowContainer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Render\\WindowContainer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\RenderWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Render\\RenderWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\RenderWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Render\\RenderWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vector3D.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Vector3D.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Visual Studio\\Visual Studio 2022 IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Downloads\\MyVeryFirstShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingVolume.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingVolume.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ModelData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\ModelData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Visual Studio\\Visual Studio 2022 IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\xtree||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\Importer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\Importer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\WindowContainer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Render\\WindowContainer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\IndexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Buffers\\IndexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\AdapterReader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\AdapterReader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\AdapterReader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\AdapterReader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\Mouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Mouse\\Mouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\Mouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Mouse\\Mouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shapes\\Shapes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shapes\\Shapes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shapes\\Shapes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shapes\\Shapes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\StringConverter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Utils\\StringConverter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\StringConverter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Utils\\StringConverter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Quaternion.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Utils\\Quaternion.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Converter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Utils\\Converter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Logger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Utils\\Logger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\material.inl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\material.inl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -419,1258 +98,275 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Main.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Main.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Main.cpp",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAwB4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CameraMovementComponent.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp*",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp*",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwCUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-02T16:29:18.998Z",
+              "WhenOpened": "2025-04-09T17:11:29.138Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ColorPixelShader.hlsl",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
-              "ViewState": "AgIAABIAAAAAAAAAAAAlwB8AAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-12T18:15:01.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PointLightComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-19T10:14:04.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "packages.config",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\packages.config",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\packages.config",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\packages.config",
-              "RelativeToolTip": "SRV_Graphics_Engine\\packages.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-03-11T08:55:57.927Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ColorVertexShader.hlsl",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
-              "ViewState": "AgIAABUAAAAAAAAAAAAkwCQAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-12T17:35:14.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PointLightComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAABbAAAAAAAAAA==",
+              "Title": "Camera.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Camera.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Camera.cpp",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAUwHQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-19T10:19:11.185Z",
+              "WhenOpened": "2025-04-09T17:10:13.795Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TransformComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.cpp",
-              "ViewState": "AgIAAEAAAAAAAAAAAAApwEkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-03T09:23:07.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Vector3D.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vector3D.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Vector3D.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vector3D.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Vector3D.h",
-              "ViewState": "AgIAACkAAAAAAAAAAADwvzkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Camera.h",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.h",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Camera.h",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.h",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Camera.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-03T14:31:38.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TextureVertexShader.hlsl",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-10T09:54:29.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TexturePixelShader.hlsl",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAACMAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-06T14:55:42.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TransformComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\TransformComponent.h",
-              "ViewState": "AgIAABkAAAAAAAAAAADwvyAAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-03T09:19:11.376Z",
+              "WhenOpened": "2025-04-09T17:10:12.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "MeshRendererComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
-              "ViewState": "AgIAABcAAAAAAAAAAADwvyIAAAAVAAAAAAAAAA==",
+              "Title": "PrimitiveRenderComponent.h",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwBQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T10:28:21.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Mesh.h",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAmwBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T10:05:58.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Mesh.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
+              "ViewState": "AgIAADcAAAAAAAAAAAAUwFEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-03T09:19:56.545Z",
+              "WhenOpened": "2025-04-07T10:06:03.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MeshRendererComponent.h",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwBwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T10:29:04.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MeshRendererComponent.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
+              "ViewState": "AgIAACEAAAAAAAAAAAAmwDIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-07T10:07:07.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PointLightComponent.h",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwBwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T09:18:37.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PointLightComponent.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\PointLightComponent.cpp",
+              "ViewState": "AgIAACwAAAAAAAAAAAAUwEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-07T09:18:58.788Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IRenderComponent.h",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAmwA8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T10:01:34.691Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "IRenderComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
-              "ViewState": "AgIAABEAAAAAAAAAAADwvx0AAABuAAAAAAAAAA==",
+              "Title": "PrimitiveRenderComponent.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
+              "ViewState": "AgIAACIAAAAAAAAAAAAUwDkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-16T10:41:31.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T16:07:35.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IRenderComponent.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.cpp",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAmwB8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-07T10:01:33.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ColorPixelShader.hlsl",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-07T10:13:48.79Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "GameObject.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\GameObject.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\GameObject.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\GameObject.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\GameObject.h",
-              "ViewState": "AgIAAGwAAAAAAAAAAADwv3wAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T20:23:20.483Z",
-              "EditorCaption": ""
+              "Title": "Main.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Main.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Main.cpp",
+              "ViewState": "AgIAABAAAAAAAAAAAAAmwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-07T09:32:57.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TextureVertexShader.hlsl",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-07T09:46:55.925Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "ConstantBufferTypes.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ConstantBufferTypes.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\ConstantBufferTypes.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ConstantBufferTypes.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\ConstantBufferTypes.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAwwBsAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-16T11:43:01.685Z",
-              "EditorCaption": ""
+              "Title": "TexturePixelShader.hlsl",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
+              "ViewState": "AgIAACUAAAAAAAAAAAAcwB8AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-07T09:46:45.87Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "ShadowMapVS.hlsl",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
               "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-04-03T08:35:31.403Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ShadowMapPS.hlsl",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-04-03T09:01:47.726Z",
-              "EditorCaption": ""
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-07T09:46:10.561Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "ConstantBuffer.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwEgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-10T11:30:03.833Z",
-              "EditorCaption": ""
+              "Title": "ShadowMapPS.hlsl",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\ShadowMapPS.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-07T09:46:13.273Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ShadowMapCalculator.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 19,
+              "Title": "Graphics.cpp",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAmwC8AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-02T18:55:27.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T09:32:19.225Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "Graphics.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
-              "ViewState": "AgIAACUAAAAAAAAAAAAgwDIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T13:27:27.221Z",
-              "EditorCaption": ""
+              "Title": "ColorVertexShader.hlsl",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
+              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
+              "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\ColorVertexShader.hlsl",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-07T10:13:46.546Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "Graphics.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h",
+              "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Graphics.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h",
+              "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h",
               "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Graphics.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAtwCYAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAUwBwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T14:14:57.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ShaderManager.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAIAwwEkAAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-16T10:31:19.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IRenderComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\IRenderComponent.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-16T09:59:11.306Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "MeshRendererComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBwAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-10T11:23:39.254Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "PrimitiveRenderComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-16T09:57:55.653Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "PrimitiveRenderComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
-              "ViewState": "AgIAABwAAAAAAAAAAAAgwDUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-16T09:57:57.858Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Mesh.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T07:48:04.404Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Mesh.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAgwEwAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T07:48:07.88Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ShaderManager.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBcAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-16T10:30:20.145Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Camera.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Camera.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Camera.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T18:49:28.985Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Camera.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Camera.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Camera.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T19:00:17.125Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Asserter.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Asserter.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Engine\\Asserter.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Asserter.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Engine\\Asserter.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-02T18:40:30.321Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ShadowMapCalculator.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-02T18:48:03.185Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Grid.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Grid\\Grid.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Grid\\Grid.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Grid\\Grid.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Grid\\Grid.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-12T18:21:53.143Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Engine.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Engine\\Engine.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Engine\\Engine.cpp",
-              "ViewState": "AgIAABkAAAAAAAAAAAAUwCwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T07:32:25.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Engine.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Engine\\Engine.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Engine\\Engine.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T20:08:48.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "CameraMovementComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T18:30:52.335Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Vertex.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vertex.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Vertex.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vertex.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Vertex.h",
-              "ViewState": "AgIAABUAAAAAAAAAAAAIwCEAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-10T09:59:16.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "TopDownCameraComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.cpp",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAowBAAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T18:11:30.385Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 101,
-              "Title": "OrbitalMovementComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADsAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T15:33:24.007Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 102,
-              "Title": "OrbitalCameraComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.cpp",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T18:31:53.856Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "KatamariMovementComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.cpp",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAowE8AAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T18:03:31.389Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "TopDownCameraComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\TopDownCameraComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T18:11:23.707Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "ThirdPersonCameraComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.h",
-              "ViewState": "AgIAABIAAAAAAAAAAAAtwBYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-19T16:25:51.761Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "KatamariMovementComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariMovementComponent.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAtwBMAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T17:58:27.022Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "ThirdPersonCameraComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\ThirdPersonCameraComponent.cpp",
-              "ViewState": "AgIAABMAAAAAAAAAAAAtwCEAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-19T16:29:17.248Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 99,
-              "Title": "OrbitalMovementComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalMovementComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T15:18:52.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 100,
-              "Title": "OrbitalCameraComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Planets\\OrbitalCameraComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T18:31:48.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "CameraMovementComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T18:02:51.423Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "VertexBuffer.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\VertexBuffer.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Buffers\\VertexBuffer.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\VertexBuffer.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Buffers\\VertexBuffer.h",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAMwA4AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-10T11:30:32.471Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "SphereCollisionComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T19:08:51.478Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "CollisionComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.cpp",
-              "ViewState": "AgIAABAAAAAAAAAAAAAUwCYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T19:09:24.615Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "CollisionComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\CollisionComponent.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAtwBYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T18:52:37.22Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "KatamariCollisionComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-12T11:28:18.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "Keyboard.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAtwCYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:57:21.883Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "ColorRGB.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ColorRGB.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\ColorRGB.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ColorRGB.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\ColorRGB.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T13:32:26.377Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "Delegates.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Delegates\\Delegates.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Delegates\\Delegates.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Delegates\\Delegates.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Delegates\\Delegates.h",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAD8AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T18:53:36.192Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "WindowContainer.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\WindowContainer.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Render\\WindowContainer.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\WindowContainer.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Render\\WindowContainer.cpp",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADAAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:56:41.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "RenderWindow.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\RenderWindow.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Render\\RenderWindow.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\RenderWindow.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Render\\RenderWindow.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:56:47.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "RenderWindow.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\RenderWindow.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Render\\RenderWindow.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\RenderWindow.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Render\\RenderWindow.cpp",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:56:51.762Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "Keyboard.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Keyboard\\Keyboard.cpp",
-              "ViewState": "AgIAADoAAAAAAAAAAAAtwEgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:57:26.69Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "Grid.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwB0AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-12T18:20:39.595Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "Vector3D.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vector3D.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Vector3D.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Vector3D.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Vector3D.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T18:25:31.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "KatamariCollisionComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Games\\Katamari\\KatamariCollisionComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-12T11:20:36.536Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "IComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T18:32:05.85Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "IComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\IComponent.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T18:33:03.715Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "vector",
-              "DocumentMoniker": "E:\\Visual Studio\\Visual Studio 2022 IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\vector",
-              "ToolTip": "E:\\Visual Studio\\Visual Studio 2022 IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\vector",
-              "ViewState": "AgIAAFQHAAAAAAAAAAAnwF8HAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-16T11:04:12.765Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "RotationComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T13:14:37.446Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "Shaders.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:58:29.811Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "BoundingBox.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T19:31:34.66Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "BoundingBox.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingBox.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAADgvyIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T19:32:28.408Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "MyVeryFirstShader.hlsl",
-              "DocumentMoniker": "D:\\Downloads\\MyVeryFirstShader.hlsl",
-              "ToolTip": "D:\\Downloads\\MyVeryFirstShader.hlsl",
-              "ViewState": "AgIAAAYAAAAAAAAAAIBJwAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-12T18:08:14.039Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "SphereCollisionComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\SphereCollisionComponent.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAADgvxgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T19:54:11.577Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
-              "Title": "BoundingSphere.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.cpp",
-              "ViewState": "AgIAABYAAAAAAAAAAADgvyQAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T19:36:58.594Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "BoundingSphere.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingSphere.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T19:35:54.565Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 71,
-              "Title": "BoundingVolume.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingVolume.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingVolume.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingVolume.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\Collision\\BoundingVolume.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T19:30:52.611Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
-              "Title": "BoxCollisionComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.cpp",
-              "ViewState": "AgIAAA0AAAAAAAAAAADgvxkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T19:13:05.972Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "BoxCollisionComponent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Collision\\BoxCollisionComponent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADgvwwAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T19:09:09.195Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 74,
-              "Title": "ModelData.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ModelData.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\ModelData.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\ModelData.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\DataTypes\\ModelData.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-12T15:10:40.495Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 75,
-              "Title": "xtree",
-              "DocumentMoniker": "E:\\Visual Studio\\Visual Studio 2022 IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\xtree",
-              "ToolTip": "E:\\Visual Studio\\Visual Studio 2022 IDE\\VC\\Tools\\MSVC\\14.41.34120\\include\\xtree",
-              "ViewState": "AgIAAFMEAAAAAAAAAAAmwF0EAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-12T12:41:26.261Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 76,
-              "Title": "Importer.hpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\Importer.hpp",
-              "RelativeDocumentMoniker": "packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\Importer.hpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\Importer.hpp",
-              "RelativeToolTip": "packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\Importer.hpp",
-              "ViewState": "AgIAAGkCAAAAAAAAAAAjwHQCAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:14:14.489Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 77,
-              "Title": "WindowContainer.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\WindowContainer.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Render\\WindowContainer.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Render\\WindowContainer.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Render\\WindowContainer.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:56:38.4Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 78,
-              "Title": "IndexBuffer.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\IndexBuffer.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Buffers\\IndexBuffer.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\IndexBuffer.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Buffers\\IndexBuffer.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-10T11:29:09.116Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 79,
-              "Title": "GraphicsDevice.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:58:39.376Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 80,
-              "Title": "GraphicsDevice.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Device\\GraphicsDevice.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:58:36.398Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 81,
-              "Title": "Shaders.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:58:26.077Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 82,
-              "Title": "AdapterReader.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\AdapterReader.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\AdapterReader.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\AdapterReader.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\AdapterReader.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:58:20.511Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 83,
-              "Title": "AdapterReader.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\AdapterReader.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\AdapterReader.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\AdapterReader.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\AdapterReader.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:58:17.917Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 84,
-              "Title": "KeyboardInputEvent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:57:15.586Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 85,
-              "Title": "KeyboardInputEvent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Keyboard\\KeyboardInputEvent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:57:12.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 86,
-              "Title": "Mouse.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\Mouse.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Mouse\\Mouse.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\Mouse.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Mouse\\Mouse.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:57:10.136Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 87,
-              "Title": "Mouse.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\Mouse.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Mouse\\Mouse.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\Mouse.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Mouse\\Mouse.h",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:57:07.194Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 88,
-              "Title": "MouseInputEvent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:57:04.678Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 89,
-              "Title": "MouseInputEvent.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Input\\Mouse\\MouseInputEvent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:57:00.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 92,
-              "Title": "StringConverter.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\StringConverter.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Utils\\StringConverter.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\StringConverter.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Utils\\StringConverter.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-11T08:56:22.016Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 93,
-              "Title": "StringConverter.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\StringConverter.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Utils\\StringConverter.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\StringConverter.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Utils\\StringConverter.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:56:20.129Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 96,
-              "Title": "Logger.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Logger.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Utils\\Logger.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Logger.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Utils\\Logger.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-11T08:56:12.665Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 91,
-              "Title": "Shapes.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shapes\\Shapes.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shapes\\Shapes.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shapes\\Shapes.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Shapes\\Shapes.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T14:43:18.927Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 90,
-              "Title": "Shapes.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shapes\\Shapes.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shapes\\Shapes.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shapes\\Shapes.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Shapes\\Shapes.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAACMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T14:44:35.143Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 98,
-              "Title": "material.inl",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\material.inl",
-              "RelativeDocumentMoniker": "packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\material.inl",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\material.inl",
-              "RelativeToolTip": "packages\\Assimp.3.0.0\\build\\native\\include\\assimp\\material.inl",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAmwFoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-03-11T08:31:55.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 95,
-              "Title": "Converter.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Converter.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Utils\\Converter.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Converter.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Utils\\Converter.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-03T09:36:41.013Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 94,
-              "Title": "Quaternion.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Quaternion.h",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Utils\\Quaternion.h",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Utils\\Quaternion.h",
-              "RelativeToolTip": "SRV_Graphics_Engine\\Utils\\Quaternion.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-03T10:35:49.505Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 97,
-              "Title": "RotationComponent.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.cpp",
-              "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\CPP projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.cpp",
-              "RelativeToolTip": "SRV_Graphics_Engine\\ComponentSystem\\Components\\RotationComponent.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-05T13:16:34.234Z"
+              "WhenOpened": "2025-04-07T09:32:18.599Z"
             }
           ]
         }

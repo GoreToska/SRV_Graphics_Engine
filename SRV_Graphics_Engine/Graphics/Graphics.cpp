@@ -4,6 +4,7 @@
 #include "Graphics.h"
 #include "./Device/GraphicsDevice.h"
 #include "ShaderManager/ShaderManager.h"
+#include "../Engine/Asserter.h"
 
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
@@ -30,7 +31,12 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 // ALL DRAWING IS HERE BETWEEN ClearRenderTargetView AND Present
 void Graphics::RenderFrame()
 {
+	ID3D11ShaderResourceView* nullSRV[2] = { NULL, NULL }; // Массив с NULL
+	DeviceContext->PSSetShaderResources(0, 2, nullSRV); // Сбрасываем SRV в slot 1
 
+	RenderShadows();
+
+	DeviceContext->RSSetViewports(1, &viewport);
 	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
@@ -44,11 +50,11 @@ void Graphics::RenderFrame()
 
 	// set shaders and samplers
 	DeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
+	DeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
 
 	// View matrix
 	worldMatrix = DirectX::XMMatrixIdentity();
 
-	RenderShadows();
 
 	for (IRenderComponent* item : objectRenderPool)
 	{
@@ -98,10 +104,7 @@ void Graphics::RenderShadows()
 {
 	for (DirectionalLightComponent* item : lightPool)
 	{
-		for (IRenderComponent* renderObject : objectRenderPool)
-		{
-			item->RenderShadowPass(renderObject);
-		}
+		item->RenderShadowPass(objectRenderPool);
 	}
 }
 
@@ -238,13 +241,22 @@ bool Graphics::CreateSamplerState()
 	samplerDesc.MinLOD = 0;
 	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
-	HRESULT hr = Device->CreateSamplerState(&samplerDesc, samplerState.GetAddressOf());
+	ThrowIfFailed(Device->CreateSamplerState(&samplerDesc, samplerState.GetAddressOf()), "Failed to create sampler state.");
 
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create sampler state.");
-		return false;
-	}
+
+	D3D11_SAMPLER_DESC shadowSamplerDesc = {};
+	shadowSamplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	shadowSamplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP; 
+	shadowSamplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP; 
+	shadowSamplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP; 
+	shadowSamplerDesc.ComparisonFunc = D3D11_COMPARISON_LESS;
+	shadowSamplerDesc.MinLOD = 0;
+	shadowSamplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
+	shadowSamplerDesc.MipLODBias = 0; 
+
+	ThrowIfFailed(Device->CreateSamplerState(&shadowSamplerDesc, shadowSamplerState.GetAddressOf()), 
+		"Failed to create sampler state.");
+
 
 	return true;
 }
@@ -303,7 +315,7 @@ bool Graphics::CreateDepthStencilBuffer()
 
 void Graphics::CreateViewport()
 {
-	D3D11_VIEWPORT viewport{};
+	viewport = {};
 	viewport.TopLeftX = 0;
 	viewport.TopLeftY = 0;
 	viewport.Width = clientWidth;

@@ -15,7 +15,7 @@ public:
 	static DirectX::XMMATRIX GetProjectionMatrix();
 
 	// Get perspective matrices for point light
-	static DirectX::XMMATRIX* GetPerspectiveMatricesCube(GameObject* gameObject);
+	static DirectX::XMMATRIX GetViewMatrixDirectional(GameObject* gameObject);
 
 	// Shadowmap resolution
 	static constexpr float ShadowmapSize = 1024;

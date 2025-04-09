@@ -16,6 +16,17 @@ void IRenderComponent::Render()
 	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
 	DeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(shaderType)->GetShader(), NULL, 0);
 
+	SetVertexBuffer();
+
+	UpdateTransformBuffer();
+
+	UpdateLightBuffer();
+}
+
+void IRenderComponent::RenderForShadows()
+{
+	SetVertexBuffer();
+
 	UpdateTransformBuffer();
 
 	UpdateLightBuffer();

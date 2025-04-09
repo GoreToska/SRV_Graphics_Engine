@@ -13,9 +13,12 @@ public:
 
 	virtual void Update(const float& deltaTime) = 0;
 	virtual void Render();
+	virtual void RenderForShadows();
+
 	void UpdateLightBuffer();
 	void UpdateTransformBuffer();
 	virtual int GetVertexCount() const = 0;
+	virtual void SetVertexBuffer() = 0;
 
 	GameObject* GetGameObject();
 

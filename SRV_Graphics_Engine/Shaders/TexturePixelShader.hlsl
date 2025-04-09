@@ -20,9 +20,17 @@ struct PS_INPUT
 
 Texture2D objTexture : TEXTURE : register(t0);
 SamplerState objSamplerState : SAMPLER : register(s0);
+Texture2D shadowMap : SHADOWMAP : register(t1);
+SamplerState shadowSampler : SHADOWSAMPLER : register(s1);
 
 float4 main(PS_INPUT input) : SV_TARGET
 {
+    float3 shadowCoord = input.inPosition / input.inPosition.w;
+    shadowCoord = shadowCoord * 0.5 + 0.5; // from [-1, 1] to [0, 1]
+    float shadowDepth = shadowMap.Sample(shadowSampler, shadowCoord.xy).r;
+
+    float visibility = (shadowCoord.z < shadowDepth) ? 0.2 : 1.0; 
+    
     float3 sampleColor = objTexture.Sample(objSamplerState, input.inTextCoord);
     
     //float3 sampleColor = input.inNormal; //<- debug normals
@@ -45,5 +53,5 @@ float4 main(PS_INPUT input) : SV_TARGET
            
     float3 finalColor = sampleColor * appliedLight;
     
-    return float4(finalColor, 1.0f);
+    return float4(finalColor * visibility, 1.0);
 }

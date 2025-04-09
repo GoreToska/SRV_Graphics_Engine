@@ -19,11 +19,7 @@ struct PS_INPUT
 PS_INPUT main(VS_INPUT input)
 {
     PS_INPUT output;
-	
-    input.position.w = 1.0f;
-    output.position = mul(input.position, mul(mul(world, view), projection));
-	
-    output.depthPosition = output.position;
-	
+    output.position = mul(float4(input.position.xyz, 1.0), mul(mul(world, view), projection));
+    output.depthPosition = output.position; 
     return output;
 }

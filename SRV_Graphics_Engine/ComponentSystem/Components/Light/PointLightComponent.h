@@ -11,11 +11,10 @@ public:
 	void Update(const float& deltaTime) override;
 	void Render() override;
 
-	// Вопрос
 	void SetRenderTarget();
 	void ClearRenderTarget();
 
-	void RenderShadowPass(IRenderComponent* renderObject);
+	void RenderShadowPass(std::vector<IRenderComponent*>& renderObject);
 
 	void SetLightColor(DirectX::XMFLOAT3& color);
 	void SetLightColor(DirectX::XMFLOAT3 color);
@@ -25,6 +24,9 @@ public:
 	float GetLightAttenuationConst() const;
 	float GetLightAttenuationLinear() const;
 	float GetLightAttenuationExponent() const;
+
+	ID3D11ShaderResourceView* GetShadowSRV();
+	ID3D11ShaderResourceView*const* GetShadowSRVAddress();
 
 private:
 	void CreateResources();
@@ -38,13 +40,13 @@ private:
 
 
 	// -- shadows --
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> renderTargetTextures;
+	Microsoft::WRL::ComPtr<ID3D11Texture2D> shadowmapTexture;
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencilTextures;
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
-	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> shaderResourceView;
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> shadowSRV;
 	Microsoft::WRL::ComPtr <ID3D11RenderTargetView> renderTargetView;
 
-	DirectX::XMMATRIX projectionMatrix[6] = {};
+	DirectX::XMMATRIX projectionMatrix = {};
 	DirectX::XMMATRIX viewMatrix = {};
 	D3D11_VIEWPORT shadowMapViewport = {};
 

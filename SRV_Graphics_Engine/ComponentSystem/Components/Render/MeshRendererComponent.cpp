@@ -6,7 +6,7 @@
 #include "../../../DataTypes/ModelData.h"
 
 MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObject* gameObject, ShaderManager::ShaderType shaderType)
-	: IRenderComponent(gameObject,shaderType)
+	: IRenderComponent(gameObject, shaderType)
 {
 	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf());
 	if (FAILED(hr))
@@ -35,8 +35,20 @@ void MeshRendererComponent::Render()
 	IRenderComponent::Render();
 
 	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
+	DeviceContext->PSSetShaderResources(1, 1, SRVEngine.GetGraphics().GetAllLights()[0]->GetShadowSRVAddress());
 
 	Vector3D orientation = gameObject->GetTransform()->GetOrientation();
+
+	for (size_t i = 0; i < meshes.size(); ++i)
+	{
+		meshes[i].Render();
+	}
+
+}
+
+void MeshRendererComponent::RenderForShadows()
+{
+	IRenderComponent::RenderForShadows();
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{
@@ -47,6 +59,11 @@ void MeshRendererComponent::Render()
 int MeshRendererComponent::GetVertexCount() const
 {
 	return 0;
+}
+
+void MeshRendererComponent::SetVertexBuffer()
+{
+	return;
 }
 
 bool MeshRendererComponent::LoadModel(const std::string& filePath)

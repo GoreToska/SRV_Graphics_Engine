@@ -19,6 +19,9 @@ struct PS_INPUT
     float3 outWorldPosition : WORLD_POSITION;
 };
 
+Texture2D shadowMap : SHADOWMAP : register(t1);
+SamplerState shadowSampler : SHADOWSAMPLER : register(s1);
+
 PS_INPUT main(VS_INPUT input)
 {
     PS_INPUT output;

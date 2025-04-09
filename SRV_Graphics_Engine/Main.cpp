@@ -80,6 +80,7 @@ int main()
 
 
 	GameObject* pointLight01 = new GameObject(Vector3D(0, 5.0f, 5.0f));
+	pointLight01->GetTransform()->SetRotation({ 0, 60,30, });
 	pointLight01->AddComponent(new DirectionalLightComponent(pointLight01));
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
@@ -170,7 +171,6 @@ int main()
 				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().z });
 		});
 
-	pointLight01->GetTransform()->SetRotation({ 0, 60,30,});
 
 	while (SRVEngine.ProcessMessages())
 	{
