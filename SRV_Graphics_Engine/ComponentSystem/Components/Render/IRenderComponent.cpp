@@ -61,6 +61,16 @@ void IRenderComponent::UpdateTransformBuffer()
 
 	constBuffer.GetData()->projection = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix());
 
+	GameObject* light = SRVEngine.GetGraphics().GetAllLights()[0]->GetGameObject();
+
+	constBuffer.GetData()->lightWorld = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
+		light->GetTransform()->GetScale().ToXMVector())
+		* DirectX::XMMatrixRotationQuaternion(light->GetTransform()->GetOrientation().ToXMVector())
+		* DirectX::XMMatrixTranslationFromVector(light->GetTransform()->GetPosition().ToXMVector()) * SRVEngine.GetGraphics().GetWorldMatrix());
+
+	constBuffer.GetData()->lightView = SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix();
+	constBuffer.GetData()->lightProjection = SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix();
+
 	if (constBuffer.ApplyChanges())
 		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
 }

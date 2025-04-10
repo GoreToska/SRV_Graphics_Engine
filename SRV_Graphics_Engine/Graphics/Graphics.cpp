@@ -33,18 +33,18 @@ void Graphics::RenderFrame()
 {
 	ID3D11ShaderResourceView* nullSRV[2] = { NULL, NULL }; // Массив с NULL
 	DeviceContext->PSSetShaderResources(0, 2, nullSRV); // Сбрасываем SRV в slot 1
+	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	RenderShadows();
 
 	DeviceContext->RSSetViewports(1, &viewport);
-	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
+	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
 	DeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
 	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	// set input layout, topology, rasterizer state
-	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	DeviceContext->RSSetState(rasterizerState.Get());
 	DeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 

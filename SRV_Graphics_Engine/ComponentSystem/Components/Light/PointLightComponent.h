@@ -28,6 +28,9 @@ public:
 	ID3D11ShaderResourceView* GetShadowSRV();
 	ID3D11ShaderResourceView*const* GetShadowSRVAddress();
 
+	DirectX::XMMATRIX GetProjectionMatrix();
+	DirectX::XMMATRIX GetViewMatrix();
+
 private:
 	void CreateResources();
 

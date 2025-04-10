@@ -135,6 +135,16 @@ ID3D11ShaderResourceView* const* DirectionalLightComponent::GetShadowSRVAddress(
 	return shadowSRV.GetAddressOf();
 }
 
+DirectX::XMMATRIX DirectionalLightComponent::GetProjectionMatrix()
+{
+	return projectionMatrix;
+}
+
+DirectX::XMMATRIX DirectionalLightComponent::GetViewMatrix()
+{
+	return viewMatrix;
+}
+
 void DirectionalLightComponent::CreateResources()
 {
 	DirectX::XMMATRIX matrices = ShadowMapCalculator::GetViewMatrixDirectional(gameObject);

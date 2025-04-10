@@ -10,6 +10,9 @@ struct MatrixBuffer
 	DirectX::XMMATRIX world;
 	DirectX::XMMATRIX view;
 	DirectX::XMMATRIX projection;
+	DirectX::XMMATRIX lightWorld;
+	DirectX::XMMATRIX lightView;
+	DirectX::XMMATRIX lightProjection;
 };
 
 struct CB_PS_Light

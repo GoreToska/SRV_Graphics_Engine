@@ -227,5 +227,4 @@ void Camera::UpdateViewMatrix()
 	forwardVector = XMVector3TransformCoord(DEFAULT_FORWARD_VECTOR, rotationMatrix);
 	rightVector = XMVector3TransformCoord(DEFAULT_RIGHT_VECTOR, rotationMatrix);
 	upVector = XMVector3TransformCoord(DEFAULT_UP_VECTOR, rotationMatrix);
-
 }
