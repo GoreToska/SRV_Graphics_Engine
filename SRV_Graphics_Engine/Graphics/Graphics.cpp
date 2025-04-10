@@ -31,8 +31,8 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 // ALL DRAWING IS HERE BETWEEN ClearRenderTargetView AND Present
 void Graphics::RenderFrame()
 {
-	ID3D11ShaderResourceView* nullSRV[2] = { NULL, NULL }; // Массив с NULL
-	DeviceContext->PSSetShaderResources(0, 2, nullSRV); // Сбрасываем SRV в slot 1
+	ID3D11ShaderResourceView* nullSRV[2] = { NULL, NULL }; 
+	DeviceContext->PSSetShaderResources(0, 2, nullSRV);
 	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	RenderShadows();

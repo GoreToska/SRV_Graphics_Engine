@@ -5,6 +5,8 @@ cbuffer perObjectBuffer : register(b0)
     matrix projection;
 };
 
+Texture2D objTexture : TEXTURE : register(t0);
+
 struct VS_INPUT
 {
     float4 position : POSITION;

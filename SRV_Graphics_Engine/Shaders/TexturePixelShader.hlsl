@@ -5,9 +5,11 @@ cbuffer lightBuffer : register(b0)
     float3 dynamicLightColor;
     float dynamicLightStrenght;
     float3 dynamicLightDirection;
-    float dynamicLightAttenuation_const;
-    float dynamicLightAttenuation_linear;
-    float dynamicLightAttenuation_exponent;
+    
+    // todo: передать свет в буфере света
+    matrix lightWorld;
+    matrix lightView;
+    matrix lightProjection;
 }
 
 struct PS_INPUT
@@ -15,21 +17,23 @@ struct PS_INPUT
     float4 inPosition : SV_POSITION;
     float2 inTextCoord : TEXCOORD;
     float3 inNormal : NORMAL;
-    float3 inWorldPosition : WORLD_POSITION;
+    //float3 inWorldPosition : WORLD_POSITION;
 };
 
 Texture2D objTexture : TEXTURE : register(t0);
 SamplerState objSamplerState : SAMPLER : register(s0);
 Texture2D shadowMap : SHADOWMAP : register(t1);
-SamplerState shadowSampler : SHADOWSAMPLER : register(s1);
+SamplerState     shadowSampler : SHADOWSAMPLER : register(s1);
 
 float4 main(PS_INPUT input) : SV_TARGET
 {
-    float3 shadowCoord = input.inPosition / input.inPosition.w;
-    shadowCoord = shadowCoord * 0.5 + 0.5; // from [-1, 1] to [0, 1]
-    float shadowDepth = shadowMap.Sample(shadowSampler, shadowCoord.xy).r;
+    // todo: расчитать свет!
+    // сравнить точку в пространстве света с шедоу мапой 
+    //float3 shadowCoord = input.inLightPosition / input.inLightPosition.w;
+    //shadowCoord = shadowCoord * 0.5 + 0.5; // from [-1, 1] to [0, 1]
+    //float shadowDepth = shadowMap.Sample(shadowSampler, shadowCoord.xy).r;
 
-    float visibility = (shadowCoord.z < shadowDepth) ? 0.2 : 1.0; 
+   // float visibility = (shadowCoord.z < shadowDepth) ? 0.2 : 1.0; 
     
     float3 sampleColor = objTexture.Sample(objSamplerState, input.inTextCoord);
     
@@ -53,5 +57,5 @@ float4 main(PS_INPUT input) : SV_TARGET
            
     float3 finalColor = sampleColor * appliedLight;
     
-    return float4(finalColor * visibility, 1.0);
+    return float4(finalColor /* * visibility*/, 1.0);
 }

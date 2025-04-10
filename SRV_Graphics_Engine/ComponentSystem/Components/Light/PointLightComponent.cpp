@@ -44,6 +44,10 @@ void DirectionalLightComponent::SetRenderTarget()
 	DeviceContext->OMSetRenderTargets(0, nullptr, depthStencilView.Get());
 	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 	DeviceContext->RSSetViewports(1, &shadowMapViewport);
+	DeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
+	DeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
+	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
+	DeviceContext->PSSetShader(NULL, NULL, 0);
 }
 
 void DirectionalLightComponent::ClearRenderTarget()
@@ -70,10 +74,6 @@ void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>&
 
 	if (shadowMatrixBuffer.ApplyChanges())
 		DeviceContext->PSSetConstantBuffers(0, 1, shadowMatrixBuffer.GetAddressOf());
-
-	DeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
-	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
-	DeviceContext->PSSetShader(NULL, NULL, 0);
 
 	for (IRenderComponent* RC : renderObjects)
 	{
