@@ -16,9 +16,9 @@ public:
 	virtual void RenderForShadows();
 
 	void UpdateLightBuffer();
-	void UpdateTransformBuffer();
+	void UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix);
 	virtual int GetVertexCount() const = 0;
-	virtual void SetVertexBuffer() = 0;
+	virtual void SetVertexBufferContext() = 0;
 
 	GameObject* GetGameObject();
 

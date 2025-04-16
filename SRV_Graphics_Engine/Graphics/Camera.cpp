@@ -9,7 +9,7 @@ Camera::Camera()
 	positionVector = XMLoadFloat3(&this->position);
 	rotation = XMFLOAT3(0.0f, 0.0f, 0.0f);
 	rotationVector = XMLoadFloat3(&this->rotation);
-	fov = (fov / 360.0f) * XM_2PI;;
+	fov = (90 / 360.0f) * XM_2PI;
 	aspectRatio = SRVEngine.GetGraphics().GetClientWidth() / SRVEngine.GetGraphics().GetClientHeight();
 	orthoWidth = 80;
 	orthoHeight = 80;
@@ -22,7 +22,7 @@ Camera::Camera()
 void Camera::SetPerspectiveProjection()
 {
 	float fovRadians = (fov / 360.0f) * XM_2PI;
-	projectionMatrix = XMMatrixPerspectiveFovLH(fovRadians, aspectRatio, nearZ, farZ);
+	projectionMatrix = XMMatrixPerspectiveFovLH(fov, aspectRatio, nearZ, farZ);
 }
 
 void Camera::SetOrthographicProjection()
@@ -32,7 +32,7 @@ void Camera::SetOrthographicProjection()
 
 void Camera::SetPerspectiveProjection(float fovDegrees, float aspectRatio, float nearZ, float farZ)
 {
-	fov = fovDegrees;
+	fov = fovDegrees / 360.0f * XM_2PI;
 	this->aspectRatio = aspectRatio;
 	this->nearZ = nearZ;
 	this->farZ = farZ;

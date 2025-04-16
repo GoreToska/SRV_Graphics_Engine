@@ -30,6 +30,7 @@ public:
 
 	DirectX::XMMATRIX GetProjectionMatrix();
 	DirectX::XMMATRIX GetViewMatrix();
+	DirectX::XMMATRIX GetWorldMatrix();
 
 private:
 	void CreateResources();

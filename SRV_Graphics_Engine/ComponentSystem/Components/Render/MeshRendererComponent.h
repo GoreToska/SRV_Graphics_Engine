@@ -29,7 +29,7 @@ public:
 	void RenderForShadows() override;
 
 	virtual int GetVertexCount() const override;
-	virtual void SetVertexBuffer() override;
+	virtual void SetVertexBufferContext() override;
 
 protected:
 	bool LoadModel(const std::string& filePath);

@@ -21,7 +21,7 @@ public:
 	void RenderForShadows() override;
 
 	virtual int GetVertexCount() const override;
-	virtual void SetVertexBuffer() override;
+	virtual void SetVertexBufferContext() override;
 
 private:
 	std::vector<CVertex> vertexes = {};

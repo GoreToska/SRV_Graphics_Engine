@@ -58,11 +58,12 @@ bool ShaderManager::Initialize()
 
 	UINT colorNumElements = ARRAYSIZE(colorLayoutDesc);
 
-	if (!colorVS.Initialize(shaderFolder + L"ColorVertexShader.cso", colorLayoutDesc, colorNumElements))
+	/*if (!colorVS.Initialize(shaderFolder + L"ColorVertexShader.cso", colorLayoutDesc, colorNumElements))
 		return false;
 
 	if (!colorPS.Initialize(shaderFolder + L"ColorPixelShader.cso"))
-		return false;
+		return false;*/
+
 	// --- Color Shaders ---
 
 	// --- ShadowMap Shaders ---

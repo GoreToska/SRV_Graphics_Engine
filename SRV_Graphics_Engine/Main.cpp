@@ -41,21 +41,24 @@ int main()
 	ModelData radioModelData = { "Data\\Models\\Radio\\Radio.obj", L"Data\\Models\\Radio\\Radio.png" };
 	ModelData phoneModelData = { "Data\\Models\\Phone\\Phone.obj", L"Data\\Models\\Phone\\Phone.png" };
 	ModelData hatModelData = { "Data\\Models\\Hat\\Hat.obj", L"Data\\Models\\Hat\\Hat.png" };
+	ModelData groundModelData = { "Data\\Models\\Ground\\Ground.obj", L"Data\\Models\\Ground\\Ground.png" };
 
 	const int gridSize = 500;
 	const float squareSize = 50.0f;
 	const float h = 0.0f;
 
-	std::vector<CVertex> groundVertexes;
+	std::vector<TVertex> groundVertexes;
 	std::vector<DWORD> groundIndexes;
 
 	for (int i = 0; i <= gridSize; ++i)
 	{
 		for (int j = 0; j <= gridSize; ++j)
 		{
-			float x = -squareSize / 2 + (squareSize / gridSize) * i;
-			float z = -squareSize / 2 + (squareSize / gridSize) * j;
-			groundVertexes.emplace_back(CVertex({ x, h, z }, WHITE));
+			float x = squareSize / 2 + (squareSize / gridSize) * i;
+			float z = squareSize / 2 + (squareSize / gridSize) * j;
+			float u = x / 100;
+			float v = z / 100;
+			groundVertexes.emplace_back(TVertex({ x, h, z }, u, v, Vector3D(0,1,0)));
 		}
 	}
 
@@ -79,8 +82,8 @@ int main()
 	}
 
 
-	GameObject* pointLight01 = new GameObject(Vector3D(0, 5.0f, 5.0f));
-	pointLight01->GetTransform()->SetRotation({ 0, 60,30, });
+	GameObject* pointLight01 = new GameObject(Vector3D(0, 100.0f, 100.0f));
+	pointLight01->GetTransform()->SetRotation({ 0, 90,0, });
 	pointLight01->AddComponent(new DirectionalLightComponent(pointLight01));
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
@@ -89,7 +92,7 @@ int main()
 	pointLight01->GetComponent<DirectionalLightComponent>()->SetLightStrength(5);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
-	ground->AddComponent(new ColorMeshComponent(ground, groundVertexes, ShaderManager::ShaderType::Color, groundIndexes));
+	ground->AddComponent(new TextureMeshComponent(ground, groundVertexes, std::wstring(L"Data\\Textures\\TestTexture.png"), ShaderManager::ShaderType::Texture, groundIndexes));
 	SRVEngine.AddGameObject(ground);
 
 	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
@@ -177,6 +180,7 @@ int main()
 		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
 		SRVEngine.GetTimer()->Restart();
 
+		pointLight01->GetTransform()->AddWorldRotation({ 1,0,1 }, deltaTime * 0.1);
 
 		SRVEngine.Update(deltaTime);
 		SRVEngine.RenderFrame();

@@ -61,7 +61,7 @@ int MeshRendererComponent::GetVertexCount() const
 	return 0;
 }
 
-void MeshRendererComponent::SetVertexBuffer()
+void MeshRendererComponent::SetVertexBufferContext()
 {
 	return;
 }

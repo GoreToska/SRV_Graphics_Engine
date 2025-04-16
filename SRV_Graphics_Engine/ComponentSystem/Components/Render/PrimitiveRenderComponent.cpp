@@ -63,7 +63,7 @@ int ColorMeshComponent::GetVertexCount() const
 	return vertexes.size();
 }
 
-void ColorMeshComponent::SetVertexBuffer()
+void ColorMeshComponent::SetVertexBufferContext()
 {
 	UINT stride = sizeof(CVertex);
 	UINT offset = 0;
