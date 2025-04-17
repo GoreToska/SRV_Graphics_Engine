@@ -48,6 +48,8 @@ float4 main(PS_INPUT input) : SV_TARGET
 {
     float3 normal = normalize(input.inNormal);
     float3 lightDir = normalize(-dynamicLightDirection);
+    //float3 lightDir = normalize(-dynamicLightDirection);
+    
     
     float3 ambient = ambientLightColor * ambientLightStrenght;
     float diffuseFactor = saturate(dot(normal, lightDir));

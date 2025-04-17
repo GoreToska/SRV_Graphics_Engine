@@ -83,7 +83,7 @@ int main()
 
 
 	GameObject* pointLight01 = new GameObject(Vector3D(0, 50.0f, -50.0f));
-	pointLight01->GetTransform()->SetRotation({ 0, 90,0, });
+	//pointLight01->GetTransform()->SetRotation({ 0, 90,-30, });
 	//pointLight01->GetTransform()->SetLookAtRotation({0,0,0});
 	pointLight01->AddComponent(new DirectionalLightComponent(pointLight01));
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
