@@ -8,20 +8,23 @@
 MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObject* gameObject, ShaderManager::ShaderType shaderType)
 	: IRenderComponent(gameObject, shaderType)
 {
-	HRESULT hr = DirectX::CreateWICTextureFromFile(Device, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf());
-	if (FAILED(hr))
+	if (modelData.texturePath != L"")
 	{
-		Logger::LogError(hr, "Failed to create texture.");
+		ThrowIfFailed(DirectX::CreateWICTextureFromFile(Device, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf()),
+			"Failed to create texture.");
 	}
 
-	try
+	if (modelData.modelPath != "")
 	{
-		if (!LoadModel(modelData.modelPath))
-			return;
-	}
-	catch (const std::exception& ex)
-	{
-		Logger::LogError(ex.what());
+		try
+		{
+			if (!LoadModel(modelData.modelPath))
+				return;
+		}
+		catch (const std::exception& ex)
+		{
+			Logger::LogError(ex.what());
+		}
 	}
 }
 
@@ -43,16 +46,15 @@ void MeshRendererComponent::Render()
 	{
 		meshes[i].Render();
 	}
-
 }
 
-void MeshRendererComponent::RenderForShadows()
+void MeshRendererComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix)
 {
-	IRenderComponent::RenderForShadows();
+	IRenderComponent::RenderForShadows(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{
-		meshes[i].Render();
+		meshes[i].RenderForShadows(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
 	}
 }
 

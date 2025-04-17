@@ -41,7 +41,7 @@ int main()
 	ModelData radioModelData = { "Data\\Models\\Radio\\Radio.obj", L"Data\\Models\\Radio\\Radio.png" };
 	ModelData phoneModelData = { "Data\\Models\\Phone\\Phone.obj", L"Data\\Models\\Phone\\Phone.png" };
 	ModelData hatModelData = { "Data\\Models\\Hat\\Hat.obj", L"Data\\Models\\Hat\\Hat.png" };
-	ModelData groundModelData = { "Data\\Models\\Ground\\Ground.obj", L"Data\\Models\\Ground\\Ground.png" };
+	ModelData groundModelData = { "Data\\Models\\Ground\\Ground.obj", L"Data\\Models\\Ground\\Ground.jpg" };
 
 	const int gridSize = 500;
 	const float squareSize = 50.0f;
@@ -58,7 +58,7 @@ int main()
 			float z = squareSize / 2 + (squareSize / gridSize) * j;
 			float u = x / 100;
 			float v = z / 100;
-			groundVertexes.emplace_back(TVertex({ x, h, z }, u, v, Vector3D(0,1,0)));
+			groundVertexes.emplace_back(TVertex({ x, h, z }, u, v, Vector3D(0, 1, 0)));
 		}
 	}
 
@@ -82,8 +82,9 @@ int main()
 	}
 
 
-	GameObject* pointLight01 = new GameObject(Vector3D(0, 100.0f, 100.0f));
+	GameObject* pointLight01 = new GameObject(Vector3D(0, 50.0f, -50.0f));
 	pointLight01->GetTransform()->SetRotation({ 0, 90,0, });
+	//pointLight01->GetTransform()->SetLookAtRotation({0,0,0});
 	pointLight01->AddComponent(new DirectionalLightComponent(pointLight01));
 	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(pointLight01);
@@ -91,11 +92,12 @@ int main()
 	pointLight01->GetComponent<DirectionalLightComponent>()->SetLightColor({ 1, 1, 1 });
 	pointLight01->GetComponent<DirectionalLightComponent>()->SetLightStrength(5);
 
-	GameObject* ground = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
-	ground->AddComponent(new TextureMeshComponent(ground, groundVertexes, std::wstring(L"Data\\Textures\\TestTexture.png"), ShaderManager::ShaderType::Texture, groundIndexes));
+	GameObject* ground = new GameObject(Vector3D(0.0f, -3.0f, 0.0f));
+	ground->GetTransform()->SetScale({ 10,10,10 });
+	ground->AddComponent(new MeshRendererComponent(groundModelData, ground, ShaderManager::ShaderType::Texture));
 	SRVEngine.AddGameObject(ground);
 
-	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
+	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, -5.0f));
 	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
 	blueBird->AddComponent(new SphereCollisionComponent(blueBird, Vector3D(0.0f, 0.0f, 0.0f), 2.4));
 	blueBird->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
@@ -174,14 +176,14 @@ int main()
 				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().z });
 		});
 
-
 	while (SRVEngine.ProcessMessages())
 	{
 		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
 		SRVEngine.GetTimer()->Restart();
 
-		pointLight01->GetTransform()->AddWorldRotation({ 1,0,1 }, deltaTime * 0.1);
-
+		pointLight01->GetTransform()->SetLookAtRotation({0,0,0});
+		//pointLight01->GetTransform()->AddWorldRotation({ 1, 0,0, }, deltaTime * 0.02);
+		//pointLight01->GetTransform()->MovePosition({ deltaTime, 0,deltaTime });
 		SRVEngine.Update(deltaTime);
 		SRVEngine.RenderFrame();
 	}

@@ -5,8 +5,8 @@
 IRenderComponent::IRenderComponent(GameObject* gameObject, ShaderManager::ShaderType type)
 	: gameObject(gameObject), shaderType(type)
 {
-	ThrowIfFailed(constBuffer.Initialize(), "Failed to create const buffer.");
-
+	ThrowIfFailed(objectMatrixBuffer.Initialize(), "Failed to create const buffer.");
+	ThrowIfFailed(lightMatrixBuffer.Initialize(), "Failed to create const buffer.");
 	ThrowIfFailed(lightConstBuffer.Initialize(), "Failed to create const light buffer.");
 }
 
@@ -23,15 +23,11 @@ void IRenderComponent::Render()
 	UpdateLightBuffer();
 }
 
-void IRenderComponent::RenderForShadows()
+void IRenderComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix)
 {
 	SetVertexBufferContext();
 
-	UpdateTransformBuffer(SRVEngine.GetGraphics().GetAllLights()[0]->GetWorldMatrix(),
-		SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix(),
-		SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix());
-
-	UpdateLightBuffer();
+	UpdateTransformBuffer(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
 }
 
 void IRenderComponent::UpdateLightBuffer()
@@ -41,35 +37,34 @@ void IRenderComponent::UpdateLightBuffer()
 
 	lightConstBuffer.GetData()->dynamicLightDirection =
 		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector().ToXMFloat();
+	
 
-	GameObject* light = SRVEngine.GetGraphics().GetAllLights()[0]->GetGameObject();
-
-	lightConstBuffer.GetData()->lightWorld = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
-		light->GetTransform()->GetScale().ToXMVector())
-		* DirectX::XMMatrixRotationQuaternion(light->GetTransform()->GetOrientation().ToXMVector())
-		* DirectX::XMMatrixTranslationFromVector(light->GetTransform()->GetPosition().ToXMVector())
-		* SRVEngine.GetGraphics().GetWorldMatrix());
-
-	lightConstBuffer.GetData()->lightView = SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix();
-	lightConstBuffer.GetData()->lightProjection = SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix();
+	// TODO: perform transpose in setter function
 
 	if (lightConstBuffer.ApplyChanges())
 		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
+
+	lightMatrixBuffer.GetData()->lightView = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix());
+	lightMatrixBuffer.GetData()->lightProjection = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix());
+
+	if (lightMatrixBuffer.ApplyChanges())
+		DeviceContext->VSSetConstantBuffers(1, 1, lightMatrixBuffer.GetAddressOf());
 }
 
 void IRenderComponent::UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix)
 {
-	constBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
+	// TODO: perform transpose in setter function
+	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
 		gameObject->GetTransform()->GetScale().ToXMVector())
 		* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
-		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector()) * WorldMatrix);
+		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector())
+		);
 
-	constBuffer.GetData()->view = DirectX::XMMatrixTranspose(ViewMatrix);
+	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(ViewMatrix);
+	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(ProjectionMatrix);
 
-	constBuffer.GetData()->projection = DirectX::XMMatrixTranspose(ProjectionMatrix);
-
-	if (constBuffer.ApplyChanges())
-		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
+	if (objectMatrixBuffer.ApplyChanges())
+		DeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
 }
 
 GameObject* IRenderComponent::GetGameObject()

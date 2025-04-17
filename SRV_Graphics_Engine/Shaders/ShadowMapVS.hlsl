@@ -1,8 +1,8 @@
 cbuffer perObjectBuffer : register(b0)
 {
-    matrix world;
-    matrix view;
-    matrix projection;
+    matrix world; // <- rendered object world!
+    matrix view; // <- light view
+    matrix projection; //  <- light proj
 };
 
 Texture2D objTexture : TEXTURE : register(t0);

@@ -43,9 +43,9 @@ void ColorMeshComponent::Render()
 	}
 }
 
-void ColorMeshComponent::RenderForShadows()
+void ColorMeshComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix)
 {
-	IRenderComponent::RenderForShadows();
+	IRenderComponent::RenderForShadows(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
 
 	if (indexes.size() > 0)
 	{

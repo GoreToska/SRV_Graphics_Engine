@@ -245,18 +245,22 @@ bool Graphics::CreateSamplerState()
 
 
 	D3D11_SAMPLER_DESC shadowSamplerDesc = {};
-	shadowSamplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	shadowSamplerDesc.Filter = D3D11_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR;
 	shadowSamplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP; 
 	shadowSamplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP; 
 	shadowSamplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP; 
-	shadowSamplerDesc.ComparisonFunc = D3D11_COMPARISON_LESS;
+	shadowSamplerDesc.ComparisonFunc = D3D11_COMPARISON_LESS_EQUAL;
 	shadowSamplerDesc.MinLOD = 0;
 	shadowSamplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 	shadowSamplerDesc.MipLODBias = 0; 
+	shadowSamplerDesc.BorderColor[0] = 1.0f; 
+	shadowSamplerDesc.BorderColor[1] = 1.0f;
+	shadowSamplerDesc.BorderColor[2] = 1.0f;
+	shadowSamplerDesc.BorderColor[3] = 1.0f;
+
 
 	ThrowIfFailed(Device->CreateSamplerState(&shadowSamplerDesc, shadowSamplerState.GetAddressOf()), 
 		"Failed to create sampler state.");
-
 
 	return true;
 }

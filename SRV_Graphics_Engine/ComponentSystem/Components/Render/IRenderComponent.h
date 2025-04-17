@@ -13,7 +13,7 @@ public:
 
 	virtual void Update(const float& deltaTime) = 0;
 	virtual void Render();
-	virtual void RenderForShadows();
+	virtual void RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix);
 
 	void UpdateLightBuffer();
 	void UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix);
@@ -26,6 +26,7 @@ protected:
 	GameObject* gameObject = nullptr;
 
 	ShaderManager::ShaderType shaderType;
-	ConstantBuffer<MatrixBuffer> constBuffer = {};
+	ConstantBuffer<ObjectMatrixBuffer> objectMatrixBuffer = {};
+	ConstantBuffer<LightMatrixBuffer> lightMatrixBuffer = {};
 	ConstantBuffer<CB_PS_Light> lightConstBuffer = {};
 };

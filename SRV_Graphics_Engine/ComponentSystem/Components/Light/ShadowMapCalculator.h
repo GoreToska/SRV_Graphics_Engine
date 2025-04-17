@@ -8,13 +8,10 @@
 class ShadowMapCalculator
 {
 public:
-	// Get 90 Degrees FOV
 	static float GetFOV();
 
-	// Get projection matrix for 90 Degrees FOV
 	static DirectX::XMMATRIX GetProjectionMatrix();
 
-	// Get perspective matrices for point light
 	static DirectX::XMMATRIX GetViewMatrixDirectional(GameObject* gameObject);
 
 	// Shadowmap resolution

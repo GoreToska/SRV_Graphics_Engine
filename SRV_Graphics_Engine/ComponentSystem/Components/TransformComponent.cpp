@@ -1,6 +1,7 @@
 #include "TransformComponent.h"
 #include<vector>
 #include "../GameObject.h"
+#include <SimpleMath.h>
 
 
 TransformComponent::TransformComponent(GameObject* owner)
@@ -42,18 +43,14 @@ void TransformComponent::AddLocalRotation(const Vector3D& rotationAxis, const fl
 	if (rotationAxis == Vector3D::ZeroVector())
 		return;
 
-	// Нормализуем ось вращения
 	DirectX::XMVECTOR axis = DirectX::XMVectorSet(rotationAxis.x, rotationAxis.y, rotationAxis.z, 0.0f);
 	axis = DirectX::XMVector3Normalize(axis);
 
-	// Преобразуем угол в радианы и создаем кватернион для нового вращения
 	float radians = DirectX::XMConvertToRadians(angle);
 	DirectX::XMVECTOR newRotation = DirectX::XMQuaternionRotationAxis(axis, radians);
 
-	// Обновляем ориентацию родительского объекта
 	orientation = Vector3D(DirectX::XMQuaternionMultiply(newRotation, orientation.ToXMVector()));
 
-	// Получаем дочерние объекты
 	std::vector<GameObject*> children = gameObject->GetChildren();
 	for (GameObject* child : children)
 	{
@@ -99,10 +96,12 @@ void TransformComponent::SetRotation(const Vector3D& rotation)
 		DirectX::XMConvertToRadians(rotation.z)  // Roll
 	);
 
+	rotationQuaternion.m128_f32[3] = 0;
+
 	orientation = rotationQuaternion;
 }
 
-void TransformComponent::SetLookAtRotation(Vector3D position)
+void TransformComponent::SetLookAtRotation(Vector3D lookAtPosition)
 {
 	using namespace DirectX;
 
@@ -114,9 +113,9 @@ void TransformComponent::SetLookAtRotation(Vector3D position)
 	);
 
 	XMVECTOR targetPos = XMVectorSet(
-		position.x,
-		position.y,
-		position.z,
+		lookAtPosition.x,  
+		lookAtPosition.y,
+		lookAtPosition.z,
 		0.0f
 	);
 
@@ -124,22 +123,23 @@ void TransformComponent::SetLookAtRotation(Vector3D position)
 
 	XMVECTOR forward = XMVector3Normalize(targetPos - currentPos);
 
-	if (XMVector3Equal(forward, XMVectorZero()))
+	if (XMVector3Equal(forward, XMVectorZero()) ||
+		XMVector3Length(forward).m128_f32[0] < 0.0001f)
+	{
 		return;
+	}
 
 	XMVECTOR right = XMVector3Normalize(XMVector3Cross(up, forward));
-
 	up = XMVector3Normalize(XMVector3Cross(forward, right));
 
 	XMMATRIX rotationMatrix;
-	rotationMatrix.r[0] = right;      
-	rotationMatrix.r[1] = up;          
-	rotationMatrix.r[2] = forward;     
+	rotationMatrix.r[0] = right;
+	rotationMatrix.r[1] = up;
+	rotationMatrix.r[2] = forward;
 	rotationMatrix.r[3] = XMVectorSet(0.0f, 0.0f, 0.0f, 1.0f);
 
 	XMVECTOR quaternion = XMQuaternionRotationMatrix(rotationMatrix);
-
-	orientation = quaternion;
+	orientation = Vector3D(quaternion);
 }
 
 void TransformComponent::SetScale(const Vector3D& scale)
@@ -189,7 +189,8 @@ Vector3D TransformComponent::GetForwardVector()
 	if (orientation == Vector3D::ZeroVector())
 		return worldForwardVector;
 
-	return Vector3D(DirectX::XMVector3Rotate(worldForwardVector.ToXMVector(), orientation.ToXMVector()));
+	auto forward = Vector3D(DirectX::XMVector3Rotate(worldForwardVector.ToXMVector(), orientation.ToXMVector()));
+	return forward;
 }
 
 Vector3D TransformComponent::GetRightVector()
@@ -197,7 +198,7 @@ Vector3D TransformComponent::GetRightVector()
 	if (orientation == Vector3D::ZeroVector())
 		return worldRightVector;
 
-	return Vector3D(DirectX::XMVector3Rotate(worldRightVector.ToXMVector(), orientation.ToXMVector()));
+	return Vector3D(DirectX::XMVector3Rotate(worldRightVector.ToXMVector(), orientation.ToXMVector())).Normalized();
 }
 
 Vector3D TransformComponent::GetUpVector()
@@ -205,5 +206,5 @@ Vector3D TransformComponent::GetUpVector()
 	if (orientation == Vector3D::ZeroVector())
 		return worldUpVector;
 
-	return Vector3D(DirectX::XMVector3Rotate(worldUpVector.ToXMVector(), orientation.ToXMVector()));
+	return Vector3D(DirectX::XMVector3Rotate(worldUpVector.ToXMVector(), orientation.ToXMVector())).Normalized();
 }

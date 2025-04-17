@@ -23,7 +23,7 @@ TextureMeshComponent::TextureMeshComponent(GameObject* gameObject, std::vector<T
 		}
 	}
 
-	hr = constBuffer.Initialize();
+	hr = objectMatrixBuffer.Initialize();
 
 	if (FAILED(hr))
 	{
@@ -58,7 +58,7 @@ TextureMeshComponent::TextureMeshComponent(GameObject* gameObject, std::vector<T
 		}
 	}
 
-	hr = constBuffer.Initialize();
+	hr = objectMatrixBuffer.Initialize();
 
 	if (FAILED(hr))
 	{
@@ -80,7 +80,7 @@ TextureMeshComponent::TextureMeshComponent(const TextureMeshComponent& mesh)
 	: IRenderComponent(mesh.gameObject, mesh.shaderType)
 {
 	this->indexBuffer = mesh.indexBuffer;
-	this->constBuffer = mesh.constBuffer;
+	this->objectMatrixBuffer = mesh.objectMatrixBuffer;
 	this->lightConstBuffer = mesh.lightConstBuffer;
 	this->vertexBuffer = mesh.vertexBuffer;
 	this->vertexes = mesh.vertexes;
@@ -109,9 +109,9 @@ void TextureMeshComponent::Render()
 	}
 }
 
-void TextureMeshComponent::RenderForShadows()
+void TextureMeshComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix)
 {
-	IRenderComponent::RenderForShadows();
+	IRenderComponent::RenderForShadows(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
 
 	if (indexes.size() > 0)
 	{

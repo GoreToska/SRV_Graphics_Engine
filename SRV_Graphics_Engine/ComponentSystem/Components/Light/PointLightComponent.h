@@ -54,7 +54,7 @@ private:
 	DirectX::XMMATRIX viewMatrix = {};
 	D3D11_VIEWPORT shadowMapViewport = {};
 
-	ConstantBuffer<MatrixBuffer> shadowMatrixBuffer;
+	ConstantBuffer<ObjectMatrixBuffer> shadowMatrixBuffer;
 	// -- shadows --
 
 };

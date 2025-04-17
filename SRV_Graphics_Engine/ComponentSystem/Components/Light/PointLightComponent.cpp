@@ -7,8 +7,7 @@
 #include "../../../Engine/Engine.h"
 
 DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject)
-	: MeshRendererComponent(ModelData("Data\\Models\\Light\\PointLight\\PointLight.obj",
-		L"Data\\Models\\Light\\PointLight\\PointLight.png"), gameObject, ShaderManager::ShaderType::Texture)
+	: MeshRendererComponent(ModelData("",L""), gameObject, ShaderManager::ShaderType::Texture)
 {
 	lightConstBuffer.GetData()->dynamicLightColor = lightColor;
 	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector().ToXMFloat();
@@ -48,7 +47,10 @@ void DirectionalLightComponent::SetRenderTarget()
 	DeviceContext->OMSetRenderTargets(0, nullptr, depthStencilView.Get());
 	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 	DeviceContext->RSSetViewports(1, &shadowMapViewport);
+
 	DeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
+	DeviceContext->PSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
+
 	DeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
 	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
 	DeviceContext->PSSetShader(NULL, NULL, 0);
@@ -65,33 +67,26 @@ void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>&
 {
 	SetRenderTarget();
 
-	constBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
+	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
 		gameObject->GetTransform()->GetScale().ToXMVector())
 		* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
 		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector())
 		* SRVEngine.GetGraphics().GetWorldMatrix());
 
-	constBuffer.GetData()->view = viewMatrix;
+	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(viewMatrix);
 	
-	constBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix);
+	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix);
 
-	/*shadowMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
-		gameObject->GetTransform()->GetScale().ToXMVector())
-		* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
-		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector())
-		* SRVEngine.GetGraphics().GetWorldMatrix());*/
-
-	/*shadowMatrixBuffer.GetData()->view = viewMatrix;
-	shadowMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix);*/
-
-	/*if (shadowMatrixBuffer.ApplyChanges())
-		DeviceContext->PSSetConstantBuffers(0, 1, shadowMatrixBuffer.GetAddressOf());*/
+	if(objectMatrixBuffer.ApplyChanges())
+		DeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
 
 	for (IRenderComponent* RC : renderObjects)
 	{
-		// add indexes
-		RC->RenderForShadows();
-		//DeviceContext->Draw(RC->GetVertexCount(), 0);
+		RC->RenderForShadows(DirectX::XMMatrixScalingFromVector(gameObject->GetTransform()->GetScale().ToXMVector())
+			* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
+			* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector()),
+			viewMatrix, 
+			projectionMatrix);
 	}
 
 	DeviceContext->OMSetRenderTargets(0, 0, nullptr);

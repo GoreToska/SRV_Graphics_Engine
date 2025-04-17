@@ -49,7 +49,7 @@ ID3D11VertexShader* VertexShader::GetShader()
 	return shader.Get();
 }
 
-ID3D10Blob* VertexShader::GetBuffer()
+ID3DBlob* VertexShader::GetBuffer()
 {
 	return shaderBuffer.Get();
 }
@@ -91,7 +91,7 @@ ID3D11PixelShader* PixelShader::GetShader()
 	return shader.Get();
 }
 
-ID3D10Blob* PixelShader::GetBuffer()
+ID3DBlob* PixelShader::GetBuffer()
 {
 	return shaderBuffer.Get();
 }

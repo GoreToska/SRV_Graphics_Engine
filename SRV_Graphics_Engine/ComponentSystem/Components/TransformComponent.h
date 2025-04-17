@@ -45,6 +45,10 @@ private:
 	Vector3D center{};
 	Vector3D orientation{};
 
+	Vector3D forwardVector = { 0.0f, 0.0f, 1.0f };
+	Vector3D rightVector = { 1.0f, 0.0f, 0.0f };
+	Vector3D upVector = { 0.0f, 1.0f, 0.0f };
+
 	Vector3D worldForwardVector = { 0.0f, 0.0f, 1.0f };
 	Vector3D worldRightVector = { 1.0f, 0.0f, 0.0f};
 	Vector3D worldUpVector = { 0.0f, 1.0f, 0.0f};
