@@ -4,6 +4,16 @@
 #include <SimpleMath.h>
 
 
+// TODO:
+// Remake this component to Simple Math library
+// Must have methods:
+	// SetPosition
+	// SetRotation
+	// SetLookAtRotation
+	// GetForwardVector
+	// GetRightVector
+	// GetUpVector
+
 TransformComponent::TransformComponent(GameObject* owner)
 	:position(Vector3D(0, 0, 0)), rotation(Vector3D(0, 0, 0)), scale(Vector3D(1, 1, 1)),
 	orientation(Vector3D::ZeroVector()), gameObject(owner)
@@ -49,6 +59,7 @@ void TransformComponent::AddLocalRotation(const Vector3D& rotationAxis, const fl
 	float radians = DirectX::XMConvertToRadians(angle);
 	DirectX::XMVECTOR newRotation = DirectX::XMQuaternionRotationAxis(axis, radians);
 
+	rotation = newRotation;
 	orientation = Vector3D(DirectX::XMQuaternionMultiply(newRotation, orientation.ToXMVector()));
 
 	std::vector<GameObject*> children = gameObject->GetChildren();
@@ -68,6 +79,7 @@ void TransformComponent::AddWorldRotation(const Vector3D& rotationAxis, const fl
 
 	float radians = DirectX::XMConvertToRadians(angle);
 	DirectX::XMVECTOR newRotation = DirectX::XMQuaternionRotationAxis(axis, radians);
+	rotation = newRotation;
 	orientation = Vector3D(DirectX::XMQuaternionMultiply(orientation.ToXMVector(), newRotation));
 
 	std::vector<GameObject*> children = gameObject->GetChildren();
@@ -119,18 +131,18 @@ void TransformComponent::SetLookAtRotation(Vector3D lookAtPosition)
 		0.0f
 	);
 
-	XMVECTOR up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 
+	XMVECTOR up = GetUpVector().ToXMVector();//XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 	XMVECTOR forward = XMVector3Normalize(targetPos - currentPos);
 
-	if (XMVector3Equal(forward, XMVectorZero()) ||
-		XMVector3Length(forward).m128_f32[0] < 0.0001f)
+	if (XMVector3Equal(forward, XMVectorZero()) /*||
+		XMVector3Length(forward).m128_f32[0] < 0.00001f*/)
 	{
 		return;
 	}
 
-	XMVECTOR right = XMVector3Normalize(XMVector3Cross(up, forward));
-	up = XMVector3Normalize(XMVector3Cross(forward, right));
+	XMVECTOR right = GetRightVector().ToXMVector();//XMVector3Normalize(XMVector3Cross(up, forward));
+	//up = XMVector3Normalize(XMVector3Cross(forward, right));
 
 	XMMATRIX rotationMatrix;
 	rotationMatrix.r[0] = right;

@@ -50,7 +50,7 @@ float4 main(PS_INPUT input) : SV_TARGET
     float3 lightDir = normalize(-dynamicLightDirection);
     
     float3 ambient = ambientLightColor * ambientLightStrenght;
-    float diffuseFactor = dot(normal, lightDir);
+    float diffuseFactor = saturate(dot(normal, lightDir));
     float3 diffuse = dynamicLightColor * dynamicLightStrenght * diffuseFactor;
     
     float shadow = CalculateShadow(lightDir, input.lightViewPosition, normal);
