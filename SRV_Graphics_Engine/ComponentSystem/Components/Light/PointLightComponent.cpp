@@ -46,24 +46,24 @@ void DirectionalLightComponent::Render()
 
 void DirectionalLightComponent::SetRenderTarget()
 {
-	DeviceContext->OMSetRenderTargets(0, 0, nullptr);
-	DeviceContext->OMSetRenderTargets(0, nullptr, depthStencilView.Get());
-	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
-	DeviceContext->RSSetViewports(1, &shadowMapViewport);
+	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
+	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilView.Get());
+	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+	SRVDeviceContext->RSSetViewports(1, &shadowMapViewport);
 
-	DeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
-	DeviceContext->PSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
+	SRVDeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
+	SRVDeviceContext->PSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
 
-	DeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
-	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
-	DeviceContext->PSSetShader(NULL, NULL, 0);
+	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
+	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
+	SRVDeviceContext->PSSetShader(NULL, NULL, 0);
 }
 
 void DirectionalLightComponent::ClearRenderTarget()
 {
 	float color[4] = { 0,0,0,1 };
 	//DeviceContext->ClearRenderTargetView(renderTargetView.Get(), color);
-	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 
 void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>& renderObjects)
@@ -77,7 +77,7 @@ void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>&
 	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix);
 
 	if (objectMatrixBuffer.ApplyChanges())
-		DeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
+		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
 
 	for (IRenderComponent* RC : renderObjects)
 	{
@@ -86,7 +86,7 @@ void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>&
 			projectionMatrix);
 	}
 
-	DeviceContext->OMSetRenderTargets(0, 0, nullptr);
+	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
 }
 
 void DirectionalLightComponent::SetLightColor(DirectX::XMFLOAT3& color)
@@ -192,13 +192,13 @@ void DirectionalLightComponent::CreateResources()
 	srvDesc.Texture2D.MostDetailedMip = 0;
 #pragma endregion
 
-	ThrowIfFailed(Device->CreateTexture2D(&texDesc, nullptr, shadowmapTexture.GetAddressOf()),
+	ThrowIfFailed(SRVDevice->CreateTexture2D(&texDesc, nullptr, shadowmapTexture.GetAddressOf()),
 		"Failed to create shadowmapTexture.");
 
-	ThrowIfFailed(Device->CreateDepthStencilView(shadowmapTexture.Get(), &descDSV, depthStencilView.GetAddressOf()),
+	ThrowIfFailed(SRVDevice->CreateDepthStencilView(shadowmapTexture.Get(), &descDSV, depthStencilView.GetAddressOf()),
 		"Failed to create depthStencilView.");
 
-	ThrowIfFailed(Device->CreateShaderResourceView(shadowmapTexture.Get(), &srvDesc, shadowSRV.GetAddressOf()),
+	ThrowIfFailed(SRVDevice->CreateShaderResourceView(shadowmapTexture.Get(), &srvDesc, shadowSRV.GetAddressOf()),
 		"Failed to create shadowSRV.");
 
 

@@ -72,7 +72,7 @@ TextureMeshComponent::TextureMeshComponent(GameObject* gameObject, std::vector<T
 		Logger::LogError(hr, "Failed to create constant light buffer.");
 	}
 
-	ThrowIfFailed(DirectX::CreateWICTextureFromFile(Device, texturePath.c_str(), nullptr, texture.GetAddressOf()),
+	ThrowIfFailed(DirectX::CreateWICTextureFromFile(SRVDevice, texturePath.c_str(), nullptr, texture.GetAddressOf()),
 		"Failed to create texture");
 }
 
@@ -96,16 +96,16 @@ void TextureMeshComponent::Render()
 	IRenderComponent::Render();
 
 	if(texture.Get())
-		DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
+		SRVDeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
 
 	if (indexes.size() > 0)
 	{
-		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-		DeviceContext->DrawIndexed(indexes.size(), 0, 0);
+		SRVDeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+		SRVDeviceContext->DrawIndexed(indexes.size(), 0, 0);
 	}
 	else
 	{
-		DeviceContext->Draw(vertexes.size(), 0);
+		SRVDeviceContext->Draw(vertexes.size(), 0);
 	}
 }
 
@@ -115,12 +115,12 @@ void TextureMeshComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, 
 
 	if (indexes.size() > 0)
 	{
-		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-		DeviceContext->DrawIndexed(indexes.size(), 0, 0);
+		SRVDeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+		SRVDeviceContext->DrawIndexed(indexes.size(), 0, 0);
 	}
 	else
 	{
-		DeviceContext->Draw(vertexes.size(), 0);
+		SRVDeviceContext->Draw(vertexes.size(), 0);
 	}
 }
 
@@ -133,5 +133,5 @@ void TextureMeshComponent::SetVertexBufferContext()
 {
 	UINT stride = sizeof(TVertex);
 	UINT offset = 0;
-	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
+	SRVDeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 }

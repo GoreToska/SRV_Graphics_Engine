@@ -15,6 +15,12 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\AdapterReader.c
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Engine.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Engine.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Graphics.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Grid\Grid.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Grid.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ImGui\imgui.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\imgui.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ImGui\imgui_draw.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\imgui_draw.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ImGui\imgui_impl_dx11.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\imgui_impl_dx11.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ImGui\imgui_impl_win32.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\imgui_impl_win32.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ImGui\imgui_tables.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\imgui_tables.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ImGui\imgui_widgets.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\imgui_widgets.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\Keyboard\Keyboard.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Keyboard.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\Keyboard\KeyboardInputEvent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\KeyboardInputEvent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Input\Mouse\MouseInputEvent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\MouseInputEvent.obj

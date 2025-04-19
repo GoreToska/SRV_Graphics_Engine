@@ -8,12 +8,12 @@
 #include "Camera.h"
 #include "../ComponentSystem/Components/Render/MeshRendererComponent.h"
 #include "../ComponentSystem/Components/Light/PointLightComponent.h"
+#include "Grid/Grid.h"
 
 #include<d3d11.h>
 #include<wrl/client.h>
 #include<vector>
 #include <WICTextureLoader.h>
-#include "Grid/Grid.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -48,6 +48,7 @@ private:
 	void CreateViewport();
 	bool InitializeShaders();
 	bool InitializeScene();
+	void InitImGui(HWND hwnd);
 
 	void DrawGrid();
 

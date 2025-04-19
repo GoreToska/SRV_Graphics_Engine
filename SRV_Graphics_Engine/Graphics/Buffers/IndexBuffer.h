@@ -59,7 +59,7 @@ public:
 		D3D11_SUBRESOURCE_DATA indexBufferData{};
 		indexBufferData.pSysMem = data;
 
-		HRESULT hr = Device->CreateBuffer(&indexBufferDesc, &indexBufferData, buffer.GetAddressOf());
+		HRESULT hr = SRVDevice->CreateBuffer(&indexBufferDesc, &indexBufferData, buffer.GetAddressOf());
 
 		return hr;
 	}

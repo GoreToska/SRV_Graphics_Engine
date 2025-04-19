@@ -84,7 +84,7 @@ public:
 		D3D11_SUBRESOURCE_DATA vertexBufferData{};
 		vertexBufferData.pSysMem = data;
 
-		HRESULT hr = Device->CreateBuffer(&vertexBufferDesc, &vertexBufferData, buffer.GetAddressOf());
+		HRESULT hr = SRVDevice->CreateBuffer(&vertexBufferDesc, &vertexBufferData, buffer.GetAddressOf());
 
 		return hr;
 	}

@@ -3,10 +3,10 @@
 #include <wrl/client.h>
 #include <d3d11.h>
 
-#define DeviceContext GraphicsDevice::GetInstance().GetContext()
-#define DeviceContextAddress GraphicsDevice::GetInstance().GetContextAddress()
-#define Device GraphicsDevice::GetInstance().GetDevice()
-#define DeviceAddress GraphicsDevice::GetInstance().GetDeviceAddress()
+#define SRVDeviceContext GraphicsDevice::GetInstance().GetContext()
+#define SRVDeviceContextAddress GraphicsDevice::GetInstance().GetContextAddress()
+#define SRVDevice GraphicsDevice::GetInstance().GetDevice()
+#define SRVDeviceAddress GraphicsDevice::GetInstance().GetDeviceAddress()
 
 
 class GraphicsDevice

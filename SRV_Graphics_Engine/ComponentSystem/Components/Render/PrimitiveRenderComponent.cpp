@@ -34,12 +34,12 @@ void ColorMeshComponent::Render()
 
 	if (indexes.size() > 0)
 	{
-		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-		DeviceContext->DrawIndexed(indexes.size(), 0, 0);
+		SRVDeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+		SRVDeviceContext->DrawIndexed(indexes.size(), 0, 0);
 	}
 	else
 	{
-		DeviceContext->Draw(vertexes.size(), 0);
+		SRVDeviceContext->Draw(vertexes.size(), 0);
 	}
 }
 
@@ -49,12 +49,12 @@ void ColorMeshComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, Di
 
 	if (indexes.size() > 0)
 	{
-		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-		DeviceContext->DrawIndexed(indexes.size(), 0, 0);
+		SRVDeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+		SRVDeviceContext->DrawIndexed(indexes.size(), 0, 0);
 	}
 	else
 	{
-		DeviceContext->Draw(vertexes.size(), 0);
+		SRVDeviceContext->Draw(vertexes.size(), 0);
 	}
 }
 
@@ -68,5 +68,5 @@ void ColorMeshComponent::SetVertexBufferContext()
 	UINT stride = sizeof(CVertex);
 	UINT offset = 0;
 
-	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
+	SRVDeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 }

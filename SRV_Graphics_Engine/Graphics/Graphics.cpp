@@ -5,6 +5,9 @@
 #include "./Device/GraphicsDevice.h"
 #include "ShaderManager/ShaderManager.h"
 #include "../Engine/Asserter.h"
+#include "ImGui/imgui.h"
+#include "ImGui/imgui_impl_dx11.h"
+#include "ImGui/imgui_impl_win32.h"
 
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
@@ -25,32 +28,50 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 	camera->SetPosition(0.0f, 0.0f, -2.0f);
 	camera->SetPerspectiveProjection(90, static_cast<float>(clientWidth) / static_cast<float>(clientHeight), 0.1f, 1000.0f);
 
+	InitImGui(hwnd);
+
 	return true;
+}
+
+void Graphics::InitImGui(HWND hwnd)
+{ 
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& IO = ImGui::GetIO();
+	ImGui_ImplWin32_Init(hwnd);
+
+	if (!ImGui_ImplDX11_Init(SRVDevice, SRVDeviceContext))
+	{
+		MessageBox(nullptr, L"Failed to initialize ImGui DX11", L"Error", MB_OK);
+		return;
+	}
+
+	ImGui::StyleColorsDark();
 }
 
 // ALL DRAWING IS HERE BETWEEN ClearRenderTargetView AND Present
 void Graphics::RenderFrame()
 {
-	ID3D11ShaderResourceView* nullSRV[2] = { NULL, NULL }; 
-	DeviceContext->PSSetShaderResources(0, 2, nullSRV);
-	DeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	ID3D11ShaderResourceView* nullSRV[2] = { NULL, NULL };
+	SRVDeviceContext->PSSetShaderResources(0, 2, nullSRV);
+	SRVDeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	RenderShadows();
 
-	DeviceContext->RSSetViewports(1, &viewport);
+	SRVDeviceContext->RSSetViewports(1, &viewport);
 
-	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
-	DeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
-	DeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+	SRVDeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
+	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
 	// set input layout, topology, rasterizer state
-	DeviceContext->RSSetState(rasterizerState.Get());
-	DeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
+	SRVDeviceContext->RSSetState(rasterizerState.Get());
+	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
 	// set shaders and samplers
-	DeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
-	DeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
+	SRVDeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
+	SRVDeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
 
 	// View matrix
 	worldMatrix = DirectX::XMMatrixIdentity();
@@ -60,6 +81,9 @@ void Graphics::RenderFrame()
 	{
 		item->Render();
 	}
+
+	ImGui::Render();
+	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
 	swapchain->Present(1, NULL);
 }
@@ -119,7 +143,7 @@ bool Graphics::InitializeDirectX(HWND hwnd)
 	if (!CreateDepthStencilBuffer())
 		return false;
 
-	DeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 
 	if (!CreateDepthStencilState())
 		return false;
@@ -177,9 +201,9 @@ bool Graphics::CreateDeviceAndSwapChain(HWND hwnd)
 		D3D11_SDK_VERSION,
 		&swapchain_desc,
 		swapchain.GetAddressOf(),
-		DeviceAddress,
+		SRVDeviceAddress,
 		NULL, // supported feature level
-		DeviceContextAddress);
+		SRVDeviceContextAddress);
 
 	if (FAILED(hr))
 	{
@@ -202,7 +226,7 @@ bool Graphics::CreateRenderTargetView()
 		return false;
 	}
 
-	hr = Device->CreateRenderTargetView(backBuffer.Get(), NULL, renderTargetView.GetAddressOf());
+	hr = SRVDevice->CreateRenderTargetView(backBuffer.Get(), NULL, renderTargetView.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -219,7 +243,7 @@ bool Graphics::CreateRasterizerState()
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
 	rasterizerDesc.CullMode = D3D11_CULL_NONE;
 
-	HRESULT hr = Device->CreateRasterizerState(&rasterizerDesc, rasterizerState.GetAddressOf());
+	HRESULT hr = SRVDevice->CreateRasterizerState(&rasterizerDesc, rasterizerState.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -241,25 +265,25 @@ bool Graphics::CreateSamplerState()
 	samplerDesc.MinLOD = 0;
 	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
-	ThrowIfFailed(Device->CreateSamplerState(&samplerDesc, samplerState.GetAddressOf()), "Failed to create sampler state.");
+	ThrowIfFailed(SRVDevice->CreateSamplerState(&samplerDesc, samplerState.GetAddressOf()), "Failed to create sampler state.");
 
 
 	D3D11_SAMPLER_DESC shadowSamplerDesc = {};
 	shadowSamplerDesc.Filter = D3D11_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR;
-	shadowSamplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP; 
-	shadowSamplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP; 
-	shadowSamplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP; 
+	shadowSamplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+	shadowSamplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+	shadowSamplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
 	shadowSamplerDesc.ComparisonFunc = D3D11_COMPARISON_LESS_EQUAL;
 	shadowSamplerDesc.MinLOD = 0;
 	shadowSamplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
-	shadowSamplerDesc.MipLODBias = 0; 
-	shadowSamplerDesc.BorderColor[0] = 1.0f; 
+	shadowSamplerDesc.MipLODBias = 0;
+	shadowSamplerDesc.BorderColor[0] = 1.0f;
 	shadowSamplerDesc.BorderColor[1] = 1.0f;
 	shadowSamplerDesc.BorderColor[2] = 1.0f;
 	shadowSamplerDesc.BorderColor[3] = 1.0f;
 
 
-	ThrowIfFailed(Device->CreateSamplerState(&shadowSamplerDesc, shadowSamplerState.GetAddressOf()), 
+	ThrowIfFailed(SRVDevice->CreateSamplerState(&shadowSamplerDesc, shadowSamplerState.GetAddressOf()),
 		"Failed to create sampler state.");
 
 	return true;
@@ -272,7 +296,7 @@ bool Graphics::CreateDepthStencilState()
 	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
 	depthStencilDesc.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
 
-	HRESULT hr = Device->CreateDepthStencilState(&depthStencilDesc, depthStencilState.GetAddressOf());
+	HRESULT hr = SRVDevice->CreateDepthStencilState(&depthStencilDesc, depthStencilState.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -298,7 +322,7 @@ bool Graphics::CreateDepthStencilBuffer()
 	depthStencilDesc.CPUAccessFlags = 0;
 	depthStencilDesc.MiscFlags = 0;
 
-	HRESULT hr = Device->CreateTexture2D(&depthStencilDesc, NULL, depthStencilBuffer.GetAddressOf());
+	HRESULT hr = SRVDevice->CreateTexture2D(&depthStencilDesc, NULL, depthStencilBuffer.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -306,7 +330,7 @@ bool Graphics::CreateDepthStencilBuffer()
 		return false;
 	}
 
-	hr = Device->CreateDepthStencilView(depthStencilBuffer.Get(), NULL, depthStencilView.GetAddressOf());
+	hr = SRVDevice->CreateDepthStencilView(depthStencilBuffer.Get(), NULL, depthStencilView.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -327,7 +351,7 @@ void Graphics::CreateViewport()
 	viewport.MinDepth = 0.0;
 	viewport.MaxDepth = 1.0;
 
-	DeviceContext->RSSetViewports(1, &viewport);
+	SRVDeviceContext->RSSetViewports(1, &viewport);
 }
 
 bool Graphics::InitializeShaders()

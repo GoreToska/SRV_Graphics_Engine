@@ -10,7 +10,7 @@ MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObj
 {
 	if (modelData.texturePath != L"")
 	{
-		ThrowIfFailed(DirectX::CreateWICTextureFromFile(Device, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf()),
+		ThrowIfFailed(DirectX::CreateWICTextureFromFile(SRVDevice, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf()),
 			"Failed to create texture.");
 	}
 
@@ -37,8 +37,8 @@ void MeshRendererComponent::Render()
 {
 	IRenderComponent::Render();
 
-	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
-	DeviceContext->PSSetShaderResources(1, 1, SRVEngine.GetGraphics().GetAllLights()[0]->GetShadowSRVAddress());
+	SRVDeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
+	SRVDeviceContext->PSSetShaderResources(1, 1, SRVEngine.GetGraphics().GetAllLights()[0]->GetShadowSRVAddress());
 
 
 	for (size_t i = 0; i < meshes.size(); ++i)

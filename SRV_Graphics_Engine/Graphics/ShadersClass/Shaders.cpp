@@ -16,7 +16,7 @@ bool VertexShader::Initialize(std::wstring shaderPath, D3D11_INPUT_ELEMENT_DESC*
 		return false;
 	}
 
-	hr = Device->CreateVertexShader(
+	hr = SRVDevice->CreateVertexShader(
 		shaderBuffer->GetBufferPointer(),
 		shaderBuffer->GetBufferSize(),
 		NULL,
@@ -28,7 +28,7 @@ bool VertexShader::Initialize(std::wstring shaderPath, D3D11_INPUT_ELEMENT_DESC*
 		return false;
 	}
 
-	hr = Device->CreateInputLayout(
+	hr = SRVDevice->CreateInputLayout(
 		layoutDesc,
 		numElements,
 		shaderBuffer->GetBufferPointer(),
@@ -71,7 +71,7 @@ bool PixelShader::Initialize(std::wstring shaderPath)
 		return false;
 	}
 
-	hr = Device->CreatePixelShader(
+	hr = SRVDevice->CreatePixelShader(
 		shaderBuffer->GetBufferPointer(),
 		shaderBuffer->GetBufferSize(),
 		NULL,

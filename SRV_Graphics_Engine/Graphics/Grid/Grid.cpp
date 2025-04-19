@@ -54,9 +54,9 @@ Grid::Grid()
 
 void Grid::Draw()
 {
-	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::ShaderType::Color)->GetShader(), NULL, 0);
-	DeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::ShaderType::Color)->GetShader(), NULL, 0);
-	DeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
+	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::ShaderType::Color)->GetShader(), NULL, 0);
+	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::ShaderType::Color)->GetShader(), NULL, 0);
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
 
 	/*constBuffer.GetData()->worldViewProjection = DirectX::XMMatrixScaling(1, 1, 1);
 
@@ -71,20 +71,20 @@ void Grid::Draw()
 	constBuffer.GetData()->worldViewProjection = DirectX::XMMatrixTranspose(constBuffer.GetData()->worldViewProjection);*/
 
 	if (constBuffer.ApplyChanges())
-		DeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
+		SRVDeviceContext->VSSetConstantBuffers(0, 1, constBuffer.GetAddressOf());
 
 	UINT stride = sizeof(CVertex);
 	UINT offset = 0;
 
-	DeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
+	SRVDeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), &stride, &offset);
 
 	if (indexes.size() > 0)
 	{
-		DeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-		DeviceContext->DrawIndexed(indexes.size(), 0, 0);
+		SRVDeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+		SRVDeviceContext->DrawIndexed(indexes.size(), 0, 0);
 	}
 	else
 	{
-		DeviceContext->Draw(vertexes.size(), 0);
+		SRVDeviceContext->Draw(vertexes.size(), 0);
 	}
 }

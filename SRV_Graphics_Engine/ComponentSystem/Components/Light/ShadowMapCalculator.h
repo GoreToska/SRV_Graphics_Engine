@@ -15,5 +15,5 @@ public:
 	static DirectX::XMMATRIX GetViewMatrixDirectional(GameObject* gameObject);
 
 	// Shadowmap resolution
-	static constexpr float ShadowmapSize = 1024;
+	static constexpr float ShadowmapSize = 2048;
 };

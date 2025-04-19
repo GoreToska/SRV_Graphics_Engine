@@ -12,9 +12,9 @@ IRenderComponent::IRenderComponent(GameObject* gameObject, ShaderManager::Shader
 
 void IRenderComponent::Render()
 {
-	DeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
-	DeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
-	DeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(shaderType)->GetShader(), NULL, 0);
+	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
+	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
+	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(shaderType)->GetShader(), NULL, 0);
 
 	SetVertexBufferContext();
 
@@ -42,13 +42,13 @@ void IRenderComponent::UpdateLightBuffer()
 	// TODO: perform transpose in setter function
 
 	if (lightConstBuffer.ApplyChanges())
-		DeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
+		SRVDeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
 	lightMatrixBuffer.GetData()->lightView = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix());
 	lightMatrixBuffer.GetData()->lightProjection = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix());
 
 	if (lightMatrixBuffer.ApplyChanges())
-		DeviceContext->VSSetConstantBuffers(1, 1, lightMatrixBuffer.GetAddressOf());
+		SRVDeviceContext->VSSetConstantBuffers(1, 1, lightMatrixBuffer.GetAddressOf());
 }
 
 void IRenderComponent::UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix)
@@ -59,7 +59,7 @@ void IRenderComponent::UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, Dire
 	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(ProjectionMatrix);
 
 	if (objectMatrixBuffer.ApplyChanges())
-		DeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
+		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
 }
 
 GameObject* IRenderComponent::GetGameObject()

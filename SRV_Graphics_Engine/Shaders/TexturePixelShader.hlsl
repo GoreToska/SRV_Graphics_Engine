@@ -21,10 +21,12 @@ SamplerState objSamplerState : SAMPLER : register(s0);
 Texture2D shadowMap : SHADOWMAP : register(t1);
 SamplerState shadowSampler : SHADOWSAMPLER : register(s1);
 
+float shadowMapResolution = 1024;
+
 
 float CalculateShadow(float3 lightDir, float4 lightViewPosition, float3 normal)
 {
-    float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
+    /*float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
     projCoords.xy = projCoords.xy * 0.5 + 0.5;
     projCoords.y = 1.0 - projCoords.y;
     
@@ -32,7 +34,7 @@ float CalculateShadow(float3 lightDir, float4 lightViewPosition, float3 normal)
        projCoords.y < 0.0 || projCoords.y > 1.0 ||
        projCoords.z < 0.0 || projCoords.z > 1.0)
     {
-        return 1.0; 
+        return 1.0;
     }
     
     float shadowMapDepth = shadowMap.Sample(shadowSampler, projCoords.xy).r;
@@ -41,15 +43,49 @@ float CalculateShadow(float3 lightDir, float4 lightViewPosition, float3 normal)
     
     float bias = 0.0001;
     
-    return (currentDepth - bias) <= shadowMapDepth ? 1.0 : 0.3;
+    return (currentDepth - bias) <= shadowMapDepth ? 1.0 : 0.3;*/
+    
+    float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
+    projCoords.xy = projCoords.xy * 0.5 + 0.5;
+    projCoords.y = 1.0 - projCoords.y;
+
+    if (projCoords.x < 0.0 || projCoords.x > 1.0 ||
+        projCoords.y < 0.0 || projCoords.y > 1.0 ||
+        projCoords.z < 0.0 || projCoords.z > 1.0)
+    {
+        return 1.0;
+    }
+
+    float currentDepth = projCoords.z;
+
+    const int filterSize = 3; 
+    float shadow = 0.0;
+    float totalSamples = 0.0;
+
+    for (int x = -filterSize; x <= filterSize; ++x)
+    {
+        for (int y = -filterSize; y <= filterSize; ++y)
+        {
+            float2 offset = float2(x, y) / 2048.0f;
+            float2 sampleCoords = projCoords.xy + offset;
+
+            if (sampleCoords.x >= 0.0 && sampleCoords.x <= 1.0 &&
+                sampleCoords.y >= 0.0 && sampleCoords.y <= 1.0)
+            {
+                float shadowMapDepth = shadowMap.Sample(shadowSampler, sampleCoords).r;
+                shadow += (currentDepth - 0.001) <= shadowMapDepth ? 1.0 : 0.0;
+                totalSamples += 1.0;
+            }
+        }
+    }
+
+    return shadow / totalSamples;
 }
 
 float4 main(PS_INPUT input) : SV_TARGET
 {
     float3 normal = normalize(input.inNormal);
-    float3 lightDir = normalize(-dynamicLightDirection);
-    //float3 lightDir = normalize(-dynamicLightDirection);
-    
+    float3 lightDir = normalize(dynamicLightDirection);    
     
     float3 ambient = ambientLightColor * ambientLightStrenght;
     float diffuseFactor = saturate(dot(normal, lightDir));
@@ -59,7 +95,7 @@ float4 main(PS_INPUT input) : SV_TARGET
     
     float3 sampleColor = objTexture.Sample(objSamplerState, input.inTextCoord);
     
-    float3 finalColor = sampleColor * (ambient + diffuse); //* shadow);
+    float3 finalColor = sampleColor * (ambient + diffuse * shadow);
     
     return float4(saturate(finalColor), 1.0);
 }

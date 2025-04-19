@@ -8,6 +8,10 @@
 #include "./Utils/Logger.h"
 #include "./Engine/Engine.h"
 
+#include "Graphics/ImGui/imgui.h"
+#include "Graphics/ImGui/imgui_impl_dx11.h"
+#include "Graphics/ImGui/imgui_impl_win32.h"
+
 #include "./Input/Keyboard/Keyboard.h"
 #include"./Shapes/Shapes.h"
 #include "ComponentSystem/GameObject.h"
@@ -20,6 +24,8 @@
 #include "DataTypes/ModelData.h"
 #include "./ComponentSystem/Components/Render/PrimitiveRenderComponent.h"
 #include "ComponentSystem/Components/Light/PointLightComponent.h"
+
+
 
 #pragma endregion
 
@@ -82,15 +88,20 @@ int main()
 	}
 
 
-	GameObject* pointLight01 = new GameObject(Vector3D(0, 50.0f, -50.0f));
-	//pointLight01->GetTransform()->SetRotation({ 0, 90,-30, });
-	//pointLight01->GetTransform()->SetLookAtRotation({0,0,0});
-	pointLight01->AddComponent(new DirectionalLightComponent(pointLight01));
-	pointLight01->GetTransform()->SetScale({ 0.01,0.01,0.01 });
-	SRVEngine.AddGameObject(pointLight01);
+	static float directionalLightPosition[3] = { 0,50,-50 };
+	static float directionalLightRotation[3] = { 0.7,0,0 };
 
-	pointLight01->GetComponent<DirectionalLightComponent>()->SetLightColor({ 1, 1, 1 });
-	pointLight01->GetComponent<DirectionalLightComponent>()->SetLightStrength(5);
+	GameObject* directionalLight = new GameObject(Vector3D(
+		directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2]));
+	directionalLight->GetTransform()->SetRotation({
+		directionalLightRotation[0], directionalLightRotation[1],directionalLightRotation[2]});
+	//pointLight01->GetTransform()->SetLookAtRotation({0,0,0});
+	directionalLight->AddComponent(new DirectionalLightComponent(directionalLight));
+	directionalLight->GetTransform()->SetScale({ 0.01,0.01,0.01 });
+	SRVEngine.AddGameObject(directionalLight);
+
+	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightColor({ 1, 1, 1 });
+	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightStrength(2);
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, -3.0f, 0.0f));
 	ground->GetTransform()->SetScale({ 10,10,10 });
@@ -165,12 +176,12 @@ int main()
 	camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
 	SRVEngine.AddGameObject(camera);
 
-	Keyboard::GetInstance().KeyPressedEvent.AddLambda([pointLight01, camera, blueBird](const unsigned char a)
+	Keyboard::GetInstance().KeyPressedEvent.AddLambda([directionalLight, camera, blueBird](const unsigned char a)
 		{
 			if (a != 'X')
 				return;
 
-			pointLight01->GetTransform()->SetPosition(
+			directionalLight->GetTransform()->SetPosition(
 				{ SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().x,
 				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().y,
 				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().z });
@@ -178,16 +189,32 @@ int main()
 			//pointLight01->GetTransform()->SetLookAtRotation(Vector3D(0.f));
 		});
 
+
 	while (SRVEngine.ProcessMessages())
 	{
 		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
 		SRVEngine.GetTimer()->Restart();
 
-		blueBird->GetTransform()->SetLookAtRotation({0,0,0});
+		blueBird->GetTransform()->SetLookAtRotation({ 0,0,0 });
 		greenPig->GetTransform()->AddLocalRotation({ 0.01,0.01,0.01 });
 		phone->GetTransform()->SetLookAtRotation({ 0,0,0 });
-		//pointLight01->GetTransform()->AddWorldRotation({ 1, 0,0, }, deltaTime * 0.02);
-		//pointLight01->GetTransform()->MovePosition({ deltaTime, 0,deltaTime });
+
+		directionalLight->GetTransform()->SetRotation({directionalLightRotation[0], directionalLightRotation[1],directionalLightRotation[2] });
+		directionalLight->GetTransform()->SetPosition({directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2] });
+
+		ImGui_ImplDX11_NewFrame();
+		ImGui_ImplWin32_NewFrame();
+		ImGui::NewFrame();
+
+		ImGui::Begin("Light Settings");
+		
+		ImGui::DragFloat3("Directional Light Position", directionalLightPosition, 0.1, -100, 100);
+		ImGui::DragFloat3("Directional Light Rotation", directionalLightRotation, 0.1, -100, 100);
+
+
+		ImGui::End();
+
+
 		SRVEngine.Update(deltaTime);
 		SRVEngine.RenderFrame();
 	}

@@ -62,7 +62,7 @@ public:
 		constBufferDesc.ByteWidth = static_cast<UINT>(sizeof(T) + (16 - sizeof(T) % 16));
 		constBufferDesc.StructureByteStride = 0;
 
-		HRESULT hr = Device->CreateBuffer(&constBufferDesc, 0, buffer.GetAddressOf());
+		HRESULT hr = SRVDevice->CreateBuffer(&constBufferDesc, 0, buffer.GetAddressOf());
 
 		return hr;
 	}
@@ -70,7 +70,7 @@ public:
 	bool ApplyChanges()
 	{
 		D3D11_MAPPED_SUBRESOURCE mappedSubresource;
-		HRESULT hr = DeviceContext->Map(buffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedSubresource);
+		HRESULT hr = SRVDeviceContext->Map(buffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedSubresource);
 
 		if (FAILED(hr))
 		{
@@ -79,7 +79,7 @@ public:
 		}
 
 		CopyMemory(mappedSubresource.pData, &data, sizeof(T));
-		DeviceContext->Unmap(buffer.Get(), 0);
+		SRVDeviceContext->Unmap(buffer.Get(), 0);
 
 		return true;
 	}
