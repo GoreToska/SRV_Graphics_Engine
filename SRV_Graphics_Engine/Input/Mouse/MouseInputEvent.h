@@ -1,6 +1,6 @@
 #pragma once
+#include "../../DataTypes/Vector3D.h"
 
-struct VectorInt2D;
 
 class MouseInputEvent
 {
@@ -25,12 +25,12 @@ public:
 
 	bool IsValid() const;
 	EventType GetType() const;
-	VectorInt2D GetPosition() const;
+	Vector2D GetPosition() const;
 	int GetPositionX() const;
 	int GetPositionY() const;
 
 private:
 	EventType type;
-	int x;
-	int y;
+	float x;
+	float y;
 };

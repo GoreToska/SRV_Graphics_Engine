@@ -1,5 +1,4 @@
 #include "MouseInputEvent.h"
-#include "../../DataTypes/VectorInt2D.h"
 
 MouseInputEvent::MouseInputEvent() : type(EventType::Invalid), x(0), y(0) {}
 
@@ -15,7 +14,7 @@ MouseInputEvent::EventType MouseInputEvent::GetType() const
 	return type;
 }
 
-VectorInt2D MouseInputEvent::GetPosition() const
+Vector2D MouseInputEvent::GetPosition() const
 {
 	return { x, y };
 }

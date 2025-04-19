@@ -7,10 +7,13 @@
 #include "../../../Engine/Engine.h"
 
 DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject)
-	: MeshRendererComponent(ModelData("",L""), gameObject, ShaderManager::ShaderType::Texture)
+	: MeshRendererComponent(ModelData("",
+		L""), gameObject, ShaderManager::ShaderType::Texture)
 {
+	// Data\\Models\\Light\\PointLight\\PointLight.obj
+	//Data\\Models\\Light\\PointLight\\PointLight.png
 	lightConstBuffer.GetData()->dynamicLightColor = lightColor;
-	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector().ToXMFloat();
+	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector();
 	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;
 
 	CreateResources();
@@ -28,9 +31,9 @@ void DirectionalLightComponent::Update(const float& deltaTime)
 
 
 	// probably it not needed here
-	lightConstBuffer.GetData()->dynamicLightColor = lightColor;
-	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector().ToXMFloat();
-	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;
+	/*lightConstBuffer.GetData()->dynamicLightColor = lightColor;
+	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector();
+	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;*/
 }
 
 void DirectionalLightComponent::Render()
@@ -67,25 +70,19 @@ void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>&
 {
 	SetRenderTarget();
 
-	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
-		gameObject->GetTransform()->GetScale().ToXMVector())
-		* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
-		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector())
-		* SRVEngine.GetGraphics().GetWorldMatrix());
+	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(gameObject->GetTransform()->GetWorldMatrix());
 
 	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(viewMatrix);
-	
+
 	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix);
 
-	if(objectMatrixBuffer.ApplyChanges())
+	if (objectMatrixBuffer.ApplyChanges())
 		DeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
 
 	for (IRenderComponent* RC : renderObjects)
 	{
-		RC->RenderForShadows(DirectX::XMMatrixScalingFromVector(gameObject->GetTransform()->GetScale().ToXMVector())
-			* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
-			* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector()),
-			viewMatrix, 
+		RC->RenderForShadows(gameObject->GetTransform()->GetWorldMatrix(),
+			viewMatrix,
 			projectionMatrix);
 	}
 
@@ -154,10 +151,7 @@ DirectX::XMMATRIX DirectionalLightComponent::GetViewMatrix()
 
 DirectX::XMMATRIX DirectionalLightComponent::GetWorldMatrix()
 {
-	return DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
-		gameObject->GetTransform()->GetScale().ToXMVector())
-		* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
-		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector()));
+	return gameObject->GetTransform()->GetWorldMatrix();
 }
 
 void DirectionalLightComponent::CreateResources()

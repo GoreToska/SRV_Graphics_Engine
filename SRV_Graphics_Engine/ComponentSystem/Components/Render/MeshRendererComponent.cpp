@@ -40,7 +40,6 @@ void MeshRendererComponent::Render()
 	DeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
 	DeviceContext->PSSetShaderResources(1, 1, SRVEngine.GetGraphics().GetAllLights()[0]->GetShadowSRVAddress());
 
-	Vector3D orientation = gameObject->GetTransform()->GetOrientation();
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{

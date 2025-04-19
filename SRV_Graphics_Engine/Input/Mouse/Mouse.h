@@ -4,7 +4,6 @@
 #include "MouseInputEvent.h"
 #include "../../Delegates/Delegates.h"
 
-struct VectorInt2D;
 
 class Mouse
 {
@@ -28,7 +27,7 @@ public:
 
 	int GetPositionX();
 	int GetPositionY();
-	VectorInt2D GetPosition();
+	Vector2D GetPosition();
 
 	bool EventBufferIsEmpty();
 	MouseInputEvent ReadEvent();
@@ -42,7 +41,7 @@ private:
 	bool rightIsDown = false;
 	bool middleIsDown = false;
 
-	int x = 0;
-	int y = 0;
+	float x = 0;
+	float y = 0;
 };
 

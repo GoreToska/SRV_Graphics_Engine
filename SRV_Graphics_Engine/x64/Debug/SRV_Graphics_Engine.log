@@ -1,52 +1,55 @@
-﻿C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\TexturePixelShader.hlsl(60,12-78): warning X3206: implicit truncation of vector type
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\TexturePixelShader.hlsl(36,5): warning X4000: use of potentially uninitialized variable (CalculateShadow)
+﻿  Main.cpp
+E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(23,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-  compilation object save succeeded; see C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\TexturePixelShader.cso
-  Main.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(23,31): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: "F": нераспознанная escape-последовательность символов
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: "L": нераспознанная escape-последовательность символов
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariMovementComponent.h(25,16): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariMovementComponent.h(25,16): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(21,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(21,20): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(22,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.h(22,21): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h(32,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
   
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h(32,21): warning C4305: инициализация: усечение из "double" в "float"
-  (компиляция исходного файла "Main.cpp")
-  
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(89,53): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(89,48): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(89,43): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(102,92): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(103,58): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(103,52): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(103,46): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(109,55): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(109,49): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(109,43): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(115,51): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(115,46): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(115,41): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(126,86): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(133,54): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(133,49): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(133,44): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(145,57): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(145,51): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(145,45): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(151,58): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(151,52): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(151,46): warning C4305: аргумент: усечение из "double" в "float"
-C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(181,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-  SRV_Graphics_Engine.vcxproj -> C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(89,53): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(89,48): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(89,43): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(102,92): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(103,58): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(103,52): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(103,46): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(109,55): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(109,49): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(109,43): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(115,51): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(115,46): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(115,41): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(126,86): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(133,54): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(133,49): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(133,44): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(145,57): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(145,51): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(145,45): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(151,58): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(151,52): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(151,46): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(156,81): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(158,57): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(158,51): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(158,45): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(184,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(188,58): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(188,53): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(188,48): warning C4305: 'argument': truncation from 'double' to 'float'
+  SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

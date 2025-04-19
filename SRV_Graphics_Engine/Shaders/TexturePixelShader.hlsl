@@ -59,7 +59,7 @@ float4 main(PS_INPUT input) : SV_TARGET
     
     float3 sampleColor = objTexture.Sample(objSamplerState, input.inTextCoord);
     
-    float3 finalColor = sampleColor * (ambient + diffuse * shadow);
+    float3 finalColor = sampleColor * (ambient + diffuse); //* shadow);
     
     return float4(saturate(finalColor), 1.0);
 }

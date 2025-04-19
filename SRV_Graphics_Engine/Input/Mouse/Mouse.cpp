@@ -1,6 +1,6 @@
 #include "Mouse.h"
 #include "MouseInputEvent.h"
-#include "../../DataTypes/VectorInt2D.h"
+#include "../../DataTypes/Vector3D.h"
 #include <iostream>
 
 
@@ -105,7 +105,7 @@ int Mouse::GetPositionY()
 	return y;
 }
 
-VectorInt2D Mouse::GetPosition()
+Vector2D Mouse::GetPosition()
 {
 	return { x, y };
 }

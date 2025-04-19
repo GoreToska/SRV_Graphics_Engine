@@ -12,7 +12,7 @@ void ThirdPersonCameraComponent::Update(const float& deltaTime)
 {
 	UpdatePosition(deltaTime);
 	UpdateRotation(deltaTime);
-	lookDirection = Vector3D::ZeroVector();
+    lookDirection = Vector3D(0.f);
 }
 
 void ThirdPersonCameraComponent::UpdateRotation(const float& deltaTime)

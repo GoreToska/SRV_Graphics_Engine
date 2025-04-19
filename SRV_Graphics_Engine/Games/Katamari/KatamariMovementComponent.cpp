@@ -18,7 +18,7 @@ void KatamariMovementComponent::Update(const float& deltaTime)
 
 	UpdatePosition(deltaTime);
 	UpdateRotation(deltaTime);
-	UpdateHeight(deltaTime);
+	//UpdateHeight(deltaTime);
 }
 
 void KatamariMovementComponent::OnKeyPressed(const unsigned char key)
@@ -79,7 +79,7 @@ void KatamariMovementComponent::UpdateRotation(const float& deltaTime)
 {
 	Vector3D cameraRelativeDirection = CalculateMovementDirection();
 	Vector3D rotationAxis = { cameraRelativeDirection.z, 0, -cameraRelativeDirection.x };
-	gameObject->GetTransform()->AddWorldRotation(rotationAxis, deltaTime * speed * 20);
+	gameObject->GetTransform()->AddLocalRotation(rotationAxis, deltaTime * speed);
 }
 
 void KatamariMovementComponent::UpdateHeight(const float& deltaTime)
@@ -107,9 +107,9 @@ float KatamariMovementComponent::GetLandscapeHeight(float x, float z)
 
 Vector3D KatamariMovementComponent::CalculateMovementDirection()
 {
-	Vector3D normalizedForward = SRVEngine.GetGraphics().GetCamera()->GetForwardVector().Normalized();
-	Vector3D normalizedRight = SRVEngine.GetGraphics().GetCamera()->GetRightVector().Normalized();
+	Vector3D normalizedForward = SRVEngine.GetGraphics().GetCamera()->GetForwardVector();
+	Vector3D normalizedRight = SRVEngine.GetGraphics().GetCamera()->GetRightVector();
 
 	Vector3D newDirection = (normalizedForward * movementDirection.z) + (normalizedRight * movementDirection.x);
-	return newDirection.Normalized(); 
+	return newDirection; 
 }

@@ -141,9 +141,6 @@
     <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="DataTypes\Vector3D.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -205,9 +202,6 @@
     </ClInclude>
     <ClInclude Include="Input\Mouse\Mouse.h">
       <Filter>Файлы заголовков\Input\Mouse</Filter>
-    </ClInclude>
-    <ClInclude Include="DataTypes\VectorInt2D.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Input\Mouse\MouseInputEvent.h">
       <Filter>Файлы заголовков</Filter>

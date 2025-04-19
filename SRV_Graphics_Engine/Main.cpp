@@ -139,7 +139,7 @@ int main()
 	octopus->GetTransform()->SetScale(Vector3D(3, 3, 3));
 	SRVEngine.AddGameObject(octopus);
 
-	GameObject* amongus = new GameObject(Vector3D(10.0f, 0.0f, 5.0f));
+	GameObject* amongus = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	amongus->AddComponent(new MeshRendererComponent(amongusModelData, amongus, ShaderManager::ShaderType::Texture));
 	amongus->AddComponent(new SphereCollisionComponent(amongus, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	amongus->GetTransform()->SetScale(Vector3D(0.03, 0.03, 0.03));
@@ -151,21 +151,21 @@ int main()
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(greenPig);
 
-	/*GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	redBird->AddComponent(new MeshRendererComponent(redBirdModelData, redBird, ShaderManager::ShaderType::Texture));
 	redBird->AddComponent(new SphereCollisionComponent(redBird, Vector3D(0, 0, 0), 2.2));
 	redBird->AddComponent(new KatamariMovementComponent(redBird));
 	redBird->GetTransform()->SetScale(Vector3D(0.01, 0.01, 0.01));
 	redBird->AddComponent(new KatamariCollisionComponent(redBird));
-	SRVEngine.AddGameObject(redBird);*/
+	SRVEngine.AddGameObject(redBird);
 
 	GameObject* camera = new GameObject(Vector3D(15, 15, 15));
-	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	//camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
 	//camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
-	//camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
+	camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
 	SRVEngine.AddGameObject(camera);
 
-	Keyboard::GetInstance().KeyPressedEvent.AddLambda([pointLight01, camera](const unsigned char a)
+	Keyboard::GetInstance().KeyPressedEvent.AddLambda([pointLight01, camera, blueBird](const unsigned char a)
 		{
 			if (a != 'X')
 				return;
@@ -174,6 +174,8 @@ int main()
 				{ SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().x,
 				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().y,
 				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().z });
+
+			//pointLight01->GetTransform()->SetLookAtRotation(Vector3D(0.f));
 		});
 
 	while (SRVEngine.ProcessMessages())
@@ -181,7 +183,9 @@ int main()
 		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
 		SRVEngine.GetTimer()->Restart();
 
-		pointLight01->GetTransform()->SetLookAtRotation({0,0,0});
+		blueBird->GetTransform()->SetLookAtRotation({0,0,0});
+		greenPig->GetTransform()->AddLocalRotation({ 0.01,0.01,0.01 });
+		phone->GetTransform()->SetLookAtRotation({ 0,0,0 });
 		//pointLight01->GetTransform()->AddWorldRotation({ 1, 0,0, }, deltaTime * 0.02);
 		//pointLight01->GetTransform()->MovePosition({ deltaTime, 0,deltaTime });
 		SRVEngine.Update(deltaTime);

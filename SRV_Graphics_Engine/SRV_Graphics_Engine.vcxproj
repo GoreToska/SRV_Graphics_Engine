@@ -137,7 +137,6 @@
     <ClCompile Include="ComponentSystem\Components\Camera\CameraMovementComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\CollisionComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\IComponent.cpp" />
-    <ClCompile Include="DataTypes\Vector3D.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
     <ClCompile Include="Graphics\Camera.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
@@ -261,7 +260,6 @@
     <ClInclude Include="Utils\Quaternion.h" />
     <ClInclude Include="Utils\StringConverter.h" />
     <ClInclude Include="Render\WindowContainer.h" />
-    <ClInclude Include="DataTypes\VectorInt2D.h" />
     <ClInclude Include="DataTypes\Vertex.h" />
     <FxCompile Include="Shaders\TextureVertexShader.hlsl">
       <FileType>Document</FileType>

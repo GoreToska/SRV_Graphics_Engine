@@ -22,7 +22,7 @@ private:
 	Vector3D movementDirection;
 	GameObject* gameObject;
 
-	float speed = 0.01;
+	float speed = 0.002;
 
 	const unsigned char upKey = 'W';
 	const unsigned char downKey = 'S';

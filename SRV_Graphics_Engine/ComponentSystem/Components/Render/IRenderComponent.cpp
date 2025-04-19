@@ -36,7 +36,7 @@ void IRenderComponent::UpdateLightBuffer()
 	lightConstBuffer.GetData()->dynamicLightStrength = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightStrength();
 
 	lightConstBuffer.GetData()->dynamicLightDirection =
-		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector().ToXMFloat();
+		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector();
 	
 
 	// TODO: perform transpose in setter function
@@ -53,12 +53,7 @@ void IRenderComponent::UpdateLightBuffer()
 
 void IRenderComponent::UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix)
 {
-	// TODO: perform transpose in setter function
-	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(DirectX::XMMatrixScalingFromVector(
-		gameObject->GetTransform()->GetScale().ToXMVector())
-		* DirectX::XMMatrixRotationQuaternion(gameObject->GetTransform()->GetOrientation().ToXMVector())
-		* DirectX::XMMatrixTranslationFromVector(gameObject->GetTransform()->GetPosition().ToXMVector())
-		);
+	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(gameObject->GetTransform()->GetWorldMatrix());
 
 	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(ViewMatrix);
 	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(ProjectionMatrix);

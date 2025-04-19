@@ -7,7 +7,6 @@ cbuffer perObjectBuffer : register(b0)
 
 cbuffer lightMatrixBuffer : register(b1)
 {
-    // need to bind
     matrix lightWorld;
     matrix lightView;
     matrix lightProjection;

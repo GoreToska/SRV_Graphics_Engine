@@ -2,7 +2,7 @@
 
 #include<DirectXMath.h>
 
-#include "VectorInt2D.h"
+#include "Vector3D.h"
 #include "ColorRGB.h"
 #include "Vector3D.h"
 
