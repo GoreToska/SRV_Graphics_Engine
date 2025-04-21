@@ -29,3 +29,15 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11PixelShader> shader;
 	Microsoft::WRL::ComPtr<ID3DBlob> shaderBuffer;
 };
+
+class GeomertyShader
+{
+public:
+	bool Initialize(std::wstring shaderPath);
+	ID3D11GeometryShader* GetShader();
+	ID3DBlob* GetBuffer();
+
+private:
+	Microsoft::WRL::ComPtr<ID3D11GeometryShader> shader;
+	Microsoft::WRL::ComPtr<ID3DBlob> shaderBuffer;
+};

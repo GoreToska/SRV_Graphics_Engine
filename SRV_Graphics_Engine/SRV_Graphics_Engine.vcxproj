@@ -170,6 +170,11 @@
     </FxCompile>
     <ClCompile Include="ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp" />
     <ClCompile Include="Graphics\ShaderManager\ShaderManager.cpp" />
+    <FxCompile Include="Shaders\ShadowMapGS.hlsl">
+      <FileType>Document</FileType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Geometry</ShaderType>
+    </FxCompile>
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp" />
@@ -226,16 +231,6 @@
     <ClInclude Include="Input\Keyboard\KeyboardInputEvent.h" />
     <ClInclude Include="Input\Mouse\MouseInputEvent.h" />
     <ClInclude Include="Graphics\ShadersClass\Shaders.h" />
-    <FxCompile Include="Shaders\ShadowMapPS.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-    </FxCompile>
     <FxCompile Include="Shaders\ShadowMapVS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>

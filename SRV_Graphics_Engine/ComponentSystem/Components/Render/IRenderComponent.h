@@ -15,18 +15,21 @@ public:
 	virtual void Render();
 	virtual void RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix);
 
-	void UpdateLightBuffer();
-	void UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix);
 	virtual int GetVertexCount() const = 0;
 	virtual void SetVertexBufferContext() = 0;
 
 	GameObject* GetGameObject();
 
 protected:
+	void UpdateLightBuffer();
+	void UpdateCascadeShadowBuffer();
+	void UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix);
+
 	GameObject* gameObject = nullptr;
 
 	ShaderManager::ShaderType shaderType;
-	ConstantBuffer<ObjectMatrixBuffer> objectMatrixBuffer = {};
-	ConstantBuffer<LightMatrixBuffer> lightMatrixBuffer = {};
-	ConstantBuffer<CB_PS_Light> lightConstBuffer = {};
+	ConstantBuffer<VS_ObjectMatrixBuffer> objectMatrixBuffer = {};
+	ConstantBuffer<VS_LightMatrixBuffer> lightMatrixBuffer = {};
+	ConstantBuffer<PS_LightParamsBuffer> lightConstBuffer = {};
+	ConstantBuffer<PS_GS_CascadeShadowsBuffer> cascadeShadowsBuffer = {};
 };

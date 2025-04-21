@@ -208,6 +208,48 @@ void Camera::SetLookAtPosition(Vector3D lookAtPosition)
 	SetLookAtPosition(XMFLOAT3(lookAtPosition.x, lookAtPosition.y, lookAtPosition.z));
 }
 
+float Camera::GetNearZ()
+{
+	return nearZ;
+}
+
+float Camera::GetFarZ()
+{
+	return farZ;
+}
+
+float Camera::GetFOV()
+{
+	return fov;
+}
+
+float Camera::GetAspectRatio()
+{
+	return aspectRatio;
+}
+
+std::vector<Vector4D> Camera::GetFrustumCornersWorldPosition(const Matrix& view, const Matrix& proj)
+{
+	const auto viewProj = view * proj;
+	const auto inv = viewProj.Invert();
+
+	std::vector<Vector4D> frustumCorners;
+	frustumCorners.reserve(8);
+	for (unsigned int x = 0; x < 2; ++x)
+	{
+		for (unsigned int y = 0; y < 2; ++y)
+		{
+			for (unsigned int z = 0; z < 2; ++z)
+			{
+				const Vector4D pt = Vector4D::Transform(Vector4D(2.0f * static_cast<float>(x) - 1.0f, 2.0f * static_cast<float>(y) - 1.0f, static_cast<float>(z), 1.0f), inv);
+				frustumCorners.push_back(pt / pt.w);
+			}
+		}
+	}
+
+	return frustumCorners;
+}
+
 //Updates view matrix and also updates the movement vectors
 void Camera::UpdateViewMatrix()
 {

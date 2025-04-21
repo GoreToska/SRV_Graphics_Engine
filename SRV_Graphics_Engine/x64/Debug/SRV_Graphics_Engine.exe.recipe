@@ -10,10 +10,10 @@
       <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorVertexShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorPixelShader.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ShadowMapGS.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ShadowMapPS.cso</FullPath>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorPixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
       <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ShadowMapVS.cso</FullPath>

@@ -1,27 +1,25 @@
 cbuffer perObjectBuffer : register(b0)
 {
-    matrix world; // <- rendered object world!
-    matrix view; // <- light view
-    matrix projection; //  <- light proj
+    matrix world;
+    matrix view;
+    matrix projection;
 };
-
-Texture2D objTexture : TEXTURE : register(t0);
 
 struct VS_INPUT
 {
-    float4 position : POSITION;
+    float3 inPosition : POSITION;
 };
 
-struct PS_INPUT
+struct VS_OUTPUT
 {
-    float4 position : SV_POSITION;
-    float4 depthPosition : TEXTURE0;
+    float4 outPosition : SV_POSITION;
 };
 
-PS_INPUT main(VS_INPUT input)
+VS_OUTPUT main(VS_INPUT input)
 {
-    PS_INPUT output;
-    output.position = mul(float4(input.position.xyz, 1.0), mul(mul(world, view), projection));
-    output.depthPosition = output.position; 
+    VS_OUTPUT output;
+    
+    output.outPosition = mul(float4(input.inPosition, 1.0f), mul(mul(world, view), projection));
+
     return output;
 }

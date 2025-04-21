@@ -10,7 +10,7 @@ public:
 	void operator =(ShaderManager const&) = delete;
 
 	static ShaderManager& GetInstance();
-	
+
 	bool Initialize();
 
 	enum ShaderType
@@ -23,14 +23,16 @@ public:
 
 	PixelShader* GetPS(ShaderType type);
 	VertexShader* GetVS(ShaderType type);
+	GeomertyShader* GetGS(ShaderType type);
 
 private:
 	PixelShader colorPS;
 	PixelShader texturePS;
-	PixelShader shadowMapPS;
 
 	VertexShader colorVS;
 	VertexShader textureVS;
 	VertexShader shadowMapVS;
+
+	GeomertyShader shadowMapGS;
 };
 

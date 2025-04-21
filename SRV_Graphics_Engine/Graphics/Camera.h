@@ -3,6 +3,7 @@
 #include <DirectXMath.h>
 #include "../DataTypes/Vector3D.h"
 #include "Device/GraphicsDevice.h"
+#include <vector>
 
 class Camera
 {
@@ -41,6 +42,13 @@ public:
 	void AddRotation(const Vector3D& rot);
 	void SetLookAtPosition(DirectX::XMFLOAT3 lookAtPosition);
 	void SetLookAtPosition(Vector3D lookAtPosition);
+
+	float GetNearZ();
+	float GetFarZ();
+	float GetFOV();
+	float GetAspectRatio();
+	std::vector<Vector4D> GetFrustumCornersWorldPosition(const Matrix& view, const Matrix& proj);
+
 
 private:
 	void UpdateViewMatrix();

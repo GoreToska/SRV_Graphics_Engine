@@ -1,27 +1,34 @@
 #pragma once
 
-#include<d3d11.h>
-#include<DirectXMath.h>
+//#include<d3d11.h>
+//#include<DirectXMath.h>
+#include "../DataTypes/Vector3D.h"
 
-struct ObjectMatrixBuffer
+struct VS_ObjectMatrixBuffer
 {
-	DirectX::XMMATRIX world;
-	DirectX::XMMATRIX view;
-	DirectX::XMMATRIX projection;
+	Matrix world;
+	Matrix view;
+	Matrix projection;
 };
 
-struct LightMatrixBuffer
+struct VS_LightMatrixBuffer
 {
-	DirectX::XMMATRIX lightWorld;
-	DirectX::XMMATRIX lightView;
-	DirectX::XMMATRIX lightProjection;
+	Matrix lightWorld;
+	Matrix lightView;
+	Matrix lightProjection;
 };
 
-struct CB_PS_Light
+struct PS_LightParamsBuffer
 {
-	DirectX::XMFLOAT3 ambientLightColor = { 1.0f,1.0f,1.0f };
+	Vector3D ambientLightColor = { 1.0f,1.0f,1.0f };
 	float ambientLightStrength = 0.1;
-	DirectX::XMFLOAT3 dynamicLightColor /*= { 1.0f,0.0f,0.0f }*/;
+	Vector3D dynamicLightColor /*= { 1.0f,0.0f,0.0f }*/;
 	float dynamicLightStrength = 1;
-	DirectX::XMFLOAT3 dynamicLightDirection = { -0.577f, 0.577f, -0.577f };
+	Vector3D dynamicLightDirection = { -0.577f, 0.577f, -0.577f };
+};
+
+struct PS_GS_CascadeShadowsBuffer
+{
+	Matrix ViewProjectionMatrix[5];
+	Vector4D Distances;
 };

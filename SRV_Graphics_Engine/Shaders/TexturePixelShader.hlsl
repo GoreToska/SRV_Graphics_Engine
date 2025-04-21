@@ -1,3 +1,7 @@
+#ifndef CASCADE_COUNT
+#define CASCADE_COUNT 4
+#endif
+
 cbuffer lightBuffer : register(b0)
 {
     float3 ambientLightColor;
@@ -6,6 +10,12 @@ cbuffer lightBuffer : register(b0)
     float dynamicLightStrenght;
     float3 dynamicLightDirection;
 }
+
+cbuffer cascadeBuffer : register(b1)
+{
+    float4x4 cascadeViewProjection[CASCADE_COUNT + 1];
+    float4 distances;
+};
 
 struct PS_INPUT
 {
@@ -26,25 +36,6 @@ float shadowMapResolution = 1024;
 
 float CalculateShadow(float3 lightDir, float4 lightViewPosition, float3 normal)
 {
-    /*float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
-    projCoords.xy = projCoords.xy * 0.5 + 0.5;
-    projCoords.y = 1.0 - projCoords.y;
-    
-    if (projCoords.x < 0.0 || projCoords.x > 1.0 ||
-       projCoords.y < 0.0 || projCoords.y > 1.0 ||
-       projCoords.z < 0.0 || projCoords.z > 1.0)
-    {
-        return 1.0;
-    }
-    
-    float shadowMapDepth = shadowMap.Sample(shadowSampler, projCoords.xy).r;
-    
-    float currentDepth = projCoords.z;
-    
-    float bias = 0.0001;
-    
-    return (currentDepth - bias) <= shadowMapDepth ? 1.0 : 0.3;*/
-    
     float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
     projCoords.xy = projCoords.xy * 0.5 + 0.5;
     projCoords.y = 1.0 - projCoords.y;
@@ -57,7 +48,7 @@ float CalculateShadow(float3 lightDir, float4 lightViewPosition, float3 normal)
     }
 
     float currentDepth = projCoords.z;
-
+    
     const int filterSize = 3; 
     float shadow = 0.0;
     float totalSamples = 0.0;

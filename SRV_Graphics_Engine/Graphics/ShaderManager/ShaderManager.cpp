@@ -77,8 +77,9 @@ bool ShaderManager::Initialize()
 	if (!shadowMapVS.Initialize(shaderFolder + L"ShadowMapVS.cso", shadowMapLayoutDesc, shadowMapNumElements))
 		return false;
 
-	if (!shadowMapPS.Initialize(shaderFolder + L"ShadowMapPS.cso"))
-		return false;
+
+	if(!shadowMapGS.Initialize(shaderFolder + L"ShadowMapGS.cso"))
+
 	// --- ShadowMap Shaders ---
 
 	return true;
@@ -95,7 +96,7 @@ PixelShader* ShaderManager::GetPS(ShaderType type)
 	case Texture:
 		return &texturePS;
 	case ShadowMap:
-		return &shadowMapPS;
+		return nullptr;
 	default:
 		break;
 	}
@@ -113,5 +114,20 @@ VertexShader* ShaderManager::GetVS(ShaderType type)
 		return &textureVS;
 	case ShadowMap:
 		return &shadowMapVS;
+	}
+}
+
+GeomertyShader* ShaderManager::GetGS(ShaderType type)
+{
+	switch (type)
+	{
+	case None:
+		return nullptr;
+	case Color:
+		return nullptr;
+	case Texture:
+		return nullptr;
+	case ShadowMap:
+		return &shadowMapGS;
 	}
 }

@@ -396,8 +396,10 @@
       <Filter>Исходные файлы</Filter>
     </FxCompile>
     <FxCompile Include="Shaders\ColorPixelShader.hlsl" />
-    <FxCompile Include="Shaders\ShadowMapPS.hlsl" />
     <FxCompile Include="Shaders\ShadowMapVS.hlsl" />
+    <FxCompile Include="Shaders\ShadowMapGS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
