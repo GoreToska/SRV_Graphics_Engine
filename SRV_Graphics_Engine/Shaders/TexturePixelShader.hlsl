@@ -13,7 +13,7 @@ cbuffer lightBuffer : register(b0)
 
 cbuffer cascadeBuffer : register(b1)
 {
-    float4x4 cascadeViewProjection[CASCADE_COUNT + 1];
+    float4x4 cascadeViewProjection[CASCADE_COUNT];
     float4 distances;
 };
 
@@ -34,9 +34,33 @@ SamplerState shadowSampler : SHADOWSAMPLER : register(s1);
 float shadowMapResolution = 1024;
 
 
-float CalculateShadow(float3 lightDir, float4 lightViewPosition, float3 normal)
+float CalculateShadow(float4 worldSpacePosition, float4 lightViewPosition, float3 normal)
 {
-    float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
+    float depthValue = abs(lightViewPosition.z);
+
+    int layer = -1;
+    for (int i = 0; i < CASCADE_COUNT; ++i)
+    {
+        if (depthValue < distances[i])
+        {
+            layer = i;
+            break;
+        }
+    }
+    if (layer == -1)
+    {
+        layer = CASCADE_COUNT;
+    }
+    
+    float4 posLightSpace = mul(float4(worldSpacePosition.xyz, 1.0), cascadeViewProjection[layer]);
+    float3 projCoords = posLightSpace.xyz / posLightSpace.w;
+    projCoords = (mul(float4(projCoords, 1.0f), gT)).xyz;
+
+    
+    return 0;
+    
+    
+   /* float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
     projCoords.xy = projCoords.xy * 0.5 + 0.5;
     projCoords.y = 1.0 - projCoords.y;
 
@@ -70,7 +94,7 @@ float CalculateShadow(float3 lightDir, float4 lightViewPosition, float3 normal)
         }
     }
 
-    return shadow / totalSamples;
+    return shadow / totalSamples;*/
 }
 
 float4 main(PS_INPUT input) : SV_TARGET
@@ -82,7 +106,7 @@ float4 main(PS_INPUT input) : SV_TARGET
     float diffuseFactor = saturate(dot(normal, lightDir));
     float3 diffuse = dynamicLightColor * dynamicLightStrenght * diffuseFactor;
     
-    float shadow = CalculateShadow(lightDir, input.lightViewPosition, normal);
+    float shadow = CalculateShadow(input.inPosition, input.lightViewPosition, normal);
     
     float3 sampleColor = objTexture.Sample(objSamplerState, input.inTextCoord);
     

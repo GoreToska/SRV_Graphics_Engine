@@ -162,18 +162,18 @@ int main()
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(greenPig);
 
-	GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	/*GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	redBird->AddComponent(new MeshRendererComponent(redBirdModelData, redBird, ShaderManager::ShaderType::Texture));
 	redBird->AddComponent(new SphereCollisionComponent(redBird, Vector3D(0, 0, 0), 2.2));
 	redBird->AddComponent(new KatamariMovementComponent(redBird));
 	redBird->GetTransform()->SetScale(Vector3D(0.01, 0.01, 0.01));
 	redBird->AddComponent(new KatamariCollisionComponent(redBird));
-	SRVEngine.AddGameObject(redBird);
+	SRVEngine.AddGameObject(redBird);*/
 
 	GameObject* camera = new GameObject(Vector3D(15, 15, 15));
-	//camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
 	//camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
-	camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
+	//camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
 	SRVEngine.AddGameObject(camera);
 
 	Keyboard::GetInstance().KeyPressedEvent.AddLambda([directionalLight, camera, blueBird](const unsigned char a)

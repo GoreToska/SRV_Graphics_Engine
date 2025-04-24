@@ -9,6 +9,7 @@ struct VS_ObjectMatrixBuffer
 	Matrix world;
 	Matrix view;
 	Matrix projection;
+	Matrix inverseWorldView;
 };
 
 struct VS_LightMatrixBuffer
@@ -25,6 +26,7 @@ struct PS_LightParamsBuffer
 	Vector3D dynamicLightColor /*= { 1.0f,0.0f,0.0f }*/;
 	float dynamicLightStrength = 1;
 	Vector3D dynamicLightDirection = { -0.577f, 0.577f, -0.577f };
+	Matrix inverseWorldView;
 };
 
 struct PS_GS_CascadeShadowsBuffer

@@ -16,4 +16,5 @@ public:
 
 	// Shadowmap resolution
 	static constexpr float ShadowmapSize = 2048;
+	static constexpr int CascadesCount = 4;
 };

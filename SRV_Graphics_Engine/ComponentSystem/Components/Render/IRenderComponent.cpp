@@ -43,6 +43,11 @@ void IRenderComponent::UpdateLightBuffer()
 	lightConstBuffer.GetData()->dynamicLightDirection =
 		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector();
 
+	lightConstBuffer.GetData()->inverseWorldView = DirectX::XMMatrixTranspose(
+		Matrix::CreateScale(
+			gameObject->GetTransform()->GetScale())
+		* Matrix::CreateFromQuaternion(gameObject->GetTransform()->GetRotation()) * 
+		SRVEngine.GetGraphics().GetCamera()->GetViewMatrix());
 
 	// TODO: perform transpose in setter function
 
@@ -80,6 +85,9 @@ void IRenderComponent::UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, Dire
 
 	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(ViewMatrix);
 	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(ProjectionMatrix);
+	objectMatrixBuffer.GetData()->inverseWorldView = DirectX::XMMatrixTranspose(
+		Matrix::CreateScale(gameObject->GetTransform()->GetScale()) 
+		* Matrix::CreateFromQuaternion(gameObject->GetTransform()->GetRotation()) * ViewMatrix);
 
 	if (objectMatrixBuffer.ApplyChanges())
 		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());

@@ -32,4 +32,5 @@ private:
 	unsigned char rightKey = 'D';
 	unsigned char upKey = 'E';
 	unsigned char downKey = 'Q';
+
 };

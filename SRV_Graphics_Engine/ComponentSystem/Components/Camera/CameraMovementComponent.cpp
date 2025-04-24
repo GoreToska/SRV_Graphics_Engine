@@ -25,6 +25,9 @@ void CameraMovementComponent::Update(const float& deltaTime)
 
 void CameraMovementComponent::UpdateRotation(const float& deltaTime)
 {
+	if (!Mouse::GetInstance().IsLeftDown())
+		return;
+
 	camera->AddRotation(lookDirection * deltaTime * mouseSpeed);
 	lookDirection = Vector3D(0, 0, 0);
 }

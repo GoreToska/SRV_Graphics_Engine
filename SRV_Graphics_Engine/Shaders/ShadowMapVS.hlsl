@@ -19,7 +19,7 @@ VS_OUTPUT main(VS_INPUT input)
 {
     VS_OUTPUT output;
     
-    output.outPosition = mul(float4(input.inPosition, 1.0f), mul(mul(world, view), projection));
+    output.outPosition = mul(float4(input.inPosition, 1.0f), world); //mul(mul(world, view), projection));
 
     return output;
 }

@@ -218,7 +218,7 @@ void DirectionalLightComponent::CreateResources()
 
 	ThrowIfFailed(shadowMatrixBuffer.Initialize(), "Failed to create const buffer");
 
-	shadowCascadeDistances.reserve(5);
+	shadowCascadeDistances.reserve(ShadowMapCalculator::CascadesCount);
 	shadowCascadeDistances.push_back(1000.0f / 50.0f);
 	shadowCascadeDistances.push_back(1000.0f / 25.0f);
 	shadowCascadeDistances.push_back(1000.0f / 10.0f);
@@ -266,7 +266,7 @@ Matrix DirectionalLightComponent::GetCascadeLightWVPMatrix(const float nearPlane
 		maxZ = (std::max)(maxZ, trf.z);
 	}
 
-	constexpr float zMult = 10.0f; // how much geometry to include from outside the view frustum
+	constexpr float zMult = 10.0f; 
 	minZ = (minZ < 0) ? minZ * zMult : minZ / zMult;
 	maxZ = (maxZ < 0) ? maxZ / zMult : maxZ * zMult;
 
@@ -278,9 +278,9 @@ Matrix DirectionalLightComponent::GetCascadeLightWVPMatrix(const float nearPlane
 std::vector<Matrix> DirectionalLightComponent::GetLightSpaceMatrices()
 {
 	std::vector<Matrix> matrices = {};
-	matrices.reserve(shadowCascadeDistances.size() + 1);
+	matrices.reserve(shadowCascadeDistances.size());
 
-	for (size_t i = 0; i < shadowCascadeDistances.size() + 1; ++i)
+	for (size_t i = 0; i <= shadowCascadeDistances.size(); ++i)
 	{
 		if (i == 0)
 		{
