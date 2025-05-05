@@ -1,7 +1,5 @@
 #pragma once
 
-//#include<d3d11.h>
-//#include<DirectXMath.h>
 #include "../DataTypes/Vector3D.h"
 
 struct VS_ObjectMatrixBuffer

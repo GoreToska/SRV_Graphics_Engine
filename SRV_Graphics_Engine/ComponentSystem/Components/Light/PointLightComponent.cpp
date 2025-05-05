@@ -47,8 +47,8 @@ void DirectionalLightComponent::Render()
 void DirectionalLightComponent::SetRenderTarget()
 {
 	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
-	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilView.Get());
-	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilViews[0].Get());
+	SRVDeviceContext->ClearDepthStencilView(depthStencilViews[0].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 	SRVDeviceContext->RSSetViewports(1, &shadowMapViewport);
 
 	SRVDeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
@@ -64,7 +64,7 @@ void DirectionalLightComponent::ClearRenderTarget()
 {
 	float color[4] = { 0,0,0,1 };
 	//DeviceContext->ClearRenderTargetView(renderTargetView.Get(), color);
-	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+	SRVDeviceContext->ClearDepthStencilView(depthStencilViews[0].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 
 void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>& renderObjects)
@@ -175,12 +175,11 @@ void DirectionalLightComponent::CreateResources()
 	shadowMapViewport.TopLeftX = 0.0f;
 	shadowMapViewport.TopLeftY = 0.0f;
 
-#pragma region Descriptors
 	D3D11_TEXTURE2D_DESC texDesc = {};
 	texDesc.Width = ShadowMapCalculator::ShadowmapSize;
 	texDesc.Height = ShadowMapCalculator::ShadowmapSize;
 	texDesc.MipLevels = 1;
-	texDesc.ArraySize = 5;
+	texDesc.ArraySize = ShadowMapCalculator::CascadeCount;
 	texDesc.Format = DXGI_FORMAT_R32_TYPELESS;
 	texDesc.SampleDesc.Count = 1;
 	texDesc.SampleDesc.Quality = 0;
@@ -189,34 +188,34 @@ void DirectionalLightComponent::CreateResources()
 	texDesc.CPUAccessFlags = 0;
 	texDesc.MiscFlags = 0;
 
-	D3D11_DEPTH_STENCIL_VIEW_DESC descDSV = {};
-	descDSV.Format = DXGI_FORMAT_D32_FLOAT;
-	descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2DARRAY;
-	descDSV.Texture2DArray.MipSlice = 0;
-	descDSV.Texture2DArray.FirstArraySlice = 0;
-	descDSV.Texture2DArray.ArraySize = 5;
-
 	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 	srvDesc.Format = DXGI_FORMAT_R32_FLOAT;
 	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DARRAY;
-	srvDesc.Texture2DArray.MipLevels = texDesc.MipLevels;
-	srvDesc.Texture2DArray.MostDetailedMip = 0;
+	srvDesc.Texture2DArray.ArraySize = ShadowMapCalculator::CascadeCount;
 	srvDesc.Texture2DArray.FirstArraySlice = 0;
-	srvDesc.Texture2DArray.ArraySize = 5;
-
-#pragma endregion
+	srvDesc.Texture2DArray.MipLevels = 1;
+	srvDesc.Texture2DArray.MostDetailedMip = 0;
 
 	ThrowIfFailed(SRVDevice->CreateTexture2D(&texDesc, nullptr, shadowmapTexture.GetAddressOf()),
 		"Failed to create shadowmapTexture.");
 
-	ThrowIfFailed(SRVDevice->CreateDepthStencilView(shadowmapTexture.Get(), &descDSV, depthStencilView.GetAddressOf()),
-		"Failed to create depthStencilView.");
-
 	ThrowIfFailed(SRVDevice->CreateShaderResourceView(shadowmapTexture.Get(), &srvDesc, shadowSRV.GetAddressOf()),
 		"Failed to create shadowSRV.");
 
-
 	ThrowIfFailed(shadowMatrixBuffer.Initialize(), "Failed to create const buffer");
+
+	for (size_t i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
+	{
+		D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+		dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
+		dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2DARRAY;
+		dsvDesc.Texture2DArray.MipSlice = 0;
+		dsvDesc.Texture2DArray.FirstArraySlice = i;
+		dsvDesc.Texture2DArray.ArraySize = 1;
+
+		ThrowIfFailed(SRVDevice->CreateDepthStencilView(shadowmapTexture.Get(), &dsvDesc, depthStencilViews[i].GetAddressOf()),
+			"Failed to create depthStencilView: " + i);
+	}
 
 	shadowCascadeDistances.reserve(5);
 	shadowCascadeDistances.push_back(1000.0f / 50.0f);

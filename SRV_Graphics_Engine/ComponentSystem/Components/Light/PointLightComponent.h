@@ -2,6 +2,7 @@
 
 #include "../Render/MeshRendererComponent.h"
 #include "../../GameObject.h"
+#include "ShadowMapCalculator.h"
 
 class DirectionalLightComponent : public MeshRendererComponent
 {
@@ -37,7 +38,7 @@ public:
 
 private:
 	void CreateResources();
-	
+
 	Matrix GetCascadeLightWVPMatrix(const float nearPlane, const float farPlane);
 
 	DirectX::XMFLOAT3 lightColor = DirectX::XMFLOAT3(1, 0, 0);
@@ -51,7 +52,7 @@ private:
 	// -- shadows --
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> shadowmapTexture;
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencilTextures;
-	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
+	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilViews[ShadowMapCalculator::CascadeCount];
 	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> shadowSRV;
 	Microsoft::WRL::ComPtr <ID3D11RenderTargetView> renderTargetView;
 
