@@ -12,8 +12,8 @@ public:
 	void Update(const float& deltaTime) override;
 	void Render() override;
 
-	void SetRenderTarget();
-	void ClearRenderTarget();
+	void SetShadowResources(size_t cascade_index);
+	void SetShadowBuffer(size_t cascade_index);
 
 	void RenderShadowPass(std::vector<IRenderComponent*>& renderObject);
 
@@ -29,17 +29,14 @@ public:
 	ID3D11ShaderResourceView* GetShadowSRV();
 	ID3D11ShaderResourceView* const* GetShadowSRVAddress();
 
-	DirectX::XMMATRIX GetProjectionMatrix();
+	std::vector<Matrix> GetProjectionMatrix();
 	DirectX::XMMATRIX GetViewMatrix();
 	DirectX::XMMATRIX GetWorldMatrix();
 
 	Vector4D GetCascadeDistances() const;
-	std::vector<Matrix> GetLightSpaceMatrices();
 
 private:
 	void CreateResources();
-
-	Matrix GetCascadeLightWVPMatrix(const float nearPlane, const float farPlane);
 
 	DirectX::XMFLOAT3 lightColor = DirectX::XMFLOAT3(1, 0, 0);
 	float lightStrength = 1.0f;
@@ -56,8 +53,8 @@ private:
 	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> shadowSRV;
 	Microsoft::WRL::ComPtr <ID3D11RenderTargetView> renderTargetView;
 
-	DirectX::XMMATRIX projectionMatrix = {};
-	DirectX::XMMATRIX viewMatrix = {};
+	std::vector<Matrix> projectionMatrix;
+	Matrix viewMatrix;
 	D3D11_VIEWPORT shadowMapViewport = {};
 
 	ConstantBuffer<VS_ObjectMatrixBuffer> shadowMatrixBuffer;

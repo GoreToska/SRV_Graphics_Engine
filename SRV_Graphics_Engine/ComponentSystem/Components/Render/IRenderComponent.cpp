@@ -44,14 +44,12 @@ void IRenderComponent::UpdateLightBuffer()
 		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector();
 
 
-	// TODO: perform transpose in setter function
-
 	if (lightConstBuffer.ApplyChanges())
 		SRVDeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
 	lightMatrixBuffer.GetData()->lightView = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix());
 	
-	lightMatrixBuffer.GetData()->lightProjection = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix());
+	lightMatrixBuffer.GetData()->lightProjection = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix()[0]);
 
 	if (lightMatrixBuffer.ApplyChanges())
 		SRVDeviceContext->VSSetConstantBuffers(1, 1, lightMatrixBuffer.GetAddressOf());
@@ -59,19 +57,19 @@ void IRenderComponent::UpdateLightBuffer()
 
 void IRenderComponent::UpdateCascadeShadowBuffer()
 {
-	cascadeShadowsBuffer.GetData()->Distances = SRVEngine.GetGraphics().GetAllLights()[0]->GetCascadeDistances();
-	std::vector<Matrix> viewProjections = SRVEngine.GetGraphics().GetAllLights()[0]->GetLightSpaceMatrices();
+	//cascadeShadowsBuffer.GetData()->Distances = SRVEngine.GetGraphics().GetAllLights()[0]->GetCascadeDistances();
+	//std::vector<Matrix> viewProjections = SRVEngine.GetGraphics().GetAllLights()[0]->GetLightSpaceMatrices();
 
-	for (int i = 0; i < 5; ++i)
-	{
-		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = viewProjections[i];
-	}
+	//for (int i = 0; i < 5; ++i)
+	//{
+	//	cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = viewProjections[i];
+	//}
 
-	if (cascadeShadowsBuffer.ApplyChanges())
-	{
-		SRVDeviceContext->GSSetConstantBuffers(0, 1, cascadeShadowsBuffer.GetAddressOf());
-		//SRVDeviceContext->PSSetConstantBuffers(1,1, cascadeShadowsBuffer.GetAddressOf());
-	}
+	//if (cascadeShadowsBuffer.ApplyChanges())
+	//{
+	//	SRVDeviceContext->GSSetConstantBuffers(0, 1, cascadeShadowsBuffer.GetAddressOf());
+	//	//SRVDeviceContext->PSSetConstantBuffers(1,1, cascadeShadowsBuffer.GetAddressOf());
+	//}
 }
 
 void IRenderComponent::UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix)

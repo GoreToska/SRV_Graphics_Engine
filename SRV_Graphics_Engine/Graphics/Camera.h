@@ -16,8 +16,8 @@ public:
 	void SetPerspectiveProjection(float fovDegrees, float aspectRatio, float nearZ, float farZ);
 	void SetOrthographicProjection(float viewWidth, float viewHeight, float nearZ, float farZ);
 
-	const DirectX::XMMATRIX& GetViewMatrix() const;
-	const DirectX::XMMATRIX& GetProjectionMatrix() const;
+	const Matrix GetViewMatrix() const;
+	const Matrix GetProjectionMatrix() const;
 
 	const DirectX::XMVECTOR& GetPositionVector() const;
 	const DirectX::XMFLOAT3& GetPositionFloat3() const;
@@ -47,7 +47,7 @@ public:
 	float GetFarZ();
 	float GetFOV();
 	float GetAspectRatio();
-	std::vector<Vector4D> GetFrustumCornersWorldPosition(const Matrix& view, const Matrix& proj);
+	std::vector<Vector4D> GetFrustumCornersWorldSpace();
 
 
 private:

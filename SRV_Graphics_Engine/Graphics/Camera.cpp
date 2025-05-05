@@ -49,12 +49,12 @@ void Camera::SetOrthographicProjection(float viewWidth, float viewHeight, float 
 	SetOrthographicProjection();
 }
 
-const XMMATRIX& Camera::GetViewMatrix() const
+const Matrix Camera::GetViewMatrix() const
 {
 	return this->viewMatrix;
 }
 
-const XMMATRIX& Camera::GetProjectionMatrix() const
+const Matrix Camera::GetProjectionMatrix() const
 {
 	return this->projectionMatrix;
 }
@@ -228,20 +228,25 @@ float Camera::GetAspectRatio()
 	return aspectRatio;
 }
 
-std::vector<Vector4D> Camera::GetFrustumCornersWorldPosition(const Matrix& view, const Matrix& proj)
+std::vector<Vector4D> Camera::GetFrustumCornersWorldSpace()
 {
-	const auto viewProj = view * proj;
+	const auto viewProj = GetViewMatrix() * GetProjectionMatrix();
 	const auto inv = viewProj.Invert();
 
 	std::vector<Vector4D> frustumCorners;
-	frustumCorners.reserve(8);
-	for (unsigned int x = 0; x < 2; ++x)
+	
+	for (int z = 0; z < 2; ++z)
 	{
-		for (unsigned int y = 0; y < 2; ++y)
+		for (int x = 0; x < 2; ++x)
 		{
-			for (unsigned int z = 0; z < 2; ++z)
+			for (int y = 0; y < 2; ++y)
 			{
-				const Vector4D pt = Vector4D::Transform(Vector4D(2.0f * static_cast<float>(x) - 1.0f, 2.0f * static_cast<float>(y) - 1.0f, static_cast<float>(z), 1.0f), inv);
+				const Vector4D pt = Vector4D::Transform(Vector4D(
+					2.0f * x - 1.0f,
+					2.0f * y - 1.0f,
+					z,
+					1.0f
+				), inv);
 				frustumCorners.push_back(pt / pt.w);
 			}
 		}

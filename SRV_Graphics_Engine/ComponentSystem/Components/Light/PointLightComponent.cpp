@@ -24,8 +24,8 @@ void DirectionalLightComponent::Update(const float& deltaTime)
 	if (!IsEnabled())
 		return;
 
-	viewMatrix = ShadowMapCalculator::GetViewMatrixDirectional(gameObject);
-	projectionMatrix = ShadowMapCalculator::GetProjectionMatrix();
+	//viewMatrix = ShadowMapCalculator::GetViewMatrixDirectional(gameObject);
+	//projectionMatrix = ShadowMapCalculator::GetProjectionMatrix();
 
 	MeshRendererComponent::Update(deltaTime);
 
@@ -44,49 +44,53 @@ void DirectionalLightComponent::Render()
 	MeshRendererComponent::Render();
 }
 
-void DirectionalLightComponent::SetRenderTarget()
+void DirectionalLightComponent::SetShadowResources(size_t cascade_index)
 {
 	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
-	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilViews[0].Get());
-	SRVDeviceContext->ClearDepthStencilView(depthStencilViews[0].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilViews[cascade_index].Get());
+	SRVDeviceContext->ClearDepthStencilView(depthStencilViews[cascade_index].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 	SRVDeviceContext->RSSetViewports(1, &shadowMapViewport);
 
 	SRVDeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
-	SRVDeviceContext->PSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
-
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::ShadowMap)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::ShadowMap)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(NULL, NULL, 0);
-	SRVDeviceContext->GSSetShader(ShaderManager::GetInstance().GetGS(ShaderManager::ShadowMap)->GetShader(), NULL, 0);
+
+	// todo: recalculate matrix and set it into const buffer
+	ShadowMapCalculator::GetDirectionalLightMatrices(gameObject, projectionMatrix, viewMatrix);
 }
 
-void DirectionalLightComponent::ClearRenderTarget()
+void DirectionalLightComponent::SetShadowBuffer(size_t cascade_index)
 {
-	float color[4] = { 0,0,0,1 };
-	//DeviceContext->ClearRenderTargetView(renderTargetView.Get(), color);
-	SRVDeviceContext->ClearDepthStencilView(depthStencilViews[0].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(viewMatrix);
+	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix[cascade_index]);
+
+	if (objectMatrixBuffer.ApplyChanges())
+		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
 }
 
 void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>& renderObjects)
 {
-	SetRenderTarget();
-
-	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(gameObject->GetTransform()->GetWorldMatrix());
-	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(viewMatrix);
-	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix);
-
-	if (objectMatrixBuffer.ApplyChanges())
-		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
-
-	for (IRenderComponent* RC : renderObjects)
+	for (size_t i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
 	{
-		RC->RenderForShadows(gameObject->GetTransform()->GetWorldMatrix(),
-			viewMatrix,
-			projectionMatrix);
+		SetShadowResources(i);
+		SetShadowBuffer(i);
+
+		for (IRenderComponent* RC : renderObjects)
+		{
+			objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(RC->GetGameObject()->GetTransform()->GetWorldMatrix());
+			if (objectMatrixBuffer.ApplyChanges())
+			{
+				SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
+			}
+
+			RC->RenderForShadows(gameObject->GetTransform()->GetWorldMatrix(),
+				viewMatrix,
+				projectionMatrix[i]);
+		}
 	}
 
 	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
-	SRVDeviceContext->GSSetShader(NULL, NULL, 0);
 }
 
 void DirectionalLightComponent::SetLightColor(DirectX::XMFLOAT3& color)
@@ -139,7 +143,7 @@ ID3D11ShaderResourceView* const* DirectionalLightComponent::GetShadowSRVAddress(
 	return shadowSRV.GetAddressOf();
 }
 
-DirectX::XMMATRIX DirectionalLightComponent::GetProjectionMatrix()
+std::vector<Matrix> DirectionalLightComponent::GetProjectionMatrix()
 {
 	return projectionMatrix;
 }
@@ -165,8 +169,8 @@ Vector4D DirectionalLightComponent::GetCascadeDistances() const
 
 void DirectionalLightComponent::CreateResources()
 {
-	viewMatrix = ShadowMapCalculator::GetViewMatrixDirectional(gameObject);
-	projectionMatrix = ShadowMapCalculator::GetProjectionMatrix();
+	//viewMatrix = ShadowMapCalculator::GetViewMatrixDirectional(gameObject);
+	//projectionMatrix = ShadowMapCalculator::GetProjectionMatrix();
 
 	shadowMapViewport.Width = ShadowMapCalculator::ShadowmapSize;
 	shadowMapViewport.Height = ShadowMapCalculator::ShadowmapSize;
@@ -222,80 +226,4 @@ void DirectionalLightComponent::CreateResources()
 	shadowCascadeDistances.push_back(1000.0f / 25.0f);
 	shadowCascadeDistances.push_back(1000.0f / 10.0f);
 	shadowCascadeDistances.push_back(1000.0f / 2.0f);
-}
-
-Matrix DirectionalLightComponent::GetCascadeLightWVPMatrix(const float nearPlane, const float farPlane)
-{
-	const Matrix proj = Matrix::CreatePerspectiveFieldOfView(
-		SRVEngine.GetGraphics().GetCamera()->GetFOV(),
-		SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
-		nearPlane,
-		farPlane);
-
-	const std::vector<Vector4D> corners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldPosition(
-		SRVEngine.GetGraphics().GetCamera()->GetViewMatrix(), proj);
-
-	Vector3D center = Vector3D::Zero;
-	for (const Vector4D& point : corners)
-	{
-		center.x += point.x;
-		center.y += point.y;
-		center.z += point.z;
-	}
-
-	center /= static_cast<float>(corners.size());
-
-	const Matrix lightView = Matrix::CreateLookAt(center, center - gameObject->GetTransform()->GetForwardVector(), Vector3D::Up);
-
-	float minX = std::numeric_limits<float>::max();
-	float maxX = std::numeric_limits<float>::lowest();
-	float minY = std::numeric_limits<float>::max();
-	float maxY = std::numeric_limits<float>::lowest();
-	float minZ = std::numeric_limits<float>::max();
-	float maxZ = std::numeric_limits<float>::lowest();
-
-	for (const Vector4D& point : corners)
-	{
-		const Vector4D trf = Vector4D::Transform(point, lightView);
-		minX = (std::min)(minX, trf.x);
-		maxX = (std::max)(maxX, trf.x);
-		minY = (std::min)(minY, trf.y);
-		maxY = (std::max)(maxY, trf.y);
-		minZ = (std::min)(minZ, trf.z);
-		maxZ = (std::max)(maxZ, trf.z);
-	}
-
-	constexpr float zMult = 10.0f; // how much geometry to include from outside the view frustum
-	minZ = (minZ < 0) ? minZ * zMult : minZ / zMult;
-	maxZ = (maxZ < 0) ? maxZ / zMult : maxZ * zMult;
-
-	const Matrix lightProjection = Matrix::CreateOrthographicOffCenter(minX, maxX, minY, maxY, minZ, maxZ);
-
-	return lightView * lightProjection;
-}
-
-std::vector<Matrix> DirectionalLightComponent::GetLightSpaceMatrices()
-{
-	std::vector<Matrix> matrices = {};
-	matrices.reserve(shadowCascadeDistances.size() + 1);
-
-	for (size_t i = 0; i < shadowCascadeDistances.size() + 1; ++i)
-	{
-		if (i == 0)
-		{
-			matrices.push_back(GetCascadeLightWVPMatrix(SRVEngine.GetGraphics().GetCamera()->GetNearZ(),
-				shadowCascadeDistances[i]));
-		}
-		else if (i < shadowCascadeDistances.size())
-		{
-			matrices.push_back(GetCascadeLightWVPMatrix(shadowCascadeDistances[i - 1], shadowCascadeDistances[i]));
-		}
-		else
-		{
-			matrices.push_back(GetCascadeLightWVPMatrix(shadowCascadeDistances[i - 1],
-				SRVEngine.GetGraphics().GetCamera()->GetFarZ()));
-		}
-	}
-
-	return matrices;
 }
