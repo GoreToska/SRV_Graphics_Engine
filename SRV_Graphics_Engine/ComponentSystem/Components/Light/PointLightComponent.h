@@ -30,7 +30,7 @@ public:
 	ID3D11ShaderResourceView* const* GetShadowSRVAddress();
 
 	std::vector<Matrix> GetProjectionMatrix();
-	DirectX::XMMATRIX GetViewMatrix();
+	Matrix GetViewMatrix();
 	DirectX::XMMATRIX GetWorldMatrix();
 
 	Vector4D GetCascadeDistances() const;
@@ -57,7 +57,7 @@ private:
 	Matrix viewMatrix;
 	D3D11_VIEWPORT shadowMapViewport = {};
 
-	ConstantBuffer<VS_ObjectMatrixBuffer> shadowMatrixBuffer;
+
 	// -- shadows --
 
 	std::vector<float> shadowCascadeDistances = {};

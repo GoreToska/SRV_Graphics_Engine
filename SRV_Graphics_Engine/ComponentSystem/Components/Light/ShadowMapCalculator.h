@@ -17,6 +17,6 @@ public:
 	static void GetDirectionalLightMatrices(GameObject* gameObject, std::vector<Matrix>& projections, Matrix& view);
 
 	// Shadowmap resolution
-	static constexpr float ShadowmapSize = 2048;
+	static constexpr float ShadowmapSize = 1024;
 	static constexpr size_t CascadeCount = 4;
 };

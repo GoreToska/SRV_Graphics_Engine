@@ -31,5 +31,5 @@ protected:
 	ConstantBuffer<VS_ObjectMatrixBuffer> objectMatrixBuffer = {};
 	ConstantBuffer<VS_LightMatrixBuffer> lightMatrixBuffer = {};
 	ConstantBuffer<PS_LightParamsBuffer> lightConstBuffer = {};
-	ConstantBuffer<PS_GS_CascadeShadowsBuffer> cascadeShadowsBuffer = {};
+	ConstantBuffer<PS_CascadeShadowsBuffer> cascadeShadowsBuffer = {};
 };

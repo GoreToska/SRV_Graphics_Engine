@@ -4,7 +4,7 @@
 
 cbuffer cascadeBuffer : register(b0)
 {
-    float4x4 cascadeViewProjection[CASCADE_COUNT + 1];
+    float4x4 cascadeViewProjection[CASCADE_COUNT];
 	float4 distances;
 };
 
@@ -19,7 +19,7 @@ struct GS_OUT
 	uint arrayIndex : SV_RenderTargetArrayIndex;
 };
 
-[instance(CASCADE_COUNT + 1)]
+[instance(CASCADE_COUNT)]
 [maxvertexcount(3)]
 void main(triangle GS_IN p[3], in uint id : SV_GSInstanceID, inout TriangleStream<GS_OUT> stream)
 {

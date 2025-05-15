@@ -21,7 +21,6 @@ DirectX::XMMATRIX ShadowMapCalculator::GetViewMatrixDirectional(GameObject* game
 void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, std::vector<Matrix>& projections, Matrix& view)
 {
 	projections.clear();
-	//projections.reserve(CascadeCount);
 
 	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace();
 
@@ -32,7 +31,7 @@ void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, st
 	}
 	center /= cameraFrustumCorners.size();
 
-	view = Matrix::CreateLookAt(center, center + gameObject->GetTransform()->GetForwardVector(), Vector3D::Up);
+	view = Matrix::CreateLookAt(center, center - gameObject->GetTransform()->GetForwardVector(), Vector3D::Up);
 
 	std::vector<Vector4D> slideVectors =
 	{
@@ -42,14 +41,14 @@ void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, st
 		cameraFrustumCorners[7] - cameraFrustumCorners[3]
 	};
 
-	for (int cascade = 1; cascade <= CascadeCount; ++cascade) 
+	for (int cascade = 1; cascade <= CascadeCount; ++cascade)
 	{
 		std::vector<Vector4D> cascadeCorners;
-		
-		for (int i = 0; i < 4; i++)	
+
+		for (int i = 0; i < 4; i++)
 			cascadeCorners.push_back(cameraFrustumCorners[i] + (cascade - 1) * slideVectors[i] / CascadeCount);
-		
-		for (int i = 0; i < 4; i++)	
+
+		for (int i = 0; i < 4; i++)
 			cascadeCorners.push_back(cameraFrustumCorners[i] + cascade * slideVectors[i] / CascadeCount);
 
 		float minX = (std::numeric_limits<float>::max)();
@@ -59,7 +58,7 @@ void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, st
 		float minZ = (std::numeric_limits<float>::max)();
 		float maxZ = std::numeric_limits<float>::lowest();
 
-		for (const auto& v : cascadeCorners) 
+		for (const auto& v : cascadeCorners)
 		{
 			const auto trf = Vector4D::Transform(v, view);
 			minX = (std::min)(minX, trf.x);
@@ -70,9 +69,10 @@ void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, st
 			maxZ = (std::max)(maxZ, trf.z);
 		}
 
-		constexpr float zMult = 15.0f;
+		constexpr float zMult = 10.0f;
 		minZ = (minZ < 0) ? minZ * zMult : minZ / zMult;
 		maxZ = (maxZ < 0) ? maxZ / zMult : maxZ * zMult;
+
 		auto lightProjection = Matrix::CreateOrthographicOffCenter(minX, maxX, minY, maxY, minZ, maxZ);
 		projections.push_back(lightProjection);
 	}

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../DataTypes/Vector3D.h"
+#include "../ComponentSystem/Components/Light/ShadowMapCalculator.h"
 
 struct VS_ObjectMatrixBuffer
 {
@@ -25,8 +26,9 @@ struct PS_LightParamsBuffer
 	Vector3D dynamicLightDirection = { -0.577f, 0.577f, -0.577f };
 };
 
-struct PS_GS_CascadeShadowsBuffer
+struct PS_CascadeShadowsBuffer
 {
-	Matrix ViewProjectionMatrix[5];
+	Matrix ViewProjectionMatrix[ShadowMapCalculator::CascadeCount];
 	Vector4D Distances;
+	Vector4D CameraPosition;
 };

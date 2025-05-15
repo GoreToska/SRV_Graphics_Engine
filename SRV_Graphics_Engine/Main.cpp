@@ -87,9 +87,8 @@ int main()
 		}
 	}
 
-
-	static float directionalLightPosition[3] = { 0,50,-50 };
-	static float directionalLightRotation[3] = { 0.7,0,0 };
+	static float directionalLightPosition[3] = { 0,0,0 };
+	static float directionalLightRotation[3] = { 0,0,0 };
 
 	GameObject* directionalLight = new GameObject(Vector3D(
 		directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2]));
@@ -102,11 +101,6 @@ int main()
 
 	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightColor({ 1, 1, 1 });
 	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightStrength(2);
-
-	GameObject* ground = new GameObject(Vector3D(0.0f, -3.0f, 0.0f));
-	ground->GetTransform()->SetScale({ 10,10,10 });
-	ground->AddComponent(new MeshRendererComponent(groundModelData, ground, ShaderManager::ShaderType::Texture));
-	SRVEngine.AddGameObject(ground);
 
 	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, -5.0f));
 	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
@@ -162,32 +156,24 @@ int main()
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(greenPig);
 
-	GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	/*GameObject* redBird = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
 	redBird->AddComponent(new MeshRendererComponent(redBirdModelData, redBird, ShaderManager::ShaderType::Texture));
 	redBird->AddComponent(new SphereCollisionComponent(redBird, Vector3D(0, 0, 0), 2.2));
 	redBird->AddComponent(new KatamariMovementComponent(redBird));
 	redBird->GetTransform()->SetScale(Vector3D(0.01, 0.01, 0.01));
 	redBird->AddComponent(new KatamariCollisionComponent(redBird));
-	SRVEngine.AddGameObject(redBird);
+	SRVEngine.AddGameObject(redBird);*/
 
 	GameObject* camera = new GameObject(Vector3D(15, 15, 15));
-	//camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
 	//camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
-	camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
+	//camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
 	SRVEngine.AddGameObject(camera);
 
-	Keyboard::GetInstance().KeyPressedEvent.AddLambda([directionalLight, camera, blueBird](const unsigned char a)
-		{
-			if (a != 'X')
-				return;
-
-			directionalLight->GetTransform()->SetPosition(
-				{ SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().x,
-				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().y,
-				SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3().z });
-
-			//pointLight01->GetTransform()->SetLookAtRotation(Vector3D(0.f));
-		});
+	GameObject* ground = new GameObject(Vector3D(0.0f, -3.0f, 0.0f));
+	ground->GetTransform()->SetScale({ 10,10,10 });
+	ground->AddComponent(new MeshRendererComponent(groundModelData, ground, ShaderManager::ShaderType::Texture));
+	SRVEngine.AddGameObject(ground);
 
 
 	while (SRVEngine.ProcessMessages())
@@ -195,9 +181,7 @@ int main()
 		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
 		SRVEngine.GetTimer()->Restart();
 
-		blueBird->GetTransform()->SetLookAtRotation({ 0,0,0 });
 		greenPig->GetTransform()->AddLocalRotation({ 0.01,0.01,0.01 });
-		phone->GetTransform()->SetLookAtRotation({ 0,0,0 });
 
 		directionalLight->GetTransform()->SetRotation({directionalLightRotation[0], directionalLightRotation[1],directionalLightRotation[2] });
 		directionalLight->GetTransform()->SetPosition({directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2] });
@@ -210,7 +194,6 @@ int main()
 		
 		ImGui::DragFloat3("Directional Light Position", directionalLightPosition, 0.1, -100, 100);
 		ImGui::DragFloat3("Directional Light Rotation", directionalLightRotation, 0.1, -100, 100);
-
 
 		ImGui::End();
 

@@ -73,7 +73,6 @@ void Graphics::RenderFrame()
 	SRVDeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
 	SRVDeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
 
-	// View matrix
 	worldMatrix = DirectX::XMMatrixIdentity();
 
 
@@ -273,7 +272,7 @@ bool Graphics::CreateSamplerState()
 	shadowSamplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
 	shadowSamplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
 	shadowSamplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
-	shadowSamplerDesc.ComparisonFunc = D3D11_COMPARISON_LESS_EQUAL;
+	shadowSamplerDesc.ComparisonFunc = D3D11_COMPARISON_LESS;
 	shadowSamplerDesc.MinLOD = 0;
 	shadowSamplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 	shadowSamplerDesc.MipLODBias = 0;

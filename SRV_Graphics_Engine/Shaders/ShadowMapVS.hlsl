@@ -7,19 +7,19 @@ cbuffer perObjectBuffer : register(b0)
 
 struct VS_INPUT
 {
-    float3 inPosition : POSITION;
+    float4 inPosition : POSITION0;
 };
 
 struct VS_OUTPUT
 {
-    float4 outPosition : SV_POSITION;
+    float4 outPosition : POSITION;
 };
 
 VS_OUTPUT main(VS_INPUT input)
 {
     VS_OUTPUT output;
     
-    output.outPosition = mul(float4(input.inPosition, 1.0f), mul(mul(world, view), projection));
-
+    output.outPosition = mul(input.inPosition, world);
+    
     return output;
 }

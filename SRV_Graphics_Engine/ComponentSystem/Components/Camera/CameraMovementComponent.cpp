@@ -25,7 +25,11 @@ void CameraMovementComponent::Update(const float& deltaTime)
 
 void CameraMovementComponent::UpdateRotation(const float& deltaTime)
 {
-	camera->AddRotation(lookDirection * deltaTime * mouseSpeed);
+	if (Mouse::GetInstance().IsRightDown())
+	{
+		camera->AddRotation(lookDirection * deltaTime * mouseSpeed);
+	}
+
 	lookDirection = Vector3D(0, 0, 0);
 }
 
@@ -36,6 +40,9 @@ void CameraMovementComponent::UpdatePosition(const float& deltaTime)
 	Vector3D up = Vector3D(0, movementDirection.y, 0);
 
 	camera->AddPosition((right + forward + up) * deltaTime * moveSpeed);
+	std::cout << camera->GetPositionVector().m128_f32[0] << " " <<
+		camera->GetPositionVector().m128_f32[1] << " " <<
+		camera->GetPositionVector().m128_f32[2] << "\n";
 }
 
 void CameraMovementComponent::OnMouseMoved(const int x, const int y)

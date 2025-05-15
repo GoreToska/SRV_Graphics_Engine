@@ -1,15 +1,79 @@
-﻿  ShadowMapCalculator.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(22,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
+﻿  PointLightComponent.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(23,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
   
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
   
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.cpp(12,51): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.cpp(33,37): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.cpp(50,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.cpp(53,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\PointLightComponent.cpp(186,39): warning C4244: '=': conversion from 'const float' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\PointLightComponent.cpp(187,40): warning C4244: '=': conversion from 'const float' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\PointLightComponent.cpp(219,44): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(207,15):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(107,24):
+          see reference to class template instantiation 'aiQuaterniont<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(186,1):
+          while compiling class template member function 'void aiQuaterniont<float>::Interpolate(aiQuaterniont<float> &,const aiQuaterniont<float> &,const aiQuaterniont<float> &,TReal)'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(435,28):
+              see the first reference to 'aiQuaterniont<float>::Interpolate' in 'Assimp::Interpolator<aiQuaternion>::operator ()'
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(208,14): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(209,61): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244: '=': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\quaternion.inl(210,33): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244: 'return': conversion from 'double' to 'TReal', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         with
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         [
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:             TReal=float
+D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13): warning C4244:         ]
+  (compiling source file 'ComponentSystem/Components/Light/PointLightComponent.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(93,13):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\types.h(150,22):
+          see reference to class template instantiation 'aiVector3t<float>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(142,91):
+          while compiling class template member function 'bool aiVector3t<float>::operator ==(const aiVector3t<float> &) const'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\anim.h(82,3):
+              see the first reference to 'aiVector3t<float>::operator ==' in 'aiVectorKey::operator =='
+          D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(92,57):
+          while compiling class template member function 'TReal aiVector3t<TReal>::Length(void) const'
+          with
+          [
+              TReal=float
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\vector3.inl(98,8):
+              see the first reference to 'aiVector3t<float>::Length' in 'aiVector3t<float>::Normalize'
+              D:\CPP Projects\SRV_Graphics_Engine\packages\Assimp.3.0.0\build\native\include\assimp\camera.h(191,50):
+              see the first reference to 'aiVector3t<float>::Normalize' in 'aiCamera::GetCameraMatrix'
+  
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

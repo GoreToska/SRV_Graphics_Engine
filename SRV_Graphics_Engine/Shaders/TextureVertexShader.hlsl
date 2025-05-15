@@ -14,27 +14,27 @@ cbuffer lightMatrixBuffer : register(b1)
 
 struct VS_INPUT
 {
-    float3 inPosition : POSITION;
-    float2 inTextCoord : TEXCOORD;
-    float3 inNormal : NORMAL;
+    float3 position : POSITION;
+    float2 textCoord : TEXCOORD;
+    float3 normal : NORMAL;
 };
 
 struct VS_OUTPUT
 {
-    float4 outPosition : SV_POSITION; // clip space pos
-    float2 outTextCoord : TEXCOORD;
-    float3 outNormal : NORMAL;
-    float4 lightViewPosition : TEXCOORD1;
+    float4 position : SV_POSITION;
+    float2 textCoord : TEXCOORD;
+    float3 normal : NORMAL;
+    float4 globalPosition : POSITION1;
 };
 
 VS_OUTPUT main(VS_INPUT input)
 {
     VS_OUTPUT output;
     
-    output.outPosition = mul(float4(input.inPosition, 1.0f), mul(mul(world, view), projection));
-    output.outTextCoord = input.inTextCoord;
-    output.outNormal = normalize(mul(float4(input.inNormal, 0), world));
-    output.lightViewPosition = mul(mul(mul(float4(input.inPosition, 1.0f), world), lightView), lightProjection);
+    output.position = mul(float4(input.position, 1.0f), mul(mul(world, view), projection));
+    output.textCoord = input.textCoord;
+    output.normal = normalize(mul(float4(input.normal, 0), world));
+    output.globalPosition = mul(float4(input.position, 0.0f), world);
 
     return output;
 }
