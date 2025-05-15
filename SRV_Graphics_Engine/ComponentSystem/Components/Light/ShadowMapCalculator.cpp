@@ -18,11 +18,16 @@ DirectX::XMMATRIX ShadowMapCalculator::GetViewMatrixDirectional(GameObject* game
 	return gameObject->GetTransform()->GetViewMatrix();
 }
 
+// frustrum corners world space should be calculated for each cascade
+// view for each cascade
+// calculate for each cascade with different nearZ and farZ
 void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, std::vector<Matrix>& projections, Matrix& view)
 {
 	projections.clear();
 
-	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace();
+	// get corners with nearZ and farZ
+	// maybe make this method static??!
+	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(/*nearZ, farZ*/);
 
 	Vector3D center = Vector3D::Zero;
 	for (const auto& v : cameraFrustumCorners)
@@ -31,7 +36,7 @@ void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, st
 	}
 	center /= cameraFrustumCorners.size();
 
-	view = Matrix::CreateLookAt(center, center - gameObject->GetTransform()->GetForwardVector(), Vector3D::Up);
+	view = Matrix::CreateLookAt(center, center + gameObject->GetTransform()->GetForwardVector(), Vector3D::Up);
 
 	std::vector<Vector4D> slideVectors =
 	{

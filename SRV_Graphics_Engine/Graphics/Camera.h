@@ -47,7 +47,7 @@ public:
 	float GetFarZ();
 	float GetFOV();
 	float GetAspectRatio();
-	std::vector<Vector4D> GetFrustumCornersWorldSpace();
+	std::vector<Vector4D> GetFrustumCornersWorldSpace(float nearZ, float farZ);
 
 
 private:

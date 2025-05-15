@@ -228,7 +228,7 @@ float Camera::GetAspectRatio()
 	return aspectRatio;
 }
 
-std::vector<Vector4D> Camera::GetFrustumCornersWorldSpace()
+std::vector<Vector4D> Camera::GetFrustumCornersWorldSpace(float nearZ, float farZ)
 {
 	const auto viewProj = GetViewMatrix() * GetProjectionMatrix();
 	const auto inv = viewProj.Invert();

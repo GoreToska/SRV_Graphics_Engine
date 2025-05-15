@@ -57,7 +57,7 @@ void DirectionalLightComponent::SetShadowResources(size_t cascade_index)
 	SRVDeviceContext->GSSetShader(ShaderManager::GetInstance().GetGS(ShaderManager::ShadowMap)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(NULL, NULL, 0);
 
-	// todo: recalculate matrix and set it into const buffer
+	// calculate for each cascade (with nearZ and farZ)
 	ShadowMapCalculator::GetDirectionalLightMatrices(gameObject, projectionMatrix, viewMatrix);
 }
 
@@ -69,7 +69,17 @@ void DirectionalLightComponent::SetShadowBuffer(size_t cascade_index)
 	if (objectMatrixBuffer.ApplyChanges())
 	{
 		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
-		SRVDeviceContext->GSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
+		//SRVDeviceContext->GSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
+	}
+
+	for (int i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
+	{
+		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = (viewMatrix * projectionMatrix[i]).Transpose();
+	}
+
+	if (cascadeShadowsBuffer.ApplyChanges())
+	{
+		SRVDeviceContext->GSSetConstantBuffers(0, 1, cascadeShadowsBuffer.GetAddressOf());
 	}
 }
 
