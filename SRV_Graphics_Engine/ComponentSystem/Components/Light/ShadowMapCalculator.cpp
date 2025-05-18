@@ -24,6 +24,10 @@ Matrix ShadowMapCalculator::GetDirectionalLightViewProj(Vector3D direction, floa
 		SRVEngine.GetGraphics().GetCamera()->GetFOV(),
 		SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
 		nearZ, farZ);
+	/*Matrix cameraProjMatrix = SRVEngine.GetGraphics().GetCamera()->GetViewMatrix() * Matrix::CreatePerspectiveFieldOfView(
+		SRVEngine.GetGraphics().GetCamera()->GetFOV(),
+		SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
+		nearZ, farZ);*/
 	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraProjMatrix);
 
 	Vector3D center = Vector3D::Zero;
@@ -46,7 +50,7 @@ Matrix ShadowMapCalculator::GetDirectionalLightViewProj(Vector3D direction, floa
 	{
 		const auto trf = Vector4D::Transform(v, lightView);
 		minX = std::min(minX, trf.x);
-		maxX = std::max(maxX,trf.x);
+		maxX = std::max(maxX, trf.x);
 		minY = std::min(minY, trf.y);
 		maxY = std::max(maxY, trf.y);
 		minZ = std::min(minZ, trf.z);

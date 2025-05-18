@@ -76,7 +76,7 @@ float CalculateShadow(float3 worldPosition)
     //    return 1.0f;
     
     float depth = lightSpacePos.z;
-    float bias = 0.0001f;
+    float bias = 0.0005f;
 
     float shadow = shadowMap.SampleCmpLevelZero(shadowSampler, float3(shadowUV, layer), depth - bias);
 
@@ -169,5 +169,6 @@ float4 main(PS_INPUT input) : SV_TARGET
     
     float3 finalColor = sampleColor * (ambient + diffuse * shadow);
     
+      
     return float4(saturate(finalColor), 1.0);
 }

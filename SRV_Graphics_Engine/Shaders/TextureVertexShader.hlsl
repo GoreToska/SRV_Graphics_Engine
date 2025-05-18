@@ -34,7 +34,7 @@ VS_OUTPUT main(VS_INPUT input)
     output.position = mul(float4(input.position, 1.0f), mul(mul(world, view), projection));
     output.textCoord = input.textCoord;
     output.normal = normalize(mul(float4(input.normal, 0), world));
-    output.globalPosition = mul(float4(input.position, 0.0f), world);
+    output.globalPosition = mul(float4(input.position, 1.0f), world);
 
     return output;
 }
