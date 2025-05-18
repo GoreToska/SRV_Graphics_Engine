@@ -16,6 +16,7 @@ void IRenderComponent::Render()
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(shaderType)->GetShader(), NULL, 0);
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	SetVertexBufferContext();
 
@@ -26,11 +27,11 @@ void IRenderComponent::Render()
 	UpdateCascadeShadowBuffer();
 }
 
-void IRenderComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix)
+void IRenderComponent::RenderForShadows()
 {
 	SetVertexBufferContext();
 
-	UpdateTransformBuffer(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
+	UpdateTransformBuffer(Matrix::Identity, Matrix::Identity, Matrix::Identity);
 }
 
 void IRenderComponent::UpdateLightBuffer()
@@ -45,28 +46,33 @@ void IRenderComponent::UpdateLightBuffer()
 	if (lightConstBuffer.ApplyChanges())
 		SRVDeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
 
-	lightMatrixBuffer.GetData()->lightView = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix());
+	//lightMatrixBuffer.GetData()->lightView = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix());
 
-	lightMatrixBuffer.GetData()->lightProjection = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix()[0]);
+	//lightMatrixBuffer.GetData()->lightProjection = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix()[0]);
 
-	if (lightMatrixBuffer.ApplyChanges())
-		SRVDeviceContext->VSSetConstantBuffers(1, 1, lightMatrixBuffer.GetAddressOf());
+	//if (lightMatrixBuffer.ApplyChanges())
+	//	SRVDeviceContext->VSSetConstantBuffers(1, 1, lightMatrixBuffer.GetAddressOf());
 }
 
 void IRenderComponent::UpdateCascadeShadowBuffer()
 {
-	cascadeShadowsBuffer.GetData()->Distances = SRVEngine.GetGraphics().GetAllLights()[0]->GetCascadeDistances();
-	std::vector<Matrix> viewProjections = SRVEngine.GetGraphics().GetAllLights()[0]->GetProjectionMatrix();
+	cascadeShadowsBuffer.GetData()->Distances = 
+		Vector4D(ShadowMapCalculator::shadowCascadeDistanceMultipliers[0],
+			ShadowMapCalculator::shadowCascadeDistanceMultipliers[1],
+			ShadowMapCalculator::shadowCascadeDistanceMultipliers[2],
+			ShadowMapCalculator::shadowCascadeDistanceMultipliers[3]);
+
+	std::vector<Matrix> viewProjections = SRVEngine.GetGraphics().GetAllLights()[0]->GetViewProjectionMatricies();
 
 	for (int i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
 	{
-		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = (SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix() * viewProjections[i]).Invert();
+		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = SRVEngine.GetGraphics().GetAllLights()[0]->GetViewProjectionMatricies()[i].Transpose();
 	}
 
 	auto a = SRVEngine.GetGraphics().GetCamera()->GetPositionVector();
 
 	// maybe here i need a world matrix vector
-	cascadeShadowsBuffer.GetData()->CameraPosition = SRVEngine.GetGraphics().GetCamera()->GetPositionVector() ;
+	cascadeShadowsBuffer.GetData()->CameraPosition = SRVEngine.GetGraphics().GetCamera()->GetPositionVector();
 
 	if (cascadeShadowsBuffer.ApplyChanges())
 	{

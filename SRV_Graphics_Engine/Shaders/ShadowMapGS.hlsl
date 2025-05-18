@@ -1,9 +1,9 @@
 
-
 cbuffer cascadeBuffer : register(b0)
 {
     float4x4 cascadeViewProjection[4];
 	float4 distances;
+    float4 cameraPosition;
 };
 
 struct GS_IN

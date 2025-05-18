@@ -26,7 +26,7 @@ public:
 
 	void Update(const float& deltaTime) override;
 	void Render() override;
-	void RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix) override;
+	void RenderForShadows() override;
 
 	virtual int GetVertexCount() const override;
 	virtual void SetVertexBufferContext() override;

@@ -47,13 +47,13 @@ void MeshRendererComponent::Render()
 	}
 }
 
-void MeshRendererComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix)
+void MeshRendererComponent::RenderForShadows()
 {
-	IRenderComponent::RenderForShadows(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
+	IRenderComponent::RenderForShadows();
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{
-		meshes[i].RenderForShadows(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
+		meshes[i].RenderForShadows();
 	}
 }
 

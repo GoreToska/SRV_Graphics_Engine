@@ -47,7 +47,7 @@ public:
 	float GetFarZ();
 	float GetFOV();
 	float GetAspectRatio();
-	std::vector<Vector4D> GetFrustumCornersWorldSpace(float nearZ, float farZ);
+	static std::vector<Vector4D> GetFrustumCornersWorldSpace(Matrix viewProj);
 
 
 private:

@@ -52,10 +52,6 @@ void Graphics::InitImGui(HWND hwnd)
 // ALL DRAWING IS HERE BETWEEN ClearRenderTargetView AND Present
 void Graphics::RenderFrame()
 {
-	ID3D11ShaderResourceView* nullSRV[2] = { NULL, NULL };
-	SRVDeviceContext->PSSetShaderResources(0, 2, nullSRV);
-	SRVDeviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
 	RenderShadows();
 
 	SRVDeviceContext->RSSetViewports(1, &viewport);

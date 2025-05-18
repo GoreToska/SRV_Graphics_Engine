@@ -44,11 +44,9 @@ void DirectionalLightComponent::Render()
 	MeshRendererComponent::Render();
 }
 
-void DirectionalLightComponent::SetShadowResources(size_t cascade_index)
+void DirectionalLightComponent::SetShadowResources()
 {
 	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
-	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilViews[cascade_index].Get());
-	SRVDeviceContext->ClearDepthStencilView(depthStencilViews[cascade_index].Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 	SRVDeviceContext->RSSetViewports(1, &shadowMapViewport);
 
 	SRVDeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
@@ -57,24 +55,42 @@ void DirectionalLightComponent::SetShadowResources(size_t cascade_index)
 	SRVDeviceContext->GSSetShader(ShaderManager::GetInstance().GetGS(ShaderManager::ShadowMap)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(NULL, NULL, 0);
 
-	// calculate for each cascade (with nearZ and farZ)
-	ShadowMapCalculator::GetDirectionalLightMatrices(gameObject, projectionMatrix, viewMatrix);
+	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
+	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilView.Get());
 }
 
-void DirectionalLightComponent::SetShadowBuffer(size_t cascade_index)
+void DirectionalLightComponent::SetShadowBuffer()
 {
-	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(viewMatrix);
-	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(projectionMatrix[cascade_index]);
+	viewProjectionMatricies.clear();
+	viewProjectionMatricies.reserve(ShadowMapCalculator::CascadeCount);
 
-	if (objectMatrixBuffer.ApplyChanges())
+	for (int cascade = 0; cascade < ShadowMapCalculator::CascadeCount; ++cascade)
 	{
-		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
-		//SRVDeviceContext->GSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
+		float nearZ = 0;
+		float farZ = 0;
+
+		if (cascade == 0)
+		{
+			nearZ = SRVEngine.GetGraphics().GetCamera()->GetNearZ();
+			farZ = SRVEngine.GetGraphics().GetCamera()->GetFarZ() *
+				ShadowMapCalculator::shadowCascadeDistanceMultipliers[cascade];
+		}
+		else
+		{
+			nearZ = SRVEngine.GetGraphics().GetCamera()->GetFarZ() *
+				ShadowMapCalculator::shadowCascadeDistanceMultipliers[cascade - 1];
+			farZ = SRVEngine.GetGraphics().GetCamera()->GetFarZ() *
+				ShadowMapCalculator::shadowCascadeDistanceMultipliers[cascade];
+		}
+
+		viewProjectionMatricies.push_back(
+			ShadowMapCalculator::GetDirectionalLightViewProj(gameObject->GetTransform()->GetForwardVector(),
+				nearZ, farZ));
 	}
 
 	for (int i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
 	{
-		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = (viewMatrix * projectionMatrix[i]).Transpose();
+		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = viewProjectionMatricies[i].Transpose();
 	}
 
 	if (cascadeShadowsBuffer.ApplyChanges())
@@ -85,28 +101,25 @@ void DirectionalLightComponent::SetShadowBuffer(size_t cascade_index)
 
 void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>& renderObjects)
 {
-	for (size_t i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
+	SetShadowBuffer();
+	SetShadowResources();
+
+	for (IRenderComponent* RC : renderObjects)
 	{
-		SetShadowResources(i);
-		SetShadowBuffer(i);
+		if (RC->GetGameObject() == gameObject) continue;
 
-		for (IRenderComponent* RC : renderObjects)
+		objectMatrixBuffer.GetData()->world = RC->GetGameObject()->GetTransform()->GetWorldMatrix().Transpose();
+		if (objectMatrixBuffer.ApplyChanges())
 		{
-			if (RC->GetGameObject() == gameObject) continue;
-			objectMatrixBuffer.GetData()->world = RC->GetGameObject()->GetTransform()->GetWorldMatrix().Transpose();
-			if (objectMatrixBuffer.ApplyChanges())
-			{
-				SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
-			}
-
-			RC->RenderForShadows(gameObject->GetTransform()->GetWorldMatrix(),
-				viewMatrix,
-				projectionMatrix[i]);
+			SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());
 		}
+
+		RC->RenderForShadows();
 	}
 
-	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
-	SRVDeviceContext->GSSetShader(NULL, NULL, 0);
+	SRVDeviceContext->ClearState();
+	//SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
+	//SRVDeviceContext->GSSetShader(NULL, NULL, 0);
 }
 
 void DirectionalLightComponent::SetLightColor(DirectX::XMFLOAT3& color)
@@ -159,28 +172,14 @@ ID3D11ShaderResourceView* const* DirectionalLightComponent::GetShadowSRVAddress(
 	return shadowSRV.GetAddressOf();
 }
 
-std::vector<Matrix> DirectionalLightComponent::GetProjectionMatrix()
+std::vector<Matrix> DirectionalLightComponent::GetViewProjectionMatricies()
 {
-	return projectionMatrix;
-}
-
-Matrix DirectionalLightComponent::GetViewMatrix()
-{
-	return viewMatrix;
+	return viewProjectionMatricies;
 }
 
 DirectX::XMMATRIX DirectionalLightComponent::GetWorldMatrix()
 {
 	return gameObject->GetTransform()->GetWorldMatrix();
-}
-
-Vector4D DirectionalLightComponent::GetCascadeDistances() const
-{
-	return Vector4D(
-		shadowCascadeDistances[0],
-		shadowCascadeDistances[1],
-		shadowCascadeDistances[2],
-		shadowCascadeDistances[3]);
 }
 
 void DirectionalLightComponent::CreateResources()
@@ -220,21 +219,13 @@ void DirectionalLightComponent::CreateResources()
 		"Failed to create shadowSRV.");
 
 
-	for (size_t i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
-	{
-		D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
-		dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
-		dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2DARRAY;
-		dsvDesc.Texture2DArray.MipSlice = 0;
-		dsvDesc.Texture2DArray.FirstArraySlice = i;
-		dsvDesc.Texture2DArray.ArraySize = 1;
+	D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2DARRAY;
+	dsvDesc.Texture2DArray.MipSlice = 0;
+	dsvDesc.Texture2DArray.FirstArraySlice = 0;
+	dsvDesc.Texture2DArray.ArraySize = ShadowMapCalculator::CascadeCount;
 
-		ThrowIfFailed(SRVDevice->CreateDepthStencilView(shadowmapTexture.Get(), &dsvDesc, depthStencilViews[i].GetAddressOf()),
-			"Failed to create depthStencilView: " + i);
-	}
-
-	shadowCascadeDistances.push_back(1000.0f / 50.0f);
-	shadowCascadeDistances.push_back(1000.0f / 25.0f);
-	shadowCascadeDistances.push_back(1000.0f / 10.0f);
-	shadowCascadeDistances.push_back(1000.0f / 2.0f);
+	ThrowIfFailed(SRVDevice->CreateDepthStencilView(shadowmapTexture.Get(), &dsvDesc, depthStencilView.GetAddressOf()),
+		"Failed to create depthStencilView");
 }

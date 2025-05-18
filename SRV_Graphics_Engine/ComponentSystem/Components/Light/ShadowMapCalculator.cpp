@@ -18,67 +18,50 @@ DirectX::XMMATRIX ShadowMapCalculator::GetViewMatrixDirectional(GameObject* game
 	return gameObject->GetTransform()->GetViewMatrix();
 }
 
-// frustrum corners world space should be calculated for each cascade
-// view for each cascade
-// calculate for each cascade with different nearZ and farZ
-void ShadowMapCalculator::GetDirectionalLightMatrices(GameObject* gameObject, std::vector<Matrix>& projections, Matrix& view)
+Matrix ShadowMapCalculator::GetDirectionalLightViewProj(Vector3D direction, float nearZ, float farZ)
 {
-	projections.clear();
-
-	// get corners with nearZ and farZ
-	// maybe make this method static??!
-	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(/*nearZ, farZ*/);
+	Matrix cameraProjMatrix = Matrix::CreatePerspectiveFieldOfView(
+		SRVEngine.GetGraphics().GetCamera()->GetFOV(),
+		SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
+		nearZ, farZ);
+	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraProjMatrix);
 
 	Vector3D center = Vector3D::Zero;
 	for (const auto& v : cameraFrustumCorners)
 	{
 		center += Vector3D(v);
 	}
-	center /= cameraFrustumCorners.size();
+	center /= static_cast<float>(cameraFrustumCorners.size());
 
-	view = Matrix::CreateLookAt(center, center + gameObject->GetTransform()->GetForwardVector(), Vector3D::Up);
+	const auto lightView = Matrix::CreateLookAt(center, center + direction, Vector3D::Up);
 
-	std::vector<Vector4D> slideVectors =
+	float minX = std::numeric_limits<float>::max();
+	float minY = std::numeric_limits<float>::max();
+	float minZ = std::numeric_limits<float>::max();
+	float maxX = std::numeric_limits<float>::lowest();
+	float maxY = std::numeric_limits<float>::lowest();
+	float maxZ = std::numeric_limits<float>::lowest();
+
+	for (const auto& v : cameraFrustumCorners)
 	{
-		cameraFrustumCorners[4] - cameraFrustumCorners[0],
-		cameraFrustumCorners[5] - cameraFrustumCorners[1],
-		cameraFrustumCorners[6] - cameraFrustumCorners[2],
-		cameraFrustumCorners[7] - cameraFrustumCorners[3]
-	};
-
-	for (int cascade = 1; cascade <= CascadeCount; ++cascade)
-	{
-		std::vector<Vector4D> cascadeCorners;
-
-		for (int i = 0; i < 4; i++)
-			cascadeCorners.push_back(cameraFrustumCorners[i] + (cascade - 1) * slideVectors[i] / CascadeCount);
-
-		for (int i = 0; i < 4; i++)
-			cascadeCorners.push_back(cameraFrustumCorners[i] + cascade * slideVectors[i] / CascadeCount);
-
-		float minX = (std::numeric_limits<float>::max)();
-		float maxX = std::numeric_limits<float>::lowest();
-		float minY = (std::numeric_limits<float>::max)();
-		float maxY = std::numeric_limits<float>::lowest();
-		float minZ = (std::numeric_limits<float>::max)();
-		float maxZ = std::numeric_limits<float>::lowest();
-
-		for (const auto& v : cascadeCorners)
-		{
-			const auto trf = Vector4D::Transform(v, view);
-			minX = (std::min)(minX, trf.x);
-			maxX = (std::max)(maxX, trf.x);
-			minY = (std::min)(minY, trf.y);
-			maxY = (std::max)(maxY, trf.y);
-			minZ = (std::min)(minZ, trf.z);
-			maxZ = (std::max)(maxZ, trf.z);
-		}
-
-		constexpr float zMult = 10.0f;
-		minZ = (minZ < 0) ? minZ * zMult : minZ / zMult;
-		maxZ = (maxZ < 0) ? maxZ / zMult : maxZ * zMult;
-
-		auto lightProjection = Matrix::CreateOrthographicOffCenter(minX, maxX, minY, maxY, minZ, maxZ);
-		projections.push_back(lightProjection);
+		const auto trf = Vector4D::Transform(v, lightView);
+		minX = std::min(minX, trf.x);
+		maxX = std::max(maxX,trf.x);
+		minY = std::min(minY, trf.y);
+		maxY = std::max(maxY, trf.y);
+		minZ = std::min(minZ, trf.z);
+		maxZ = std::max(maxZ, trf.z);
 	}
+
+	constexpr float zMult = 10.0f;
+	minZ = (minZ < 0) ? minZ * zMult : minZ / zMult;
+	maxZ = (maxZ < 0) ? maxZ / zMult : maxZ * zMult;
+
+	const auto lightProjection = Matrix::CreateOrthographicOffCenter(minX, maxX, minY, maxY, minZ, maxZ);
+	return lightView * lightProjection;
 }
+
+// frustrum corners world space should be calculated for each cascade
+// view for each cascade
+// calculate for each cascade with different nearZ and farZ
+

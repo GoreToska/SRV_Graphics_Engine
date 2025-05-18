@@ -109,9 +109,9 @@ void TextureMeshComponent::Render()
 	}
 }
 
-void TextureMeshComponent::RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix)
+void TextureMeshComponent::RenderForShadows()
 {
-	IRenderComponent::RenderForShadows(lightWorldMatrix, lightViewMatrix, lightProjectionMatrix);
+	IRenderComponent::RenderForShadows();
 
 	if (indexes.size() > 0)
 	{

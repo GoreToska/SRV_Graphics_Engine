@@ -87,7 +87,7 @@ int main()
 		}
 	}
 
-	static float directionalLightPosition[3] = { 0,0,0 };
+	static float directionalLightPosition[3] = { 0,40,-30 };
 	static float directionalLightRotation[3] = { 0,0,0 };
 
 	GameObject* directionalLight = new GameObject(Vector3D(
@@ -102,55 +102,55 @@ int main()
 	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightColor({ 1, 1, 1 });
 	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightStrength(2);
 
-	GameObject* blueBird = new GameObject(Vector3D(5.0f, 0.0f, -5.0f));
+	GameObject* blueBird = new GameObject(Vector3D(15.0f, 0.0f, -15.0f));
 	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
 	blueBird->AddComponent(new SphereCollisionComponent(blueBird, Vector3D(0.0f, 0.0f, 0.0f), 2.4));
 	blueBird->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(blueBird);
 
-	GameObject* phone = new GameObject(Vector3D(-25.0f, 0.0f, 5.0f));
+	/*GameObject* phone = new GameObject(Vector3D(-25.0f, 0.0f, 5.0f));
 	phone->AddComponent(new MeshRendererComponent(phoneModelData, phone, ShaderManager::ShaderType::Texture));
 	phone->AddComponent(new SphereCollisionComponent(phone, Vector3D(0.0f, 0.0f, 0.0f), 3));
 	phone->GetTransform()->SetScale(Vector3D(0.04, 0.04, 0.04));
-	SRVEngine.AddGameObject(phone);
+	SRVEngine.AddGameObject(phone);*/
 
-	GameObject* hat = new GameObject(Vector3D(-25.0f, 0.0f, 20.0f));
+	/*GameObject* hat = new GameObject(Vector3D(-25.0f, 1.0f, 20.0f));
 	hat->AddComponent(new MeshRendererComponent(hatModelData, hat, ShaderManager::ShaderType::Texture));
 	hat->AddComponent(new SphereCollisionComponent(hat, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	hat->GetTransform()->SetScale(Vector3D(0.2, 0.2, 0.2));
-	SRVEngine.AddGameObject(hat);
+	SRVEngine.AddGameObject(hat);*/
 
-	GameObject* memoryCard = new GameObject(Vector3D(-20.0f, 0.0f, -20.0f));
+	/*GameObject* memoryCard = new GameObject(Vector3D(-20.0f, 0.0f, -20.0f));
 	memoryCard->AddComponent(new MeshRendererComponent(memoryCardModelData, memoryCard, ShaderManager::ShaderType::Texture));
 	memoryCard->AddComponent(new SphereCollisionComponent(memoryCard, Vector3D(0.0f, 0.0f, 0.0f), 3));
 	memoryCard->GetTransform()->SetScale(Vector3D(1, 1, 1));
-	SRVEngine.AddGameObject(memoryCard);
+	SRVEngine.AddGameObject(memoryCard);*/
 
-	GameObject* radio = new GameObject(Vector3D(-20.0f, 0.0f, 10.0f));
+	/*GameObject* radio = new GameObject(Vector3D(-20.0f, 0.0f, 10.0f));
 	radio->AddComponent(new MeshRendererComponent(radioModelData, radio, ShaderManager::ShaderType::Texture));
 	radio->AddComponent(new SphereCollisionComponent(radio, Vector3D(0.0f, 0.0f, 0.0f), 2.7));
 	radio->GetTransform()->SetScale(Vector3D(1, 1, 1));
-	SRVEngine.AddGameObject(radio);
+	SRVEngine.AddGameObject(radio);*/
 
-	GameObject* kettle = new GameObject(Vector3D(-15.0f, 0.0f, 10.0f));
+	/*GameObject* kettle = new GameObject(Vector3D(-15.0f, 0.0f, 10.0f));
 	kettle->AddComponent(new MeshRendererComponent(kettleModelData, kettle, ShaderManager::ShaderType::Texture));
 	kettle->AddComponent(new SphereCollisionComponent(kettle, Vector3D(0.0f, 0.0f, 0.0f), 3));
 	kettle->GetTransform()->SetScale(Vector3D(0.2, 0.2, 0.2));
-	SRVEngine.AddGameObject(kettle);
+	SRVEngine.AddGameObject(kettle);*/
 
-	GameObject* octopus = new GameObject(Vector3D(5.0f, 0.0f, -10.0f));
+	GameObject* octopus = new GameObject(Vector3D(10.0f, 0.0f, -10.0f));
 	octopus->AddComponent(new MeshRendererComponent(octopusModelData, octopus, ShaderManager::ShaderType::Texture));
 	octopus->AddComponent(new SphereCollisionComponent(octopus, Vector3D(0.0f, 0.0f, 0.0f), 4));
 	octopus->GetTransform()->SetScale(Vector3D(3, 3, 3));
 	SRVEngine.AddGameObject(octopus);
 
-	GameObject* amongus = new GameObject(Vector3D(0.0f, 0.0f, 0.0f));
+	GameObject* amongus = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
 	amongus->AddComponent(new MeshRendererComponent(amongusModelData, amongus, ShaderManager::ShaderType::Texture));
 	amongus->AddComponent(new SphereCollisionComponent(amongus, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	amongus->GetTransform()->SetScale(Vector3D(0.03, 0.03, 0.03));
 	SRVEngine.AddGameObject(amongus);
 
-	GameObject* greenPig = new GameObject(Vector3D(5.0f, 0.0f, 5.0f));
+	GameObject* greenPig = new GameObject(Vector3D(10.0f, 0.0f, 10.0f));
 	greenPig->AddComponent(new MeshRendererComponent(greenPigModelData, greenPig, ShaderManager::ShaderType::Texture));
 	greenPig->AddComponent(new SphereCollisionComponent(greenPig, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
@@ -181,7 +181,7 @@ int main()
 		float deltaTime = SRVEngine.GetTimer()->GetMilisecondsElapsed();
 		SRVEngine.GetTimer()->Restart();
 
-		greenPig->GetTransform()->AddLocalRotation({ 0.01,0.01,0.01 });
+		//greenPig->GetTransform()->AddLocalRotation({ 0.01,0.01,0.01 });
 
 		directionalLight->GetTransform()->SetRotation({directionalLightRotation[0], directionalLightRotation[1],directionalLightRotation[2] });
 		directionalLight->GetTransform()->SetPosition({directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2] });

@@ -228,18 +228,18 @@ float Camera::GetAspectRatio()
 	return aspectRatio;
 }
 
-std::vector<Vector4D> Camera::GetFrustumCornersWorldSpace(float nearZ, float farZ)
+std::vector<Vector4D> Camera::GetFrustumCornersWorldSpace(Matrix viewProj)
 {
-	const auto viewProj = GetViewMatrix() * GetProjectionMatrix();
 	const auto inv = viewProj.Invert();
 
 	std::vector<Vector4D> frustumCorners;
+	frustumCorners.reserve(8);
 	
-	for (int z = 0; z < 2; ++z)
+	for (int x = 0; x < 2; ++x)
 	{
-		for (int x = 0; x < 2; ++x)
+		for (int y = 0; y < 2; ++y)
 		{
-			for (int y = 0; y < 2; ++y)
+			for (int z = 0; z < 2; ++z)
 			{
 				const Vector4D pt = Vector4D::Transform(Vector4D(
 					2.0f * x - 1.0f,

@@ -13,7 +13,7 @@ public:
 
 	virtual void Update(const float& deltaTime) = 0;
 	virtual void Render();
-	virtual void RenderForShadows(DirectX::XMMATRIX lightWorldMatrix, DirectX::XMMATRIX lightViewMatrix, DirectX::XMMATRIX lightProjectionMatrix);
+	virtual void RenderForShadows();
 
 	virtual int GetVertexCount() const = 0;
 	virtual void SetVertexBufferContext() = 0;
