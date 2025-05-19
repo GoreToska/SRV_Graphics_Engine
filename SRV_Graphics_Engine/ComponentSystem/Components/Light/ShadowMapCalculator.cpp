@@ -24,21 +24,23 @@ Matrix ShadowMapCalculator::GetDirectionalLightViewProj(Vector3D direction, floa
 		SRVEngine.GetGraphics().GetCamera()->GetFOV(),
 		SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
 		nearZ, farZ);
-	/*Matrix cameraProjMatrix = SRVEngine.GetGraphics().GetCamera()->GetViewMatrix() * Matrix::CreatePerspectiveFieldOfView(
-		SRVEngine.GetGraphics().GetCamera()->GetFOV(),
-		SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
-		nearZ, farZ);*/
+
+	/*Matrix cameraProjMatrix = SRVEngine.GetGraphics().GetCamera()->GetViewMatrix() *
+		Matrix::CreatePerspectiveFieldOfView(
+			SRVEngine.GetGraphics().GetCamera()->GetFOV(),
+			SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
+			nearZ, farZ);*/
 	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraProjMatrix);
 
-	Vector3D center = Vector3D::Zero;
+	Vector4D center = Vector4D::Zero;
 	for (const auto& v : cameraFrustumCorners)
 	{
-		center += Vector3D(v);
+		center += v;
 	}
 	center /= static_cast<float>(cameraFrustumCorners.size());
 
-	const auto lightView = Matrix::CreateLookAt(center, center + direction, Vector3D::Up);
-
+	//const auto lightView = Matrix::CreateLookAt(center, center + direction, Vector4D::Up);
+	auto newView = DirectX::XMMatrixLookAtLH(center, center + Vector4D(direction.x, direction.y, direction.z, 1.0f), Vector3D::Up);
 	float minX = std::numeric_limits<float>::max();
 	float minY = std::numeric_limits<float>::max();
 	float minZ = std::numeric_limits<float>::max();
@@ -48,7 +50,7 @@ Matrix ShadowMapCalculator::GetDirectionalLightViewProj(Vector3D direction, floa
 
 	for (const auto& v : cameraFrustumCorners)
 	{
-		const auto trf = Vector4D::Transform(v, lightView);
+		const auto trf = Vector4D::Transform(v, newView);
 		minX = std::min(minX, trf.x);
 		maxX = std::max(maxX, trf.x);
 		minY = std::min(minY, trf.y);
@@ -61,8 +63,9 @@ Matrix ShadowMapCalculator::GetDirectionalLightViewProj(Vector3D direction, floa
 	minZ = (minZ < 0) ? minZ * zMult : minZ / zMult;
 	maxZ = (maxZ < 0) ? maxZ / zMult : maxZ * zMult;
 
-	const auto lightProjection = Matrix::CreateOrthographicOffCenter(minX, maxX, minY, maxY, minZ, maxZ);
-	return lightView * lightProjection;
+	//const auto lightProjection = Matrix::CreateOrthographicOffCenter(minX, maxX, minY, maxY, minZ, maxZ);
+	const auto lightProjection = DirectX::XMMatrixOrthographicOffCenterLH(minX, maxX, minY, maxY, minZ, maxZ);
+	return newView * lightProjection;
 }
 
 // frustrum corners world space should be calculated for each cascade

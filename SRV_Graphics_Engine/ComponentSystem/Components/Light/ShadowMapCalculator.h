@@ -20,5 +20,5 @@ public:
 	static constexpr float ShadowmapSize = 4096;
 	static constexpr size_t CascadeCount = 4;
 
-	static constexpr float shadowCascadeDistanceMultipliers[CascadeCount] = {0.05, 0.1, 0.3, 1};
+	static constexpr float shadowCascadeDistanceMultipliers[CascadeCount] = {0.05, 0.2, 0.3, 1};
 };
