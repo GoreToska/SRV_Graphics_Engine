@@ -13,10 +13,10 @@ IRenderComponent::IRenderComponent(GameObject* gameObject, ShaderManager::Shader
 
 void IRenderComponent::Render()
 {
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(shaderType)->GetShader(), NULL, 0);
-	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	SetVertexBufferContext();
 
@@ -29,6 +29,8 @@ void IRenderComponent::Render()
 
 void IRenderComponent::RenderForShadows()
 {
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
 	SetVertexBufferContext();
 
 	UpdateTransformBuffer(Matrix::Identity, Matrix::Identity, Matrix::Identity);

@@ -1,21 +1,5 @@
-﻿  ShadowMapCalculator.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,75): warning C4305: 'initializing': truncation from 'double' to 'const float'
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
+﻿C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\TexturePixelShader.hlsl(168,11-82): warning X3206: implicit truncation of vector type
+C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\TexturePixelShader.hlsl(170,12-76): warning X3206: implicit truncation of vector type
   
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,81): warning C4305: 'initializing': truncation from 'double' to 'const float'
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,86): warning C4305: 'initializing': truncation from 'double' to 'const float'
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(23,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
-  (compiling source file 'ComponentSystem/Components/Light/ShadowMapCalculator.cpp')
-  
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.cpp(12,51): warning C4305: 'argument': truncation from 'double' to 'float'
-  SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe
+  compilation object save succeeded; see C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\TexturePixelShader.cso
+  SRV_Graphics_Engine.vcxproj -> C:\Program Files (x86)\CPP projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

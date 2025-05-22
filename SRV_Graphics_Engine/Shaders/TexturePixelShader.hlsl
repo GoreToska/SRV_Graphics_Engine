@@ -27,6 +27,7 @@ struct PS_INPUT
 };
 
 Texture2D objTexture : TEXTURE : register(t0);
+Texture2D decalTexture : TEXTURE : register(t2);
 SamplerState objSamplerState : SAMPLER : register(s0);
 Texture2DArray shadowMap : SHADOWMAP : register(t1);
 SamplerComparisonState shadowSampler : SHADOWSAMPLER : register(s1);
@@ -112,7 +113,7 @@ float CalculateShadow(float3 worldPosition)
         } 
     }
     
-    return /*color_mult*/summ_shadow / totalSamples;
+    return /*color_mult*/summ_shadow / totalSamples < 0.3 ? 0.3 : 1;
     
    
     
@@ -163,12 +164,19 @@ float4 main(PS_INPUT input) : SV_TARGET
     float diffuseFactor = saturate(dot(normal, lightDir));
     float3 diffuse = dynamicLightColor * dynamicLightStrenght * diffuseFactor;
     
-    float3 shadow = CalculateShadow(input.globalPosition.xyz);
+    float shadow = CalculateShadow(input.globalPosition.xyz);
+    float decal = decalTexture.Sample(objSamplerState, input.textCoord * 10) * 0.5;
     
     float3 sampleColor = objTexture.Sample(objSamplerState, input.textCoord);
     
-    float3 finalColor = sampleColor * (ambient + diffuse * shadow);
+    //float3 finalColor = sampleColor * (ambient + diffuse * shadow);
+    float3 finalColor;
     
+    if(shadow != 1)
+        finalColor = sampleColor * (ambient + diffuse * decal * shadow);
+    else
+        finalColor = sampleColor * (ambient + diffuse);
+
       
     return float4(saturate(finalColor), 1.0);
 }

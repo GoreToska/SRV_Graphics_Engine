@@ -31,6 +31,8 @@ public:
 	virtual int GetVertexCount() const override;
 	virtual void SetVertexBufferContext() override;
 
+	void SetDecal(ID3D11ShaderResourceView* texture);
+
 protected:
 	bool LoadModel(const std::string& filePath);
 	void ProcessNode(aiNode* node, const aiScene* scene);
@@ -39,5 +41,6 @@ protected:
 	std::vector<TextureMeshComponent> meshes = {};
 
 	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> texture;
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> decalTexture;
 };
 

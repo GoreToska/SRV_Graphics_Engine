@@ -48,7 +48,7 @@ void DirectionalLightComponent::SetShadowResources()
 {
 	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
 	SRVDeviceContext->RSSetViewports(1, &shadowMapViewport);
-
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	SRVDeviceContext->VSSetShaderResources(0, 1, shadowSRV.GetAddressOf());
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::ShadowMap)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::ShadowMap)->GetShader(), NULL, 0);

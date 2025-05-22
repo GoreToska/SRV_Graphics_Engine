@@ -87,6 +87,10 @@ int main()
 		}
 	}
 
+	ID3D11ShaderResourceView* decal;
+	ThrowIfFailed(DirectX::CreateWICTextureFromFile(SRVDevice, L"Data\\Textures\\Pattern.jpg", nullptr, &decal),
+		"Failed to create texture.");
+
 	static float directionalLightPosition[3] = { 0,40,-30 };
 	static float directionalLightRotation[3] = { 0,0,0 };
 
@@ -103,10 +107,14 @@ int main()
 	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightStrength(2);
 
 	GameObject* blueBird = new GameObject(Vector3D(15.0f, 0.0f, -15.0f));
-	blueBird->AddComponent(new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture));
+	auto t = new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture);
+	t->SetDecal(decal);
+	blueBird->AddComponent(t);
+	
 	blueBird->AddComponent(new SphereCollisionComponent(blueBird, Vector3D(0.0f, 0.0f, 0.0f), 2.4));
 	blueBird->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(blueBird);
+	
 
 	/*GameObject* phone = new GameObject(Vector3D(-25.0f, 0.0f, 5.0f));
 	phone->AddComponent(new MeshRendererComponent(phoneModelData, phone, ShaderManager::ShaderType::Texture));
@@ -139,19 +147,25 @@ int main()
 	SRVEngine.AddGameObject(kettle);*/
 
 	GameObject* octopus = new GameObject(Vector3D(10.0f, 0.0f, -10.0f));
-	octopus->AddComponent(new MeshRendererComponent(octopusModelData, octopus, ShaderManager::ShaderType::Texture));
+	t = new MeshRendererComponent(octopusModelData, octopus, ShaderManager::ShaderType::Texture);
+	t->SetDecal(decal);
+	octopus->AddComponent(t);
 	octopus->AddComponent(new SphereCollisionComponent(octopus, Vector3D(0.0f, 0.0f, 0.0f), 4));
 	octopus->GetTransform()->SetScale(Vector3D(3, 3, 3));
 	SRVEngine.AddGameObject(octopus);
 
 	GameObject* amongus = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
-	amongus->AddComponent(new MeshRendererComponent(amongusModelData, amongus, ShaderManager::ShaderType::Texture));
+	t = new MeshRendererComponent(amongusModelData, amongus, ShaderManager::ShaderType::Texture);
+	t->SetDecal(decal);
+	amongus->AddComponent(t);
 	amongus->AddComponent(new SphereCollisionComponent(amongus, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	amongus->GetTransform()->SetScale(Vector3D(0.03, 0.03, 0.03));
 	SRVEngine.AddGameObject(amongus);
 
 	GameObject* greenPig = new GameObject(Vector3D(10.0f, 0.0f, 10.0f));
-	greenPig->AddComponent(new MeshRendererComponent(greenPigModelData, greenPig, ShaderManager::ShaderType::Texture));
+	t = new MeshRendererComponent(greenPigModelData, greenPig, ShaderManager::ShaderType::Texture);
+	t->SetDecal(decal);
+	greenPig->AddComponent(t);
 	greenPig->AddComponent(new SphereCollisionComponent(greenPig, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
 	SRVEngine.AddGameObject(greenPig);
@@ -172,7 +186,9 @@ int main()
 
 	GameObject* ground = new GameObject(Vector3D(0.0f, -3.0f, 0.0f));
 	ground->GetTransform()->SetScale({ 10,10,10 });
-	ground->AddComponent(new MeshRendererComponent(groundModelData, ground, ShaderManager::ShaderType::Texture));
+	t = new MeshRendererComponent(groundModelData, ground, ShaderManager::ShaderType::Texture);
+	t->SetDecal(decal);
+	ground->AddComponent(t);
 	SRVEngine.AddGameObject(ground);
 
 
