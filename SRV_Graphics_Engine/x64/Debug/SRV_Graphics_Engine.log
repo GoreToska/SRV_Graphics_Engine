@@ -1,7 +1,7 @@
-﻿D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(1,11-31): warning X3207: Initializer used on a global 'const' variable. This requires setting an external constant. If a literal is desired, use 'static const' instead.
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(2,11-25): warning X3207: Initializer used on a global 'const' variable. This requires setting an external constant. If a literal is desired, use 'static const' instead.
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(3,11-24): warning X3207: Initializer used on a global 'const' variable. This requires setting an external constant. If a literal is desired, use 'static const' instead.
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(51,5-77): warning X3206: implicit truncation of vector type
+﻿D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(137,11-54): warning X3206: implicit truncation of vector type
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(141,11-72): warning X3206: implicit truncation of vector type
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(146,5-77): warning X3206: implicit truncation of vector type
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(91,20): warning X4000: use of potentially uninitialized variable (CalculateShadow)
   
   compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\deferredLightPS.cso
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

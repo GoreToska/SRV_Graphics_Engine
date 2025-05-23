@@ -18,6 +18,8 @@ cbuffer perObjectBuffer : register(b0)
     matrix world;
     matrix view;
     matrix projection;
+    matrix inverseView;
+    matrix inverseProjection;
 };
 
 PS_IN main(VS_IN input)

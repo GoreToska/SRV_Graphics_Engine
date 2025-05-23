@@ -24,7 +24,7 @@ public:
 protected:
 	void UpdateLightBuffer();
 	void UpdateCascadeShadowBuffer();
-	void UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix);
+	void UpdateTransformBuffer(Matrix WorldMatrix, Matrix ViewMatrix, Matrix ProjectionMatrix);
 
 	GameObject* gameObject = nullptr;
 

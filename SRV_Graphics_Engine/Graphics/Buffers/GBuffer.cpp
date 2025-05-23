@@ -25,10 +25,11 @@ void GBuffer::PSBindResourceViews(int startIndex) const
 		depthSRV.Get(),
 		normalSRV.Get(),
 		diffuseSRV.Get(),
-		specularSRV.Get()
+		specularSRV.Get(),
+		SRVEngine.GetGraphics().GetDepthStencilSRV()
 	};
 
-	SRVDeviceContext->PSSetShaderResources(startIndex, 4, rsvs);
+	SRVDeviceContext->PSSetShaderResources(startIndex, 5, rsvs);
 }
 
 void GBuffer::ClearRenderTargets() const

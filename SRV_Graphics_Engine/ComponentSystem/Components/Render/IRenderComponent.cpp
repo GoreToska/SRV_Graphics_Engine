@@ -72,7 +72,7 @@ void IRenderComponent::UpdateLightBuffer()
 
 void IRenderComponent::UpdateCascadeShadowBuffer()
 {
-	cascadeShadowsBuffer.GetData()->Distances = 
+	cascadeShadowsBuffer.GetData()->Distances =
 		Vector4D(ShadowMapCalculator::shadowCascadeDistanceMultipliers[0],
 			ShadowMapCalculator::shadowCascadeDistanceMultipliers[1],
 			ShadowMapCalculator::shadowCascadeDistanceMultipliers[2],
@@ -96,12 +96,14 @@ void IRenderComponent::UpdateCascadeShadowBuffer()
 	}
 }
 
-void IRenderComponent::UpdateTransformBuffer(DirectX::XMMATRIX WorldMatrix, DirectX::XMMATRIX ViewMatrix, DirectX::XMMATRIX ProjectionMatrix)
+void IRenderComponent::UpdateTransformBuffer(Matrix WorldMatrix, Matrix ViewMatrix, Matrix ProjectionMatrix)
 {
-	objectMatrixBuffer.GetData()->world = DirectX::XMMatrixTranspose(gameObject->GetTransform()->GetWorldMatrix());
+	objectMatrixBuffer.GetData()->world = gameObject->GetTransform()->GetWorldMatrix().Transpose();;
 
-	objectMatrixBuffer.GetData()->view = DirectX::XMMatrixTranspose(ViewMatrix);
-	objectMatrixBuffer.GetData()->projection = DirectX::XMMatrixTranspose(ProjectionMatrix);
+	objectMatrixBuffer.GetData()->view = ViewMatrix.Transpose();
+	objectMatrixBuffer.GetData()->projection = ProjectionMatrix.Transpose();
+	objectMatrixBuffer.GetData()->inverseView = ViewMatrix.Invert().Transpose();
+	objectMatrixBuffer.GetData()->inverseProjection = ProjectionMatrix.Invert().Transpose();
 
 	if (objectMatrixBuffer.ApplyChanges())
 		SRVDeviceContext->VSSetConstantBuffers(0, 1, objectMatrixBuffer.GetAddressOf());

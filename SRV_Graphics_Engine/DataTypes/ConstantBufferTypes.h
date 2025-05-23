@@ -8,6 +8,8 @@ struct VS_ObjectMatrixBuffer
 	Matrix world;
 	Matrix view;
 	Matrix projection;
+	Matrix inverseView;
+	Matrix inverseProjection;
 };
 
 struct VS_LightMatrixBuffer

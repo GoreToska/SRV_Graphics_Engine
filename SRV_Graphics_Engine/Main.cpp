@@ -23,7 +23,7 @@
 #include "ComponentSystem/Components/Camera/ThirdPersonCameraComponent.h"
 #include "DataTypes/ModelData.h"
 #include "./ComponentSystem/Components/Render/PrimitiveRenderComponent.h"
-#include "ComponentSystem/Components/Light/PointLightComponent.h"
+#include "ComponentSystem/Components/Light/DirectionalLightComponent.h"
 
 
 

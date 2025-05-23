@@ -1,18 +1,9 @@
-
-const int DIRECTIONAL_LIGHT = 1;
-const int POINT_LIGHT = 2;
-const int SPOT_LIGHT = 3;
-
-struct LightSource
-{
-    float4 position;
-    float4 direction;
-    float4 rgb;
-    int sourceType;
-    float shineDistance;
-    float angle;
-    float intensity;
-};
+#ifndef CASCADE_COUNT
+#define CASCADE_COUNT 4
+#define DIRECTIONAL_LIGHT 1
+#define POINT_LIGHT 2
+#define SPOT_LIGHT 3
+#endif
 
 struct VS_IN
 {
@@ -24,6 +15,7 @@ struct PS_IN
     float4 pos : SV_POSITION;
     float4 viewPos : POSITION0;
     float4 tex : TEXCOORD0;
+    float4 globalPos : POSITION1;
 };
 
 PS_IN main(VS_IN input, uint id : SV_VertexID)

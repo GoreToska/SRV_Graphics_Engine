@@ -31,6 +31,8 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 
 	gBuffer = new GBuffer();
 
+	deferred_objectMatrixBuffer.Initialize();
+
 	InitImGui(hwnd);
 
 	return true;
@@ -56,6 +58,34 @@ void Graphics::RenderFrame()
 {
 	RenderShadows();
 
+	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
+	SRVDeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
+	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+
+	FillGBuffer();
+
+	//SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
+	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), nullptr);
+
+	
+	SRVDeviceContext->RSSetState(rasterizerState.Get());
+	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
+
+	SRVDeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
+	SRVDeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
+	
+	worldMatrix = DirectX::XMMatrixIdentity();
+
+	DrawDeferredScreenQuad();
+
+	ImGui::Render();
+	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+
+	swapchain->Present(1, NULL);
+}
+
+void Graphics::FillGBuffer()
+{
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Opaque)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Opaque)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Opaque)->GetShader(), NULL, 0);
@@ -72,23 +102,16 @@ void Graphics::RenderFrame()
 	{
 		item->Render(false);
 	}
+}
 
-	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
-	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
-	SRVDeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
-	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
-
-	SRVDeviceContext->RSSetState(rasterizerState.Get());
-	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
-
-	SRVDeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
-	SRVDeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
-
-	worldMatrix = DirectX::XMMatrixIdentity();
-
+void Graphics::DrawDeferredScreenQuad()
+{
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
+
+	SetConstBufferForLight();
+	SRVDeviceContext->PSSetConstantBuffers(2, 1, deferred_objectMatrixBuffer.GetAddressOf());
 	gBuffer->PSBindResourceViews(2);
 
 
@@ -99,23 +122,13 @@ void Graphics::RenderFrame()
 	IndexBuffer indexBuffer = {};
 	vertexBuffer.Initialize(verts.data(), verts.size());
 	indexBuffer.Initialize(idcs.data(), idcs.size());
-	std::vector<UINT> mockStrides = { 16 };
+	std::vector<UINT> mockStrides = { 0 };
 
 	SRVDeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), mockStrides.data(), mockOffsets.data());
 	SRVDeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
 
 	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 	SRVDeviceContext->Draw(4, 0);
-
-	/*for (IRenderComponent* item : objectRenderPool)
-	{
-		item->Render();
-	}*/
-
-	ImGui::Render();
-	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-
-	swapchain->Present(1, NULL);
 }
 
 void Graphics::AddObjectToRenderPool(IRenderComponent* object)
@@ -159,12 +172,28 @@ ID3D11DepthStencilView* Graphics::GetDepthStencilView()
 	return depthStencilView.Get();
 }
 
+ID3D11ShaderResourceView* Graphics::GetDepthStencilSRV()
+{
+	return depthStencilSRV.Get();
+}
+
 void Graphics::RenderShadows()
 {
 	for (DirectionalLightComponent* item : lightPool)
 	{
 		item->RenderShadowPass(objectRenderPool);
 	}
+}
+
+void Graphics::SetConstBufferForLight()
+{
+	deferred_objectMatrixBuffer.GetData()->world = Matrix::Identity.Transpose();
+	deferred_objectMatrixBuffer.GetData()->view = camera->GetViewMatrix().Transpose();
+	deferred_objectMatrixBuffer.GetData()->projection = camera->GetProjectionMatrix().Transpose();
+	deferred_objectMatrixBuffer.GetData()->inverseView = camera->GetViewMatrix().Invert().Transpose();
+	deferred_objectMatrixBuffer.GetData()->inverseProjection = camera->GetProjectionMatrix().Invert().Transpose();
+
+	deferred_objectMatrixBuffer.ApplyChanges();
 }
 
 bool Graphics::InitializeDirectX(HWND hwnd)
@@ -349,15 +378,16 @@ bool Graphics::CreateDepthStencilBuffer()
 	depthStencilDesc.Height = clientHeight;
 	depthStencilDesc.MipLevels = 1;
 	depthStencilDesc.ArraySize = 1;
-	depthStencilDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	depthStencilDesc.Format = DXGI_FORMAT_R32_TYPELESS;
 	depthStencilDesc.SampleDesc.Count = 1;
 	depthStencilDesc.SampleDesc.Quality = 0;
 	depthStencilDesc.Usage = D3D11_USAGE_DEFAULT;
-	depthStencilDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+	depthStencilDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL | D3D11_BIND_SHADER_RESOURCE;
 	depthStencilDesc.CPUAccessFlags = 0;
 	depthStencilDesc.MiscFlags = 0;
+	depthStencilDesc.SampleDesc = { 1, 0 };
 
-	HRESULT hr = SRVDevice->CreateTexture2D(&depthStencilDesc, NULL, depthStencilBuffer.GetAddressOf());
+	HRESULT hr = SRVDevice->CreateTexture2D(&depthStencilDesc, NULL, depthStencilTexture.GetAddressOf());
 
 	if (FAILED(hr))
 	{
@@ -365,13 +395,24 @@ bool Graphics::CreateDepthStencilBuffer()
 		return false;
 	}
 
-	hr = SRVDevice->CreateDepthStencilView(depthStencilBuffer.Get(), NULL, depthStencilView.GetAddressOf());
+	D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+	dsvDesc.Texture2D.MipSlice = 0;
+	hr = SRVDevice->CreateDepthStencilView(depthStencilTexture.Get(), &dsvDesc, depthStencilView.GetAddressOf());
 
 	if (FAILED(hr))
 	{
 		Logger::LogError(hr, "Failed to create depth stencil view.");
 		return false;
 	}
+
+	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+	srvDesc.Format = DXGI_FORMAT_R32_FLOAT;
+	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+	srvDesc.Texture2D.MipLevels = 1;
+	srvDesc.Texture2D.MostDetailedMip = 0;
+	ThrowIfFailed(SRVDevice->CreateShaderResourceView(depthStencilTexture.Get(), &srvDesc, depthStencilSRV.GetAddressOf()), "Failed.");
 
 	return true;
 }

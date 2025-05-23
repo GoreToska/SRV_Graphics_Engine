@@ -113,45 +113,6 @@ float CalculateShadow(float3 worldPosition)
     }
     
     return /*color_mult*/summ_shadow / totalSamples < 0.3 ? 0.3 : 1;
-    
-   
-    
-    
-    /*float3 projCoords = lightViewPosition.xyz / lightViewPosition.w;
-    projCoords.xy = projCoords.xy * 0.5 + 0.5;
-    projCoords.y = 1.0 - projCoords.y;
-
-    if (projCoords.x < 0.0 || projCoords.x > 1.0 ||
-        projCoords.y < 0.0 || projCoords.y > 1.0 ||
-        projCoords.z < 0.0 || projCoords.z > 1.0)
-    {
-        return 1.0;
-    }
-
-    float currentDepth = projCoords.z;
-    
-    const int filterSize = 3; 
-    float shadow = 0.0;
-    float totalSamples = 0.0;
-
-    for (int x = -filterSize; x <= filterSize; ++x)
-    {
-        for (int y = -filterSize; y <= filterSize; ++y)
-        {
-            float2 offset = float2(x, y) / 2048.0f;
-            float2 sampleCoords = projCoords.xy + offset;
-
-            if (sampleCoords.x >= 0.0 && sampleCoords.x <= 1.0 &&
-                sampleCoords.y >= 0.0 && sampleCoords.y <= 1.0)
-            {
-                float shadowMapDepth = shadowMap.Sample(shadowSampler, sampleCoords).r;
-                shadow += (currentDepth - 0.001) <= shadowMapDepth ? 1.0 : 0.0;
-                totalSamples += 1.0;
-            }
-        }
-    }
-
-    return shadow / totalSamples;*/
 }
 
 float4 main(PS_INPUT input) : SV_TARGET

@@ -7,7 +7,7 @@
 #include "../ComponentSystem/GameObject.h"
 #include "Camera.h"
 #include "../ComponentSystem/Components/Render/MeshRendererComponent.h"
-#include "../ComponentSystem/Components/Light/PointLightComponent.h"
+#include "../ComponentSystem/Components/Light/DirectionalLightComponent.h"
 #include "Grid/Grid.h"
 
 #include<d3d11.h>
@@ -28,6 +28,8 @@ class Graphics
 public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
+	void FillGBuffer();
+	void DrawDeferredScreenQuad();
 	void AddObjectToRenderPool(IRenderComponent* object);
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;
@@ -36,9 +38,13 @@ public:
 	float GetClientHeight() const;
 	std::vector<DirectionalLightComponent*> GetAllLights() const;
 	ID3D11DepthStencilView* GetDepthStencilView();
+	ID3D11ShaderResourceView* GetDepthStencilSRV();
+
 
 private:
 	void RenderShadows();
+
+	void SetConstBufferForLight();
 
 	bool InitializeDirectX(HWND hwnd);
 	bool CreateDeviceAndSwapChain(HWND hwnd);
@@ -69,11 +75,14 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;
 
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilView> depthStencilView;
-	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilBuffer;
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> depthStencilSRV;
+	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilTexture;
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilState> depthStencilState;
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerState;
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> samplerState;
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> shadowSamplerState;
+
+	ConstantBuffer<VS_ObjectMatrixBuffer> deferred_objectMatrixBuffer = {};
 
 	D3D11_VIEWPORT viewport;
 };

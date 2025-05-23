@@ -1,4 +1,4 @@
-#include "PointLightComponent.h"
+#include "DirectionalLightComponent.h"
 #include "../../../DataTypes/ModelData.h"
 #include "ShadowMapCalculator.h"
 
