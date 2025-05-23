@@ -37,7 +37,6 @@ bool ShaderManager::Initialize()
 		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
 		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
 		{"NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
-		{"LIGHT_POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
 	};
 
 	UINT numElements = ARRAYSIZE(textureLayoutDesc);
@@ -48,6 +47,24 @@ bool ShaderManager::Initialize()
 	if (!texturePS.Initialize(shaderFolder + L"TexturePixelShader.cso"))
 		return false;
 	// --- Texture Shaders ---
+
+	// --- Deferred Opaque Shaders ---
+	D3D11_INPUT_ELEMENT_DESC deferredOpaqueLayoutDesc[] =
+	{
+		{"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+		{"NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+		{"TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0},
+	};
+
+	UINT deferredOpaqueNumElements = ARRAYSIZE(deferredOpaqueLayoutDesc);
+
+	if (!deferredOpaqueVS.Initialize(shaderFolder + L"deferredOpaqueVS.cso", deferredOpaqueLayoutDesc, deferredOpaqueNumElements))
+		return false;
+
+	if (!deferredOpaquePS.Initialize(shaderFolder + L"deferredOpaquePS.cso"))
+		return false;
+
+	// --- Deferred Opaque Shaders ---
 
 	// --- Color Shaders ---
 	D3D11_INPUT_ELEMENT_DESC colorLayoutDesc[] =
@@ -97,6 +114,8 @@ PixelShader* ShaderManager::GetPS(ShaderType type)
 		return &texturePS;
 	case ShadowMap:
 		return nullptr;
+	case Deferred_Opaque:
+		return &deferredOpaquePS;
 	default:
 		break;
 	}
@@ -114,6 +133,8 @@ VertexShader* ShaderManager::GetVS(ShaderType type)
 		return &textureVS;
 	case ShadowMap:
 		return &shadowMapVS;
+	case Deferred_Opaque:
+		return &deferredOpaqueVS;
 	}
 }
 

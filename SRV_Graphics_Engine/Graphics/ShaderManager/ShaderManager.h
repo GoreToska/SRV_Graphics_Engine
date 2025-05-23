@@ -19,6 +19,8 @@ public:
 		Color,
 		Texture,
 		ShadowMap,
+		Deferred_Opaque,
+		Deferred_Light
 	};
 
 	PixelShader* GetPS(ShaderType type);
@@ -28,9 +30,11 @@ public:
 private:
 	PixelShader colorPS;
 	PixelShader texturePS;
+	PixelShader deferredOpaquePS;
 
 	VertexShader colorVS;
 	VertexShader textureVS;
+	VertexShader deferredOpaqueVS;
 	VertexShader shadowMapVS;
 
 	GeomertyShader shadowMapGS;
