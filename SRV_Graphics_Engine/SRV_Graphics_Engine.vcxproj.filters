@@ -406,6 +406,8 @@
     <FxCompile Include="Shaders\ShadowMapGS.hlsl">
       <Filter>Исходные файлы</Filter>
     </FxCompile>
+    <FxCompile Include="Shaders\Deferred\deferredOpaqueVS.hlsl" />
+    <FxCompile Include="Shaders\Deferred\deferredOpaquePS.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
