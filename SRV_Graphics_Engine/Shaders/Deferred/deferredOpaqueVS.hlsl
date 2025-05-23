@@ -8,6 +8,7 @@ struct VS_IN
 struct PS_IN
 {
     float4 pos : SV_POSITION;
+    float4 viewPos : POSITION0;
     float4 tex : TEXCOORD0;
     float4 norm : NORMAL;
 };
@@ -27,6 +28,9 @@ PS_IN main(VS_IN input)
     output.pos = mul(input.pos, world);
     output.pos = mul(output.pos, view);
     output.pos = mul(output.pos, projection);
+    
+    output.viewPos = mul(input.pos, world);
+    output.viewPos = mul(output.viewPos, view);
     
     output.tex.xy = input.tex.xy;
     

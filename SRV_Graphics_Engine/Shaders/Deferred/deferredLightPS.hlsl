@@ -41,14 +41,14 @@ Texture2D<float4> specularTex : register(t5);
 
 float4 main(PS_IN input) : SV_Target
 {
-    float3 normal = normalTex.Load(int3(input.pos.xy, 0)).xyz;
     float3 diffuse = diffuseTex.Load(int3(input.pos.xy, 0)).xyz;
     float4 specular = specularTex.Load(int3(input.pos.xy, 0));
+    float3 normal = normalTex.Load(int3(input.pos.xy, 0)).xyz;
     
     float3 lightDir = -normalize(dynamicLightDirection);
     float3 ambient = ambientLightColor * ambientLightStrenght;
     float diffuseFactor = saturate(dot(normal, lightDir));
-    diffuse = dynamicLightColor * dynamicLightStrenght * diffuseFactor;
+    diffuseFactor *= dynamicLightColor * dynamicLightStrenght * diffuseFactor;
     
     //float shadow = CalculateShadow(input.globalPosition.xyz);
     //float decal = decalTexture.Sample(objSamplerState, input.tex.xy * 10) * 0.5;
@@ -56,13 +56,11 @@ float4 main(PS_IN input) : SV_Target
     //float3 sampleColor = objTexture.Sample(objSamplerState, input.tex.xy);
     
     //float3 finalColor = sampleColor * (ambient + diffuse * shadow);
-    float3 finalColor;
+    float3 finalColor = diffuse * (ambient + diffuseFactor);
     
     //if (shadow != 1)
     //    finalColor = sampleColor * (ambient + diffuse * decal * shadow);
     //else
-    finalColor = ambient + diffuse;
-
       
     return float4(saturate(finalColor), 1.0);
 }
