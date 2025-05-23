@@ -5,6 +5,7 @@
 #include "./Device/GraphicsDevice.h"
 #include "ShaderManager/ShaderManager.h"
 #include "../Engine/Asserter.h"
+#include "Buffers/GBuffer.h"
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_dx11.h"
 #include "ImGui/imgui_impl_win32.h"
@@ -27,6 +28,8 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 	camera = new Camera();
 	camera->SetPosition(0.0f, 0.0f, -2.0f);
 	camera->SetPerspectiveProjection(90, static_cast<float>(clientWidth) / static_cast<float>(clientHeight), 0.1f, 1000.0f);
+
+	gBuffer = new GBuffer();
 
 	InitImGui(hwnd);
 
@@ -117,6 +120,11 @@ float Graphics::GetClientHeight() const
 std::vector<DirectionalLightComponent*> Graphics::GetAllLights() const
 {
 	return lightPool;
+}
+
+ID3D11DepthStencilView* Graphics::GetDepthStencilView()
+{
+	return depthStencilView.Get();
 }
 
 void Graphics::RenderShadows()

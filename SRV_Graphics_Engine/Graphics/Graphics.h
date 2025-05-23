@@ -21,6 +21,7 @@
 #pragma comment(lib, "dxguid.lib")  
 #pragma endregion
 
+class GBuffer;
 
 class Graphics
 {
@@ -34,6 +35,7 @@ public:
 	float GetClientWidth() const;
 	float GetClientHeight() const;
 	std::vector<DirectionalLightComponent*> GetAllLights() const;
+	ID3D11DepthStencilView* GetDepthStencilView();
 
 private:
 	void RenderShadows();
@@ -57,6 +59,8 @@ private:
 
 	Camera* camera;
 	DirectX::XMMATRIX worldMatrix;
+
+	GBuffer* gBuffer;
 
 	std::vector<IRenderComponent*> objectRenderPool = {};
 	std::vector<DirectionalLightComponent*> lightPool = {};

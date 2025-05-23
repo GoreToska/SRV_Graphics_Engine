@@ -264,3 +264,7 @@ _Pvt_Extensions
 .fake/
 x64/Debug/SRV_Graphics_Engine.pdb
 x64/Debug/SRV_Graphics_Engine.pdb
+.vs/SRV_Graphics_Engine/v17/Browse.VC.db
+.vs/SRV_Graphics_Engine/v17/.suo
+.vs/SRV_Graphics_Engine/v17/DocumentLayout.json
+SRV_Graphics_Engine/x64/Debug/SRV_Grap.ddfae23b.tlog/fxc.write.1.tlog

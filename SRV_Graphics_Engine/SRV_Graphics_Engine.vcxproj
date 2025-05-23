@@ -137,6 +137,7 @@
     <ClCompile Include="ComponentSystem\Components\Camera\CameraMovementComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\CollisionComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\IComponent.cpp" />
+    <ClCompile Include="Graphics\Buffers\GBuffer.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
     <ClCompile Include="Graphics\Camera.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
@@ -203,6 +204,7 @@
     <ClInclude Include="DataTypes\ConstantBufferTypes.h" />
     <ClInclude Include="DataTypes\ModelData.h" />
     <ClInclude Include="DataTypes\Vector3D.h" />
+    <ClInclude Include="Graphics\Buffers\GBuffer.h" />
     <ClInclude Include="Delegates\Action.h" />
     <ClInclude Include="Delegates\catch.hpp" />
     <ClInclude Include="Delegates\Delegates.h" />
