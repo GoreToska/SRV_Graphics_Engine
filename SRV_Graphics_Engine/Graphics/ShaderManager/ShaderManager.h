@@ -31,10 +31,12 @@ private:
 	PixelShader colorPS;
 	PixelShader texturePS;
 	PixelShader deferredOpaquePS;
+	PixelShader deferredLightPS;
 
 	VertexShader colorVS;
 	VertexShader textureVS;
 	VertexShader deferredOpaqueVS;
+	VertexShader deferredLightVS;
 	VertexShader shadowMapVS;
 
 	GeomertyShader shadowMapGS;

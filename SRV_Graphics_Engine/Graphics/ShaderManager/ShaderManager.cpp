@@ -63,8 +63,23 @@ bool ShaderManager::Initialize()
 
 	if (!deferredOpaquePS.Initialize(shaderFolder + L"deferredOpaquePS.cso"))
 		return false;
-
 	// --- Deferred Opaque Shaders ---
+
+	// --- Deferred Light Shaders ---
+	D3D11_INPUT_ELEMENT_DESC deferredLightLayoutDesc[] =
+	{
+		{"SV_POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+	};
+
+	UINT deferredLightNumElements = ARRAYSIZE(deferredLightLayoutDesc);
+
+	if (!deferredLightVS.Initialize(shaderFolder + L"deferredLightVS.cso", deferredLightLayoutDesc, deferredLightNumElements))
+		return false;
+
+	if (!deferredLightPS.Initialize(shaderFolder + L"deferredLightPS.cso"))
+		return false;
+	// --- Deferred Light Shaders ---
+
 
 	// --- Color Shaders ---
 	D3D11_INPUT_ELEMENT_DESC colorLayoutDesc[] =
@@ -116,6 +131,8 @@ PixelShader* ShaderManager::GetPS(ShaderType type)
 		return nullptr;
 	case Deferred_Opaque:
 		return &deferredOpaquePS;
+	case Deferred_Light:
+		return &deferredLightPS;
 	default:
 		break;
 	}
@@ -135,6 +152,8 @@ VertexShader* ShaderManager::GetVS(ShaderType type)
 		return &shadowMapVS;
 	case Deferred_Opaque:
 		return &deferredOpaqueVS;
+	case Deferred_Light:
+		return &deferredLightVS;
 	}
 }
 

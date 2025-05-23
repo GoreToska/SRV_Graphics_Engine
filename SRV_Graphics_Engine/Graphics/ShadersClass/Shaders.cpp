@@ -29,18 +29,12 @@ bool VertexShader::Initialize(std::wstring shaderPath, D3D11_INPUT_ELEMENT_DESC*
 		return false;
 	}
 
-	hr = SRVDevice->CreateInputLayout(
+	ThrowIfFailed(SRVDevice->CreateInputLayout(
 		layoutDesc,
 		numElements,
 		shaderBuffer->GetBufferPointer(),
 		shaderBuffer->GetBufferSize(),
-		inputLayout.GetAddressOf());
-
-	if (FAILED(hr))
-	{
-		Logger::LogError(hr, "Failed to create input layout.");
-		return false;
-	}
+		inputLayout.GetAddressOf()), "Failed to create input layout.");
 
 	return true;
 }

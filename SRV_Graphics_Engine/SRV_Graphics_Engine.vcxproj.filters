@@ -408,6 +408,8 @@
     </FxCompile>
     <FxCompile Include="Shaders\Deferred\deferredOpaqueVS.hlsl" />
     <FxCompile Include="Shaders\Deferred\deferredOpaquePS.hlsl" />
+    <FxCompile Include="Shaders\Deferred\deferredLightPS.hlsl" />
+    <FxCompile Include="Shaders\Deferred\deferredLightVS.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

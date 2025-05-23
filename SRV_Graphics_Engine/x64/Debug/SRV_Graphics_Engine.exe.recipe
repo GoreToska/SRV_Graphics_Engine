@@ -10,6 +10,12 @@
       <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorVertexShader.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\deferredLightPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\deferredLightVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\deferredOpaquePS.cso</FullPath>
     </ContentFile>
     <ContentFile>

@@ -33,7 +33,6 @@ Texture2DArray shadowMap : SHADOWMAP : register(t1);
 SamplerComparisonState shadowSampler : SHADOWSAMPLER : register(s1);
 
 
-
 float CalculateShadow(float3 worldPosition)
 {
     

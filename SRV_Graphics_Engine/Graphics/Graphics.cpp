@@ -86,11 +86,31 @@ void Graphics::RenderFrame()
 
 	worldMatrix = DirectX::XMMatrixIdentity();
 
+	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetInputLayout());
+	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
+	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
+	gBuffer->PSBindResourceViews(2);
 
-	for (IRenderComponent* item : objectRenderPool)
+
+	std::vector<Vector4D> verts = { Vector4D() };
+	std::vector<DWORD> idcs = { 0 };
+	std::vector<UINT> mockOffsets = { 0 };
+	VertexBuffer<Vector4D> vertexBuffer = {};
+	IndexBuffer indexBuffer = {};
+	vertexBuffer.Initialize(verts.data(), verts.size());
+	indexBuffer.Initialize(idcs.data(), idcs.size());
+	std::vector<UINT> mockStrides = { 16 };
+
+	SRVDeviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), mockStrides.data(), mockOffsets.data());
+	SRVDeviceContext->IASetIndexBuffer(indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	SRVDeviceContext->Draw(4, 0);
+
+	/*for (IRenderComponent* item : objectRenderPool)
 	{
 		item->Render();
-	}
+	}*/
 
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
