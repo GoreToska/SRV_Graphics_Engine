@@ -1,6 +1,24 @@
-﻿  ShaderManager.cpp
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShaderManager\ShaderManager.cpp(122,1): warning C4715: 'ShaderManager::GetPS': not all control paths return a value
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShaderManager\ShaderManager.cpp(139,1): warning C4715: 'ShaderManager::GetVS': not all control paths return a value
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShaderManager\ShaderManager.cpp(103,1): warning C4715: 'ShaderManager::Initialize': not all control paths return a value
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShaderManager\ShaderManager.cpp(154,1): warning C4715: 'ShaderManager::GetGS': not all control paths return a value
+﻿  Graphics.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,75): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'Graphics/Graphics.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,81): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'Graphics/Graphics.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,86): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'Graphics/Graphics.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(23,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Graphics/Graphics.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'Graphics/Graphics.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'Graphics/Graphics.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(124,9): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(129,9): warning C4244: 'return': conversion from 'const int' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(364,19): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Graphics.cpp(365,20): warning C4244: '=': conversion from 'int' to 'FLOAT', possible loss of data
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

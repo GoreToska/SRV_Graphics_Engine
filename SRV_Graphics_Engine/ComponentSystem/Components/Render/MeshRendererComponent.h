@@ -25,7 +25,7 @@ public:
 	MeshRendererComponent(const ModelData& modelData, GameObject* gameObject, ShaderManager::ShaderType shaderType);
 
 	void Update(const float& deltaTime) override;
-	void Render() override;
+	void Render(bool setShaders = true) override;
 	void RenderForShadows() override;
 
 	virtual int GetVertexCount() const override;

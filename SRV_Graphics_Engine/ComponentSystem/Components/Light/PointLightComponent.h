@@ -10,7 +10,7 @@ public:
 	DirectionalLightComponent(GameObject* gameObject);
 
 	void Update(const float& deltaTime) override;
-	void Render() override;
+	void Render(bool setShaders = true) override;
 
 	void SetShadowResources();
 	void SetShadowBuffer();

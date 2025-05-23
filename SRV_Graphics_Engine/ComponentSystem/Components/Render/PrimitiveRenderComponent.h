@@ -17,7 +17,7 @@ class ColorMeshComponent : public IRenderComponent
 public:
 	ColorMeshComponent(GameObject* gameObject, std::vector<CVertex> vertexes, ShaderManager::ShaderType type, std::vector<DWORD> indexes = {});
 	void Update(const float& deltaTime) override;
-	void Render() override;
+	void Render(bool setShaders = true) override;
 	void RenderForShadows() override;
 
 	virtual int GetVertexCount() const override;

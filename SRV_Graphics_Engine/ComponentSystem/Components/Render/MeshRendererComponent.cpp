@@ -33,10 +33,10 @@ void MeshRendererComponent::Update(const float& deltaTime)
 	// TODO: what to do here?
 }
 
-void MeshRendererComponent::Render()
+void MeshRendererComponent::Render(bool setShaders)
 {
-	IRenderComponent::Render();
-
+	IRenderComponent::Render(setShaders);
+	 
 	SRVDeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
 	SRVDeviceContext->PSSetShaderResources(1, 1, SRVEngine.GetGraphics().GetAllLights()[0]->GetShadowSRVAddress());
 	SRVDeviceContext->PSSetShaderResources(2, 1, decalTexture.GetAddressOf());
@@ -44,7 +44,7 @@ void MeshRendererComponent::Render()
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{
-		meshes[i].Render();
+		meshes[i].Render(setShaders);
 	}
 }
 

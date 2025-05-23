@@ -52,23 +52,35 @@ void Graphics::InitImGui(HWND hwnd)
 	ImGui::StyleColorsDark();
 }
 
-// ALL DRAWING IS HERE BETWEEN ClearRenderTargetView AND Present
 void Graphics::RenderFrame()
 {
 	RenderShadows();
 
+	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Opaque)->GetInputLayout());
+	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Opaque)->GetShader(), NULL, 0);
+	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Opaque)->GetShader(), NULL, 0);
 	SRVDeviceContext->RSSetViewports(1, &viewport);
+	SRVDeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
+	SRVDeviceContext->RSSetState(rasterizerState.Get());
+	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
+	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+
+	gBuffer->SetRenderTargets();
+	gBuffer->ClearRenderTargets();
+
+	for (IRenderComponent* item : objectRenderPool)
+	{
+		item->Render(false);
+	}
 
 	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
 	SRVDeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
 	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
-	// set input layout, topology, rasterizer state
 	SRVDeviceContext->RSSetState(rasterizerState.Get());
 	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
-	// set shaders and samplers
 	SRVDeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
 	SRVDeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
 

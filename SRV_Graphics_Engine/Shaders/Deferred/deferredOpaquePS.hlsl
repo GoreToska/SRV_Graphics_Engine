@@ -1,10 +1,9 @@
-
 struct PS_IN
 {
     float4 pos : SV_POSITION;
-    float4 viewPos : POSITION0;
+    //float4 viewPos : POSITION0;
     float4 tex : TEXCOORD0;
-    float3 norm : NORMAL;
+    float4 norm : NORMAL;
 };
 
 Texture2D objTexture : register(t0);
@@ -18,6 +17,7 @@ struct GBuffer
     float4 specular : SV_Target3;
 };
 
+[earlydepthstencil]
 GBuffer main(PS_IN input)
 {
     GBuffer buf = (GBuffer) 0;
@@ -28,12 +28,12 @@ GBuffer main(PS_IN input)
     float farPlane = 1000;
     // ------------------
     
-    float depth = (-input.viewPos.z - nearPlane) / (farPlane - nearPlane);
-    float3 textureColor = objTexture.Sample(samplerState, input.tex.xy).rgb;
+    //float depth = (-input.viewPos.z - nearPlane) / (farPlane - nearPlane);
+    float4 textureColor = objTexture.Sample(samplerState, input.tex.xy);
 
-    buf.depth.xyz = float3(depth, depth, depth);
+    //buf.depth.xyz = float3(depth, depth, depth);
     buf.normal.xyz = input.norm;
-    buf.diffuse.rgb = textureColor;
+    buf.diffuse = textureColor;
     buf.specular.xyz = float3(1, 1, 1);
     
     return buf;

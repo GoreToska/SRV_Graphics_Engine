@@ -91,9 +91,11 @@ void TextureMeshComponent::Update(const float& deltaTime)
 {
 }
 
-void TextureMeshComponent::Render()
+void TextureMeshComponent::Render(bool setShaders)
 {
-	IRenderComponent::Render();
+	IRenderComponent::Render(setShaders);
+
+	//SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	if(texture.Get())
 		SRVDeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());

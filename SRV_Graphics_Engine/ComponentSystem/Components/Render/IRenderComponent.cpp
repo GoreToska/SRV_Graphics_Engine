@@ -11,12 +11,16 @@ IRenderComponent::IRenderComponent(GameObject* gameObject, ShaderManager::Shader
 	ThrowIfFailed(cascadeShadowsBuffer.Initialize(), "Failed to create cascade shadow buffer.");
 }
 
-void IRenderComponent::Render()
+void IRenderComponent::Render(bool setShaders)
 {
 	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
-	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
-	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(shaderType)->GetShader(), NULL, 0);
+
+	if (setShaders)
+	{
+		SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(shaderType)->GetInputLayout());
+		SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(shaderType)->GetShader(), NULL, 0);
+		SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(shaderType)->GetShader(), NULL, 0);
+	}
 
 	SetVertexBufferContext();
 
@@ -24,6 +28,16 @@ void IRenderComponent::Render()
 
 	UpdateLightBuffer();
 
+	UpdateCascadeShadowBuffer();
+}
+
+void IRenderComponent::RenderNoShader()
+{
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	SetVertexBufferContext();
+	UpdateTransformBuffer(SRVEngine.GetGraphics().GetWorldMatrix(), SRVEngine.GetGraphics().GetCamera()->GetViewMatrix(), SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix());
+	UpdateLightBuffer();
 	UpdateCascadeShadowBuffer();
 }
 

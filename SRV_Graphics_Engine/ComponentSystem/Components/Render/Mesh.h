@@ -25,7 +25,7 @@ public:
 	TextureMeshComponent(const TextureMeshComponent& mesh);
 
 	void Update(const float& deltaTime) override;
-	void Render() override;
+	void Render(bool setShaders = true) override;
 	void RenderForShadows() override;
 
 	virtual int GetVertexCount() const override;

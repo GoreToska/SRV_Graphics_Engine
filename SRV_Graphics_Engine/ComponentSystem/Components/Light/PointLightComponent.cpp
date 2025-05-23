@@ -36,12 +36,12 @@ void DirectionalLightComponent::Update(const float& deltaTime)
 	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;*/
 }
 
-void DirectionalLightComponent::Render()
+void DirectionalLightComponent::Render(bool setShaders)
 {
 	if (!IsEnabled())
 		return;
 
-	MeshRendererComponent::Render();
+	MeshRendererComponent::Render(setShaders);
 }
 
 void DirectionalLightComponent::SetShadowResources()

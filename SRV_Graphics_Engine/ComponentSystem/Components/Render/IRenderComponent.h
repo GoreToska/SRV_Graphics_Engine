@@ -12,7 +12,8 @@ public:
 	IRenderComponent(GameObject* gameObject, ShaderManager::ShaderType type);
 
 	virtual void Update(const float& deltaTime) = 0;
-	virtual void Render();
+	virtual void Render(bool setShaders = true);
+	virtual void RenderNoShader();
 	virtual void RenderForShadows();
 
 	virtual int GetVertexCount() const = 0;

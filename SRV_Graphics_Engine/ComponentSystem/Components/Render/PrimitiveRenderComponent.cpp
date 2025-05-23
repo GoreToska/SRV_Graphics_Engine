@@ -28,9 +28,9 @@ void ColorMeshComponent::Update(const float& deltaTime)
 		return;
 }
 
-void ColorMeshComponent::Render()
+void ColorMeshComponent::Render(bool setShaders)
 {
-	IRenderComponent::Render();
+	IRenderComponent::Render(setShaders);
 
 	if (indexes.size() > 0)
 	{
