@@ -1,8 +1,8 @@
 #ifndef CASCADE_COUNT
 #define CASCADE_COUNT 4
 #define DIRECTIONAL_LIGHT 1
-#define POINT_LIGHT 2
-#define SPOT_LIGHT 3
+#define SPOT_LIGHT 2
+#define POINT_LIGHT 3
 #endif
 
 struct VS_IN

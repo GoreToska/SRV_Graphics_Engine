@@ -20,17 +20,14 @@ DirectX::XMMATRIX ShadowMapCalculator::GetViewMatrixDirectional(GameObject* game
 
 Matrix ShadowMapCalculator::GetDirectionalLightViewProj(Vector3D direction, float nearZ, float farZ)
 {
-	Matrix cameraProjMatrix = Matrix::CreatePerspectiveFieldOfView(
-		SRVEngine.GetGraphics().GetCamera()->GetFOV(),
-		SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
-		nearZ, farZ);
-
-	/*Matrix cameraProjMatrix = SRVEngine.GetGraphics().GetCamera()->GetViewMatrix() *
+	Matrix cameraViewProjMatrix = Matrix::CreateLookAt(SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3(), 
+		SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3() + SRVEngine.GetGraphics().GetCamera()->GetForwardVector(), 
+		SRVEngine.GetGraphics().GetCamera()->GetUpVector()) *
 		Matrix::CreatePerspectiveFieldOfView(
 			SRVEngine.GetGraphics().GetCamera()->GetFOV(),
 			SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
-			nearZ, farZ);*/
-	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraProjMatrix);
+			nearZ, farZ);
+	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraViewProjMatrix);
 
 	Vector4D center = Vector4D::Zero;
 	for (const auto& v : cameraFrustumCorners)

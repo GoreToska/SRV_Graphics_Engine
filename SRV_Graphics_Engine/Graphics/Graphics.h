@@ -22,27 +22,32 @@
 #pragma endregion
 
 class GBuffer;
+class AABB;
 
 class Graphics
 {
 public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
-	void FillGBuffer();
-	void DrawDeferredScreenQuad();
+	
 	void AddObjectToRenderPool(IRenderComponent* object);
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;
 	Camera* GetCamera() const;
 	float GetClientWidth() const;
 	float GetClientHeight() const;
-	std::vector<LightComponent*> GetAllLights() const;
+	//std::vector<LightComponent*> GetAllLights() const;
+	LightComponent* GetDirectionalLight() const;
 	ID3D11DepthStencilView* GetDepthStencilView();
 	ID3D11ShaderResourceView* GetDepthStencilSRV();
 
 
 private:
 	void RenderShadows();
+
+	void DrawDeferredOpaque();
+	void DrawDeferredScreenQuad();
+	void DrawDeferredAABB(const AABB& box, LightComponent& lightSource);
 
 	void SetConstBufferForLight();
 
@@ -64,6 +69,7 @@ private:
 	int clientHeight;
 
 	Camera* camera;
+	LightComponent* directionalLight;
 	DirectX::XMMATRIX worldMatrix;
 
 	GBuffer* gBuffer;
@@ -83,6 +89,15 @@ private:
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> shadowSamplerState;
 
 	ConstantBuffer<VS_ObjectMatrixBuffer> deferred_objectMatrixBuffer = {};
+
+	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> NoWriteNoCheckDSS;
+	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> NoWriteGreaterDSS;
+	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> NoWriteLessDSS;
+
+	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rastStateCullFront;
+	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rastStateCullBack;
+
+	Microsoft::WRL::ComPtr<ID3D11BlendState> additiveBlendState;
 
 	D3D11_VIEWPORT viewport;
 };

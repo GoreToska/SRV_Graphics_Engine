@@ -5,8 +5,9 @@
 #include <iostream>
 #include "../../../Engine/Asserter.h"
 #include "../../../Engine/Engine.h"
+#include "LightAABB.h"
 
-LightComponent::LightComponent(GameObject* gameObject)
+LightComponent::LightComponent(GameObject* gameObject, LightSourceType type)
 	: MeshRendererComponent(ModelData("",
 		L""), gameObject, ShaderManager::ShaderType::Texture)
 {
@@ -15,8 +16,31 @@ LightComponent::LightComponent(GameObject* gameObject)
 	lightConstBuffer.GetData()->lightColor = lightColor;
 	lightConstBuffer.GetData()->lightDirection = Vector4D(gameObject->GetTransform()->GetForwardVector());
 	lightConstBuffer.GetData()->lightStrength = lightStrength;
-
+	
 	CreateResources();
+
+	sourceType = type;
+
+	if (type == Point)
+	{
+		AABB box = getAABBForPointLight(*this);
+
+		std::vector<Vector4D> vertices = getAABBVerticies(box);
+		std::vector<DWORD> indicies = getAABBIndicies();
+
+		PointSpotVertexBuffer.Initialize(vertices.data(), vertices.size());
+		PointSpotIndexBuffer.Initialize(indicies.data(), indicies.size());
+	}
+	else if (type == Spot)
+	{
+		AABB box = getAABBForSpotLight(*this);
+
+		std::vector<Vector4D> vertices = getAABBVerticies(box);
+		std::vector<DWORD> indicies = getAABBIndicies();
+
+		PointSpotVertexBuffer.Initialize(vertices.data(), vertices.size());
+		PointSpotIndexBuffer.Initialize(indicies.data(), indicies.size());
+	}
 }
 
 void LightComponent::Update(const float& deltaTime)
@@ -101,6 +125,9 @@ void LightComponent::SetShadowBuffer()
 
 void LightComponent::RenderShadowPass(std::vector<IRenderComponent*>& renderObjects)
 {
+	if (sourceType != Directional)
+		return;
+
 	SetShadowBuffer();
 	SetShadowResources();
 
@@ -145,6 +172,11 @@ void LightComponent::SetLightType(LightSourceType type)
 void LightComponent::SetLightAngle(float degrees)
 {
 	angle = DirectX::XMConvertToRadians(degrees);
+}
+
+void LightComponent::SetLightDistance(float value)
+{
+	distance = value;
 }
 
 DirectX::XMFLOAT3& LightComponent::GetLightColor()
@@ -192,6 +224,11 @@ float LightComponent::GetLightAngle() const
 	return angle;
 }
 
+float LightComponent::GetLightDistance() const
+{
+	return distance;
+}
+
 ConstantBuffer<PS_LightParamsBuffer>& LightComponent::UpdateLightConstBuffer()
 {
 	lightConstBuffer.GetData()->angle = angle;
@@ -199,8 +236,8 @@ ConstantBuffer<PS_LightParamsBuffer>& LightComponent::UpdateLightConstBuffer()
 	lightConstBuffer.GetData()->lightDirection = Vector4D(GetLightDirection());
 	lightConstBuffer.GetData()->lightPosition = GetLightPosition();
 	lightConstBuffer.GetData()->lightStrength = lightStrength;
-	int st = sourceType;
-	lightConstBuffer.GetData()->sourceType = st;
+	lightConstBuffer.GetData()->sourceType = sourceType;
+	lightConstBuffer.ApplyChanges();
 
 	return lightConstBuffer;
 }
@@ -223,6 +260,26 @@ std::vector<Matrix> LightComponent::GetViewProjectionMatricies()
 DirectX::XMMATRIX LightComponent::GetWorldMatrix()
 {
 	return gameObject->GetTransform()->GetWorldMatrix();
+}
+
+VertexBuffer<Vector4D> LightComponent::GetVertexBufferPointSpot() const
+{
+	return PointSpotVertexBuffer;
+}
+
+IndexBuffer LightComponent::GetIndexBufferPointSpot() const
+{
+	return PointSpotIndexBuffer;
+}
+
+std::vector<UINT> LightComponent::GetStridesPointSpot() const
+{
+	return stridesPointSpot;
+}
+
+std::vector<UINT> LightComponent::GetOffsetsPointSpot() const
+{
+	return offsetsPointSpot;
 }
 
 void LightComponent::CreateResources()

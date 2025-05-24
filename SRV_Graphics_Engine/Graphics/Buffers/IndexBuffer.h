@@ -15,8 +15,6 @@
 
 class IndexBuffer
 {
-private:
-	IndexBuffer(const IndexBuffer& rhs);
 
 private:
 	Microsoft::WRL::ComPtr<ID3D11Buffer> buffer;
@@ -24,6 +22,11 @@ private:
 
 public:
 	IndexBuffer() {}
+	IndexBuffer(const IndexBuffer& rhs)
+	{
+		this->buffer = rhs.buffer;
+		this->bufferSize = rhs.bufferSize;
+	}
 
 	ID3D11Buffer* Get() const
 	{

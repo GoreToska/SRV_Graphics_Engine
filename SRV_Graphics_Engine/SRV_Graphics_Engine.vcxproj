@@ -139,6 +139,7 @@
     <ClCompile Include="ComponentSystem\Components\IComponent.cpp" />
     <ClCompile Include="Graphics\Buffers\GBuffer.cpp" />
     <ClCompile Include="Delegates\Delegates.cpp" />
+    <ClCompile Include="Graphics\Buffers\IndexBuffer.cpp" />
     <ClCompile Include="Graphics\Camera.cpp" />
     <ClCompile Include="Graphics\Device\GraphicsDevice.cpp" />
     <ClCompile Include="Graphics\AdapterReader.cpp" />
@@ -216,6 +217,7 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Geometry</ShaderType>
     </FxCompile>
+    <ClCompile Include="ComponentSystem\Components\Light\LightAABB.cpp" />
     <ClCompile Include="Shapes\Shapes.cpp" />
     <ClCompile Include="ComponentSystem\Components\Camera\TopDownCameraComponent.cpp" />
     <ClCompile Include="ComponentSystem\Components\Collision\SphereCollisionComponent.cpp" />
@@ -301,6 +303,7 @@
     <ClInclude Include="Games\Katamari\KatamariCollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Render\PrimitiveRenderComponent.h" />
     <ClInclude Include="Graphics\ShaderManager\ShaderManager.h" />
+    <ClInclude Include="ComponentSystem\Components\Light\LightAABB.h" />
     <ClInclude Include="Shapes\Shapes.h" />
     <ClInclude Include="ComponentSystem\Components\Camera\TopDownCameraComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Collision\SphereCollisionComponent.h" />

@@ -38,9 +38,8 @@ void MeshRendererComponent::Render(bool setShaders)
 	IRenderComponent::Render(setShaders);
 	 
 	SRVDeviceContext->PSSetShaderResources(0, 1, texture.GetAddressOf());
-	SRVDeviceContext->PSSetShaderResources(1, 1, SRVEngine.GetGraphics().GetAllLights()[0]->GetShadowSRVAddress());
+	SRVDeviceContext->PSSetShaderResources(1, 1, SRVEngine.GetGraphics().GetDirectionalLight()->GetShadowSRVAddress());
 	SRVDeviceContext->PSSetShaderResources(2, 1, decalTexture.GetAddressOf());
-
 
 	for (size_t i = 0; i < meshes.size(); ++i)
 	{

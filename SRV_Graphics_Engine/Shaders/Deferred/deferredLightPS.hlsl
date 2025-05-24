@@ -1,8 +1,8 @@
 #ifndef CASCADE_COUNT
 #define CASCADE_COUNT 4
 #define DIRECTIONAL_LIGHT 1
-#define POINT_LIGHT 2
-#define SPOT_LIGHT 3
+#define SPOT_LIGHT 2
+#define POINT_LIGHT 3
 #endif
 
 cbuffer lightBuffer : register(b0)
@@ -102,7 +102,7 @@ float CalculateShadow(float depth, float3 worldPosition)
     
    // return float3(color_mult);
     
-    const int filterSize = 5;
+    const int filterSize = 3;
     float summ_shadow = 0.0;
     float totalSamples = 0.0;
     float shadowMapResolution = 4096;
@@ -161,7 +161,7 @@ float4 main(PS_IN input) : SV_Target
         lightDir = -normalize(lightDirection);
         shadow = CalculateShadow(depth, globalVertPos);
     }
-    else
+    else if (lightType == POINT_LIGHT)
     {
         lightDir = normalize(lightPosition.xyz - globalVertPos);
         // todo light shine
@@ -173,7 +173,7 @@ float4 main(PS_IN input) : SV_Target
     }
     
     float3 ambient = ambientLightColor * ambientLightStrenght;
-    float diffuseFactor = saturate(dot(normal, lightDir));
+    float3 diffuseFactor = saturate(dot(normal, lightDir));
     diffuseFactor *= lightColor * lightStrenght * diffuseFactor;
     
     

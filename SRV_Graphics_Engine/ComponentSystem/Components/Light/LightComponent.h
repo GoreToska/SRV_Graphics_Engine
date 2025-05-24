@@ -9,7 +9,7 @@
 class LightComponent : public MeshRendererComponent
 {
 public:
-	LightComponent(GameObject* gameObject);
+	LightComponent(GameObject* gameObject, LightSourceType type);
 
 	void Update(const float& deltaTime) override;
 	void Render(bool setShaders = true) override;
@@ -24,6 +24,7 @@ public:
 	void SetLightStrength(float strength);
 	void SetLightType(LightSourceType type);
 	void SetLightAngle(float degrees);
+	void SetLightDistance(float value);
 
 	DirectX::XMFLOAT3& GetLightColor();
 	float GetLightStrength();
@@ -34,6 +35,7 @@ public:
 	Vector3D GetLightDirection() const;
 	Vector3D GetLightPosition() const;
 	float GetLightAngle() const;
+	float GetLightDistance() const;
 
 	ConstantBuffer<PS_LightParamsBuffer>& UpdateLightConstBuffer();
 
@@ -43,12 +45,17 @@ public:
 	std::vector<Matrix> GetViewProjectionMatricies();
 	DirectX::XMMATRIX GetWorldMatrix();
 
+	VertexBuffer<Vector4D> GetVertexBufferPointSpot() const;
+	IndexBuffer GetIndexBufferPointSpot() const;
+	std::vector<UINT> GetStridesPointSpot() const;
+	std::vector<UINT> GetOffsetsPointSpot() const;
+
 private:
 	void CreateResources();
 
 	DirectX::XMFLOAT3 lightColor = DirectX::XMFLOAT3(1, 0, 0);
 	float lightStrength = 1.0f;
-
+	float distance = 5;
 	float attenuation_const = 1.0f;
 	float attenuation_linear = 0.1f;
 	float attenuation_exponent = 0.1f;
@@ -65,4 +72,9 @@ private:
 	std::vector<Matrix> viewProjectionMatricies;
 	//Matrix viewMatrix;
 	D3D11_VIEWPORT shadowMapViewport = {};
+
+	VertexBuffer<Vector4D> PointSpotVertexBuffer;
+	IndexBuffer PointSpotIndexBuffer;
+	std::vector<UINT> stridesPointSpot = { sizeof(Vector4D)};
+	std::vector<UINT> offsetsPointSpot = { 0 };
 };

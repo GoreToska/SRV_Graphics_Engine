@@ -9,6 +9,8 @@
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_dx11.h"
 #include "ImGui/imgui_impl_win32.h"
+#include "../ComponentSystem/Components/Light/LightAABB.h"
+#include "../Engine/Engine.h"
 
 
 bool Graphics::Initialize(HWND hwnd, int width, int height)
@@ -39,7 +41,7 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 }
 
 void Graphics::InitImGui(HWND hwnd)
-{ 
+{
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO& IO = ImGui::GetIO();
@@ -56,35 +58,94 @@ void Graphics::InitImGui(HWND hwnd)
 
 void Graphics::RenderFrame()
 {
+	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
+
 	RenderShadows();
 
 	float bgcolor[] = { 0.0f, 0.0, 0.0f, 1.0f }; // background color
 	SRVDeviceContext->ClearRenderTargetView(renderTargetView.Get(), bgcolor);
 	SRVDeviceContext->ClearDepthStencilView(depthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
-	FillGBuffer();
+	DrawDeferredOpaque();
 
 	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), nullptr);
-	
+
 	SRVDeviceContext->RSSetState(rasterizerState.Get());
 	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
 	SRVDeviceContext->PSSetSamplers(0, 1, this->samplerState.GetAddressOf());
 	SRVDeviceContext->PSSetSamplers(1, 1, this->shadowSamplerState.GetAddressOf());
-	
+
 	worldMatrix = DirectX::XMMatrixIdentity();
 
 	SetConstBufferForLight();
 	SRVDeviceContext->PSSetConstantBuffers(2, 1, deferred_objectMatrixBuffer.GetAddressOf());
 	gBuffer->PSBindResourceViews(2);
 
-	for (auto& light : GetAllLights())
+	AABB aabb;
+
+	Matrix cameraViewProjMatrix = Matrix::CreateLookAt(SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3(),
+		SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3() + SRVEngine.GetGraphics().GetCamera()->GetForwardVector(),
+		SRVEngine.GetGraphics().GetCamera()->GetUpVector()) *
+		Matrix::CreatePerspectiveFieldOfView(
+			SRVEngine.GetGraphics().GetCamera()->GetFOV(),
+			SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
+			SRVEngine.GetGraphics().GetCamera()->GetNearZ(),
+			SRVEngine.GetGraphics().GetCamera()->GetFarZ());
+
+	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraViewProjMatrix);
+	auto frustumPlanes = getFrustumPlanes(cameraFrustumCorners);
+
+	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetInputLayout());
+	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
+	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
+	SRVDeviceContext->OMSetBlendState(additiveBlendState.Get(), nullptr, 0xFFFFFFFF);
+
+
+	for (auto& light : lightPool)
 	{
 		SRVDeviceContext->PSSetConstantBuffers(0, 1, light->UpdateLightConstBuffer().GetAddressOf());
-		
+
 		if (light->GetSourceType() == Directional)
 		{
 			DrawDeferredScreenQuad();
+		}
+		else if (light->GetSourceType() == Point || light->GetSourceType() == Spot)
+		{
+			if (light->GetSourceType() == Point)
+				aabb = getAABBForPointLight(*light);
+			if (light->GetSourceType() == Spot)
+				aabb = getAABBForSpotLight(*light);
+
+			FrustumIntersectionType intersectionType = TestAABBFrustum(aabb, frustumPlanes);
+
+			switch (intersectionType)
+			{
+			case Inside:
+			{
+				SRVDeviceContext->OMSetDepthStencilState(NoWriteGreaterDSS.Get(), NULL);
+				SRVDeviceContext->RSSetState(rastStateCullFront.Get());
+				DrawDeferredAABB(aabb, *light);
+				break;
+			}
+			case Intersects_far_plane:
+			{
+				SRVDeviceContext->OMSetDepthStencilState(NoWriteLessDSS.Get(), NULL);
+				SRVDeviceContext->RSSetState(rastStateCullBack.Get());
+				DrawDeferredAABB(aabb, *light);
+				break;
+			}
+			case Outside:
+			{
+				SRVDeviceContext->OMSetDepthStencilState(NoWriteNoCheckDSS.Get(), NULL);
+				SRVDeviceContext->RSSetState(rastStateCullBack.Get());
+				DrawDeferredScreenQuad();
+				break;
+			}
+			default:
+				break;
+			}
+
 		}
 	}
 
@@ -95,7 +156,7 @@ void Graphics::RenderFrame()
 	swapchain->Present(1, NULL);
 }
 
-void Graphics::FillGBuffer()
+void Graphics::DrawDeferredOpaque()
 {
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Opaque)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Opaque)->GetShader(), NULL, 0);
@@ -117,11 +178,6 @@ void Graphics::FillGBuffer()
 
 void Graphics::DrawDeferredScreenQuad()
 {
-	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetInputLayout());
-	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
-	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
-
-
 	std::vector<Vector4D> verts = { Vector4D() };
 	std::vector<DWORD> idcs = { 0 };
 	std::vector<UINT> mockOffsets = { 0 };
@@ -138,6 +194,17 @@ void Graphics::DrawDeferredScreenQuad()
 	SRVDeviceContext->Draw(4, 0);
 }
 
+void Graphics::DrawDeferredAABB(const AABB& box, LightComponent& lightSource)
+{
+	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	SRVDeviceContext->IASetVertexBuffers(0, 1, lightSource.GetVertexBufferPointSpot().GetAddressOf(), 
+		lightSource.GetStridesPointSpot().data(), lightSource.GetOffsetsPointSpot().data());
+	SRVDeviceContext->IASetIndexBuffer(lightSource.GetIndexBufferPointSpot().Get(), DXGI_FORMAT_R32_UINT, 0);
+
+	SRVDeviceContext->DrawIndexed(36, 0, 0);
+}
+
 void Graphics::AddObjectToRenderPool(IRenderComponent* object)
 {
 	objectRenderPool.push_back(object);
@@ -146,6 +213,9 @@ void Graphics::AddObjectToRenderPool(IRenderComponent* object)
 	if (light)
 	{
 		lightPool.push_back(light);
+
+		if (light->GetSourceType() == Directional)
+			directionalLight = light;
 	}
 }
 
@@ -169,9 +239,14 @@ float Graphics::GetClientHeight() const
 	return clientHeight;
 }
 
-std::vector<LightComponent*> Graphics::GetAllLights() const
+//std::vector<LightComponent*> Graphics::GetAllLights() const
+//{
+//	return lightPool;
+//}
+
+LightComponent* Graphics::GetDirectionalLight() const
 {
-	return lightPool;
+	return directionalLight;
 }
 
 ID3D11DepthStencilView* Graphics::GetDepthStencilView()
@@ -186,10 +261,12 @@ ID3D11ShaderResourceView* Graphics::GetDepthStencilSRV()
 
 void Graphics::RenderShadows()
 {
-	for (LightComponent* item : lightPool)
+	if(directionalLight)
+		directionalLight->RenderShadowPass(objectRenderPool);
+	/*for (LightComponent* item : lightPool)
 	{
 		item->RenderShadowPass(objectRenderPool);
-	}
+	}*/
 }
 
 void Graphics::SetConstBufferForLight()
@@ -322,6 +399,29 @@ bool Graphics::CreateRasterizerState()
 		return false;
 	}
 
+	rasterizerDesc = {};
+	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
+	rasterizerDesc.CullMode = D3D11_CULL_BACK;
+	ThrowIfFailed(SRVDevice->CreateRasterizerState(&rasterizerDesc, rastStateCullBack.GetAddressOf()), "Failed.");
+
+	rasterizerDesc= {};
+	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
+	rasterizerDesc.CullMode = D3D11_CULL_FRONT;
+	ThrowIfFailed(SRVDevice->CreateRasterizerState(&rasterizerDesc, rastStateCullFront.GetAddressOf()), "Failed.");
+
+	D3D11_BLEND_DESC blendDesc = {};
+	blendDesc.RenderTarget[0].BlendEnable = TRUE;
+	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_ONE;
+	blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+
+	blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ONE;
+	blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+
+	blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+	ThrowIfFailed(SRVDevice->CreateBlendState(&blendDesc, &additiveBlendState),"Failed.");
+
 	return true;
 }
 
@@ -374,6 +474,26 @@ bool Graphics::CreateDepthStencilState()
 		Logger::LogError(hr, "Failed to create depth stencil state.");
 		return false;
 	}
+
+
+	depthStencilDesc = {};
+	depthStencilDesc.DepthEnable = false;
+	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
+	depthStencilDesc.StencilEnable = false;
+	ThrowIfFailed(SRVDevice->CreateDepthStencilState(&depthStencilDesc, NoWriteNoCheckDSS.GetAddressOf()), "Failed.");
+
+	depthStencilDesc = {};
+	depthStencilDesc.DepthEnable = true;
+	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
+	depthStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
+	depthStencilDesc.StencilEnable = false;
+	ThrowIfFailed(SRVDevice->CreateDepthStencilState(&depthStencilDesc, NoWriteLessDSS.GetAddressOf()), "Failed.");
+
+	depthStencilDesc = {};
+	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
+	depthStencilDesc.DepthFunc = D3D11_COMPARISON_GREATER;
+	depthStencilDesc.StencilEnable = false;
+	ThrowIfFailed(SRVDevice->CreateDepthStencilState(&depthStencilDesc, NoWriteGreaterDSS.GetAddressOf()), "Failed.");
 
 	return true;
 }

@@ -168,9 +168,6 @@
     <ClCompile Include="ComponentSystem\Components\Render\IRenderComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ComponentSystem\Components\Light\DirectionalLightComponent.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ComponentSystem\Components\Camera\ThirdPersonCameraComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -196,6 +193,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Buffers\GBuffer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Light\LightComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Light\LightAABB.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Buffers\IndexBuffer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -353,9 +359,6 @@
     <ClInclude Include="Graphics\ShaderManager\ShaderManager.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentSystem\Components\Light\DirectionalLightComponent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -390,6 +393,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Buffers\GBuffer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Light\LightComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Light\LightAABB.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

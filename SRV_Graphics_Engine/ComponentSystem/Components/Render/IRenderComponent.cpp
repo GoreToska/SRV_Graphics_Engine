@@ -47,12 +47,12 @@ void IRenderComponent::RenderForShadows()
 
 	SetVertexBufferContext();
 
-	UpdateTransformBuffer(Matrix::Identity, Matrix::Identity, Matrix::Identity);
+	//UpdateTransformBuffer(Matrix::Identity, Matrix::Identity, Matrix::Identity);
 }
 
 void IRenderComponent::UpdateLightBuffer()
 {
-	lightConstBuffer.GetData()->lightColor = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightColor();
+	/*lightConstBuffer.GetData()->lightColor = SRVEngine.GetInstance().GetGraphics().GetDirectionalLight()[0]->GetLightColor();
 	lightConstBuffer.GetData()->lightStrength = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightStrength();
 
 	lightConstBuffer.GetData()->lightDirection =
@@ -60,7 +60,7 @@ void IRenderComponent::UpdateLightBuffer()
 
 
 	if (lightConstBuffer.ApplyChanges())
-		SRVDeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());
+		SRVDeviceContext->PSSetConstantBuffers(0, 1, lightConstBuffer.GetAddressOf());*/
 
 	//lightMatrixBuffer.GetData()->lightView = DirectX::XMMatrixTranspose(SRVEngine.GetGraphics().GetAllLights()[0]->GetViewMatrix());
 
@@ -78,16 +78,15 @@ void IRenderComponent::UpdateCascadeShadowBuffer()
 			ShadowMapCalculator::shadowCascadeDistanceMultipliers[2],
 			ShadowMapCalculator::shadowCascadeDistanceMultipliers[3]);
 
-	std::vector<Matrix> viewProjections = SRVEngine.GetGraphics().GetAllLights()[0]->GetViewProjectionMatricies();
+	std::vector<Matrix> viewProjections = SRVEngine.GetGraphics().GetDirectionalLight()->GetViewProjectionMatricies();
 
 	for (int i = 0; i < ShadowMapCalculator::CascadeCount; ++i)
 	{
-		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = SRVEngine.GetGraphics().GetAllLights()[0]->GetViewProjectionMatricies()[i].Transpose();
+		cascadeShadowsBuffer.GetData()->ViewProjectionMatrix[i] = SRVEngine.GetGraphics().GetDirectionalLight()->GetViewProjectionMatricies()[i].Transpose();
 	}
 
 	auto a = SRVEngine.GetGraphics().GetCamera()->GetPositionVector();
 
-	// maybe here i need a world matrix vector
 	cascadeShadowsBuffer.GetData()->CameraPosition = SRVEngine.GetGraphics().GetCamera()->GetPositionVector();
 
 	if (cascadeShadowsBuffer.ApplyChanges())
