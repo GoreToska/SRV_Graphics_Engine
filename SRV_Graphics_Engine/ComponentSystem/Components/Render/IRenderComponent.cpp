@@ -52,11 +52,11 @@ void IRenderComponent::RenderForShadows()
 
 void IRenderComponent::UpdateLightBuffer()
 {
-	lightConstBuffer.GetData()->dynamicLightColor = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightColor();
-	lightConstBuffer.GetData()->dynamicLightStrength = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightStrength();
+	lightConstBuffer.GetData()->lightColor = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightColor();
+	lightConstBuffer.GetData()->lightStrength = SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetLightStrength();
 
-	lightConstBuffer.GetData()->dynamicLightDirection =
-		SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector();
+	lightConstBuffer.GetData()->lightDirection =
+		Vector4D(SRVEngine.GetInstance().GetGraphics().GetAllLights()[0]->GetGameObject()->GetTransform()->GetForwardVector());
 
 
 	if (lightConstBuffer.ApplyChanges())

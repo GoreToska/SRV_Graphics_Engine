@@ -23,7 +23,7 @@
 #include "ComponentSystem/Components/Camera/ThirdPersonCameraComponent.h"
 #include "DataTypes/ModelData.h"
 #include "./ComponentSystem/Components/Render/PrimitiveRenderComponent.h"
-#include "ComponentSystem/Components/Light/DirectionalLightComponent.h"
+#include "ComponentSystem/Components/Light/LightComponent.h"
 
 
 
@@ -98,13 +98,14 @@ int main()
 		directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2]));
 	directionalLight->GetTransform()->SetRotation({
 		directionalLightRotation[0], directionalLightRotation[1],directionalLightRotation[2]});
-	//pointLight01->GetTransform()->SetLookAtRotation({0,0,0});
-	directionalLight->AddComponent(new DirectionalLightComponent(directionalLight));
+	auto lc = new LightComponent(directionalLight);
+	lc->SetLightType(Directional);
+	directionalLight->AddComponent(lc);
 	directionalLight->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(directionalLight);
 
-	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightColor({ 1, 1, 1 });
-	directionalLight->GetComponent<DirectionalLightComponent>()->SetLightStrength(2);
+	directionalLight->GetComponent<LightComponent>()->SetLightColor({ 1, 1, 1 });
+	directionalLight->GetComponent<LightComponent>()->SetLightStrength(2);
 
 	GameObject* blueBird = new GameObject(Vector3D(15.0f, 0.0f, -15.0f));
 	auto t = new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture);

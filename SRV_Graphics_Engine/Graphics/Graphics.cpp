@@ -64,9 +64,7 @@ void Graphics::RenderFrame()
 
 	FillGBuffer();
 
-	//SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), nullptr);
-
 	
 	SRVDeviceContext->RSSetState(rasterizerState.Get());
 	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
@@ -76,7 +74,20 @@ void Graphics::RenderFrame()
 	
 	worldMatrix = DirectX::XMMatrixIdentity();
 
-	DrawDeferredScreenQuad();
+	SetConstBufferForLight();
+	SRVDeviceContext->PSSetConstantBuffers(2, 1, deferred_objectMatrixBuffer.GetAddressOf());
+	gBuffer->PSBindResourceViews(2);
+
+	for (auto& light : GetAllLights())
+	{
+		SRVDeviceContext->PSSetConstantBuffers(0, 1, light->UpdateLightConstBuffer().GetAddressOf());
+		
+		if (light->GetSourceType() == Directional)
+		{
+			DrawDeferredScreenQuad();
+		}
+	}
+
 
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
@@ -110,10 +121,6 @@ void Graphics::DrawDeferredScreenQuad()
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 
-	SetConstBufferForLight();
-	SRVDeviceContext->PSSetConstantBuffers(2, 1, deferred_objectMatrixBuffer.GetAddressOf());
-	gBuffer->PSBindResourceViews(2);
-
 
 	std::vector<Vector4D> verts = { Vector4D() };
 	std::vector<DWORD> idcs = { 0 };
@@ -135,7 +142,7 @@ void Graphics::AddObjectToRenderPool(IRenderComponent* object)
 {
 	objectRenderPool.push_back(object);
 
-	auto light = dynamic_cast<DirectionalLightComponent*>(object);
+	auto light = dynamic_cast<LightComponent*>(object);
 	if (light)
 	{
 		lightPool.push_back(light);
@@ -162,7 +169,7 @@ float Graphics::GetClientHeight() const
 	return clientHeight;
 }
 
-std::vector<DirectionalLightComponent*> Graphics::GetAllLights() const
+std::vector<LightComponent*> Graphics::GetAllLights() const
 {
 	return lightPool;
 }
@@ -179,7 +186,7 @@ ID3D11ShaderResourceView* Graphics::GetDepthStencilSRV()
 
 void Graphics::RenderShadows()
 {
-	for (DirectionalLightComponent* item : lightPool)
+	for (LightComponent* item : lightPool)
 	{
 		item->RenderShadowPass(objectRenderPool);
 	}

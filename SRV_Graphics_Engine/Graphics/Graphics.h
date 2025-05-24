@@ -7,7 +7,7 @@
 #include "../ComponentSystem/GameObject.h"
 #include "Camera.h"
 #include "../ComponentSystem/Components/Render/MeshRendererComponent.h"
-#include "../ComponentSystem/Components/Light/DirectionalLightComponent.h"
+#include "../ComponentSystem/Components/Light/LightComponent.h"
 #include "Grid/Grid.h"
 
 #include<d3d11.h>
@@ -36,7 +36,7 @@ public:
 	Camera* GetCamera() const;
 	float GetClientWidth() const;
 	float GetClientHeight() const;
-	std::vector<DirectionalLightComponent*> GetAllLights() const;
+	std::vector<LightComponent*> GetAllLights() const;
 	ID3D11DepthStencilView* GetDepthStencilView();
 	ID3D11ShaderResourceView* GetDepthStencilSRV();
 
@@ -69,7 +69,7 @@ private:
 	GBuffer* gBuffer;
 
 	std::vector<IRenderComponent*> objectRenderPool = {};
-	std::vector<DirectionalLightComponent*> lightPool = {};
+	std::vector<LightComponent*> lightPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;

@@ -9,9 +9,12 @@ cbuffer lightBuffer : register(b0)
 {
     float3 ambientLightColor;
     float ambientLightStrenght;
-    float3 dynamicLightColor;
-    float dynamicLightStrenght;
-    float3 dynamicLightDirection;
+    float3 lightColor;
+    float lightStrenght;
+    float3 lightDirection;
+    float3 lightPosition;
+    int lightType;
+    float lightAngle;
 }
 
 cbuffer cascadeBuffer : register(b1)
@@ -131,8 +134,10 @@ float CalculateShadow(float depth, float3 worldPosition)
 float4 main(PS_IN input) : SV_Target
 {
     // TODO: get this values from const buffer
+    // ---------------------------------
     const float client_width = 1024.0f;
     const float client_height = 768.0f;
+    // ---------------------------------
     
     float depth = depthTex.Load(int3(input.pos.xy, 0));
     float3 diffuse = diffuseTex.Load(int3(input.pos.xy, 0)).xyz;
@@ -140,11 +145,8 @@ float4 main(PS_IN input) : SV_Target
     float3 normal = normalTex.Load(int3(input.pos.xy, 0)).xyz;
     float nonlinearDepth = nonLinearDepthTex.Load(int3(input.pos.xy, 0));
     
-    float3 lightDir = -normalize(dynamicLightDirection);
-    float3 ambient = ambientLightColor * ambientLightStrenght;
-    float diffuseFactor = saturate(dot(normal, lightDir));
-    diffuseFactor *= dynamicLightColor * dynamicLightStrenght * diffuseFactor;
-    
+    float3 lightDir = 0;
+    float shadow = 1.0;
     float ndcX = input.pos.x / client_width * 2.0f - 1.0f;
     float ndcY = -(input.pos.y / client_height * 2.0f - 1.0f);
     float4 viewSpaceVertPos = mul(float4(ndcX, ndcY, nonlinearDepth, 1.0f), inverseProjection);
@@ -152,9 +154,29 @@ float4 main(PS_IN input) : SV_Target
     float4 globalSpaceVertPos = mul(viewSpaceVertPos, inverseView);
     globalSpaceVertPos /= globalSpaceVertPos.w;
     float3 globalVertPos = globalSpaceVertPos.xyz;
-
     
-    float shadow = CalculateShadow(depth, globalVertPos);
+    [branch]
+    if (lightType == DIRECTIONAL_LIGHT)
+    {
+        lightDir = -normalize(lightDirection);
+        shadow = CalculateShadow(depth, globalVertPos);
+    }
+    else
+    {
+        lightDir = normalize(lightPosition.xyz - globalVertPos);
+        // todo light shine
+    }
+    
+    if (lightType == SPOT_LIGHT && dot(lightDirection, -lightColor) <= cos(lightAngle))
+    {
+        return float4(0.0, 0.0, 0.0, 0.0);
+    }
+    
+    float3 ambient = ambientLightColor * ambientLightStrenght;
+    float diffuseFactor = saturate(dot(normal, lightDir));
+    diffuseFactor *= lightColor * lightStrenght * diffuseFactor;
+    
+    
     //float decal = decalTexture.Sample(objSamplerState, input.tex.xy * 10) * 0.5;
     
     //float3 sampleColor = objTexture.Sample(objSamplerState, input.tex.xy);

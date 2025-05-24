@@ -1,4 +1,4 @@
-#include "DirectionalLightComponent.h"
+#include "LightComponent.h"
 #include "../../../DataTypes/ModelData.h"
 #include "ShadowMapCalculator.h"
 
@@ -6,20 +6,20 @@
 #include "../../../Engine/Asserter.h"
 #include "../../../Engine/Engine.h"
 
-DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject)
+LightComponent::LightComponent(GameObject* gameObject)
 	: MeshRendererComponent(ModelData("",
 		L""), gameObject, ShaderManager::ShaderType::Texture)
 {
 	// Data\\Models\\Light\\PointLight\\PointLight.obj
 	//Data\\Models\\Light\\PointLight\\PointLight.png
-	lightConstBuffer.GetData()->dynamicLightColor = lightColor;
-	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector();
-	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;
+	lightConstBuffer.GetData()->lightColor = lightColor;
+	lightConstBuffer.GetData()->lightDirection = Vector4D(gameObject->GetTransform()->GetForwardVector());
+	lightConstBuffer.GetData()->lightStrength = lightStrength;
 
 	CreateResources();
 }
 
-void DirectionalLightComponent::Update(const float& deltaTime)
+void LightComponent::Update(const float& deltaTime)
 {
 	if (!IsEnabled())
 		return;
@@ -36,7 +36,7 @@ void DirectionalLightComponent::Update(const float& deltaTime)
 	lightConstBuffer.GetData()->dynamicLightStrength = lightStrength;*/
 }
 
-void DirectionalLightComponent::Render(bool setShaders)
+void LightComponent::Render(bool setShaders)
 {
 	if (!IsEnabled())
 		return;
@@ -44,7 +44,7 @@ void DirectionalLightComponent::Render(bool setShaders)
 	MeshRendererComponent::Render(setShaders);
 }
 
-void DirectionalLightComponent::SetShadowResources()
+void LightComponent::SetShadowResources()
 {
 	SRVDeviceContext->OMSetRenderTargets(0, 0, nullptr);
 	SRVDeviceContext->RSSetViewports(1, &shadowMapViewport);
@@ -59,7 +59,7 @@ void DirectionalLightComponent::SetShadowResources()
 	SRVDeviceContext->OMSetRenderTargets(0, nullptr, depthStencilView.Get());
 }
 
-void DirectionalLightComponent::SetShadowBuffer()
+void LightComponent::SetShadowBuffer()
 {
 	viewProjectionMatricies.clear();
 	viewProjectionMatricies.reserve(ShadowMapCalculator::CascadeCount);
@@ -99,7 +99,7 @@ void DirectionalLightComponent::SetShadowBuffer()
 	}
 }
 
-void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>& renderObjects)
+void LightComponent::RenderShadowPass(std::vector<IRenderComponent*>& renderObjects)
 {
 	SetShadowBuffer();
 	SetShadowResources();
@@ -122,67 +122,110 @@ void DirectionalLightComponent::RenderShadowPass(std::vector<IRenderComponent*>&
 	//SRVDeviceContext->GSSetShader(NULL, NULL, 0);
 }
 
-void DirectionalLightComponent::SetLightColor(DirectX::XMFLOAT3& color)
+void LightComponent::SetLightColor(DirectX::XMFLOAT3& color)
 {
 	lightColor = color;
 }
 
-void DirectionalLightComponent::SetLightColor(DirectX::XMFLOAT3 color)
+void LightComponent::SetLightColor(DirectX::XMFLOAT3 color)
 {
 	lightColor = color;
 }
 
-void DirectionalLightComponent::SetLightStrength(float strength)
+void LightComponent::SetLightStrength(float strength)
 {
 	lightStrength = strength;
 }
 
-DirectX::XMFLOAT3& DirectionalLightComponent::GetLightColor()
+void LightComponent::SetLightType(LightSourceType type)
+{
+	sourceType = type;
+}
+
+void LightComponent::SetLightAngle(float degrees)
+{
+	angle = DirectX::XMConvertToRadians(degrees);
+}
+
+DirectX::XMFLOAT3& LightComponent::GetLightColor()
 {
 	return lightColor;
 }
 
-float DirectionalLightComponent::GetLightStrength()
+float LightComponent::GetLightStrength()
 {
 	return lightStrength;
 }
 
-float DirectionalLightComponent::GetLightAttenuationConst() const
+float LightComponent::GetLightAttenuationConst() const
 {
 	return attenuation_const;
 }
 
-float DirectionalLightComponent::GetLightAttenuationLinear() const
+float LightComponent::GetLightAttenuationLinear() const
 {
 	return attenuation_linear;
 }
 
-float DirectionalLightComponent::GetLightAttenuationExponent() const
+float LightComponent::GetLightAttenuationExponent() const
 {
 	return attenuation_exponent;
 }
 
-ID3D11ShaderResourceView* DirectionalLightComponent::GetShadowSRV()
+LightSourceType LightComponent::GetSourceType() const
+{
+	return sourceType;
+}
+
+Vector3D LightComponent::GetLightDirection() const
+{
+	return gameObject->GetTransform()->GetForwardVector();
+}
+
+Vector3D LightComponent::GetLightPosition() const
+{
+	return gameObject->GetTransform()->GetPosition();
+}
+
+float LightComponent::GetLightAngle() const
+{
+	return angle;
+}
+
+ConstantBuffer<PS_LightParamsBuffer>& LightComponent::UpdateLightConstBuffer()
+{
+	lightConstBuffer.GetData()->angle = angle;
+	lightConstBuffer.GetData()->lightColor = lightColor;
+	lightConstBuffer.GetData()->lightDirection = Vector4D(GetLightDirection());
+	lightConstBuffer.GetData()->lightPosition = GetLightPosition();
+	lightConstBuffer.GetData()->lightStrength = lightStrength;
+	int st = sourceType;
+	lightConstBuffer.GetData()->sourceType = st;
+
+	return lightConstBuffer;
+}
+
+ID3D11ShaderResourceView* LightComponent::GetShadowSRV()
 {
 	return shadowSRV.Get();
 }
 
-ID3D11ShaderResourceView* const* DirectionalLightComponent::GetShadowSRVAddress()
+ID3D11ShaderResourceView* const* LightComponent::GetShadowSRVAddress()
 {
 	return shadowSRV.GetAddressOf();
 }
 
-std::vector<Matrix> DirectionalLightComponent::GetViewProjectionMatricies()
+std::vector<Matrix> LightComponent::GetViewProjectionMatricies()
 {
 	return viewProjectionMatricies;
 }
 
-DirectX::XMMATRIX DirectionalLightComponent::GetWorldMatrix()
+DirectX::XMMATRIX LightComponent::GetWorldMatrix()
 {
 	return gameObject->GetTransform()->GetWorldMatrix();
 }
 
-void DirectionalLightComponent::CreateResources()
+void LightComponent::CreateResources()
 {
 	shadowMapViewport.Width = ShadowMapCalculator::ShadowmapSize;
 	shadowMapViewport.Height = ShadowMapCalculator::ShadowmapSize;

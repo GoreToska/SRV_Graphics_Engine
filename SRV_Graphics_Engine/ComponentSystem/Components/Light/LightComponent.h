@@ -4,10 +4,12 @@
 #include "../../GameObject.h"
 #include "ShadowMapCalculator.h"
 
-class DirectionalLightComponent : public MeshRendererComponent
+
+
+class LightComponent : public MeshRendererComponent
 {
 public:
-	DirectionalLightComponent(GameObject* gameObject);
+	LightComponent(GameObject* gameObject);
 
 	void Update(const float& deltaTime) override;
 	void Render(bool setShaders = true) override;
@@ -20,11 +22,20 @@ public:
 	void SetLightColor(DirectX::XMFLOAT3& color);
 	void SetLightColor(DirectX::XMFLOAT3 color);
 	void SetLightStrength(float strength);
+	void SetLightType(LightSourceType type);
+	void SetLightAngle(float degrees);
+
 	DirectX::XMFLOAT3& GetLightColor();
 	float GetLightStrength();
 	float GetLightAttenuationConst() const;
 	float GetLightAttenuationLinear() const;
 	float GetLightAttenuationExponent() const;
+	LightSourceType GetSourceType() const;
+	Vector3D GetLightDirection() const;
+	Vector3D GetLightPosition() const;
+	float GetLightAngle() const;
+
+	ConstantBuffer<PS_LightParamsBuffer>& UpdateLightConstBuffer();
 
 	ID3D11ShaderResourceView* GetShadowSRV();
 	ID3D11ShaderResourceView* const* GetShadowSRVAddress();
@@ -41,7 +52,8 @@ private:
 	float attenuation_const = 1.0f;
 	float attenuation_linear = 0.1f;
 	float attenuation_exponent = 0.1f;
-
+	LightSourceType sourceType;
+	float angle = DirectX::XMConvertToRadians(15);
 
 	// -- shadows --
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> shadowmapTexture;
