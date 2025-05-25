@@ -29,7 +29,7 @@ class Graphics
 public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
-	
+
 	void AddObjectToRenderPool(IRenderComponent* object);
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;
@@ -98,6 +98,9 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rastStateCullBack;
 
 	Microsoft::WRL::ComPtr<ID3D11BlendState> additiveBlendState;
+
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> decal;
+
 
 	D3D11_VIEWPORT viewport;
 };

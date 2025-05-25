@@ -128,7 +128,7 @@ float CalculateShadow(float depth, float3 worldPosition)
         }
     }
     
-    return /*color_mult*/summ_shadow / totalSamples;
+    return /*color_mult*/summ_shadow / totalSamples < 0.3f ? 0.3 : summ_shadow / totalSamples;
 }
 
 float4 main(PS_IN input) : SV_Target
@@ -176,17 +176,13 @@ float4 main(PS_IN input) : SV_Target
     float3 diffuseFactor = saturate(dot(normal, lightDir));
     diffuseFactor *= lightColor * lightStrenght * diffuseFactor;
     
+    float decal = decalTexture.Sample(objSamplerState, globalVertPos.xz / 10);
+    float3 finalColor = 0;
     
-    //float decal = decalTexture.Sample(objSamplerState, input.tex.xy * 10) * 0.5;
+    if (shadow != 1)
+        finalColor = diffuse * (ambient + diffuseFactor * shadow * decal);
+    else
+        finalColor = diffuse * (ambient + diffuseFactor * shadow);
     
-    //float3 sampleColor = objTexture.Sample(objSamplerState, input.tex.xy);
-    
-    //float3 finalColor = sampleColor * (ambient + diffuse * shadow);
-    float3 finalColor = diffuse * (ambient + diffuseFactor) * shadow;
-    
-    //if (shadow != 1)
-    //    finalColor = sampleColor * (ambient + diffuse * decal * shadow);
-    //else
-      
     return float4(saturate(finalColor), 1.0);
 }

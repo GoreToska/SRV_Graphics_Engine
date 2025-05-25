@@ -87,10 +87,6 @@ int main()
 		}
 	}
 
-	ID3D11ShaderResourceView* decal;
-	ThrowIfFailed(DirectX::CreateWICTextureFromFile(SRVDevice, L"Data\\Textures\\Pattern.jpg", nullptr, &decal),
-		"Failed to create texture.");
-
 	static float directionalLightPosition[3] = { 0,40,-30 };
 	static float directionalLightRotation[3] = { 0,0,0 };
 
@@ -125,7 +121,7 @@ int main()
 
 	GameObject* blueBird = new GameObject(Vector3D(15.0f, 0.0f, -15.0f));
 	auto t = new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture);
-	t->SetDecal(decal);
+	//t->SetDecal(decal);
 	blueBird->AddComponent(t);
 	
 	blueBird->AddComponent(new SphereCollisionComponent(blueBird, Vector3D(0.0f, 0.0f, 0.0f), 2.4));
@@ -165,7 +161,7 @@ int main()
 
 	GameObject* octopus = new GameObject(Vector3D(10.0f, 0.0f, -10.0f));
 	t = new MeshRendererComponent(octopusModelData, octopus, ShaderManager::ShaderType::Texture);
-	t->SetDecal(decal);
+	//t->SetDecal(decal);
 	octopus->AddComponent(t);
 	octopus->AddComponent(new SphereCollisionComponent(octopus, Vector3D(0.0f, 0.0f, 0.0f), 4));
 	octopus->GetTransform()->SetScale(Vector3D(3, 3, 3));
@@ -173,7 +169,7 @@ int main()
 
 	GameObject* amongus = new GameObject(Vector3D(5.0f, 0.0f, 0.0f));
 	t = new MeshRendererComponent(amongusModelData, amongus, ShaderManager::ShaderType::Texture);
-	t->SetDecal(decal);
+	//t->SetDecal(decal);
 	amongus->AddComponent(t);
 	amongus->AddComponent(new SphereCollisionComponent(amongus, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	amongus->GetTransform()->SetScale(Vector3D(0.03, 0.03, 0.03));
@@ -181,7 +177,7 @@ int main()
 
 	GameObject* greenPig = new GameObject(Vector3D(10.0f, 0.0f, 10.0f));
 	t = new MeshRendererComponent(greenPigModelData, greenPig, ShaderManager::ShaderType::Texture);
-	t->SetDecal(decal);
+	//t->SetDecal(decal);
 	greenPig->AddComponent(t);
 	greenPig->AddComponent(new SphereCollisionComponent(greenPig, Vector3D(0.0f, 0.0f, 0.0f), 2));
 	greenPig->GetTransform()->SetScale(Vector3D(0.02, 0.02, 0.02));
@@ -204,7 +200,7 @@ int main()
 	GameObject* ground = new GameObject(Vector3D(0.0f, -3.0f, 0.0f));
 	ground->GetTransform()->SetScale({ 10,10,10 });
 	t = new MeshRendererComponent(groundModelData, ground, ShaderManager::ShaderType::Texture);
-	t->SetDecal(decal);
+	//t->SetDecal(decal);
 	ground->AddComponent(t);
 	SRVEngine.AddGameObject(ground);
 

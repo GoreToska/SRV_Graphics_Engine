@@ -35,6 +35,9 @@ bool Graphics::Initialize(HWND hwnd, int width, int height)
 
 	deferred_objectMatrixBuffer.Initialize();
 
+	ThrowIfFailed(DirectX::CreateWICTextureFromFile(SRVDevice, L"Data\\Textures\\Pattern.jpg", nullptr, decal.GetAddressOf()),
+		"Failed to create texture.");
+
 	InitImGui(hwnd);
 
 	return true;
@@ -102,7 +105,7 @@ void Graphics::RenderFrame()
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->OMSetBlendState(additiveBlendState.Get(), nullptr, 0xFFFFFFFF);
-
+	SRVDeviceContext->PSSetShaderResources(0,1, decal.GetAddressOf());
 
 	for (auto& light : lightPool)
 	{
