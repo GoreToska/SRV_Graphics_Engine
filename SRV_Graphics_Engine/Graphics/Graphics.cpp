@@ -73,6 +73,17 @@ void Graphics::RenderFrame()
 
 	DrawDeferredOpaque();
 
+	DrawDeferredLight();
+
+
+	ImGui::Render();
+	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+
+	swapchain->Present(1, NULL);
+}
+
+void Graphics::DrawDeferredLight()
+{
 	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), nullptr);
 
 	SRVDeviceContext->RSSetState(rasterizerState.Get());
@@ -105,7 +116,7 @@ void Graphics::RenderFrame()
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->OMSetBlendState(additiveBlendState.Get(), nullptr, 0xFFFFFFFF);
-	SRVDeviceContext->PSSetShaderResources(0,1, decal.GetAddressOf());
+	SRVDeviceContext->PSSetShaderResources(0, 1, decal.GetAddressOf());
 
 	for (auto& light : lightPool)
 	{
@@ -153,12 +164,6 @@ void Graphics::RenderFrame()
 
 		}
 	}
-
-
-	ImGui::Render();
-	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
-
-	swapchain->Present(1, NULL);
 }
 
 void Graphics::DrawDeferredOpaque()

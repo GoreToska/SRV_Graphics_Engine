@@ -10,7 +10,8 @@ MeshRendererComponent::MeshRendererComponent(const ModelData& modelData, GameObj
 {
 	if (modelData.texturePath != L"")
 	{
-		ThrowIfFailed(DirectX::CreateWICTextureFromFile(SRVDevice, modelData.texturePath.c_str(), nullptr, texture.GetAddressOf()),
+		ThrowIfFailed(DirectX::CreateWICTextureFromFileEx(SRVDevice, SRVDeviceContext, modelData.texturePath.c_str(), 0, D3D11_USAGE_DEFAULT, D3D11_BIND_SHADER_RESOURCE, 0, 0,
+			DirectX::WIC_LOADER_FORCE_SRGB, nullptr, texture.GetAddressOf()),
 			"Failed to create texture.");
 	}
 

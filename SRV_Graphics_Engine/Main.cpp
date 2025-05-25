@@ -104,7 +104,7 @@ int main()
 	directionalLight->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 	SRVEngine.AddGameObject(directionalLight);
 	directionalLight->GetComponent<LightComponent>()->SetLightColor({ 1, 1, 1 });
-	directionalLight->GetComponent<LightComponent>()->SetLightStrength(1);
+	directionalLight->GetComponent<LightComponent>()->SetLightStrength(3);
 
 	
 	GameObject* pointLight = new GameObject({ pointLightPosition[0], pointLightPosition[1], pointLightPosition[2] });

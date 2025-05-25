@@ -30,6 +30,8 @@ public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
 
+	void DrawDeferredLight();
+
 	void AddObjectToRenderPool(IRenderComponent* object);
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;

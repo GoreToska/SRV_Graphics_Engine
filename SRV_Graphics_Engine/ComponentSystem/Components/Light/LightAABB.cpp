@@ -61,7 +61,6 @@ AABB getAABBForSpotLight(const LightComponent& source)
 	float length = source.GetLightDistance();
 	float radiusAtBase = tanf(source.GetLightAngle()) * length;
 
-
 	AABB box;
 	Vector3D baseCenter = pos + dir * length;
 
