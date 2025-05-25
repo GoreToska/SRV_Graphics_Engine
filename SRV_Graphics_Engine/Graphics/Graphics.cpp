@@ -58,6 +58,8 @@ void Graphics::InitImGui(HWND hwnd)
 
 void Graphics::RenderFrame()
 {
+	SRVDeviceContext->ClearState();
+
 	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
 	RenderShadows();
