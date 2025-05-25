@@ -154,6 +154,8 @@ float4 main(PS_IN input) : SV_Target
     float4 globalSpaceVertPos = mul(viewSpaceVertPos, inverseView);
     globalSpaceVertPos /= globalSpaceVertPos.w;
     float3 globalVertPos = globalSpaceVertPos.xyz;
+    float shine = 1.0f;
+    float shineDistance = 100.0f;
     
     [branch]
     if (lightType == DIRECTIONAL_LIGHT)
@@ -164,7 +166,7 @@ float4 main(PS_IN input) : SV_Target
     else if (lightType == POINT_LIGHT || lightType == SPOT_LIGHT)
     {
         lightDir = normalize(lightPosition.xyz - globalVertPos);
-        // todo light shine
+        shine = saturate(1 - length(lightPosition.xyz - globalVertPos) / shineDistance);
     }
     
     if (lightType == SPOT_LIGHT && dot(lightDirection, -lightDir) <= cos(lightAngle))
@@ -177,12 +179,22 @@ float4 main(PS_IN input) : SV_Target
     diffuseFactor *= lightColor * lightStrenght * diffuseFactor;
     
     float decal = decalTexture.Sample(objSamplerState, globalVertPos.xz / 10);
-    float3 finalColor = 0;
+    float4 finalColor = 0;
+    
+    float3 cameraViewAngle = normalize(cameraPosition.xyz - globalVertPos);
+    normal = normalize(normal);
+    float3 shineRadius = normalize(2 * dot(lightDir, normal) * normal - lightDir);
+    float3 spec = 0;
+    
+    if (lightType == POINT_LIGHT || lightType == SPOT_LIGHT)
+        spec = shine * lightColor * saturate(specular.xyz * lightStrenght * pow(dot(cameraViewAngle, shineRadius), 200));
+    
+    float3 dif = shine * lightColor * diffuse * lightStrenght * saturate(dot(lightDir, normal));
     
     if (shadow != 1)
-        finalColor = diffuse * (ambient + diffuseFactor * shadow * decal);
+        finalColor = float4(spec + dif, 1.0) * shadow * decal;
     else
-        finalColor = diffuse * (ambient + diffuseFactor * shadow);
+        finalColor = float4(spec + dif, 1.0) * shadow;
     
-    return float4(saturate(finalColor), 1.0);
+    return finalColor;
 }

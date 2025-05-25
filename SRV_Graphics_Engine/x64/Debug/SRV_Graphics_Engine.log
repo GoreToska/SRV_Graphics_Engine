@@ -1,6 +1,6 @@
 ﻿D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(142,11-54): warning X3206: implicit truncation of vector type
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(146,11-72): warning X3206: implicit truncation of vector type
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(179,11-77): warning X3206: implicit truncation of vector type
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(181,11-77): warning X3206: implicit truncation of vector type
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shaders\Deferred\deferredLightPS.hlsl(94,20): warning X4000: use of potentially uninitialized variable (CalculateShadow)
   
   compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\deferredLightPS.cso
