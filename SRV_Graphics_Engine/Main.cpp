@@ -96,6 +96,10 @@ int main()
 
 	static float pointLightPosition[3] = { 2,2,2 };
 
+	static float spotLightPosition[3] = { 0,5,0 };
+	static float spotLightRotation[3] = { 0,1.4f,0 };
+
+
 	GameObject* directionalLight = new GameObject(Vector3D(
 		directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2]));
 	directionalLight->GetTransform()->SetRotation({
@@ -112,6 +116,12 @@ int main()
 	SRVEngine.AddGameObject(pointLight);
 	pointLight->GetComponent<LightComponent>()->SetLightColor({ 0, 1, 0 });
 	pointLight->GetComponent<LightComponent>()->SetLightStrength(1);
+
+	GameObject* spotLight = new GameObject({ spotLightPosition[0], spotLightPosition[1], spotLightPosition[2] });
+	spotLight->AddComponent(new LightComponent(spotLight, Spot));
+	SRVEngine.AddGameObject(spotLight);
+	spotLight->GetComponent<LightComponent>()->SetLightColor({ 1, 0, 0 });
+	spotLight->GetComponent<LightComponent>()->SetLightStrength(2);
 
 	GameObject* blueBird = new GameObject(Vector3D(15.0f, 0.0f, -15.0f));
 	auto t = new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture);
@@ -209,6 +219,8 @@ int main()
 		directionalLight->GetTransform()->SetRotation({directionalLightRotation[0], directionalLightRotation[1],directionalLightRotation[2] });
 		directionalLight->GetTransform()->SetPosition({directionalLightPosition[0], directionalLightPosition[1], directionalLightPosition[2] });
 		pointLight->GetTransform()->SetPosition({ pointLightPosition[0], pointLightPosition[1], pointLightPosition[2]});
+		spotLight->GetTransform()->SetPosition({spotLightPosition[0],spotLightPosition[1], spotLightPosition[2]});
+		spotLight->GetTransform()->SetRotation({spotLightRotation[0],spotLightRotation[1], spotLightRotation[2]});
 
 		ImGui_ImplDX11_NewFrame();
 		ImGui_ImplWin32_NewFrame();
@@ -216,9 +228,13 @@ int main()
 
 		ImGui::Begin("Light Settings");
 		
-		ImGui::DragFloat3("Directional Light Position", directionalLightPosition, 0.1, -100, 100);
-		ImGui::DragFloat3("Directional Light Rotation", directionalLightRotation, 0.1, -100, 100);
-		ImGui::DragFloat3("Point Light Position", pointLightPosition, 0.1, -100, 100);
+		ImGui::DragFloat3("Directional Light Position", directionalLightPosition, 0.05, -100, 100);
+		ImGui::DragFloat3("Directional Light Rotation", directionalLightRotation, 0.05, -100, 100);
+		ImGui::Text("-------------");
+		ImGui::DragFloat3("Point Light Position", pointLightPosition, 0.05, -100, 100);
+		ImGui::Text("-------------");
+		ImGui::DragFloat3("Spot Light Position", spotLightPosition, 0.05, -100, 100);
+		ImGui::DragFloat3("Spot Light Rotation", spotLightRotation, 0.05, -100, 100);
 
 		ImGui::End();
 

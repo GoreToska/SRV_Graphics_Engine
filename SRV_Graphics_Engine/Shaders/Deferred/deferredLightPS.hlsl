@@ -161,13 +161,13 @@ float4 main(PS_IN input) : SV_Target
         lightDir = -normalize(lightDirection);
         shadow = CalculateShadow(depth, globalVertPos);
     }
-    else if (lightType == POINT_LIGHT)
+    else if (lightType == POINT_LIGHT || lightType == SPOT_LIGHT)
     {
         lightDir = normalize(lightPosition.xyz - globalVertPos);
         // todo light shine
     }
     
-    if (lightType == SPOT_LIGHT && dot(lightDirection, -lightColor) <= cos(lightAngle))
+    if (lightType == SPOT_LIGHT && dot(lightDirection, -lightDir) <= cos(lightAngle))
     {
         return float4(0.0, 0.0, 0.0, 0.0);
     }
