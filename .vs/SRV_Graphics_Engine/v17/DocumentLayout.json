@@ -7,12 +7,44 @@
       "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionEmitCS.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\bitonicTransposeCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\bitonicTransposeCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionSimulateCS.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionSimulateCS.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionVS.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionVS.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\DataTypes\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -37,30 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ParticleSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ParticleSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\bitonicTransposeCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\bitonicTransposeCS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionVS.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionVS.hlsl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Graphics.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Engine\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Deferred\\deferredLightVS.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -179,14 +187,6 @@
       "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DDFAE23B-6F24-4FAD-8DFA-84E9CB3B66E4}|SRV_Graphics_Engine\\SRV_Graphics_Engine.vcxproj|solutionrelative:SRV_Graphics_Engine\\Graphics\\Grid\\Grid.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -210,7 +210,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "ParticleSystem.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ParticleSystem.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ParticleSystem.cpp",
@@ -223,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "ConstantBuffer.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Buffers\\ConstantBuffer.h",
@@ -236,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "ExplosionParticleSystem.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ExplosionParticleSystem.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ExplosionParticleSystem.cpp",
@@ -249,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "GameObject.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\GameObject.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\GameObject.h",
@@ -262,20 +262,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 9,
               "Title": "Engine.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Engine\\Engine.cpp",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.cpp",
               "RelativeToolTip": "SRV_Graphics_Engine\\Engine\\Engine.cpp",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAWwC8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAWwC4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-27T10:09:30.705Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "explosionPS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionPS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionPS.hlsl",
@@ -294,27 +294,27 @@
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionEmitCS.hlsl",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionEmitCS.hlsl",
               "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionEmitCS.hlsl",
-              "ViewState": "AgIAADcAAAAAAAAAAAAuwEgAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAuwEIAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
               "WhenOpened": "2025-05-26T13:54:06.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "explosionSimulateCS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionSimulateCS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionSimulateCS.hlsl",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionSimulateCS.hlsl",
               "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionSimulateCS.hlsl",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEMAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
               "WhenOpened": "2025-05-26T13:53:47.848Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "ExplosionParticleSystem.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ExplosionParticleSystem.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ExplosionParticleSystem.h",
@@ -327,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "ShaderManager.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.h",
@@ -340,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "ShaderManager.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\ShaderManager\\ShaderManager.cpp",
@@ -353,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "ParticleSystem.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ParticleSystem.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Particles\\ParticleSystem.h",
@@ -366,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "explosionVS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionVS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionVS.hlsl",
@@ -379,7 +379,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "explosionGS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionGS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Particles\\Explosion\\explosionGS.hlsl",
@@ -392,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "bitonicTransposeCS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\bitonicTransposeCS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Particles\\bitonicTransposeCS.hlsl",
@@ -405,20 +405,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "bitonicSortCS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl",
               "RelativeToolTip": "SRV_Graphics_Engine\\Shaders\\Particles\\bitonicSortCS.hlsl",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEUAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
               "WhenOpened": "2025-05-26T12:04:41.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "Particle.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\DataTypes\\Particle.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\DataTypes\\Particle.h",
@@ -431,20 +431,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
               "Title": "Graphics.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
               "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Graphics.cpp",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAWwK4AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAqwLIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-06T15:04:18.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "deferredOpaqueVS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Deferred\\deferredOpaqueVS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Deferred\\deferredOpaqueVS.hlsl",
@@ -457,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Shaders.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\ShadersClass\\Shaders.cpp",
@@ -470,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "Main.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Main.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Main.cpp",
@@ -483,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "deferredOpaquePS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Deferred\\deferredOpaquePS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Deferred\\deferredOpaquePS.hlsl",
@@ -496,7 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "MeshRendererComponent.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.cpp",
@@ -509,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "Graphics.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Graphics.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Graphics.h",
@@ -522,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "deferredLightVS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Deferred\\deferredLightVS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Deferred\\deferredLightVS.hlsl",
@@ -535,7 +535,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "ColorPixelShader.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ColorPixelShader.hlsl",
@@ -548,7 +548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "Mesh.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.cpp",
@@ -561,7 +561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "deferredLightPS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\Deferred\\deferredLightPS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\Deferred\\deferredLightPS.hlsl",
@@ -574,7 +574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "LightAABB.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightAABB.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightAABB.cpp",
@@ -587,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "LightAABB.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightAABB.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightAABB.h",
@@ -600,7 +600,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "LightComponent.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightComponent.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightComponent.h",
@@ -613,7 +613,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "TextureVertexShader.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\TextureVertexShader.hlsl",
@@ -626,7 +626,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "TexturePixelShader.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\TexturePixelShader.hlsl",
@@ -639,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "CameraMovementComponent.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Camera\\CameraMovementComponent.cpp",
@@ -651,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "Mesh.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\Mesh.h",
@@ -663,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "LightComponent.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightComponent.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\LightComponent.cpp",
@@ -676,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "ShadowMapGS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapGS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ShadowMapGS.hlsl",
@@ -688,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "Engine.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Engine\\Engine.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Engine\\Engine.h",
@@ -701,7 +701,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "ShadowMapVS.hlsl",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Shaders\\ShadowMapVS.hlsl",
@@ -713,7 +713,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "Camera.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Camera.h",
@@ -725,7 +725,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "Camera.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Camera.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Camera.cpp",
@@ -737,7 +737,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "ShadowMapCalculator.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Light\\ShadowMapCalculator.h",
@@ -749,7 +749,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "MeshRendererComponent.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\MeshRendererComponent.h",
@@ -761,7 +761,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "PrimitiveRenderComponent.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\ComponentSystem\\Components\\Render\\PrimitiveRenderComponent.cpp",
@@ -773,27 +773,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 6,
               "Title": "GBuffer.cpp",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp",
               "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAWwCIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-23T08:34:05.124Z"
+              "WhenOpened": "2025-05-23T08:34:05.124Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 7,
               "Title": "GBuffer.h",
               "DocumentMoniker": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h",
               "RelativeDocumentMoniker": "SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h",
               "ToolTip": "D:\\CPP Projects\\SRV_Graphics_Engine\\SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h",
               "RelativeToolTip": "SRV_Graphics_Engine\\Graphics\\Buffers\\GBuffer.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-23T08:33:53.668Z"
+              "WhenOpened": "2025-05-23T08:33:53.668Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

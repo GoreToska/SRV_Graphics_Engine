@@ -61,17 +61,17 @@ void main(uint3 DTid : SV_DispatchThreadID)
 	Particle p;
 	p.position = emitPosition;
 	p.prevPosition = emitPosition;
-	p.velocity = float3(0.0f, 5.0f, 0.0f) * 0.001f;
-	p.acceleration = 0;
+	p.velocity = float3(0.0f, 0.0f, 0.0f) * 0.01f;
+	p.acceleration = float3(0.0f, 1.0f, 0.0f) * 0.001f;
 	//float3(0, -0.981f, 0) * 0.01;
-	p.maxLifetime = 1000.0f;
+	p.maxLifetime = 300.0f;
 	p.lifetime = 0.0f;
 
 	p.initialColor = float4(1.0, 1.0, 1.0, 1);
 	p.endColor = float4(0.0, 1.0, 0, 1);
 
-	p.initialSize = 0.1;
-	p.endSize = 1.3;
+	p.initialSize = 0.0;
+	p.endSize = 4;
 
 	p.initialWeight = 1.0;
 	p.endWeight = 1.0;

@@ -166,10 +166,17 @@ void Graphics::DrawDeferredLight()
 
 		}
 	}
+
+	gBuffer->PSClearResourceViews(2);
 }
 
 void Graphics::DrawParticles(const float& deltaTime)
 {
+	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), nullptr);
+
+	SRVDeviceContext->RSSetState(rasterizerState.Get());
+	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
+
 	for (int i = 0; i < particleSystemPool.size(); ++i)
 	{
 		particleSystemPool[i]->Update(deltaTime);

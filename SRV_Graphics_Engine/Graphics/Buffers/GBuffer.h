@@ -12,6 +12,7 @@ public:
 	
 	void SetRenderTargets() const;
 	void PSBindResourceViews(int startIndex) const;
+	void PSClearResourceViews(int startIndex) const;
 	void ClearRenderTargets() const;
 
 private:

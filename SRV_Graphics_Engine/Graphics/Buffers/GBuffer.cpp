@@ -32,6 +32,15 @@ void GBuffer::PSBindResourceViews(int startIndex) const
 	SRVDeviceContext->PSSetShaderResources(startIndex, 5, rsvs);
 }
 
+void GBuffer::PSClearResourceViews(int startIndex) const
+{
+	ID3D11ShaderResourceView* rsvs[] = { nullptr };
+	for (int i = startIndex; i < startIndex + 5; i++)
+	{
+		SRVDeviceContext->PSSetShaderResources(i, 1, rsvs);
+	}
+}
+
 void GBuffer::ClearRenderTargets() const
 {
 	const float clearColorWhite[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
