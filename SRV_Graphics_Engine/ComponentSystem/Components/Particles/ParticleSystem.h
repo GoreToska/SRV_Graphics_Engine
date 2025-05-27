@@ -53,7 +53,7 @@ protected:
 	GameObject* gameObject;
 
 	std::vector<Particle> particleList = {};
-	float emitionRate = 100;
+	float emitionRate = 10;
 	unsigned int maxParticles = 1000;
 
 

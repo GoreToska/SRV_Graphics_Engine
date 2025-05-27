@@ -65,16 +65,16 @@ void main(uint3 DTid : SV_GroupThreadID,
 
 	p.lifetime += deltaTime;
 	p.prevPosition = p.position;
-	p.position += p.velocity * deltaTime;
 	p.velocity += p.acceleration * deltaTime;
+	p.position += p.velocity * deltaTime;
 
     [branch]
 	if (p.lifetime >= p.maxLifetime)
 	{
 		deadListBuffer.Append(particleIndex);
 		sls.distanceSq = 100000.0f;
-		p.initialColor = float4(0.0f, 0.0f, 1.0f, 1.0f);
-		p.endColor = float4(0.0f, 0.0f, 1.0f, 1.0f);
+		//p.initialColor = float4(0.0f, 0.0f, 1.0f, 1.0f);
+		//p.endColor = float4(0.0f, 0.0f, 1.0f, 1.0f);
 		sortListBuffer.DecrementCounter();
 	}
 	else

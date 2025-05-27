@@ -35,7 +35,6 @@ bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::stri
 
 void Engine::AddGameObject(GameObject* gameObject)
 {
-	gameObjects.push_back(gameObject);
 
 	IRenderComponent* renderComponent = gameObject->GetComponent<IRenderComponent>();
 	if (renderComponent != nullptr)
@@ -46,8 +45,12 @@ void Engine::AddGameObject(GameObject* gameObject)
 	ParticleSystem* particleSystem = gameObject->GetComponent<ParticleSystem>();
 	if (particleSystem != nullptr)
 	{
-
+		graphics.AddParticleSystemToPool(particleSystem);
+		return;
 	}
+
+	gameObjects.push_back(gameObject);
+
 }
 
 bool Engine::ProcessMessages()
@@ -90,6 +93,11 @@ void Engine::RenderFrame()
 Graphics& Engine::GetGraphics()
 {
 	return graphics;
+}
+
+float Engine::GetDeltaSeconds()
+{
+	return timer.GetMilisecondsElapsed();
 }
 
 Timer* Engine::GetTimer()

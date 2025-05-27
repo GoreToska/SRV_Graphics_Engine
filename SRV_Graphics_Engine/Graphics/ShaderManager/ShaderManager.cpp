@@ -191,6 +191,8 @@ VertexShader* ShaderManager::GetVS(ShaderType type)
 		return &deferredOpaqueVS;
 	case Deferred_Light:
 		return &deferredLightVS;
+	case Particle:
+		return &particleVS;
 	}
 }
 

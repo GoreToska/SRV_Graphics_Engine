@@ -75,6 +75,8 @@ void Graphics::RenderFrame()
 
 	DrawDeferredLight();
 
+	DrawParticles(SRVEngine.GetDeltaSeconds());
+
 
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
@@ -163,6 +165,15 @@ void Graphics::DrawDeferredLight()
 			}
 
 		}
+	}
+}
+
+void Graphics::DrawParticles(const float& deltaTime)
+{
+	for (int i = 0; i < particleSystemPool.size(); ++i)
+	{
+		particleSystemPool[i]->Update(deltaTime);
+		particleSystemPool[i]->Render();
 	}
 }
 

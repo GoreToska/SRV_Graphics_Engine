@@ -33,6 +33,8 @@ public:
 
 	void DrawDeferredLight();
 
+	void DrawParticles(const float& deltaTime);
+
 	void AddObjectToRenderPool(IRenderComponent* object);
 	void AddParticleSystemToPool(ParticleSystem* object);
 

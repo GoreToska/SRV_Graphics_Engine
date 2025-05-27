@@ -21,6 +21,8 @@ struct PS_IN
 PS_IN main(VS_IN input, uint id : SV_VertexID)
 {
     PS_IN output = (PS_IN) 0;
+    
+    // todo: add aabb 
 
     output.tex.xy = float2(id & 1, (id & 2) >> 1);
     output.pos = float4(output.tex.xy * float2(2, -2) + float2(-1, 1), 0, 1);

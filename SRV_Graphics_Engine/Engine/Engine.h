@@ -26,7 +26,7 @@ public:
 	void Update(float deltaTime);
 	void RenderFrame();
 	Graphics& GetGraphics();
-
+	float GetDeltaSeconds();
 	Timer* GetTimer();
 	std::vector<GameObject*> GetAllGameObjects();
 
@@ -34,5 +34,6 @@ private:
 	Timer timer;
 	std::vector<GameObject*> gameObjects{};
 	Grid* grid;
+	float deltaTime;
 };
 

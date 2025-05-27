@@ -105,6 +105,7 @@ void ExplosionParticleSystem::Emit(int count)
 	}
 
 	SRVDeviceContext->CSSetConstantBuffers(0, 1, particleDataBuffer.GetAddressOf());
+	SRVDeviceContext->Dispatch(1, 1, 1);
 	ID3D11UnorderedAccessView* np = nullptr;
 	SRVDeviceContext->CSSetUnorderedAccessViews(0, 1, &np, nullptr);
 	SRVDeviceContext->CSSetUnorderedAccessViews(1, 1, &np, nullptr);
@@ -127,18 +128,17 @@ void ExplosionParticleSystem::Initialize()
 
 	sortListBuffer.Initialize(maxParticles, sl.data());
 
-	std::vector<unsigned int> deadIndices;
+	// TODO: what?
+	std::vector<unsigned int> deadIndices/*(maxParticles)*/;
 	deadIndices.reserve(maxParticles);
-
 	for (unsigned int i = 0; i < maxParticles; ++i)
 	{
 		deadIndices.push_back(i);
 	}
 
 	deadListBuffer.Initialize(maxParticles, deadIndices.data());
-	particleDataBuffer.Initialize();
 	particleDataBuffer.GetData()->numAliveParticles = 0;
-	particleDataBuffer.ApplyChanges();
+	particleDataBuffer.Initialize();
 
 	D3D11_UNORDERED_ACCESS_VIEW_DESC uavDesc = {};
 	uavDesc.ViewDimension = D3D11_UAV_DIMENSION_BUFFER;

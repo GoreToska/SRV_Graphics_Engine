@@ -194,6 +194,7 @@ int main()
 
 	GameObject* camera = new GameObject(Vector3D(15, 15, 15));
 	camera->AddComponent(new CameraMovementComponent(SRVEngine.GetGraphics().GetCamera()));
+	SRVEngine.GetGraphics().GetCamera()->SetPosition(Vector3D{0,3,0});
 	//camera->AddComponent(new TopDownCameraComponent(SRVEngine.GetGraphics().GetCamera(), redBird, Vector3D(0, 20, -10)));
 	//camera->AddComponent(new ThirdPersonCameraComponent(camera, redBird, SRVEngine.GetGraphics().GetCamera()));
 	SRVEngine.AddGameObject(camera);
