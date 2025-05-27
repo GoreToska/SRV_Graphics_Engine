@@ -25,6 +25,27 @@
       <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ShadowMapGS.cso</FullPath>
     </ContentFile>
     <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\bitonicSortCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\bitonicTransposeCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\explosionEmitCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\explosionGS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\explosionPS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\explosionSimulateCS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\explosionVS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
       <FullPath>D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\ColorPixelShader.cso</FullPath>
     </ContentFile>
     <ContentFile>

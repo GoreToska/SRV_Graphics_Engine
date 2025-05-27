@@ -229,7 +229,7 @@ float LightComponent::GetLightDistance() const
 	return distance;
 }
 
-ConstantBuffer<PS_LightParamsBuffer>& LightComponent::UpdateLightConstBuffer()
+ConstantBufferW<PS_LightParamsBuffer>& LightComponent::UpdateLightConstBuffer()
 {
 	lightConstBuffer.GetData()->angle = angle;
 	lightConstBuffer.GetData()->lightColor = lightColor;

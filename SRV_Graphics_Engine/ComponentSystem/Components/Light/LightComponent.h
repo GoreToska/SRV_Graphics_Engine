@@ -37,7 +37,7 @@ public:
 	float GetLightAngle() const;
 	float GetLightDistance() const;
 
-	ConstantBuffer<PS_LightParamsBuffer>& UpdateLightConstBuffer();
+	ConstantBufferW<PS_LightParamsBuffer>& UpdateLightConstBuffer();
 
 	ID3D11ShaderResourceView* GetShadowSRV();
 	ID3D11ShaderResourceView* const* GetShadowSRVAddress();

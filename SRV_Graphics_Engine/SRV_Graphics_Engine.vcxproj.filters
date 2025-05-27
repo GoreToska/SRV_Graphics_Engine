@@ -204,6 +204,12 @@
     <ClCompile Include="Graphics\Buffers\IndexBuffer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Particles\ParticleSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Logger.h">
@@ -401,6 +407,15 @@
     <ClInclude Include="ComponentSystem\Components\Light\LightAABB.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="DataTypes\Particle.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Particles\ParticleSystem.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentSystem\Components\Particles\ExplosionParticleSystem.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TextureVertexShader.hlsl" />
@@ -419,6 +434,27 @@
     <FxCompile Include="Shaders\Deferred\deferredOpaquePS.hlsl" />
     <FxCompile Include="Shaders\Deferred\deferredLightPS.hlsl" />
     <FxCompile Include="Shaders\Deferred\deferredLightVS.hlsl" />
+    <FxCompile Include="Shaders\Particles\bitonicSortCS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Particles\bitonicTransposeCS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Particles\Explosion\explosionEmitCS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Particles\Explosion\explosionSimulateCS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Particles\Explosion\explosionGS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Particles\Explosion\explosionPS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
+    <FxCompile Include="Shaders\Particles\Explosion\explosionVS.hlsl">
+      <Filter>Исходные файлы</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

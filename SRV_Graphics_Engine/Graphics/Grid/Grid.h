@@ -27,6 +27,6 @@ private:
 
 	VertexBuffer<CVertex> vertexBuffer = {};
 	IndexBuffer indexBuffer = {};
-	ConstantBuffer<VS_ObjectMatrixBuffer> constBuffer = {};
+	ConstantBufferW<VS_ObjectMatrixBuffer> constBuffer = {};
 };
 

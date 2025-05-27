@@ -229,6 +229,11 @@ void Graphics::AddObjectToRenderPool(IRenderComponent* object)
 	}
 }
 
+void Graphics::AddParticleSystemToPool(ParticleSystem* object)
+{
+	particleSystemPool.push_back(object);
+}
+
 const DirectX::XMMATRIX Graphics::GetWorldMatrix() const
 {
 	return worldMatrix;

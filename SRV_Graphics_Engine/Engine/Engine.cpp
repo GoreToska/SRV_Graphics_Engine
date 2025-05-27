@@ -8,6 +8,7 @@
 #include "../Input/Mouse/MouseInputEvent.h"
 #include "../ComponentSystem/GameObject.h"  
 #include "../ComponentSystem/Components/Render/IRenderComponent.h"
+#include "../ComponentSystem/Components/Particles/ParticleSystem.h"
 
 #pragma endregion
 
@@ -41,6 +42,12 @@ void Engine::AddGameObject(GameObject* gameObject)
 	{
 		graphics.AddObjectToRenderPool(renderComponent);
 	}
+
+	ParticleSystem* particleSystem = gameObject->GetComponent<ParticleSystem>();
+	if (particleSystem != nullptr)
+	{
+
+	}
 }
 
 bool Engine::ProcessMessages()
@@ -55,23 +62,23 @@ void Engine::Update(float deltaTime)
 		gameObjects[i]->Update(deltaTime);
 	}
 
-	#pragma region Input
+#pragma region Input
 
-		while (!Keyboard::GetInstance().CharBufferIsEmpty())
-		{
-			unsigned char a = Keyboard::GetInstance().ReadChar();
-		}
+	while (!Keyboard::GetInstance().CharBufferIsEmpty())
+	{
+		unsigned char a = Keyboard::GetInstance().ReadChar();
+	}
 
-		while (!Keyboard::GetInstance().KeyBufferIsEmpty())
-		{
-			KeyboardInputEvent e = Keyboard::GetInstance().ReadKey();
-		}
+	while (!Keyboard::GetInstance().KeyBufferIsEmpty())
+	{
+		KeyboardInputEvent e = Keyboard::GetInstance().ReadKey();
+	}
 
-		while (!Mouse::GetInstance().EventBufferIsEmpty())
-		{
-			MouseInputEvent e = Mouse::GetInstance().ReadEvent();
-		}
-	#pragma endregion
+	while (!Mouse::GetInstance().EventBufferIsEmpty())
+	{
+		MouseInputEvent e = Mouse::GetInstance().ReadEvent();
+	}
+#pragma endregion
 }
 
 void Engine::RenderFrame()

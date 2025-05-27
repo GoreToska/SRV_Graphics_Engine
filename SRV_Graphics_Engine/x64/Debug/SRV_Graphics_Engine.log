@@ -1,4 +1,50 @@
-﻿  Main.cpp
+﻿  ExplosionParticleSystem.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,75): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,81): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,86): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(32,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp(15,7): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(133,41): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(133,41):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ParticleSystem.h(72,29):
+          see reference to class template instantiation 'ConstantBufferRW<Particle>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(121,10):
+          while compiling class template member function 'HRESULT ConstantBufferRW<Particle>::Initialize(size_t)'
+              D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp(119,27):
+              see the first reference to 'ConstantBufferRW<Particle>::Initialize' in 'ExplosionParticleSystem::Initialize'
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(153,41): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(153,41):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ParticleSystem.h(71,33):
+          see reference to class template instantiation 'ConstantBufferRW<unsigned int>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(141,10):
+          while compiling class template member function 'HRESULT ConstantBufferRW<unsigned int>::Initialize(size_t,T *)'
+          with
+          [
+              T=unsigned int
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp(138,27):
+              see the first reference to 'ConstantBufferRW<unsigned int>::Initialize' in 'ExplosionParticleSystem::Initialize'
+  
+  Main.cpp
 E:\Visual Studio\Visual Studio 2022 IDE\VC\Tools\MSVC\14.41.34120\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,75): warning C4305: 'initializing': truncation from 'double' to 'const float'
   (compiling source file 'Main.cpp')
@@ -30,23 +76,24 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\ThirdPersonCameraComponent.h(32,21): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'Main.cpp')
   
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(104,57): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(104,52): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(104,47): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(127,92): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(128,58): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(128,52): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(128,46): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(175,57): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(175,51): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(175,45): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(183,58): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(183,52): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(183,46): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(210,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(227,77): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(228,77): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(230,65): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(232,63): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(233,63): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(105,57): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(105,52): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(105,47): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(128,92): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(129,58): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(129,52): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(129,46): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(176,57): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(176,51): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(176,45): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(184,58): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(184,52): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(184,46): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(217,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(234,77): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(235,77): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(237,65): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(239,63): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Main.cpp(240,63): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

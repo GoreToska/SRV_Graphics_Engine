@@ -46,6 +46,30 @@ bool ShaderManager::Initialize()
 
 	if (!texturePS.Initialize(shaderFolder + L"TexturePixelShader.cso"))
 		return false;
+
+
+	D3D11_INPUT_ELEMENT_DESC particleLayoutDesc[] =
+	{
+		{"SV_VertexID", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+	};
+
+	UINT particleLayoutElements = ARRAYSIZE(particleLayoutDesc);
+
+	if (!particleVS.Initialize(shaderFolder + L"explosionVS.cso", particleLayoutDesc, particleLayoutElements))
+		return false;
+
+	if (!particlePS.Initialize(shaderFolder + L"explosionPS.cso"))
+		return false;
+
+	if (!explosionParticleGS.Initialize(shaderFolder + L"explosionGS.cso"))
+		return false;
+
+	if (!explosionSimulateShader.Initialize(shaderFolder + L"explosionSimulateCS.cso"))
+		return false;
+
+	if (!explosionEmitShader.Initialize(shaderFolder + L"explosionEmitCS.cso"))
+		return false;
+
 	// --- Texture Shaders ---
 
 	// --- Deferred Opaque Shaders ---
@@ -110,9 +134,20 @@ bool ShaderManager::Initialize()
 		return false;
 
 
-	if(!shadowMapGS.Initialize(shaderFolder + L"ShadowMapGS.cso"))
+	if (!shadowMapGS.Initialize(shaderFolder + L"ShadowMapGS.cso"))
+		return false;
 
 	// --- ShadowMap Shaders ---
+
+
+	// --- Compute Shaders ---
+
+	if (!bitonicSortShader.Initialize(shaderFolder + L"bitonicSortCS.cso"))
+		return false;
+
+	if (!bitonicTransposeShader.Initialize(shaderFolder + L"bitonicTransposeCS.cso"))
+		return false;
+	// --- Compute Shaders ---
 
 	return true;
 }
@@ -133,6 +168,8 @@ PixelShader* ShaderManager::GetPS(ShaderType type)
 		return &deferredOpaquePS;
 	case Deferred_Light:
 		return &deferredLightPS;
+	case Particle:
+		return &particlePS;
 	default:
 		break;
 	}
@@ -169,5 +206,64 @@ GeomertyShader* ShaderManager::GetGS(ShaderType type)
 		return nullptr;
 	case ShadowMap:
 		return &shadowMapGS;
+	case Particle:
+		return &explosionParticleGS;
 	}
+}
+
+ComputeShader* ShaderManager::GetCS(ComputeShaderType type)
+{
+	switch (type)
+	{
+	case ShaderManager::None:
+		return nullptr;
+	case ShaderManager::CS_BitonicSort:
+		return &bitonicSortShader;
+	case ShaderManager::CS_BitonicTranspose:
+		return &bitonicTransposeShader;
+	default:
+		return nullptr;
+	}
+
+	return nullptr;
+}
+
+ComputeShader* ShaderManager::GetParticleEmitCS(ParticleEmitShaderType type)
+{
+	switch (type)
+	{
+	case ShaderManager::PECS_None:
+		return nullptr;
+	case ShaderManager::PECS_Explosion_Emit:
+		return &explosionEmitShader;
+	default:
+		return nullptr;
+	}
+}
+
+ComputeShader* ShaderManager::GetParticleSimulateCS(ParticleSimulateShaderType type)
+{
+	switch (type)
+	{
+	case ShaderManager::PSCS_None:
+		return nullptr;
+	case ShaderManager::PSCS_Explosion_Simulate:
+		return &explosionSimulateShader;
+	default:
+		return nullptr;
+	}
+}
+
+GeomertyShader* ShaderManager::GetParticleGS(ParticleGeometryShaderType type)
+{
+	switch (type)
+	{
+	case ShaderManager::PGS_None:
+		return nullptr;
+	case ShaderManager::PGS_Explosion_Geometry:
+		return &explosionParticleGS;
+	default:
+		return nullptr;
+	}
+
 }

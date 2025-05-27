@@ -44,3 +44,11 @@ struct PS_CascadeShadowsBuffer
 	Vector4D Distances;
 	Vector4D CameraPosition;
 };
+
+struct CS_Sort
+{
+	UINT iLevel;
+	UINT iLevelMask;
+	UINT iWidth;
+	UINT iHeight;
+};

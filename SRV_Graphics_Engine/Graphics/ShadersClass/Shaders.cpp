@@ -111,3 +111,23 @@ ID3DBlob* GeomertyShader::GetBuffer()
 {
 	return shaderBuffer.Get();
 }
+
+bool ComputeShader::Initialize(std::wstring shaderPath)
+{
+	ThrowIfFailed(D3DReadFileToBlob(shaderPath.c_str(), shaderBuffer.GetAddressOf()), "Failed to load shader.");
+
+	ThrowIfFailed(SRVDevice->CreateComputeShader(shaderBuffer->GetBufferPointer(), shaderBuffer->GetBufferSize(), NULL, shader.GetAddressOf()),
+		"Failed to create compute shader.");
+
+	return true;
+}
+
+ID3D11ComputeShader* ComputeShader::GetShader()
+{
+	return shader.Get();
+}
+
+ID3DBlob* ComputeShader::GetBuffer()
+{
+	return shaderBuffer.Get();
+}

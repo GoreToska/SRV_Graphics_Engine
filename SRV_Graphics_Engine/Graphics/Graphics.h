@@ -14,6 +14,7 @@
 #include<wrl/client.h>
 #include<vector>
 #include <WICTextureLoader.h>
+#include "../ComponentSystem/Components/Particles/ParticleSystem.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -33,6 +34,7 @@ public:
 	void DrawDeferredLight();
 
 	void AddObjectToRenderPool(IRenderComponent* object);
+	void AddParticleSystemToPool(ParticleSystem* object);
 
 	const DirectX::XMMATRIX GetWorldMatrix() const;
 	Camera* GetCamera() const;
@@ -78,6 +80,7 @@ private:
 
 	std::vector<IRenderComponent*> objectRenderPool = {};
 	std::vector<LightComponent*> lightPool = {};
+	std::vector<ParticleSystem*> particleSystemPool = {};
 
 	Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;
@@ -90,7 +93,7 @@ private:
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> samplerState;
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> shadowSamplerState;
 
-	ConstantBuffer<VS_ObjectMatrixBuffer> deferred_objectMatrixBuffer = {};
+	ConstantBufferW<VS_ObjectMatrixBuffer> deferred_objectMatrixBuffer = {};
 
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> NoWriteNoCheckDSS;
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> NoWriteGreaterDSS;

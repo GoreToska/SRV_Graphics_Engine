@@ -8,6 +8,7 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Componen
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\CameraMovementComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\CameraMovementComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Collision\CollisionComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\CollisionComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\IComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\IComponent.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\ExplosionParticleSystem.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\GBuffer.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\GBuffer.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Delegates\Delegates.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Delegates.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\IndexBuffer.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\IndexBuffer.obj
@@ -37,6 +38,7 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariC
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\PrimitiveRenderComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShaderManager\ShaderManager.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\ShaderManager.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\LightAABB.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\LightAABB.obj
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ParticleSystem.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\ParticleSystem.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes\Shapes.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Shapes.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\TopDownCameraComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\TopDownCameraComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Collision\SphereCollisionComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\SphereCollisionComponent.obj

@@ -29,8 +29,8 @@ protected:
 	GameObject* gameObject = nullptr;
 
 	ShaderManager::ShaderType shaderType;
-	ConstantBuffer<VS_ObjectMatrixBuffer> objectMatrixBuffer = {};
-	ConstantBuffer<VS_LightMatrixBuffer> lightMatrixBuffer = {};
-	ConstantBuffer<PS_LightParamsBuffer> lightConstBuffer = {};
-	ConstantBuffer<PS_CascadeShadowsBuffer> cascadeShadowsBuffer = {};
+	ConstantBufferW<VS_ObjectMatrixBuffer> objectMatrixBuffer = {};
+	ConstantBufferW<VS_LightMatrixBuffer> lightMatrixBuffer = {};
+	ConstantBufferW<PS_LightParamsBuffer> lightConstBuffer = {};
+	ConstantBufferW<PS_CascadeShadowsBuffer> cascadeShadowsBuffer = {};
 };

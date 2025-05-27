@@ -24,6 +24,7 @@
 #include "DataTypes/ModelData.h"
 #include "./ComponentSystem/Components/Render/PrimitiveRenderComponent.h"
 #include "ComponentSystem/Components/Light/LightComponent.h"
+#include "ComponentSystem/Components/Particles/ExplosionParticleSystem.h"
 
 
 
@@ -203,6 +204,12 @@ int main()
 	//t->SetDecal(decal);
 	ground->AddComponent(t);
 	SRVEngine.AddGameObject(ground);
+
+	GameObject* particles = new GameObject(Vector3D(0.0f, 2.0f, 0.0f));
+	auto sys = new ExplosionParticleSystem(particles, 512);
+	particles->AddComponent(sys);
+	sys->Initialize();
+	SRVEngine.AddGameObject(particles);
 
 
 	while (SRVEngine.ProcessMessages())
