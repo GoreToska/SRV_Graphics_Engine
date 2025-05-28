@@ -4,7 +4,7 @@
 class ExplosionParticleSystem :public ParticleSystem
 {
 public:
-	ExplosionParticleSystem(GameObject* owner, size_t maxParticles);
+	ExplosionParticleSystem(GameObject* owner, size_t maxParticles, std::wstring texturePath);
 	void Update(const float& deltaTime) override;
 	void Simulate(const float& deltaTime) override;
 	void Render() override;

@@ -7,7 +7,7 @@
 
 static bool firstEmit = true;
 
-ExplosionParticleSystem::ExplosionParticleSystem(GameObject* owner, size_t maxParticles) : ParticleSystem(owner, maxParticles)
+ExplosionParticleSystem::ExplosionParticleSystem(GameObject* owner, size_t maxParticles, std::wstring texturePath) : ParticleSystem(owner, maxParticles, texturePath)
 {
 
 }
@@ -45,6 +45,8 @@ void ExplosionParticleSystem::Simulate(const float& deltaTime)
 
 void ExplosionParticleSystem::Render()
 {
+	ParticleSystem::Render();
+
 	cameraData.GetData()->view = SRVEngine.GetGraphics().GetCamera()->GetViewMatrix().Transpose();
 	cameraData.GetData()->proj = SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix().Transpose();
 	cameraData.GetData()->forward = SRVEngine.GetGraphics().GetCamera()->GetForwardVector();
@@ -82,6 +84,7 @@ void ExplosionParticleSystem::Emit(int count)
 	particleDataBuffer.GetData()->emitPosition = GetOrigin();
 	particleDataBuffer.GetData()->maxNumParticles = maxParticles;
 	particleDataBuffer.GetData()->cameraPosition = SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3();
+	//particleDataBuffer.GetData()->numAliveParticles = 0;
 
 	if (firstEmit)
 	{
@@ -93,6 +96,7 @@ void ExplosionParticleSystem::Emit(int count)
 	if (!firstEmit)
 	{
 		SRVDeviceContext->CopyStructureCount(particleDataBuffer.Get(), 12, sortListBufferUAV.Get());
+		std::cout << particleDataBuffer.GetData()->numAliveParticles << "\n";
 	}
 
 	UINT minOne = (UINT)-1;
@@ -146,12 +150,16 @@ void ExplosionParticleSystem::Initialize()
 
 	deadListBuffer.Initialize(maxParticles, deadIndices.data());
 	particleDataBuffer.GetData()->numAliveParticles = 0;
+
+
+
 	particleDataBuffer.Initialize();
 
 	D3D11_UNORDERED_ACCESS_VIEW_DESC uavDesc = {};
 	uavDesc.ViewDimension = D3D11_UAV_DIMENSION_BUFFER;
 	uavDesc.Buffer.NumElements = maxParticles;
 	uavDesc.Format = DXGI_FORMAT_UNKNOWN;
+	uavDesc.Buffer.Flags = D3D11_BUFFER_UAV_FLAG_COUNTER;
 	ThrowIfFailed(SRVDevice->CreateUnorderedAccessView(particleBuffer.Get(), &uavDesc, particleBufferUAV.GetAddressOf()), "Failed.");
 
 	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
@@ -222,20 +230,29 @@ void ExplosionParticleSystem::InitParticle(int index)
 	Particle p;
 	p.acceleration = Vector3D(0.0f, -0.981f, 0.0f) * 0.00005f;
 	p.initialColor = Vector4D(1.0f, 1.0f, 1.0f, 1.0f);
-	p.endColor = Vector4D(1.0f, 0.0f, 0.0f, 1.0f);
+	p.endColor = Vector4D(1.0f, 0.0f, 1.0f, 1.0f);
 	p.initialSize = 0.02f;
 	p.endSize = 1.0f;
 	float rw = GetRandomFloat(0.3f, 2.0f);
 	p.initialWeight = rw;
 	p.endWeight = rw;
 	p.lifetime = 0.0f;
-	p.maxLifetime = 2000.0f;
+	p.maxLifetime = GetRandomFloat(1000.0f, 2000.0f);
 	p.position = GetOrigin();
 	p.prevPosition = GetOrigin();
 
-	float rf = GetRandomFloat(0.0f, 1.0f * DirectX::XM_2PI);
-	p.velocity = GetRandomFloat(0.3f, 2.0f) * Vector3D(std::sin(rf), GetRandomFloat(-2.0f, 2.0f), std::cos(rf)) * 0.01;
-	//p.velocity = Vector3D::Zero;
+	float theta = GetRandomFloat(0.0f, DirectX::XM_2PI);  // Азимутальный угол
+	float phi = GetRandomFloat(0.0f, DirectX::XM_PI);     // Полярный угол
+	float speed = GetRandomFloat(0.3f, 2.0f) * 0.01f;
+
+	float rf1 = GetRandomFloat(0.0f, 1.0f * DirectX::XM_2PI);
+	float rf2 = GetRandomFloat(0.0f, 1.0f * DirectX::XM_2PI);
+	//p.velocity = GetRandomFloat(0.3f, 2.0f) * Vector3D(std::sin(rf1), GetRandomFloat(1.0f, 3.0f), std::cos(rf2)) * 0.01;
+	p.velocity = Vector3D(
+		speed * sin(phi) * cos(theta),
+		speed * cos(phi),
+		speed * sin(phi) * sin(theta)
+	) * 3;
 
 	injectionParticleData[index] = p;
 }

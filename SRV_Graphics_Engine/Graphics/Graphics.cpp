@@ -143,8 +143,7 @@ void Graphics::DrawParticles(const float& deltaTime)
 {
 	SRVDeviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), depthStencilView.Get());
 	SRVDeviceContext->RSSetState(rasterizerState.Get());
-	SRVDeviceContext->OMSetDepthStencilState(NoWriteLessDSS.Get(), 0);
-
+	SRVDeviceContext->OMSetDepthStencilState(depthStencilState.Get(), 0);
 
 	for (int i = 0; i < particleSystemPool.size(); ++i)
 	{

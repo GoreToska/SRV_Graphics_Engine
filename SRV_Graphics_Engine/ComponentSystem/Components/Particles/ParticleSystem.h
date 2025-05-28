@@ -34,7 +34,7 @@ struct CameraData
 class ParticleSystem : public IComponent
 {
 public:
-	ParticleSystem(GameObject* owner, size_t maxParticles);
+	ParticleSystem(GameObject* owner, size_t maxParticles, std::wstring texturePath);
 
 	virtual void Update(const float& deltaTime) override;
 
@@ -55,7 +55,7 @@ protected:
 
 	std::vector<Particle> particleList = {};
 	float emitionRate = 10;
-	unsigned int maxParticles = 1000;
+	unsigned int maxParticles = 4096;
 
 
 	Microsoft::WRL::ComPtr<ID3D11UnorderedAccessView> particleBufferUAV;
@@ -84,5 +84,8 @@ protected:
 	Particle injectionParticleData[injectionBufferSize];
 	Microsoft::WRL::ComPtr<ID3D11Buffer> injectionBuffer;
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> injectionSRV;
+
+	Microsoft::WRL::ComPtr<ID3D11SamplerState> sampler;
+	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> particleTexture;
 };
 

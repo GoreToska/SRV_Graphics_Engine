@@ -1,3 +1,6 @@
+Texture2D objTexture : register(t0);
+SamplerState objSampler : register(s0);
+
 struct PSInput
 {
 	float4 pos : SV_POSITION;
@@ -7,5 +10,6 @@ struct PSInput
 
 float4 main(PSInput input) : SV_TARGET
 {
-	return input.color;
+	return input.color * objTexture.Sample(objSampler, input.uv);
+	//return input.color;
 }

@@ -1,9 +1,32 @@
 #include "ParticleSystem.h"
 #include "../../../Graphics/ShaderManager/ShaderManager.h"
+#include <WICTextureLoader.h>
+#include "../../../Engine/Asserter.h"
 
 
-ParticleSystem::ParticleSystem(GameObject* owner, size_t maxParticles) : gameObject(owner), maxParticles(maxParticles)
+ParticleSystem::ParticleSystem(GameObject* owner, size_t maxParticles, std::wstring texturePath) : gameObject(owner), maxParticles(maxParticles)
 {
+
+	ThrowIfFailed(DirectX::CreateWICTextureFromFileEx(SRVDevice, SRVDeviceContext, texturePath.c_str(), 0, D3D11_USAGE_DEFAULT, D3D11_BIND_SHADER_RESOURCE, 0, 0,
+		DirectX::WIC_LOADER_DEFAULT, nullptr, particleTexture.GetAddressOf()),
+		"Failed to create texture.");
+
+	D3D11_SAMPLER_DESC samplerDesc = {};
+	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+	samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
+	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+	samplerDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+	samplerDesc.BorderColor[0] = 1.0f;
+	samplerDesc.BorderColor[1] = 0.0f;
+	samplerDesc.BorderColor[2] = 0.0f;
+	samplerDesc.BorderColor[3] = 1.0f;
+	samplerDesc.MipLODBias = 0;
+	samplerDesc.MaxAnisotropy = 0;
+	samplerDesc.MaxLOD = INT_MAX;
+
+	SRVDevice->CreateSamplerState(&samplerDesc, &sampler);
+
 	Initialize();
 }
 
@@ -17,6 +40,8 @@ void ParticleSystem::Simulate(const float& deltaTime)
 
 void ParticleSystem::Render()
 {
+	SRVDeviceContext->PSSetShaderResources(0, 1, particleTexture.GetAddressOf());
+	SRVDeviceContext->PSSetSamplers(0, 1, sampler.GetAddressOf());
 }
 
 void ParticleSystem::Emit(int count)
@@ -87,12 +112,12 @@ void ParticleSystem::Sort()
 		context->CSSetUnorderedAccessViews(0, 1, sortListBufferUAV.GetAddressOf(), nullptr);
 		context->CSSetShader(bitonicTransposeShader->GetShader(), nullptr, 0);
 
-		if(MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE > 0 && MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE > 0)
+		if (MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE > 0 && MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE > 0)
 			context->Dispatch(MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE, MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE, 1);
 
 		// Sort the transposed column data
 		context->CSSetShader(bitonicSortShader->GetShader(), nullptr, 0);
-		if(maxParticles / BITONIC_BLOCK_SIZE > 0)
+		if (maxParticles / BITONIC_BLOCK_SIZE > 0)
 			context->Dispatch(maxParticles / BITONIC_BLOCK_SIZE, 1, 1);
 
 		SetConstBuffer(BITONIC_BLOCK_SIZE, level, MATRIX_HEIGHT, MATRIX_WIDTH);
@@ -100,12 +125,12 @@ void ParticleSystem::Sort()
 		// Transpose the data from buffer 2 back into buffer 1
 		context->CSSetUnorderedAccessViews(0, 1, sortListBufferUAV.GetAddressOf(), nullptr);
 		context->CSSetShader(bitonicTransposeShader->GetShader(), nullptr, 0);
-		if(MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE > 0 && MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE > 0)
+		if (MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE > 0 && MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE > 0)
 			context->Dispatch(MATRIX_HEIGHT / TRANSPOSE_BLOCK_SIZE, MATRIX_WIDTH / TRANSPOSE_BLOCK_SIZE, 1);
 
 		// Sort the row data
 		context->CSSetShader(bitonicSortShader->GetShader(), nullptr, 0);
-		if(maxParticles / BITONIC_BLOCK_SIZE > 0)
+		if (maxParticles / BITONIC_BLOCK_SIZE > 0)
 			context->Dispatch(maxParticles / BITONIC_BLOCK_SIZE, 1, 1);
 
 		ID3D11UnorderedAccessView* pViewnullptr = nullptr;
