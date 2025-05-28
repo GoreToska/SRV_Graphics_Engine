@@ -401,6 +401,7 @@
     <ClInclude Include="Utils\Logger.h" />
     <ClInclude Include="Input\Mouse\Mouse.h" />
     <ClInclude Include="Render\RenderWindow.h" />
+    <ClInclude Include="Utils\MathUtils.h" />
     <ClInclude Include="Utils\Quaternion.h" />
     <ClInclude Include="Utils\StringConverter.h" />
     <ClInclude Include="Render\WindowContainer.h" />

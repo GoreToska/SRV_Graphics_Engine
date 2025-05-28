@@ -1,2 +1,50 @@
-﻿  compilation object save succeeded; see D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\explosionEmitCS.cso
+﻿  ExplosionParticleSystem.cpp
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,75): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,81): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\ShadowMapCalculator.h(23,86): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\DataTypes\ConstantBufferTypes.h(32,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(20,15): warning C4129: 'F': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Engine\Asserter.h(21,15): warning C4129: 'L': unrecognized character escape sequence
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Utils\MathUtils.h(9,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp(237,112): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(133,41): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(133,41):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ParticleSystem.h(73,29):
+          see reference to class template instantiation 'ConstantBufferRW<Particle>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(121,10):
+          while compiling class template member function 'HRESULT ConstantBufferRW<Particle>::Initialize(size_t)'
+              D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp(129,27):
+              see the first reference to 'ConstantBufferRW<Particle>::Initialize' in 'ExplosionParticleSystem::Initialize'
+  
+D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(153,41): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  (compiling source file 'ComponentSystem/Components/Particles/ExplosionParticleSystem.cpp')
+      D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(153,41):
+      the template instantiation context (the oldest one first) is
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ParticleSystem.h(72,33):
+          see reference to class template instantiation 'ConstantBufferRW<unsigned int>' being compiled
+          D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\Buffers\ConstantBuffer.h(141,10):
+          while compiling class template member function 'HRESULT ConstantBufferRW<unsigned int>::Initialize(size_t,T *)'
+          with
+          [
+              T=unsigned int
+          ]
+              D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ExplosionParticleSystem.cpp(147,27):
+              see the first reference to 'ConstantBufferRW<unsigned int>::Initialize' in 'ExplosionParticleSystem::Initialize'
+  
   SRV_Graphics_Engine.vcxproj -> D:\CPP Projects\SRV_Graphics_Engine\x64\Debug\SRV_Graphics_Engine.exe

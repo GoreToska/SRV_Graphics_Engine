@@ -207,7 +207,7 @@ int main()
 	SRVEngine.AddGameObject(ground);
 
 	GameObject* particles = new GameObject(Vector3D(0.0f, 2.0f, 0.0f));
-	auto sys = new ExplosionParticleSystem(particles, 512);
+	auto sys = new ExplosionParticleSystem(particles, 1024);
 	particles->AddComponent(sys);
 	sys->Initialize();
 	SRVEngine.AddGameObject(particles);
@@ -225,6 +225,9 @@ int main()
 		pointLight->GetTransform()->SetPosition({ pointLightPosition[0], pointLightPosition[1], pointLightPosition[2]});
 		spotLight->GetTransform()->SetPosition({spotLightPosition[0],spotLightPosition[1], spotLightPosition[2]});
 		spotLight->GetTransform()->SetRotation({spotLightRotation[0],spotLightRotation[1], spotLightRotation[2]});
+
+		if (Keyboard::GetInstance().IsKeyPressed('F'))
+			sys->Emit(1024);
 
 		ImGui_ImplDX11_NewFrame();
 		ImGui_ImplWin32_NewFrame();

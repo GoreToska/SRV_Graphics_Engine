@@ -58,7 +58,6 @@ void main(uint3 DTid : SV_GroupThreadID,
 	if (sortStructIndex >= numAliveParticles || sortStructIndex >= maxNumParticles)
 		return;
 
-    // simulate
 	SortListStruct sls = sortListBuffer[sortStructIndex];
 	uint particleIndex = sls.index;
 	Particle p = particlePool[particleIndex];
@@ -73,8 +72,6 @@ void main(uint3 DTid : SV_GroupThreadID,
 	{
 		deadListBuffer.Append(particleIndex);
 		sls.distanceSq = 100000.0f;
-		//p.initialColor = float4(0.0f, 0.0f, 1.0f, 1.0f);
-		//p.endColor = float4(0.0f, 0.0f, 1.0f, 1.0f);
 		sortListBuffer.DecrementCounter();
 	}
 	else

@@ -2,6 +2,8 @@
 #include "../../../Engine/Asserter.h"
 #include "../../../Graphics/ShaderManager/ShaderManager.h"
 #include "../../../Engine/Engine.h"
+#include "../../../Utils/MathUtils.h"
+#include <iostream>
 
 static bool firstEmit = true;
 
@@ -12,7 +14,6 @@ ExplosionParticleSystem::ExplosionParticleSystem(GameObject* owner, size_t maxPa
 
 void ExplosionParticleSystem::Update(const float& deltaTime)
 {
-	Emit(emitionRate);
 	Simulate(deltaTime);
 	Sort();
 }
@@ -70,6 +71,13 @@ void ExplosionParticleSystem::Render()
 
 void ExplosionParticleSystem::Emit(int count)
 {
+	InitParticles(count);
+
+	D3D11_MAPPED_SUBRESOURCE mapped;
+	auto hr = SRVDeviceContext->Map(injectionBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped);
+	memcpy(mapped.pData, injectionParticleData, sizeof(Particle) * injectionBufferSize);
+	SRVDeviceContext->Unmap(injectionBuffer.Get(), 0);
+
 	particleDataBuffer.GetData()->numEmitInThisFrame = count;
 	particleDataBuffer.GetData()->emitPosition = GetOrigin();
 	particleDataBuffer.GetData()->maxNumParticles = maxParticles;
@@ -105,6 +113,7 @@ void ExplosionParticleSystem::Emit(int count)
 	}
 
 	SRVDeviceContext->CSSetConstantBuffers(0, 1, particleDataBuffer.GetAddressOf());
+	SRVDeviceContext->CSSetShaderResources(0, 1, injectionSRV.GetAddressOf());
 	SRVDeviceContext->Dispatch(1, 1, 1);
 	ID3D11UnorderedAccessView* np = nullptr;
 	SRVDeviceContext->CSSetUnorderedAccessViews(0, 1, &np, nullptr);
@@ -128,8 +137,7 @@ void ExplosionParticleSystem::Initialize()
 
 	sortListBuffer.Initialize(maxParticles, sl.data());
 
-	// TODO: what?
-	std::vector<unsigned int> deadIndices/*(maxParticles)*/;
+	std::vector<unsigned int> deadIndices;
 	deadIndices.reserve(maxParticles);
 	for (unsigned int i = 0; i < maxParticles; ++i)
 	{
@@ -208,4 +216,26 @@ void ExplosionParticleSystem::Initialize()
 
 void ExplosionParticleSystem::InitParticle(int index)
 {
+	if (index < 0 || index >= injectionBufferSize)
+		return;
+
+	Particle p;
+	p.acceleration = Vector3D(0.0f, -0.981f, 0.0f) * 0.00005f;
+	p.initialColor = Vector4D(1.0f, 1.0f, 1.0f, 1.0f);
+	p.endColor = Vector4D(1.0f, 0.0f, 0.0f, 1.0f);
+	p.initialSize = 0.02f;
+	p.endSize = 1.0f;
+	float rw = GetRandomFloat(0.3f, 2.0f);
+	p.initialWeight = rw;
+	p.endWeight = rw;
+	p.lifetime = 0.0f;
+	p.maxLifetime = 2000.0f;
+	p.position = GetOrigin();
+	p.prevPosition = GetOrigin();
+
+	float rf = GetRandomFloat(0.0f, 1.0f * DirectX::XM_2PI);
+	p.velocity = GetRandomFloat(0.3f, 2.0f) * Vector3D(std::sin(rf), GetRandomFloat(-2.0f, 2.0f), std::cos(rf)) * 0.01;
+	//p.velocity = Vector3D::Zero;
+
+	injectionParticleData[index] = p;
 }

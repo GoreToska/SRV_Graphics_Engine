@@ -48,6 +48,7 @@ public:
 	Vector3D GetOrigin() const;
 
 protected:
+	virtual void InitParticles(int count);
 	virtual void InitParticle(int index) = 0;
 
 	GameObject* gameObject;
@@ -77,5 +78,11 @@ protected:
 	const UINT BITONIC_BLOCK_SIZE = 512;
 	const UINT TRANSPOSE_BLOCK_SIZE = 16;
 	const UINT MATRIX_WIDTH = BITONIC_BLOCK_SIZE;
+
+	static constexpr int injectionBufferSize = 1024;
+	const int maxNumInjectionParticles = injectionBufferSize;
+	Particle injectionParticleData[injectionBufferSize];
+	Microsoft::WRL::ComPtr<ID3D11Buffer> injectionBuffer;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> injectionSRV;
 };
 

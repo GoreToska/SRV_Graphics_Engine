@@ -91,7 +91,6 @@ private:
 	Microsoft::WRL::ComPtr <ID3D11ShaderResourceView> depthStencilSRV;
 	Microsoft::WRL::ComPtr <ID3D11Texture2D> depthStencilTexture;
 	Microsoft::WRL::ComPtr <ID3D11DepthStencilState> depthStencilState;
-	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerState;
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> samplerState;
 	Microsoft::WRL::ComPtr <ID3D11SamplerState> shadowSamplerState;
 
@@ -103,6 +102,7 @@ private:
 
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rastStateCullFront;
 	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rastStateCullBack;
+	Microsoft::WRL::ComPtr<ID3D11RasterizerState> rasterizerState;
 
 	Microsoft::WRL::ComPtr<ID3D11BlendState> additiveBlendState;
 

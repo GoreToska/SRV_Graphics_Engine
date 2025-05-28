@@ -416,6 +416,9 @@
     <ClInclude Include="ComponentSystem\Components\Particles\ExplosionParticleSystem.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\MathUtils.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TextureVertexShader.hlsl" />

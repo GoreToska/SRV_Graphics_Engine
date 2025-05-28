@@ -27,7 +27,24 @@ void ParticleSystem::Initialize()
 {
 	bitonicSortShader = ShaderManager::GetInstance().GetCS(ShaderManager::CS_BitonicSort);
 	bitonicTransposeShader = ShaderManager::GetInstance().GetCS(ShaderManager::CS_BitonicTranspose);
+
+	D3D11_BUFFER_DESC desc = {};
+	desc.Usage = D3D11_USAGE_DYNAMIC;
+	desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+	desc.ByteWidth = sizeof(Particle) * injectionBufferSize;
+	desc.MiscFlags = D3D11_RESOURCE_MISC_BUFFER_STRUCTURED;
+	desc.StructureByteStride = sizeof(Particle);
+	desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
+	HRESULT hr = SRVDevice->CreateBuffer(&desc, 0, injectionBuffer.GetAddressOf());
+
 	constSortBuf.Initialize();
+
+	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+	srvDesc.Format = DXGI_FORMAT_UNKNOWN;
+	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_BUFFER;
+	srvDesc.Buffer.ElementWidth = injectionBufferSize;
+	SRVDevice->CreateShaderResourceView(injectionBuffer.Get(), &srvDesc, &injectionSRV);
 }
 
 void ParticleSystem::SetConstBuffer(UINT iLevel, UINT iLevelMask, UINT iWidth, UINT iHeight)
@@ -102,4 +119,12 @@ void ParticleSystem::Sort()
 Vector3D ParticleSystem::GetOrigin() const
 {
 	return gameObject->GetTransform()->GetPosition();
+}
+
+void ParticleSystem::InitParticles(int count)
+{
+	for (int i = 0; i < count; ++i)
+	{
+		InitParticle(i);
+	}
 }

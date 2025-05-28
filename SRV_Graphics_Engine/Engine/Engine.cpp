@@ -35,7 +35,6 @@ bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::stri
 
 void Engine::AddGameObject(GameObject* gameObject)
 {
-
 	IRenderComponent* renderComponent = gameObject->GetComponent<IRenderComponent>();
 	if (renderComponent != nullptr)
 	{
@@ -46,11 +45,9 @@ void Engine::AddGameObject(GameObject* gameObject)
 	if (particleSystem != nullptr)
 	{
 		graphics.AddParticleSystemToPool(particleSystem);
-		return;
 	}
 
 	gameObjects.push_back(gameObject);
-
 }
 
 bool Engine::ProcessMessages()

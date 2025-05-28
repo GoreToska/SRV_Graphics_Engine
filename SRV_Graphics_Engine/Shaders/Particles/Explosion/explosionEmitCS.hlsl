@@ -33,6 +33,7 @@ float distanceSquared(float3 a, float3 b)
 RWStructuredBuffer<Particle> particlePool : register(u0);
 RWStructuredBuffer<SortListStruct> sortListBuffer : register(u1);
 ConsumeStructuredBuffer<uint> deadListIn : register(u2);
+StructuredBuffer<Particle> injectionBuffer : register(t0);
 
 cbuffer ParticleParams : register(b0)
 {
@@ -58,28 +59,7 @@ void main(uint3 DTid : SV_DispatchThreadID)
 
 	uint particleIndex = deadListIn.Consume();
 
-	Particle p;
-	p.position = emitPosition;
-	p.prevPosition = emitPosition;
-	p.velocity = float3(0.0f, 0.0f, 0.0f) * 0.01f;
-	p.acceleration = float3(0.0f, 1.0f, 0.0f) * 0.001f;
-	//float3(0, -0.981f, 0) * 0.01;
-	p.maxLifetime = 300.0f;
-	p.lifetime = 0.0f;
-
-	p.initialColor = float4(1.0, 1.0, 1.0, 1);
-	p.endColor = float4(0.0, 1.0, 0, 1);
-
-	p.initialSize = 0.0;
-	p.endSize = 4;
-
-	p.initialWeight = 1.0;
-	p.endWeight = 1.0;
-
-	p._1 = 0;
-	p._2 = 0;
-	p._3 = 0;
-	p._4 = 0; // padding
+	Particle p = injectionBuffer[index];
 
 	particlePool[particleIndex] = p;
 	SortListStruct sls;
