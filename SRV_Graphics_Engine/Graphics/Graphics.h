@@ -47,13 +47,12 @@ public:
 	ID3D11DepthStencilView* GetDepthStencilView();
 	ID3D11ShaderResourceView* GetDepthStencilSRV();
 
-
 private:
 	void RenderShadows();
 
 	void DrawDeferredOpaque();
 	void DrawDeferredScreenQuad();
-	void DrawDeferredAABB(const AABB& box, LightComponent& lightSource);
+	void DrawDeferredSphere(LightComponent& lightSource);
 
 	void SetConstBufferForLight();
 

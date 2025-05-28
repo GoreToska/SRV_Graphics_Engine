@@ -51,12 +51,12 @@ void Camera::SetOrthographicProjection(float viewWidth, float viewHeight, float 
 
 const Matrix Camera::GetViewMatrix() const
 {
-	return this->viewMatrix;
+	return Matrix(this->viewMatrix);
 }
 
 const Matrix Camera::GetProjectionMatrix() const
 {
-	return this->projectionMatrix;
+	return Matrix(this->projectionMatrix);
 }
 
 const XMVECTOR& Camera::GetPositionVector() const

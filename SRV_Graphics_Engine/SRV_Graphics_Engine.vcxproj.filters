@@ -198,9 +198,6 @@
     <ClCompile Include="ComponentSystem\Components\Light\LightComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ComponentSystem\Components\Light\LightAABB.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Buffers\IndexBuffer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -402,9 +399,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ComponentSystem\Components\Light\LightComponent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ComponentSystem\Components\Light\LightAABB.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes\Particle.h">

@@ -113,12 +113,16 @@ int main()
 	SRVEngine.AddGameObject(pointLight);
 	pointLight->GetComponent<LightComponent>()->SetLightColor({ 0, 1, 0 });
 	pointLight->GetComponent<LightComponent>()->SetLightStrength(1);
+	pointLight->GetComponent<LightComponent>()->SetLightDistance(100);
+	pointLight->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 
 	GameObject* spotLight = new GameObject({ spotLightPosition[0], spotLightPosition[1], spotLightPosition[2] });
 	spotLight->AddComponent(new LightComponent(spotLight, Spot));
 	SRVEngine.AddGameObject(spotLight);
 	spotLight->GetComponent<LightComponent>()->SetLightColor({ 1, 0, 0 });
 	spotLight->GetComponent<LightComponent>()->SetLightStrength(2);
+	spotLight->GetComponent<LightComponent>()->SetLightDistance(100);
+	spotLight->GetTransform()->SetScale({ 0.01,0.01,0.01 });
 
 	GameObject* blueBird = new GameObject(Vector3D(15.0f, 0.0f, -15.0f));
 	auto t = new MeshRendererComponent(blueBirdModelData, blueBird, ShaderManager::ShaderType::Texture);

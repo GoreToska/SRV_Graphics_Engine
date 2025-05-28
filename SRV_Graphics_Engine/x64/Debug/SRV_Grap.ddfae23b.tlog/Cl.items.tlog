@@ -37,7 +37,6 @@ D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariM
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Games\Katamari\KatamariCollisionComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\KatamariCollisionComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Render\PrimitiveRenderComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\PrimitiveRenderComponent.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Graphics\ShaderManager\ShaderManager.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\ShaderManager.obj
-D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Light\LightAABB.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\LightAABB.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Particles\ParticleSystem.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\ParticleSystem.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\Shapes\Shapes.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\Shapes.obj
 D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\ComponentSystem\Components\Camera\TopDownCameraComponent.cpp;D:\CPP Projects\SRV_Graphics_Engine\SRV_Graphics_Engine\x64\Debug\TopDownCameraComponent.obj

@@ -218,7 +218,6 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Geometry</ShaderType>
     </FxCompile>
-    <ClCompile Include="ComponentSystem\Components\Light\LightAABB.cpp" />
     <ClCompile Include="ComponentSystem\Components\Particles\ParticleSystem.cpp" />
     <FxCompile Include="Shaders\Particles\bitonicSortCS.hlsl">
       <FileType>CppCode</FileType>
@@ -392,7 +391,6 @@
     <ClInclude Include="Games\Katamari\KatamariCollisionComponent.h" />
     <ClInclude Include="ComponentSystem\Components\Render\PrimitiveRenderComponent.h" />
     <ClInclude Include="Graphics\ShaderManager\ShaderManager.h" />
-    <ClInclude Include="ComponentSystem\Components\Light\LightAABB.h" />
     <ClInclude Include="ComponentSystem\Components\Particles\ParticleSystem.h" />
     <ClInclude Include="Shapes\Shapes.h" />
     <ClInclude Include="ComponentSystem\Components\Camera\TopDownCameraComponent.h" />

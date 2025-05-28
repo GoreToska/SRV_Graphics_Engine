@@ -151,3 +151,49 @@
 //
 //	return {vertices, indices};
 //}
+
+std::tuple<std::vector<Vector4D>, std::vector<DWORD>> Shapes::GetSphereShape(Vector3D origin,float radius, int stackCount, int sliceCount)
+{
+	std::vector<Vector4D> vertices{};
+	std::vector<DWORD> indices{};
+
+	for (int i = 0; i <= stackCount; ++i)
+	{
+		float theta = static_cast<float>(i) / stackCount * DirectX::XM_PI;
+		float sinTheta = sinf(theta);
+		float cosTheta = cosf(theta);
+
+		for (int j = 0; j <= sliceCount; ++j)
+		{
+			float phi = static_cast<float>(j) / sliceCount * 2.0f * DirectX::XM_PI;
+			float sinPhi = sinf(phi);
+			float cosPhi = cosf(phi);
+
+			Vector4D vertex;
+			vertex.x = radius * sinTheta * cosPhi;
+			vertex.y = radius * cosTheta;
+			vertex.z = radius * sinTheta * sinPhi;
+
+			vertices.push_back(vertex + origin);
+		}
+	}
+
+	for (int i = 0; i < stackCount; ++i)
+	{
+		for (int j = 0; j < sliceCount; ++j)
+		{
+			int first = (i * (sliceCount + 1)) + j;
+			int second = first + sliceCount + 1;
+
+			indices.push_back(first);
+			indices.push_back(second);
+			indices.push_back(first + 1);
+
+			indices.push_back(second);
+			indices.push_back(second + 1);
+			indices.push_back(first + 1);
+		}
+	}
+
+	return { vertices, indices };
+}

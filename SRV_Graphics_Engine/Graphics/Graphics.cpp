@@ -9,7 +9,6 @@
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_dx11.h"
 #include "ImGui/imgui_impl_win32.h"
-#include "../ComponentSystem/Components/Light/LightAABB.h"
 #include "../Engine/Engine.h"
 
 
@@ -100,29 +99,30 @@ void Graphics::DrawDeferredLight()
 	SRVDeviceContext->PSSetConstantBuffers(2, 1, deferred_objectMatrixBuffer.GetAddressOf());
 	gBuffer->PSBindResourceViews(2);
 
-	AABB aabb;
+	//AABB aabb;
 
-	Matrix cameraViewProjMatrix = Matrix::CreateLookAt(SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3(),
-		SRVEngine.GetGraphics().GetCamera()->GetPositionFloat3() + SRVEngine.GetGraphics().GetCamera()->GetForwardVector(),
-		SRVEngine.GetGraphics().GetCamera()->GetUpVector()) *
-		Matrix::CreatePerspectiveFieldOfView(
+	Matrix cameraViewProjMatrix = SRVEngine.GetGraphics().GetCamera()->GetViewMatrix() * SRVEngine.GetGraphics().GetCamera()->GetProjectionMatrix();
+	/*	Matrix::CreatePerspectiveFieldOfView(
 			SRVEngine.GetGraphics().GetCamera()->GetFOV(),
 			SRVEngine.GetGraphics().GetCamera()->GetAspectRatio(),
 			SRVEngine.GetGraphics().GetCamera()->GetNearZ(),
-			SRVEngine.GetGraphics().GetCamera()->GetFarZ());
+			SRVEngine.GetGraphics().GetCamera()->GetFarZ());*/
 
-	auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraViewProjMatrix);
-	auto frustumPlanes = getFrustumPlanes(cameraFrustumCorners);
+	//auto cameraFrustumCorners = SRVEngine.GetGraphics().GetCamera()->GetFrustumCornersWorldSpace(cameraViewProjMatrix);
+	//auto frustumPlanes = GetFrustumPlanes(cameraFrustumCorners);
 
 	SRVDeviceContext->IASetInputLayout(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetInputLayout());
 	SRVDeviceContext->VSSetShader(ShaderManager::GetInstance().GetVS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->PSSetShader(ShaderManager::GetInstance().GetPS(ShaderManager::Deferred_Light)->GetShader(), NULL, 0);
 	SRVDeviceContext->OMSetBlendState(additiveBlendState.Get(), nullptr, 0xFFFFFFFF);
+	SRVDeviceContext->RSSetViewports(1, &viewport);
 	SRVDeviceContext->PSSetShaderResources(0, 1, decal.GetAddressOf());
 
 	for (auto& light : lightPool)
 	{
-		SRVDeviceContext->PSSetConstantBuffers(0, 1, light->UpdateLightConstBuffer().GetAddressOf());
+		auto lightBufferAddress = light->UpdateLightConstBuffer().GetAddressOf();
+		SRVDeviceContext->PSSetConstantBuffers(0, 1, lightBufferAddress);
+		SRVDeviceContext->VSSetConstantBuffers(1, 1, lightBufferAddress);
 
 		if (light->GetSourceType() == Directional)
 		{
@@ -130,40 +130,9 @@ void Graphics::DrawDeferredLight()
 		}
 		else if (light->GetSourceType() == Point || light->GetSourceType() == Spot)
 		{
-			if (light->GetSourceType() == Point)
-				aabb = getAABBForPointLight(*light);
-			if (light->GetSourceType() == Spot)
-				aabb = getAABBForSpotLight(*light);
-
-			FrustumIntersectionType intersectionType = TestAABBFrustum(aabb, frustumPlanes);
-
-			switch (intersectionType)
-			{
-			case Inside:
-			{
-				SRVDeviceContext->OMSetDepthStencilState(NoWriteGreaterDSS.Get(), NULL);
-				SRVDeviceContext->RSSetState(rastStateCullFront.Get());
-				DrawDeferredAABB(aabb, *light);
-				break;
-			}
-			case Intersects_far_plane:
-			{
-				SRVDeviceContext->OMSetDepthStencilState(NoWriteLessDSS.Get(), NULL);
-				SRVDeviceContext->RSSetState(rastStateCullBack.Get());
-				DrawDeferredAABB(aabb, *light);
-				break;
-			}
-			case Outside:
-			{
-				SRVDeviceContext->OMSetDepthStencilState(NoWriteNoCheckDSS.Get(), NULL);
-				SRVDeviceContext->RSSetState(rastStateCullBack.Get());
-				DrawDeferredScreenQuad();
-				break;
-			}
-			default:
-				break;
-			}
-
+			SRVDeviceContext->OMSetDepthStencilState(NoWriteLessDSS.Get(), NULL);
+			SRVDeviceContext->RSSetState(rastStateCullBack.Get());
+			DrawDeferredSphere(*light);
 		}
 	}
 
@@ -179,7 +148,6 @@ void Graphics::DrawParticles(const float& deltaTime)
 
 	for (int i = 0; i < particleSystemPool.size(); ++i)
 	{
-		//particleSystemPool[i]->Update(deltaTime);
 		particleSystemPool[i]->Render();
 	}
 }
@@ -222,15 +190,15 @@ void Graphics::DrawDeferredScreenQuad()
 	SRVDeviceContext->Draw(4, 0);
 }
 
-void Graphics::DrawDeferredAABB(const AABB& box, LightComponent& lightSource)
+void Graphics::DrawDeferredSphere(LightComponent& lightSource)
 {
 	SRVDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	SRVDeviceContext->IASetVertexBuffers(0, 1, lightSource.GetVertexBufferPointSpot().GetAddressOf(), 
+	SRVDeviceContext->IASetVertexBuffers(0, 1, lightSource.GetVertexBufferPointSpot().GetAddressOf(),
 		lightSource.GetStridesPointSpot().data(), lightSource.GetOffsetsPointSpot().data());
 	SRVDeviceContext->IASetIndexBuffer(lightSource.GetIndexBufferPointSpot().Get(), DXGI_FORMAT_R32_UINT, 0);
 
-	SRVDeviceContext->DrawIndexed(36, 0, 0);
+	SRVDeviceContext->DrawIndexed(lightSource.GetSphereIndexes(), 0, 0);
 }
 
 void Graphics::AddObjectToRenderPool(IRenderComponent* object)
@@ -294,7 +262,7 @@ ID3D11ShaderResourceView* Graphics::GetDepthStencilSRV()
 
 void Graphics::RenderShadows()
 {
-	if(directionalLight)
+	if (directionalLight)
 		directionalLight->RenderShadowPass(objectRenderPool);
 	/*for (LightComponent* item : lightPool)
 	{
@@ -437,7 +405,7 @@ bool Graphics::CreateRasterizerState()
 	rasterizerDesc.CullMode = D3D11_CULL_BACK;
 	ThrowIfFailed(SRVDevice->CreateRasterizerState(&rasterizerDesc, rastStateCullBack.GetAddressOf()), "Failed.");
 
-	rasterizerDesc= {};
+	rasterizerDesc = {};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
 	rasterizerDesc.CullMode = D3D11_CULL_FRONT;
 	ThrowIfFailed(SRVDevice->CreateRasterizerState(&rasterizerDesc, rastStateCullFront.GetAddressOf()), "Failed.");
@@ -453,7 +421,7 @@ bool Graphics::CreateRasterizerState()
 	blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
 
 	blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
-	ThrowIfFailed(SRVDevice->CreateBlendState(&blendDesc, &additiveBlendState),"Failed.");
+	ThrowIfFailed(SRVDevice->CreateBlendState(&blendDesc, &additiveBlendState), "Failed.");
 
 	return true;
 }

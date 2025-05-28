@@ -5,11 +5,11 @@
 #include <iostream>
 #include "../../../Engine/Asserter.h"
 #include "../../../Engine/Engine.h"
-#include "LightAABB.h"
+#include "../../../Shapes/Shapes.h"
 
 LightComponent::LightComponent(GameObject* gameObject, LightSourceType type)
-	: MeshRendererComponent(ModelData("",
-		L""), gameObject, ShaderManager::ShaderType::Texture)
+	: MeshRendererComponent(ModelData("Data\\Models\\Light\\PointLight\\PointLight.obj",
+		L"Data\\Models\\Light\\PointLight\\PointLight.png"), gameObject, ShaderManager::ShaderType::Texture)
 {
 	// Data\\Models\\Light\\PointLight\\PointLight.obj
 	//Data\\Models\\Light\\PointLight\\PointLight.png
@@ -23,21 +23,24 @@ LightComponent::LightComponent(GameObject* gameObject, LightSourceType type)
 
 	if (type == Point)
 	{
-		AABB box = getAABBForPointLight(*this);
+		//AABB box = GetAABBForPointLight(*this);
 
-		std::vector<Vector4D> vertices = getAABBVerticies(box);
-		std::vector<DWORD> indicies = getAABBIndicies();
+		auto sphereShape = Shapes::GetSphereShape(gameObject->GetTransform()->GetPosition(), distance, 32, 32);
 
+		std::vector<Vector4D> vertices = std::get<0>(sphereShape);
+		std::vector<DWORD> indicies = std::get<1>(sphereShape);
+		indexCount = indicies.size();
 		PointSpotVertexBuffer.Initialize(vertices.data(), vertices.size());
 		PointSpotIndexBuffer.Initialize(indicies.data(), indicies.size());
 	}
 	else if (type == Spot)
 	{
-		AABB box = getAABBForSpotLight(*this);
+		//AABB box = GetAABBForSpotLight(*this);
+		auto sphereShape = Shapes::GetSphereShape(gameObject->GetTransform()->GetPosition(), distance, 32, 32);
 
-		std::vector<Vector4D> vertices = getAABBVerticies(box);
-		std::vector<DWORD> indicies = getAABBIndicies();
-
+		std::vector<Vector4D> vertices = std::get<0>(sphereShape);
+		std::vector<DWORD> indicies = std::get<1>(sphereShape);
+		indexCount = indicies.size();
 		PointSpotVertexBuffer.Initialize(vertices.data(), vertices.size());
 		PointSpotIndexBuffer.Initialize(indicies.data(), indicies.size());
 	}
@@ -53,7 +56,29 @@ void LightComponent::Update(const float& deltaTime)
 
 	MeshRendererComponent::Update(deltaTime);
 
+	if (sourceType == Point)
+	{
+		//AABB box = GetAABBForPointLight(*this);
 
+		auto sphereShape = Shapes::GetSphereShape(gameObject->GetTransform()->GetPosition(), distance, 32, 32);
+
+		std::vector<Vector4D> vertices = std::get<0>(sphereShape);
+		std::vector<DWORD> indicies = std::get<1>(sphereShape);
+		indexCount = indicies.size();
+		PointSpotVertexBuffer.Initialize(vertices.data(), vertices.size());
+		PointSpotIndexBuffer.Initialize(indicies.data(), indicies.size());
+	}
+	else if (sourceType == Spot)
+	{
+		//AABB box = GetAABBForSpotLight(*this);
+		auto sphereShape = Shapes::GetSphereShape(gameObject->GetTransform()->GetPosition(), distance, 32, 32);
+
+		std::vector<Vector4D> vertices = std::get<0>(sphereShape);
+		std::vector<DWORD> indicies = std::get<1>(sphereShape);
+		indexCount = indicies.size();
+		PointSpotVertexBuffer.Initialize(vertices.data(), vertices.size());
+		PointSpotIndexBuffer.Initialize(indicies.data(), indicies.size());
+	}
 	// probably it not needed here
 	/*lightConstBuffer.GetData()->dynamicLightColor = lightColor;
 	lightConstBuffer.GetData()->dynamicLightDirection = gameObject->GetTransform()->GetForwardVector();
@@ -280,6 +305,11 @@ std::vector<UINT> LightComponent::GetStridesPointSpot() const
 std::vector<UINT> LightComponent::GetOffsetsPointSpot() const
 {
 	return offsetsPointSpot;
+}
+
+int LightComponent::GetSphereIndexes() const
+{
+	return indexCount;
 }
 
 void LightComponent::CreateResources()

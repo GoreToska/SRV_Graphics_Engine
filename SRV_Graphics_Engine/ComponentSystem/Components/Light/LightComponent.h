@@ -50,18 +50,20 @@ public:
 	std::vector<UINT> GetStridesPointSpot() const;
 	std::vector<UINT> GetOffsetsPointSpot() const;
 
+	int GetSphereIndexes() const;
+
 private:
 	void CreateResources();
 
 	DirectX::XMFLOAT3 lightColor = DirectX::XMFLOAT3(1, 0, 0);
 	float lightStrength = 1.0f;
-	float distance = 5;
+	float distance = 20;
 	float attenuation_const = 1.0f;
 	float attenuation_linear = 0.1f;
 	float attenuation_exponent = 0.1f;
 	LightSourceType sourceType;
 	float angle = DirectX::XMConvertToRadians(15);
-
+	int indexCount;
 	// -- shadows --
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> shadowmapTexture;
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencilTextures;
